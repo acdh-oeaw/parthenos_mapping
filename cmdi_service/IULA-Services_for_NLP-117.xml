@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cmd:CMD xmlns:cmd="http://www.clarin.eu/cmd/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026" CMDVersion="1.2" xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026 https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd"><cmd:Header><cmd:MdCreator>olac2cmdi.xsl</cmd:MdCreator><cmd:MdCreationDate>2013-09-12</cmd:MdCreationDate><cmd:MdSelfLink>oai:iula.upf.edu:117</cmd:MdSelfLink><cmd:MdProfile>clarin.eu:cr1:p_1288172614026</cmd:MdProfile><cmd:MdCollectionDisplayName>IULA UPF OAI Archive: Services for NLP</cmd:MdCollectionDisplayName></cmd:Header><cmd:Resources><cmd:ResourceProxyList>
-         <cmd:ResourceProxy id="d1607e25">
-            <cmd:ResourceType>Resource</cmd:ResourceType>
-            <cmd:ResourceRef>http://services.iula.upf.edu/services/117</cmd:ResourceRef>
-         </cmd:ResourceProxy>
-      </cmd:ResourceProxyList><cmd:JournalFileProxyList/><cmd:ResourceRelationList/></cmd:Resources><cmd:Components>
-      <cmdp:OLAC-DcmiTerms>
-         <cmdp:alternative>XSLT applicator Web Service</cmdp:alternative>
-         <cmdp:creator>Universitat Pompeu Fabra (UPF)</cmdp:creator>
-         <cmdp:date>2011-03-29T15:12:30Z</cmdp:date>
-         <cmdp:description>A command line tool for applying XSLT stylesheets to XML documents.</cmdp:description>
-         <cmdp:description>End point: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc. WSDL file: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc?wsdl.</cmdp:description>
-         <cmdp:identifier>http://services.iula.upf.edu/services/117</cmdp:identifier>
-         <cmdp:publisher>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</cmdp:publisher>
-         <cmdp:rights/>
-         <cmdp:subject>NLP service, Format Conversion, </cmdp:subject>
-         <cmdp:subject>SOAP, Soaplab, </cmdp:subject>
-         <cmdp:title>Service - XSLT applicator Web Service</cmdp:title>
-         <cmdp:type dcterms-type="DCMIType">Service</cmdp:type>
-      </cmdp:OLAC-DcmiTerms>
-   </cmd:Components></cmd:CMD>
+<cmd:CMD xmlns:cmd="http://www.clarin.eu/cmd/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026" CMDVersion="1.2" xsi:schemaLocation="http://www.clarin.eu/cmd/1 https://infra.clarin.eu/CMDI/1.x/xsd/cmd-envelop.xsd http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026 https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd">
+	<cmd:Header>
+		<cmd:MdCreator>olac2cmdi.xsl</cmd:MdCreator>
+		<cmd:MdCreationDate>2013-09-12</cmd:MdCreationDate>
+		<cmd:MdSelfLink>oai:iula.upf.edu:117</cmd:MdSelfLink>
+		<cmd:MdProfile>clarin.eu:cr1:p_1288172614026</cmd:MdProfile>
+		<cmd:MdCollectionDisplayName>IULA UPF OAI Archive: Services for NLP</cmd:MdCollectionDisplayName>
+	</cmd:Header>
+	<cmd:Resources>
+		<cmd:ResourceProxyList>
+			<cmd:ResourceProxy id="d1607e25">
+				<cmd:ResourceType>Resource</cmd:ResourceType>
+				<cmd:ResourceRef>http://services.iula.upf.edu/services/117</cmd:ResourceRef>
+			</cmd:ResourceProxy>
+		</cmd:ResourceProxyList>
+		<cmd:JournalFileProxyList/>
+		<cmd:ResourceRelationList/>
+	</cmd:Resources>
+	<cmd:Components>
+		<cmdp:OLAC-DcmiTerms>
+			<cmdp:alternative>XSLT applicator Web Service</cmdp:alternative>
+			<cmdp:creator>Universitat Pompeu Fabra (UPF)</cmdp:creator>
+			<cmdp:date>2011-03-29T15:12:30Z</cmdp:date>
+			<cmdp:description>A command line tool for applying XSLT stylesheets to XML documents.</cmdp:description>
+			<cmdp:description>End point: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc. WSDL file: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc?wsdl.</cmdp:description>
+			<cmdp:identifier>http://services.iula.upf.edu/services/117</cmdp:identifier>
+			<cmdp:publisher>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</cmdp:publisher>
+			<cmdp:rights/>
+			<cmdp:subject>NLP service, Format Conversion, </cmdp:subject>
+			<cmdp:subject>SOAP, Soaplab, </cmdp:subject>
+			<cmdp:title>Service - XSLT applicator Web Service</cmdp:title>
+			<cmdp:type dcterms-type="DCMIType">Service</cmdp:type>
+		</cmdp:OLAC-DcmiTerms>
+	</cmd:Components>
+</cmd:CMD>
