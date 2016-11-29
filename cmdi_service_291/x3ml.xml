@@ -96,9 +96,13 @@
                     <target_node>
                         <entity>
                             <type>crm:E42_Identifier</type>
-                            <instance_generator name="SimpleLabel">
-                                <arg name="label" type="xpath">text()</arg>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">ID</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -117,10 +121,11 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-                                <arg name="label" type="constant">CMDICollection</arg>
-                                <arg name="text" type="xpath">text()</arg>
+                            <instance_generator name="SimpleLabel">
+                                <arg name="label" type="constant">profile</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -154,7 +159,10 @@
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">MDCreationEvent</arg>
+                                <arg name="term" type="xpath">cmd:MdCreationDate/text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -162,24 +170,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</relation>
+                        <relation>cmd:Resources</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129_is_about</relationship>
-                        <entity variable="service1">
-                            <type>crmpe:PE8_E-Service</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crmpe:PP28_has_designated_access_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</source_node>
+                    <source_node>cmd:Resources</source_node>
                     <target_node>
                         <entity>
-                            <type>crmpe:PE29_Access_Point</type>
-                            <instance_generator name="SimpleLabel">
-                                <arg name="label" type="xpath">text()</arg>
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">Service</arg>
+                                <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -199,7 +203,10 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE8_E-Service</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">Service</arg>
+                                <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -211,7 +218,10 @@
                 <target_node>
                     <entity>
                         <type>crmdig:D7_Digital_Machine_Event</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="LocalTermURI">
+                            <arg name="hierarchy" type="constant">MDCreationEvent</arg>
+                            <arg name="term" type="xpath">cmd:MdCreationDate/text()</arg>
+                        </instance_generator>
                     </entity>
                 </target_node>
             </domain>
@@ -250,9 +260,13 @@
                     <target_node>
                         <entity>
                             <type>crmdig:D14_Software</type>
-                            <instance_generator name="SimpleLabel">
-                                <arg name="label" type="xpath">text()</arg>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">Software</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -264,15 +278,65 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L23_used_software_or_firmware</relationship>
+                        <entity>
+                            <type>crmdig:D14_Software</type>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">Software</arg>
+                                <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                        <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
                     <source_node>cmd:MdProfile</source_node>
                     <target_node>
                         <entity>
-                            <type>crmdig:D14_Software</type>
+                            <type>crm:E55_Type</type>
                             <instance_generator name="LocalTermURI">
-                                <arg name="hierarchy" type="constant">Profile</arg>
+                                <arg name="hierarchy" type="constant">type</arg>
+                                <arg name="term" type="constant">profile</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="constant">profile</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+        </mapping>
+        <mapping>
+            <domain>
+                <source_node>/cmd:CMD/cmd:Resources</source_node>
+                <target_node>
+                    <entity>
+                        <type>crmpe:PE8_E-Service</type>
+                        <instance_generator name="LocalTermURI">
+                            <arg name="hierarchy" type="constant">Service</arg>
+                            <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                        </instance_generator>
+                    </entity>
+                </target_node>
+            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP28_has_designated_access_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE29_Access_Point</type>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">AccessPoint</arg>
                                 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
@@ -289,7 +353,10 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE8_E-Service</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="LocalTermURI">
+                            <arg name="hierarchy" type="constant">Service</arg>
+                            <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                        </instance_generator>
                     </entity>
                 </target_node>
             </domain>
@@ -307,7 +374,10 @@
                     <target_node>
                         <entity>
                             <type>crm:E39_Actor</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">Actor</arg>
+                                <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
                             <label_generator name="SimpleLabel">
                                 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
