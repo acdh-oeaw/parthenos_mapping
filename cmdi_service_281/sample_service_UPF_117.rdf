@@ -1,0 +1,45 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:crmpe="http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+    xmlns:cmd="http://www.clarin.eu/cmd/1"
+    xmlns:parthenos="http://parthenos-project.eu"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <crm:E70_Thing rdf:about="http://parthenos-project.eumetadata/oai%3Aiula.upf.edu%3A117">
+    <crm:P94i_was_created_by>
+      <crm:E65_Creation rdf:about="http://parthenos-project.eurecordcreated/oai%3Aiula.upf.edu%3A117">
+        <crm:P1_is_identified_by>
+          <crm:E50_Date rdf:about="http://parthenos-project.eurecord_created/2013-09-12"/>
+        </crm:P1_is_identified_by>
+        <rdfs:label>record_created 2013-09-12</rdfs:label>
+      </crm:E65_Creation>
+    </crm:P94i_was_created_by>
+    <rdf:type rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/PE13_Software_Computing_E-Service"/>
+    <crmdig:L29_has_responsible_organization>Universitat Pompeu Fabra. Institut Universitari de Ling????stica Aplicada (IULA)</crmdig:L29_has_responsible_organization>
+    <crmpe:PP28_has_designated_access_point>A command line tool for applying XSLT stylesheets to XML documents.</crmpe:PP28_has_designated_access_point>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="http://parthenos-project.euresource_identifier/d1607e25"/>
+    </crm:P1_is_identified_by>
+    <crmpe:PP2_provided_by>Universitat Pompeu Fabra (UPF)</crmpe:PP2_provided_by>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="http://services.iula.upf.edu/services/117"/>
+    </crm:P1_is_identified_by>
+    <rdfs:label>cmdi_record_resource Service - XSLT applicator Web Service</rdfs:label>
+    <crm:P2_has_type>
+      <crm:E55_Type rdf:about="http://parthenos-project.euresource_type/Resource"/>
+    </crm:P2_has_type>
+    <crmpe:PP29_uses_access_protocol>subject NLP service, Format Conversion,</crmpe:PP29_uses_access_protocol>
+    <crmpe:PP28_has_designated_access_point>End point: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc. WSDL file: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc?wsdl.</crmpe:PP28_has_designated_access_point>
+    <crm:P2_has_type>Service</crm:P2_has_type>
+    <crmpe:PP29_uses_access_protocol>subject SOAP, Soaplab,</crmpe:PP29_uses_access_protocol>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="http://parthenos-project.eupid/oai%3Aiula.upf.edu%3A117"/>
+    </crm:P1_is_identified_by>
+    <crmpe:PP42_has_declarative_time>date 2011-03-29T15:12:30Z</crmpe:PP42_has_declarative_time>
+    <rdf:type rdf:resource="http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/PE22_Persistent_Dataset"/>
+    <rdfs:label>cmdi_record_components Service - XSLT applicator Web Service</rdfs:label>
+  </crm:E70_Thing>
+</rdf:RDF>
