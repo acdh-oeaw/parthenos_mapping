@@ -10,35 +10,44 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
   <crmpe:PE22_Persistent_Dataset rdf:about="http://parthenos-project.eu/CMDIRecord/oai%3Aiula.upf.edu%3A117">
     <crm:P129_is_about>
-      <crmpe:PE8_E-Service rdf:about="uuid:AD">
+      <crmpe:PE8_E-Service rdf:about="http://parthenos-project.eu/Service/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117">
         <crmpe:PP2_provided_by>
-          <crm:E39_Actor rdf:about="uuid:AE">
-            <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Ling????stica Aplicada (IULA)</rdfs:label>
+          <crm:E39_Actor rdf:about="http://parthenos-project.eu/Actor/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29">
+            <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</rdfs:label>
           </crm:E39_Actor>
         </crmpe:PP2_provided_by>
-      </crmpe:PE8_E-Service>
-    </crm:P129_is_about>
-    <crm:P129_is_about>
-      <crmpe:PE8_E-Service rdf:about="uuid:AC">
-        <crmpe:PP28_has_designated_access_point>http://services.iula.upf.edu/services/117</crmpe:PP28_has_designated_access_point>
+        <crmpe:PP28_has_designated_access_point>
+          <crmpe:PE29_Access_Point rdf:about="http://parthenos-project.eu/AccessPoint/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117">
+            <rdfs:label>http://services.iula.upf.edu/services/117</rdfs:label>
+          </crmpe:PE29_Access_Point>
+        </crmpe:PP28_has_designated_access_point>
       </crmpe:PE8_E-Service>
     </crm:P129_is_about>
     <crmdig:L11i_was_output_of>
-      <crmdig:D7_Digital_Machine_Event rdf:about="uuid:AB">
+      <crmdig:D7_Digital_Machine_Event rdf:about="http://parthenos-project.eu/MDCreationEvent/2013-09-12">
         <crmdig:L23_used_software_or_firmware>
-          <crmdig:D14_Software rdf:about="http://parthenos-project.eu/Profile/clarin.eu%3Acr1%3Ap_1288172614026">
+          <crmdig:D14_Software rdf:about="http://parthenos-project.eu/Software/clarin.eu%3Acr1%3Ap_1288172614026">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://parthenos-project.eu/type/profile">
+                <rdfs:label>profile</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
             <rdfs:label>clarin.eu:cr1:p_1288172614026</rdfs:label>
           </crmdig:D14_Software>
         </crmdig:L23_used_software_or_firmware>
-        <crmdig:L23_used_software_or_firmware>olac2cmdi.xsl</crmdig:L23_used_software_or_firmware>
+        <crmdig:L23_used_software_or_firmware>
+          <crmdig:D14_Software rdf:about="http://parthenos-project.eu/Software/olac2cmdi.xsl">
+            <rdfs:label>olac2cmdi.xsl</rdfs:label>
+          </crmdig:D14_Software>
+        </crmdig:L23_used_software_or_firmware>
         <crmdig:L31_has_starting_date-time>2013-09-12</crmdig:L31_has_starting_date-time>
       </crmdig:D7_Digital_Machine_Event>
     </crmdig:L11i_was_output_of>
-    <crmpe:PP23i_is_dataset_part_of>
-      <crmpe:PE24_Volatile_Dataset rdf:about="uuid:AA">
-        <rdfs:label>CMDICollection IULA UPF OAI Archive: Services for NLP</rdfs:label>
-      </crmpe:PE24_Volatile_Dataset>
-    </crmpe:PP23i_is_dataset_part_of>
-    <crm:P1_is_identified_by>oai:iula.upf.edu:117</crm:P1_is_identified_by>
+    <crmpe:PP23i_is_dataset_part_of>profile</crmpe:PP23i_is_dataset_part_of>
+    <crm:P1_is_identified_by>
+      <crm:E42_Identifier rdf:about="http://parthenos-project.eu/ID/oai%3Aiula.upf.edu%3A117">
+        <rdfs:label>oai:iula.upf.edu:117</rdfs:label>
+      </crm:E42_Identifier>
+    </crm:P1_is_identified_by>
   </crmpe:PE22_Persistent_Dataset>
 </rdf:RDF>

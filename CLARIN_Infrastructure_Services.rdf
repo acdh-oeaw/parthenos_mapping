@@ -1,0 +1,149 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:parthenos="http://parthenos-project.eu/"
+    xmlns:crmpe="http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+    xmlns:cmd="http://www.clarin.eu/cmd/1"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+	xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+>	
+	<crmpe:PE26_RI_Project rdf:about="http://parthenos-project.eu/RI/CLARIN">
+		<!-- VLO -->
+		<crmpe:PP1_currently_offers rdf:about="http://clarin.eu/pp1/vlo">
+			<crmpe:PE7_Data_Hosting_Service rdf:about="http://clarin.eu/pe7/vlo">
+				<crm:P102_has_title>
+				  <crm:E35_Title rdf:about="http://clarin.eu/e35/virtual_language_observatory">
+					<rdfs:label>Virtual Language Observatory</rdfs:label>
+					<skos:prefLabel>Virtual Language Observatory</skos:prefLabel>
+					<skos:altLabel>VLO</skos:altLabel>
+				  </crm:E35_Title>
+				  <crm:P3_has_note>
+					<crm:E62_String>
+						<rdfs:label>The Virtual Language Observatory (VLO) faceted browser was developed within CLARIN as a means to explore linguistic resources, services and tools available within CLARIN and related communities. Its aim is to provide an easy to use interface, allowing for a uniform search and discovery process for a large number of resources from a wide variety of domains and providers. More information can be found at https://www.clarin.eu/content/virtual-language-observatory</rdfs:label>
+					</crm:E62_String>
+				  </crm:P3_has_note>
+				</crm:P102_has_title>
+				<crm:PP2_provided_by rdf:about="http://clarin.eu/pp2/clarin-eric">
+					<crmpe:PE25_RI_Consortium rdf:about="http://clarin.eu/pe25/clarin-eric">
+						<crm:P1i_is_identified_by rdf:about="http://clarin.eu/p1i/clarin-eric">
+							<crm:E41_Appelation>
+								<rdfs:label>CLARIN ERIC</rdfs:label>
+								<skos:prefLabel>CLARIN ERIC</skos:prefLabel>
+							</crm:E41_Appelation>
+						</crm:P1i_is_identified_by>
+						<crm:P76_has_contact_point rdf:about="http://clarin.eu/p76/vlo_email">
+							<crm:E51_Contact_Point rdf:about="http://clarin.eu/e51/vlo_email">
+								<crm:p2_has_type rdf:about="http://clarin.eu/p2/vlo_email">
+									<crm:E55_Type rdf:about="http://clarin.eu/e55/email">
+										<rdfs:label>email</rdfs:label>
+									</crm:E55_Type>
+								</crm:p2_has_type>
+								<rdfs:label>vlo@clarin.eu</rdfs:label>
+							</crm:E51_Contact_Point>
+						</crm:P76_has_contact_point>
+					</crmpe:PE25_RI_Consortium>
+				</crm:PP2_provided_by>
+				<crmpe:PP28_has_designated_access_point rdf:about="http://clarin.eu/e35/pp28/vlo">
+					<crmpe:PE29_Access_Point rdf:about="https://vlo.clarin.eu/"></crmpe:PE29_Access_Point>
+				</crmpe:PP28_has_designated_access_point>
+			</crmpe:PE7_Data_Hosting_Service>
+		</crmpe:PP1_currently_offers>
+		
+		<!-- Component Registry -->
+		<crmpe:PP1_currently_offers rdf:about="http://clarin.eu/pp1/component_registry">
+			<crmpe:PE7_Data_Hosting_Service rdf:about="http://clarin.eu/pe7/component_registry">
+				<crm:P102_has_title>
+				  <crm:E35_Title rdf:about="http://clarin.eu/e35/clarin_component_registry">
+					<rdfs:label>CLARIN Component Registry</rdfs:label>
+					<skos:prefLabel>CLARIN Component Registry</skos:prefLabel>
+				  </crm:E35_Title>
+				</crm:P102_has_title>
+				<crm:PP2_provided_by rdf:about="http://clarin.eu/pp2/clarin-eric">
+					<crmpe:PE25_RI_Consortium rdf:about="http://clarin.eu/pe25/clarin-eric">
+						<crm:P76_has_contact_point rdf:about="http://clarin.eu/p76/component_registry_email">
+							<crm:E51_Contact_Point rdf:about="http://clarin.eu/e51/component_registry_email">
+								<crm:p2_has_type rdf:about="http://clarin.eu/p2/component_registry_email">
+									<crm:E55_Type rdf:about="http://clarin.eu/e55/email">
+										<rdfs:label>email</rdfs:label>
+									</crm:E55_Type>
+								</crm:p2_has_type>
+								<rdfs:label> cmdi@clarin.eu</rdfs:label>
+							</crm:E51_Contact_Point>
+						</crm:P76_has_contact_point>
+					</crmpe:PE25_RI_Consortium>
+				</crm:PP2_provided_by>
+				<crmpe:PP28_has_designated_access_point rdf:about="http://clarin.eu/e35/pp28/component_registry">
+					<crmpe:PE29_Access_Point rdf:about="https://catalog.clarin.eu/ds/ComponentRegistry"></crmpe:PE29_Access_Point>
+				</crmpe:PP28_has_designated_access_point>
+			</crmpe:PE7_Data_Hosting_Service>
+		</crmpe:PP1_currently_offers>
+		
+		<!-- CCR -->
+		<crmpe:PP1_currently_offers rdf:about="http://clarin.eu/pp1/ccr">
+			<crmpe:PE7_Data_Hosting_Service rdf:about="http://clarin.eu/pe7/ccr">
+				<crm:P102_has_title>
+				  <crm:E35_Title rdf:about="http://clarin.eu/e35/clarin_concept_registry">
+					<rdfs:label>CLARIN Concept Registry</rdfs:label>
+					<skos:prefLabel>CLARIN Concept Registry</skos:prefLabel>
+					<skos:altLabel>CCR</skos:altLabel>
+				  </crm:E35_Title>
+				</crm:P102_has_title>
+				<crm:PP2_provided_by rdf:about="http://clarin.eu/pp2/meertens_institute">
+					<crm:E40_Institution rdf:about="http://clarin.eu/e40/meertens_institute">
+						<crm:P1i_is_identified_by rdf:about="http://clarin.eu/p1i/meertens_institute">
+							<crm:E41_Appelation>
+								<rdfs:label>Meertens Institute</rdfs:label>
+								<skos:prefLabel>Meertens Institute</skos:prefLabel>
+							</crm:E41_Appelation>
+						</crm:P1i_is_identified_by>
+						<crm:P76_has_contact_point rdf:about="http://clarin.eu/p76/ccr_email">
+							<crm:E51_Contact_Point rdf:about="http://clarin.eu/e51/ccr_email">
+								<crm:p2_has_type rdf:about="http://clarin.eu/p2/vlo_email">
+									<crm:E55_Type rdf:about="http://clarin.eu/e55/email">
+										<rdfs:label>email</rdfs:label>
+									</crm:E55_Type>
+								</crm:p2_has_type>
+								<rdfs:label>ccr@clarin.eu</rdfs:label>
+							</crm:E51_Contact_Point>
+						</crm:P76_has_contact_point>
+					</crm:E40_Institution>
+				</crm:PP2_provided_by>		
+				<crmpe:PP28_has_designated_access_point rdf:about="http://clarin.eu/e35/pp28/ccr">
+					<crmpe:PE29_Access_Point rdf:about="https://openskos.meertens.knaw.nl/ccr/browser"></crmpe:PE29_Access_Point>
+				</crmpe:PP28_has_designated_access_point>
+			</crmpe:PE7_Data_Hosting_Service>
+		</crmpe:PP1_currently_offers>
+		
+		<!-- Centre Registry -->
+		<crmpe:PP1_currently_offers rdf:about="http://clarin.eu/pp1/centre_registry">
+			<crmpe:PE7_Data_Hosting_Service rdf:about="http://clarin.eu/pe7/centre_registry">
+				<crm:P102_has_title>
+				  <crm:E35_Title rdf:about="http://clarin.eu/e35/">
+					<rdfs:label>CLARIN Centre Registry</rdfs:label>
+					<skos:prefLabel>CLARIN Centre Registry</skos:prefLabel>
+				  </crm:E35_Title>
+				</crm:P102_has_title>
+				<crm:PP2_provided_by rdf:about="http://clarin.eu/pp2/clarin-eric">
+					<crmpe:PE25_RI_Consortium rdf:about="http://clarin.eu/pe25/clarin-eric">
+						<crm:P76_has_contact_point rdf:about="http://clarin.eu/p76/centre_registry_email">
+							<crm:E51_Contact_Point rdf:about="http://clarin.eu/e51/centre_registry_email">
+								<crm:p2_has_type rdf:about="http://clarin.eu/p2/centre_registry_email">
+									<crm:E55_Type rdf:about="http://clarin.eu/e55/email">
+										<rdfs:label>email</rdfs:label>
+									</crm:E55_Type>
+								</crm:p2_has_type>
+								<rdfs:label>centre-registry@clarin.eu</rdfs:label>
+							</crm:E51_Contact_Point>
+						</crm:P76_has_contact_point>
+					</crmpe:PE25_RI_Consortium>
+				</crm:PP2_provided_by>				
+				<crmpe:PP28_has_designated_access_point rdf:about="http://clarin.eu/e35/pp28/centre_registry">
+					<crmpe:PE29_Access_Point rdf:about="https://centres.clarin.eu/"></crmpe:PE29_Access_Point>
+				</crmpe:PP28_has_designated_access_point>
+			</crmpe:PE7_Data_Hosting_Service>
+		</crmpe:PP1_currently_offers>
+	</crmpe:PE26_RI_Project>
+</rdf:RDF>
