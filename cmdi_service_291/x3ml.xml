@@ -121,8 +121,9 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="SimpleLabel">
-                                <arg name="label" type="constant">profile</arg>
+                            <instance_generator name="LocalTermURI">
+                                <arg name="hierarchy" type="constant">CMDICollection</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
                                 <arg name="label" type="xpath">text()</arg>

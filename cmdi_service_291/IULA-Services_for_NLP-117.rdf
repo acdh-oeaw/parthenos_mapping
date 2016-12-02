@@ -13,7 +13,7 @@
       <crmpe:PE8_E-Service rdf:about="http://parthenos-project.eu/Service/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117">
         <crmpe:PP2_provided_by>
           <crm:E39_Actor rdf:about="http://parthenos-project.eu/Actor/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29">
-            <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</rdfs:label>
+            <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Ling????stica Aplicada (IULA)</rdfs:label>
           </crm:E39_Actor>
         </crmpe:PP2_provided_by>
         <crmpe:PP28_has_designated_access_point>
@@ -43,7 +43,11 @@
         <crmdig:L31_has_starting_date-time>2013-09-12</crmdig:L31_has_starting_date-time>
       </crmdig:D7_Digital_Machine_Event>
     </crmdig:L11i_was_output_of>
-    <crmpe:PP23i_is_dataset_part_of>profile</crmpe:PP23i_is_dataset_part_of>
+    <crmpe:PP23i_is_dataset_part_of>
+      <crmpe:PE24_Volatile_Dataset rdf:about="http://parthenos-project.eu/CMDICollection/IULA%20UPF%20OAI%20Archive%3A%20Services%20for%20NLP">
+        <rdfs:label>IULA UPF OAI Archive: Services for NLP</rdfs:label>
+      </crmpe:PE24_Volatile_Dataset>
+    </crmpe:PP23i_is_dataset_part_of>
     <crm:P1_is_identified_by>
       <crm:E42_Identifier rdf:about="http://parthenos-project.eu/ID/oai%3Aiula.upf.edu%3A117">
         <rdfs:label>oai:iula.upf.edu:117</rdfs:label>
