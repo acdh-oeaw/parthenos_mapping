@@ -1,0 +1,121 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:parthenos="http://parthenos-project.eu/"
+    xmlns:crmpe="http://www.ics.forth.gr/isl/CRMext/CRMpe.rdfs/"
+    xmlns:frbr="http://www.cidoc-crm.org/frbr/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1271859438164"
+    xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+    xmlns:cmd="http://www.clarin.eu/cmd/1"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+  <crmpe:PE8_E-Service rdf:about="http://parthenos-project.eu/resource/http%3A%2F%2Fhdl.handle.net%2F10032%2Fdcd794bbc034670be87f0700bb287bfb"/>
+  <crmpe:PE8_E-Service rdf:about="http://parthenos-project.eu/resource/hdl%3A10032%2F8dea0a90551b4c0d708092a13f05ab22"/>
+  <crm:E40_Legal_Body rdf:about="uuid:AJ">
+    <crm:P107_has_current_or_former_member>
+      <crm:E21_Person rdf:about="http://parthenos-project.eu/personName/Dr.%20J.%20Th.%20Bakker"/>
+    </crm:P107_has_current_or_former_member>
+    <crm:P1_is_identified_by>
+      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/instituteName/Institute%20for%20Dutch%20Lexicology%20%28Instituut%20voor%20Nederlandse%20Lexicologie%2C%20INL%29"/>
+    </crm:P1_is_identified_by>
+    <crm:P76_has_contact_point>
+      <crm:E45_Address rdf:about="http://parthenos-project.eu/instituteAddress/Witte%20Singel%2FDoelencomplex%2C%20Matthias%20de%20Vrieshof%202-3%2C%202311%20BZ%20Leiden%2C%20The%20Netherlands"/>
+    </crm:P76_has_contact_point>
+  </crm:E40_Legal_Body>
+  <crmpe:PE24_Volatile_Dataset rdf:about="http://parthenos-project.eu/data/CHN">
+    <crm:P105_right_held_by>
+      <crm:E51_Contact_Point rdf:about="uuid:AI">
+        <crm:P1i_identifies>
+          <crm:E21_Person rdf:about="http://parthenos-project.eu/personName/Katrien%20Depuydt"/>
+        </crm:P1i_identifies>
+        <crm:P2_has_type>
+          <crm:E55_Type rdf:about="http://parthenos-project.eu/email/servicedesk%40inl.nl"/>
+        </crm:P2_has_type>
+        <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E40_Legal_Body"/>
+      </crm:E51_Contact_Point>
+    </crm:P105_right_held_by>
+    <crm:P94i_was_created_by>
+      <crm:E65_Creation rdf:about="uuid:AG">
+        <crm:P14_carried_out_by>
+          <crmpe:PE25_RI_Consortium rdf:about="uuid:AH">
+            <crm:P1_is_identified_by>
+              <crm:E41_Appellation rdf:about="http://parthenos-project.eu/projectName/CHN"/>
+            </crm:P1_is_identified_by>
+            <crm:P1_is_identified_by>
+              <crm:E35_Title rdf:about="http://parthenos-project.eu/projectTitle/Reference%20Corpus%20of%20contemporary%20written%20Dutch">
+                <rdfs:label>Reference Corpus of contemporary written Dutch</rdfs:label>
+              </crm:E35_Title>
+            </crm:P1_is_identified_by>
+          </crmpe:PE25_RI_Consortium>
+        </crm:P14_carried_out_by>
+      </crm:E65_Creation>
+    </crm:P94i_was_created_by>
+    <crm:P94i_was_created_by>
+      <crm:E65_Creation rdf:about="uuid:AD">
+        <crm:P14_carried_out_by>
+          <crm:E39_Actor rdf:about="uuid:AE">
+            <crm:P11i_participated_in>
+              <frbr:F30_Publication_Event rdf:about="uuid:AF">
+                <crm:P4_has_time-span>
+                  <crm:E52_Time-Span rdf:about="http://parthenos-project.eu/publication/2014"/>
+                </crm:P4_has_time-span>
+              </frbr:F30_Publication_Event>
+            </crm:P11i_participated_in>
+          </crm:E39_Actor>
+        </crm:P14_carried_out_by>
+      </crm:E65_Creation>
+    </crm:P94i_was_created_by>
+    <crm:P3_has_note>
+      <rdfs:Literal rdf:about="uuid:AC">
+        <rdfs:label>Since 1994, The Instituut voor Nederlandse Lexicologie has put online several corpora of contemporary Dutch: the 5, 27 and 38 million words corpora and the Dutch Parole Internet Corpus. The Corpus Hedendaags Nederlands in the current release is a first step towards a monitor corpus for contemporary Dutch. The material of the old corpora was integrated. For the first release (17 January 2014) a considerable amount of more recent material was added from two newspapers: NRC Handelsblad and De Standaard (until June 2013). For the second release (June 2014) more material from these two sources has been added from July 2013 - December 2013, as has other sources from Suriname and the Netherlands Antilles, such as newspapers, material published on internet (blog, website) and books written by Surinam authors.</rdfs:label>
+      </rdfs:Literal>
+    </crm:P3_has_note>
+    <crm:P105_right_held_by>
+      <crm:E40_Legal_Body rdf:about="http://parthenos-project.eu/institute/INL"/>
+    </crm:P105_right_held_by>
+    <crm:P1_is_identified_by>
+      <crm:E35_Title rdf:about="http://parthenos-project.eu/collectionTitle/corpus%20hedendaags%20nederlands"/>
+    </crm:P1_is_identified_by>
+    <crm:P1_is_identified_by>
+      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/collectionName/CHN"/>
+    </crm:P1_is_identified_by>
+  </crmpe:PE24_Volatile_Dataset>
+  <crmpe:PE22_Persistent_Dataset rdf:about="http://parthenos-project.eu/cmdi-record/http%3A%2F%2Fhdl.handle.net%2F10032%2Feeba6672493adaa6f24b3bf1c13c385b">
+    <crmpe:PP39_is_metadata_for>
+      <crmpe:PE24_Volatile_Dataset rdf:about="http://parthenos-project.eu/dataset/http%3A%2F%2Fhdl.handle.net%2F10032%2Fdcd794bbc034670be87f0700bb287bfb"/>
+    </crmpe:PP39_is_metadata_for>
+    <crm:P129_is_about>
+      <crm:E73_Information_Object rdf:about="http://parthenos-project.eu/ID/http%3A%2F%2Fhdl.handle.net%2F10032%2Feeba6672493adaa6f24b3bf1c13c385b">
+        <rdfs:label>http://hdl.handle.net/10032/eeba6672493adaa6f24b3bf1c13c385b</rdfs:label>
+        <rdf:type rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"/>
+      </crm:E73_Information_Object>
+    </crm:P129_is_about>
+    <crmpe:PP23i_is_dataset_part_of>
+      <crmpe:PE24_Volatile_Dataset rdf:about="http://parthenos-project.eu/cmdi-collection/INL%20corpus%20for%20contemporary%20Dutch">
+        <rdfs:label>INL corpus for contemporary Dutch</rdfs:label>
+      </crmpe:PE24_Volatile_Dataset>
+    </crmpe:PP23i_is_dataset_part_of>
+    <crm:P94i_was_created_by>
+      <crm:E65_Creation rdf:about="uuid:AA">
+        <crm:P4_has_time-span>
+          <crm:E52_Time-Span rdf:about="uuid:AB">
+            <crm:P82_at_some_time_within>2014-10-01</crm:P82_at_some_time_within>
+          </crm:E52_Time-Span>
+        </crm:P4_has_time-span>
+      </crm:E65_Creation>
+    </crm:P94i_was_created_by>
+    <crm:P94i_was_created_by>
+      <crm:E65_Creation rdf:about="http://parthenos-project.eu/creationEvent/INL">
+        <crm:P14_carried_out_by>
+          <crm:E39_Actor rdf:about="http://parthenos-project.eu/actor/INL"/>
+        </crm:P14_carried_out_by>
+      </crm:E65_Creation>
+    </crm:P94i_was_created_by>
+    <crm:P1_is_identified_by rdf:resource="http://parthenos-project.eu/ID/http%3A%2F%2Fhdl.handle.net%2F10032%2Feeba6672493adaa6f24b3bf1c13c385b"/>
+    <crm:P2_has_type>
+      <crm:E55_Type rdf:about="http://parthenos-project.eu/type/metadata">
+        <rdfs:label>metadata</rdfs:label>
+      </crm:E55_Type>
+    </crm:P2_has_type>
+  </crmpe:PE22_Persistent_Dataset>
+</rdf:RDF>
