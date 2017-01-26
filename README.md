@@ -9,6 +9,9 @@ Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 Mappings in X3ml:
 
 300 - E-Service - IULA UPF OAI Archive: Services for NLP
+
 303 - Dataset - modifications from George
+
 305 - Example of generator's output (our generator)
+
 307 - copy of 303 with updates from matteo
