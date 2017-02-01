@@ -45,7 +45,15 @@ public class X3MLUtils {
 		return lg;
 	}
 	
+	public Entity createEntity(String type, InstanceGenerator ig, LabelGenerator lg){
+		return createEntity(type, ig, lg, null, null);
+	}
+	
 	public Entity createEntity(String type, InstanceGenerator ig, LabelGenerator lg, Additional additional){
+		return createEntity(type, ig, lg, additional, null);
+	}
+	
+	public Entity createEntity(String type, InstanceGenerator ig, LabelGenerator lg, Additional additional, InstanceInfo instanceInfo){
 		Entity entity = new Entity();
 		entity.getType().add(type);
 		
@@ -55,28 +63,15 @@ public class X3MLUtils {
 		
 		if(lg != null){
 			entity.getLabelGenerator().add(lg);
-		}
+		}		
 		
-		
-		
-		if(additional != null)
-			entity.getAdditional().add(additional);
-		
-		return entity;
-	}
-	
-	public Entity createEntity(String type, InstanceGenerator ig, LabelGenerator lg, Additional additional, InstanceInfo instanceInfo){
-		Entity entity = new Entity();
-		entity.getType().add(type);
-		entity.setInstanceGenerator(ig);
-		entity.getLabelGenerator().add(lg);
-		
-		if(instanceInfo != null){
-			entity.setInstanceInfo(instanceInfo);
-		}
 		
 		if(additional != null){
 			entity.getAdditional().add(additional);
+		}
+		
+		if(instanceInfo != null){
+			entity.setInstanceInfo(instanceInfo);
 		}
 		
 		return entity;
