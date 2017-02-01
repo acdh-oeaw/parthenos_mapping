@@ -6,6 +6,8 @@ RDFS created by FORTH-ICS August 19, 2016
 RDFS updated by FORTH-ICS September 19, 2016
 corrected some typos, added PE26, removed PE27, added PP41 and PP42
 
+RDFS updated by CNR January 30, 2017
+corrected PE20, PE21 and PP28i (they contained blanks)
 
 Encoding Rules:
 1. The RDF spelling rules do not allow blanks. Hence we have replaced them by underscores.
@@ -338,38 +340,38 @@ xml:base="http://www.ics.forth.gr/isl/CRMpe/" xml:lang="en">
 </rdf:Property>
 
 <rdf:Property rdf:about="PP17_has_snapshot">
-	<rdfs:domain rdf:resource="PE20 Volatile Digital Object"/>
+	<rdfs:domain rdf:resource="PE20_Volatile_Digital_Object"/>
 	<rdfs:range rdf:resource="PE19_Persistent_Digital_Object"/>
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130_shows_features_of"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP17i_is_snapshot_of">
 	<rdfs:domain rdf:resource="PE19_Persistent_Digital_Object"/>
-	<rdfs:range rdf:resource="PE20 Volatile Digital Object"/>
+	<rdfs:range rdf:resource="PE20_Volatile_Digital_Object"/>
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130i_features_are_also_found_on"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP18_has_digital_object_part">
-	<rdfs:domain rdf:resource="PE20 Volatile Digital Object"/>
+	<rdfs:domain rdf:resource="PE20_Volatile_Digital_Object"/>
 	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP18i_is_digital_object_part_of">
 	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
-	<rdfs:range rdf:resource="PE20 Volatile Digital Object"/>
+	<rdfs:range rdf:resource="PE20_Volatile_Digital_Object"/>
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106i_forms_part_of"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP19_has_persistent_software_part">
-	<rdfs:domain rdf:resource="PE21 Persistent Software"/>
-	<rdfs:range rdf:resource="PE21 Persistent Software"/>
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
 	<rdfs:subPropertyOf rdf:resource="PP16_has_persistent_digital_object_part"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP19i_is_persistent_software_part_of">
-	<rdfs:domain rdf:resource="PE21 Persistent Software"/>
-	<rdfs:range rdf:resource="PE21 Persistent Software"/>
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
 	<rdfs:subPropertyOf rdf:resource="PP16i_is_persistent_digital_object_part_of"/>
 </rdf:Property>
 
@@ -399,12 +401,12 @@ xml:base="http://www.ics.forth.gr/isl/CRMpe/" xml:lang="en">
 
 <rdf:Property rdf:about="PP22_has_release">
 	<rdfs:domain rdf:resource="PE23_Volatile_Software"/>
-	<rdfs:range rdf:resource="PE21 Persistent Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
 	<rdfs:subPropertyOf rdf:resource="PP17_has_snapshot"/>
 </rdf:Property>
 
 <rdf:Property rdf:about="PP22i_is_release_of">
-	<rdfs:domain rdf:resource="PE21 Persistent Software"/>
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
 	<rdfs:range rdf:resource="PE23_Volatile_Software"/>
 	<rdfs:subPropertyOf rdf:resource="PP17i_is_snapshot_of"/>
 </rdf:Property>
@@ -451,7 +453,7 @@ xml:base="http://www.ics.forth.gr/isl/CRMpe/" xml:lang="en">
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"/>
 </rdf:Property>
 
-<rdf:Property rdf:about="PP28i_is_designated_access_point of">
+<rdf:Property rdf:about="PP28i_is_designated_access_point_of">
 	<rdfs:domain rdf:resource="PE29_Access_Point"/>
 	<rdfs:range rdf:resource="PE8_E-Service"/>
 	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P1i_identifies"/>
