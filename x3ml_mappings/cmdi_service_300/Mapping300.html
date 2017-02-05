@@ -1,0 +1,354 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+                    table, td {border:1px solid grey;}
+              tr.domain {font-weight:bold;}
+                </style></head>
+   <h1>3M Mapping: CMDI_Service</h1>
+   <p>source file: <strong>Mapping300.x3ml</strong></p>
+   <table>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD</td>
+         <td>crmpe:PE22_Persistent_Dataset</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'cmdi-record'</span>
+            <span class="arg.xpath">cmd:Header/cmd:MdSelfLink/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdSelfLink
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E42_Identifier
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'id'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdCollectionDisplayName
+         </td>
+         <td><span class="link"> → </span>crmpe:PP23i_is_dataset_part_of<span class="link"> → </span>crmpe:PE24_Volatile_Dataset
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'cmdi-collection'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header
+         </td>
+         <td><span class="link"> → </span>crmdig:L11i_was_output_of<span class="link"> → </span>crmdig:D7_Digital_Machine_Event
+         </td>
+         <td>
+            
+            
+            UUID()<br>
+            CompositeLabel(
+            <span class="arg.constant">'Creation of CDMI record '</span>
+            <span class="arg.xpath">cmd:MdSelfLink/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Resources
+         </td>
+         <td><span class="link"> → </span>crm:P129_is_about<span class="link"> → </span>crmpe:PE8_E-Service
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'service'</span>
+            <span class="arg.xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Header</td>
+         <td>crmdig:D7_Digital_Machine_Event</td>
+         <td>
+            
+            
+            UUID()<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:MdCreationDate
+         </td>
+         <td><span class="link"> → </span>crm:P4_has_time-span<span class="link"> → </span>
+            crm:E52_Time-Span
+            
+            <span class="link"> → </span>crm:P81_ongoing_throughout<span class="link"> → </span>http://www.w3.org/2000/01/rdf-schema#Literal
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:MdCreator
+         </td>
+         <td><span class="link"> → </span>crmdig:L23_used_software_or_firmware<span class="link"> → </span>crmdig:D14_Software
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'software'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>/cmd:CMD/cmd:Header/cmd:MdProfile<br>cmd:MdProfile
+         </td>
+         <td><span class="link"> → </span>crmdig:L23_used_software_or_firmware<span class="link"> → </span>crmdig:D14_Software
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'software'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            <span>+ </span>
+            <span class="link"> → </span>crm:P2_has_type
+            <span class="link"> → </span>crm:E55_Type
+            
+            constant(cmdi-profile)<br>
+            LocalTermURI(
+            <span class="arg.constant">'type'</span>
+            <span class="arg.constant">'cmdi-profile'</span>
+            )<br>
+            Constant(
+            <span class="arg.constant">'cmdi-profile'</span>
+            )<br>
+            
+            
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Resources</td>
+         <td>crmpe:PE8_E-Service</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'service'</span>
+            <span class="arg.xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef
+         </td>
+         <td><span class="link"> → </span>crmpe:PP28_has_designated_access_point<span class="link"> → </span>crmpe:PE29_Access_Point
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'access-point'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms</td>
+         <td>crmpe:PE8_E-Service</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'service'</span>
+            <span class="arg.xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:publisher
+         </td>
+         <td><span class="link"> → </span>crmpe:PP2_provided_by<span class="link"> → </span>
+            crm:E39_Actor
+            
+            actor
+            text()
+            
+            <span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E35_Title
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'title'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:description
+         </td>
+         <td><span class="link"> → </span>crm:P3_has_note<span class="link"> → </span>http://www.w3.org/2000/01/rdf-schema#Literal
+         </td>
+         <td>
+            
+            
+            UUID()<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:alternative
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E35_Title
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'title'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:title
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E35_Title
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'title'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:subject
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E42_Identifier
+         </td>
+         <td>
+            
+            
+            ()<br>
+            LocalTermURI(
+            <span class="arg.constant">'id'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            Constant(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            <span>+ </span>
+            <span class="link"> → </span>crm:P2_has_type
+            <span class="link"> → </span>crm:E55_Type
+            
+            constant(subject)<br>
+            LocalTermURI(
+            <span class="arg.constant">'type'</span>
+            <span class="arg.constant">'subject'</span>
+            )<br>
+            Constant(
+            <span class="arg.constant">'subject'</span>
+            )<br>
+            
+            
+            
+            
+         </td>
+      </tr>
+   </table>
+</html>
