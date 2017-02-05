@@ -1,0 +1,165 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+                    table, td {border:1px solid grey;}
+              tr.domain {font-weight:bold;}
+                </style></head>
+   <h1>3M Mapping: CMDI-MultiResource</h1>
+   <p>source file: <strong>Mapping315.x3ml</strong></p>
+   <table>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD</td>
+         <td>crmpe:PE22_Persistent_Dataset</td>
+         <td>
+            
+            
+            URIorUUID(
+            <span class="arg.xpath">cmd:Header/cmd:MdSelfLink/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdSelfLink
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E42_Identifier
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy
+         </td>
+         <td><span class="link"> → </span>crmpe:PP39_is_metadata_for<span class="link"> → </span>crmpe:PE24_Volatile_Dataset
+         </td>
+         <td>
+            
+            
+            URIorUUID(
+            <span class="arg.xpath">cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Components/cmdp:TextCorpusProfile
+         </td>
+         <td><span class="link"> → </span>crmpe:PP39_is_metadata_for<span class="link"> → </span>crmpe:PE24_Volatile_Dataset
+         </td>
+         <td>
+            
+            
+            URIorUUID(
+            <span class="arg.xpath">cmdp:GeneralInfo/cmdp:Name/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</td>
+         <td>crmpe:PE24_Volatile_Dataset</td>
+         <td>
+            
+            
+            URIorUUID(
+            <span class="arg.xpath">cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:ResourceRef
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E42_Identifier
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:ResourceType
+         </td>
+         <td><span class="link"> → </span>crm:P2_has_type<span class="link"> → </span>crm:E55_Type
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile</td>
+         <td>crmpe:PE24_Volatile_Dataset</td>
+         <td>
+            
+            
+            URIorUUID(
+            <span class="arg.xpath">cmdp:GeneralInfo/cmdp:Name/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:GeneralInfo/cmdp:Title
+         </td>
+         <td><span class="link"> → </span>crm:P102_has_title<span class="link"> → </span>crm:E35_Title
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:GeneralInfo/cmdp:Name
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E41_Appellation
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+   </table>
+</html>
