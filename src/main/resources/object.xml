@@ -1,0 +1,203 @@
+	<!-- <property name="id" />  -->
+	
+	<property name="crm:E42_Identifier" relationship="crm:P1_is_identified_by">
+		<concept name="persistent identifier">http://hdl.handle.net/11459/CCR_C-2573_ae7c2548-8a86-ab6e-7099-e28b7697d1a2</concept>
+		<concept name="recordIdentifier">http://hdl.handle.net/11459/CCR_C-5193_55564c2c-5ef1-1849-874c-210f86e02402</concept>
+		
+		<!-- <patern>cmd:CMD/cmd:Header/cmd:MdSelfLink</patern> Probably doesn't belong here -->
+		
+		<!--
+		handeled from code 
+		<patern>cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/@id</patern>
+		 -->
+	</property>
+	
+	<property name="crm:E35_Title" relationship="crm:P1_is_identified_by">
+	
+		<concept name="file name">http://hdl.handle.net/11459/CCR_C-5435_155a7fae-a941-e6a8-4b63-4f6d1bd0c2aa</concept>
+		
+		
+		<!-- vlo:name -->
+	
+		<concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
+		<concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
+		
+		<concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>	
+		<!-- CLARIN-D Webservices name -->
+		
+		<concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
+		
+		<concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept>
+		<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+		<concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
+		<concept>http://purl.org/dc/terms/title</concept>
+		<concept>http://purl.org/dc/elements/1.1/title</concept>
+		
+		<pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl/text()</pattern>
+		<!-- BBAW teiHeader -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:Label/text()</pattern>
+		<!-- IDS IDSAGD_Event -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Speaker/cmdp:Label/text()</pattern>
+		<!-- IDS IDSAGD_Speaker -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications/cmdp:Publication</pattern>
+		<!--  IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications/cmdp:Publication</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+		<!-- IMS c:LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+		<!-- IMS c:MultimodalCorpus -->
+	
+		
+	</property>
+	
+	<!-- Description -->
+	<property name="http://www.w3.org/2000/01/rdf-schema#Literal" relationship="crm:P3_has_note">
+		<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
+		<concept name="note">http://hdl.handle.net/11459/CCR_C-6124_2e45fdf9-ced2-89c9-a09d-b4769e9fede6</concept>	
+		<concept>http://purl.org/dc/terms/description</concept>
+		<concept>http://purl.org/dc/elements/1.1/description</concept>
+		
+		<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:abstract/text()</pattern>
+	
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/text()</pattern>
+		<!-- IDS IDSAGD_Corpus -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description/text()</pattern>
+		<!-- IDS IDSAGD_Corpus -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Collection/cmdp:Project/cmdp:Description/text()</pattern>
+		<!-- IDS IDSAGD_Corpus -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description/text()</pattern>
+		<!-- IDS IDSAGD_Corpus -->
+	
+		<blacklistPattern>/cmdp:HZSKAssociatedFile/cmdp:Type</blacklistPattern>
+		<!--  HZSK -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Speaker/cmdp:LinguisticBackground</blacklistPattern>
+		<!-- IDS IDSAGD_Speaker -->
+		<blacklistPattern>/cmdp:media-annotation-bundle/</blacklistPattern>
+		<!-- BAS media-session-profile -->
+		<blacklistPattern>/cmdp:media-corpus-profile/cmdp:Corpus/</blacklistPattern>
+		<!-- BAS media-corpus-profile -->
+		<blacklistPattern>/cmd:Components/cmdp:LCC_CorpusProfile/cmdp:LCC_Corpus/cmdp:LCC_DataProviderList</blacklistPattern>
+		<!-- ASV -->
+		<blacklistPattern>/cmd:Components/cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList</blacklistPattern>
+		<!-- ASV -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Contact/</blacklistPattern>
+		<!-- IMS WebLichtWebService -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Creation/</blacklistPattern>
+		<!-- IMS WebLichtWebService -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Operations</blacklistPattern>
+		<!-- IMS WebLichtWebService -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Project</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Documentations</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:CorpusContext</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Creation</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Access</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:SubjectLanguages</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:DocumentationLanguages</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:SizeInfo</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:ModalityInfo</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:ValidationGrp</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:TextTechnical</blacklistPattern>
+		<!-- IMS TextCorpusProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Project</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Documentations</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Creators</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Access</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Copyright</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:ResourceContext</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:ToolContext</blacklistPattern>
+		<!-- IMS ToolProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Project</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Creation</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:DocumentationLanguages</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Access</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:LexiconContext</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:SizeInfo</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:TextTechnical</blacklistPattern>
+		<!-- IMS LexicalResourceProfile -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:GeneralInfo/cmdp:ModalityInfo</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Access</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Creation</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Project</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:SubjectLanguages</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:DocumentationLanguages</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:MultimodalCorpusSpecific</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:TechnicalInfo</blacklistPattern>
+		<!-- IMS MultiModalCorpus -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo</blacklistPattern>
+	    <!-- Clarino_B_center_Repository_University_of_Bergen cmdp:corpusProfile -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:PID</blacklistPattern>
+	    <!-- Clarino_B_center_Repository_University_of_Bergen cmdp:corpusProfile -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:url</blacklistPattern>
+	    <!-- Clarino_B_center_Repository_University_of_Bergen cmdp:corpusProfile -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:lexicalProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:url</blacklistPattern>
+	    <!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:lexicalProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:PID</blacklistPattern>
+	    <!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
+	    <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:lexicalProfile/cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/</blacklistPattern>
+	<!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
+	</property>
+	
+	<property name="crm:E30_Right" relationship="crm:P129i_is_subject_of">
+					<!-- A description of the licensing conditions under which the resource can be used. -->
+		<concept>http://www.isocat.org/datcat/DC-2457</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-2457_45bbaa1a-7002-2ecd-ab9d-57a189f694a6</concept>
+		<!-- A description of the licensing conditions... -->
+		<concept>http://www.isocat.org/datcat/DC-2453</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-2453_1f0c3ea5-7966-ae11-d3c6-448424d4e6e8</concept>
+		<!-- A description of the terms of availability of the resource in simple words. -->
+		<concept>http://www.isocat.org/datcat/DC-3800</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-3800_12a79edd-0ffe-8d82-9831-45d125c54aee</concept>
+		<!-- licenceType: Indication of the type of a copyright licence. -->
+		<concept>http://www.isocat.org/datcat/DC-6846</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-6846_d6adb99c-15ac-fac7-7911-f64c48298ce3</concept>
+		<!-- DASISH from DC Rights -->
+		<concept>http://www.isocat.org/datcat/DC-5439</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-5439_98bb103d-476a-7f62-54b4-bf9de24d2229</concept>
+		
+		<!-- URL of the license -->
+		<concept>http://www.isocat.org/datcat/DC-6586</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-6586_2c79d86a-5a75-0890-d407-7d9cb86b9beb</concept>
+				
+		<!-- the DC is used in the distributionType facet -->
+		<concept>http://purl.org/dc/terms/license</concept>
+		<concept>http://purl.org/dc/terms/rights</concept>
+		<concept>http://purl.org/dc/terms/accessRights</concept>
+	</property>

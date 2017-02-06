@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<property name="programmingLanguage">
+		<concept name="implementationLanguage">http://hdl.handle.net/11459/CCR_C-3798_8f86c06f-cf57-ad03-3b16-a5c9f1f51a07</concept>
+	</property>
+	
+	<!-- document says this property takes values from controlled vocabulary 
+	<property name="executesProcessesOfType"></property>
+	 -->
+</properties>

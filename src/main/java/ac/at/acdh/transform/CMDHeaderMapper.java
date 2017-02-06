@@ -1,33 +1,46 @@
 package ac.at.acdh.transform;
 
 
-import ac.at.acdh.transform.commons.CMDICreatorType;
+import java.util.ArrayList;
+import java.util.List;
+
+import ac.at.acdh.concept_mapping.Profile2CIDOCMap;
+import ac.at.acdh.transform.utils.CMDICreatorType;
+import ac.at.acdh.transform.utils.CMDIResourceType;
+import ac.at.acdh.transform.utils.TemplateGenerator;
+import ac.at.acdh.transform.utils.X3MLUtils;
 import ac.at.acdh.x3ml.DomainTargetNodeType;
 import ac.at.acdh.x3ml.Entity;
-import ac.at.acdh.x3ml.X3ML;
-import ac.at.acdh.x3ml.X3ML.Mappings;
 import ac.at.acdh.x3ml.X3ML.Mappings.Mapping;
 import ac.at.acdh.x3ml.X3ML.Mappings.Mapping.Domain;
 import ac.at.acdh.x3ml.X3ML.Mappings.Mapping.Link.Path;
 
 public class CMDHeaderMapper {
 	
-	CMDICreatorType creator;
 	
-	private Mappings mappings;	
+	
 	private X3MLUtils utils = new X3MLUtils();
 	private TemplateGenerator templGen = new TemplateGenerator();
 	
-	public X3ML mapToX3ML(CMDICreatorType creator){
+	private Profile2CIDOCMap profileMapping;
+	private CMDICreatorType creator;
+	private CMDIResourceType resourceType;
+	
+	
+	public CMDHeaderMapper(Profile2CIDOCMap profileMapping) {
+		this.profileMapping = profileMapping;
+	}
+	
+	public List<Mapping> getMappings(CMDICreatorType creator, CMDIResourceType resourceType){
 		this.creator = creator;
+		this.resourceType = resourceType;
 		
-		mappings = new Mappings();
-		mappings.getMapping().add(mapInstanceToPersistantDS());
-		mappings.getMapping().add(mapHeaderToCreator());	
+		List<Mapping> mappings = new ArrayList<>();
 		
-		X3ML x3ml = new X3ML();
-		x3ml.setMappings(mappings);
-		return x3ml;
+		mappings.add(mapInstanceToPersistantDS());
+		mappings.add(creatorMapping());	
+		
+		return mappings;
 	}	
 	
 	private Mapping mapInstanceToPersistantDS(){
@@ -99,15 +112,25 @@ public class CMDHeaderMapper {
 					)
 				)
 			)
-		);	
-		
+		);		
 		*/
+		
+		//CMDI is metadata for 
+		String relativeXpath = profileMapping.getSourceNode().substring("/cmd:CMD/".length());
+		String relation = resourceType.equals(CMDIResourceType.SERVICE)? "crm:P129_is_about" : "crmpe:PP39_is_metadata_for";
+		cmd.getLink().add(
+				utils.createLink(
+					utils.createPath(relativeXpath, relation, null),
+					utils.createRange(relativeXpath, 
+						utils.createEntity(CMDIComponentsMapper.resourceTypeMap.get(resourceType), utils.crateInstanceGenerator("UUID", null), null))
+				)
+			);
 		
 		return cmd;
 				
 	}
 	
-	private Mapping mapHeaderToCreator(){
+	private Mapping creatorMapping(){
 		
 		Mapping profile = new Mapping();		
 		
@@ -121,15 +144,12 @@ public class CMDHeaderMapper {
 		Domain cmdDomain = new Domain("/cmd:CMD/cmd:Header", metadataDomain);
 		profile.setDomain(cmdDomain);
 		
-		//creation date		
-		Path path = utils.createPath("cmd:MdCreationDate", "crm:P4_has_time-span", 
-				utils.createEntity("crm:E52_Time-Span", utils.crateInstanceGenerator("UUID", null), null, null)
-		);
-		path.getTargetRelation().getEntityAndRelationship().add("crm:P82_at_some_time_within");		
+		//creation date
 		
 		profile.getLink().add(
 			utils.createLink(
-				path,		
+				utils.createPathWithIntermediate("cmd:MdCreationDate", "crm:P4_has_time-span", "crm:P82_at_some_time_within",
+							utils.createEntity("crm:E52_Time-Span", utils.crateInstanceGenerator("UUID", null), null, null)),		
 				utils.createRange("cmd:MdCreationDate", utils.createEntity("http://www.w3.org/2000/01/rdf-schema#Literal", templGen.simpleLabelIG(),null))
 			)
 		);
@@ -170,7 +190,5 @@ public class CMDHeaderMapper {
 		);		
 		
 		return profile;
-	}
-	
-	
+	}	
 }

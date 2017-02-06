@@ -1,7 +1,7 @@
 /**
  * 
  */
-package ac.at.acdh.transform;
+package ac.at.acdh.transform.utils;
 
 import java.io.InputStream;
 import java.io.OutputStream;

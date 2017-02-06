@@ -1,4 +1,4 @@
-package ac.at.acdh.transform;
+package ac.at.acdh.transform.utils;
 
 import java.util.List;
 
@@ -108,6 +108,27 @@ public class X3MLUtils {
 		Path path = new Path();
 		path.setSourceRelation(srcRelation);
 		path.setTargetRelation(tgtRelation);
+		
+		
+		return path;
+	}
+	
+	public Path createPathWithIntermediate(String sourceXpath, String intermediateRelation, String targetRelation, Entity targetEntity){
+		SourceRelationType srcRelation = new SourceRelationType();
+		srcRelation.getRelation().add(sourceXpath);
+		
+		TargetRelationType tgtRelation = new TargetRelationType();
+		tgtRelation.getEntityAndRelationship().add(intermediateRelation);
+		
+		if(targetEntity != null)
+			tgtRelation.getEntityAndRelationship().add(targetEntity);
+		
+		Path path = new Path();
+		path.setSourceRelation(srcRelation);	
+		path.setTargetRelation(tgtRelation);
+		path.getTargetRelation().getEntityAndRelationship().add(targetRelation);
+		
+		
 		
 		
 		return path;

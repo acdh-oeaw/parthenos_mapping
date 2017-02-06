@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+	<property name="compilationDate" description="Date when the current encoding was fixed">	
+		<concept name="last update">http://hdl.handle.net/11459/CCR_C-2526_979ac535-eaa5-5e59-3cad-51c450234698</concept> <!-- TODO: check if it fits -->
+	</property>
+	
+	<property name="checksum">
+		<!-- Checksum is a part of PID (according to this document: http://www.clarin.eu/sites/default/files/cac2014_submission_4_0.pdf) -->
+		<!-- TODO: check if it is only in CLARIN.DK, or it is general rule -->
+		<concept name="persistent identifier">http://hdl.handle.net/11459/CCR_C-2573_ae7c2548-8a86-ab6e-7099-e28b7697d1a2</concept>
+	</property>
+	
+	<property name="fileName">
+		<concept name="file name">http://hdl.handle.net/11459/CCR_C-5435_155a7fae-a941-e6a8-4b63-4f6d1bd0c2aa</concept>
+	</property>
+	
+	<property name="filesize">
+		<concept name="size">http://hdl.handle.net/11459/CCR_C-2580_6dfe4e09-1c61-9b24-98ad-16bb867860fe</concept>
+		<concept name="size unit">http://hdl.handle.net/11459/CCR_C-2583_5f5cb491-1037-8d46-d685-ccebfc0233f7</concept>
+	</property>
+</properties>
