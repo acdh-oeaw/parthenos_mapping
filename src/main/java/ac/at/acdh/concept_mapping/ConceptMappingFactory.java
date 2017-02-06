@@ -11,8 +11,8 @@ import com.ximpleware.VTDException;
 import ac.at.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
 import ac.at.acdh.concept_mapping.CMDI2CIDOCMap.Property;
 import ac.at.acdh.concept_mapping.Profile2CIDOCMap.PropertyMap;
-import eu.clarin.cmdi.curation.cr.profile_parser.ParsedProfile;
-import eu.clarin.cmdi.curation.cr.profile_parser.ParsedProfileFactory;
+import ac.at.acdh.profile_parser.ParsedProfile;
+import ac.at.acdh.profile_parser.ParsedProfileFactory;
 
 public class ConceptMappingFactory {
 	
