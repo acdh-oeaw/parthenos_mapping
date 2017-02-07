@@ -15,3 +15,9 @@ Mappings in X3ml:
 305 - Example of generator's output (our generator)
 
 307 - copy of 303 with updates from matteo
+
+311 - Dataset - ??
+
+313 - Dataset - output of the generator
+
+315 - Dataset/Multiresource - a mapping for a CMDI record describing multiple Resources
