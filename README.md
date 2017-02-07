@@ -31,12 +31,12 @@ This application parses CLARIN profiles from a given URL and generates x3ml (xml
 	maven
 
 ###Installation
-Get source code from github and compile it with command
+####Get source code from github and compile it with command:
 	mvn clean compile assembly:single
 	
 
 ###Running
-Run the programm with following command
+####Run the programm with following command:
 	java -jar jar_name -profile profileURL creatorType resourceType
 	
 ###Parameters
@@ -45,8 +45,9 @@ Run the programm with following command
 3. resourceType - type of corresponding parthenos entity for the resource. Use -service or -dataset
 
 ###Example
-	java -jar parthenos_mapping.jar -help - to see help
+####print help
+	java -jar parthenos_mapping.jar -help
 
+####generate x3ml mapping file for OLAC-DcmiTerms profile for case when creator is a software (D14_Software) and type of the resource a service (PE8_E-Service)
 	java -jar parthenos_mapping.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -software -service
-	- to generate x3ml mapping file for OLAC-DcmiTerms profile for case when creator is a software (D14_Software) and type of the resource a service (PE8_E-Service)
 	
