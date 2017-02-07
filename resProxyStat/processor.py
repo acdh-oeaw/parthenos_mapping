@@ -1,8 +1,12 @@
 import json
+import time
 from pprint import pprint
 
 with open('records.json', encoding="utf8") as data_file: 
     cmdi_records = json.load(data_file)
+
+    print("Stats from ", time.strftime("%Y-%m-%d %H:%M:%S"))
+    print("Total number of records: ", len(cmdi_records['response']['docs']))
 
     cnt_resource = 0
     cnt_metadata = 0
@@ -35,12 +39,15 @@ with open('records.json', encoding="utf8") as data_file:
         cnt_search_service += search_service
         cnt_search_page += search_page
 
+        # Case1
         if resource <= 1 and search_service <= 1 and landing_page <= 1 and search_page <= 1:
             case1 += 1
 
+        # Case2
         if metadata > 0 and (resource + search_service + landing_page + search_page == 0):
             case2 += 1
 
+        # Case3
         if resource > 1:
             case3 += 1
 
