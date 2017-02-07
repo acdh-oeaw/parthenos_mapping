@@ -16,7 +16,7 @@
             <target_collection/>
         </target_info>
         <target_info>
-            <target_schema schema_file="CRMpe_v1.8.rdfs" type="rdfs" version="1.8">CRMpe</target_schema>
+            <target_schema schema_file="CRMpe_v1.8.1.rdfs" type="rdfs" version="1.8.1">CRMpe</target_schema>
             <target_collection/>
         </target_info>
         <target_info>
@@ -29,6 +29,10 @@
         </target_info>
         <target_info>
             <target_schema type="" version=""/>
+            <target_collection/>
+        </target_info>
+        <target_info>
+            <target_schema type="rdfs" version="1.0" schema_file="CRMpc_v1.0.rdfs">CRMpc</target_schema>
             <target_collection/>
         </target_info>
         <mapping_info>
@@ -53,6 +57,7 @@
         <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
         <namespace prefix="parthenos" uri="http://parthenos-project.eu/"/>
         <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026"/>
+        <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
     </namespaces>
     <mappings>
         <mapping>
@@ -65,6 +70,22 @@
                             <arg name="hierarchy" type="constant">cmdi-record</arg>
                             <arg name="term" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
                         </instance_generator>
+                        <additional>
+                            <relationship>crm:P2_has_type</relationship>
+                            <entity>
+                                <type>crm:E55_Type</type>
+                                <instance_info>
+                                    <constant>metadata</constant>
+                                </instance_info>
+                                <instance_generator name="LocalTermURI">
+                                    <arg name="hierarchy" type="constant">type</arg>
+                                    <arg name="term" type="constant">metadata</arg>
+                                </instance_generator>
+                                <label_generator name="Constant">
+                                    <arg name="text" type="constant">metadata</arg>
+                                </label_generator>
+                            </entity>
+                        </additional>
                     </entity>
                 </target_node>
                 <comments>
@@ -78,7 +99,7 @@
                             <example_source/>
                             <example_target/>
                         </example>
-                        <comments_last_update date="" person=""/>
+                        <comments_last_update date="" person="Could indicate that this is a metadata record through typing"/>
                     </comment>
                 </comments>
             </domain>
@@ -128,6 +149,16 @@
                             <label_generator name="SimpleLabel">
                                 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant>collection</constant>
+                                    </instance_info>
+                                    <instance_generator name="UUID"/>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                     <comments>
@@ -181,12 +212,31 @@
                 <range>
                     <source_node>cmd:Resources</source_node>
                     <target_node>
-                        <entity>
+                        <entity variable="ser1">
                             <type>crmpe:PE8_E-Service</type>
                             <instance_generator name="LocalTermURI">
                                 <arg name="hierarchy" type="constant">service</arg>
                                 <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:Components/cmdp:OLAC-DcmiTerms</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P129_is_about</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:Components/cmdp:OLAC-DcmiTerms</source_node>
+                    <target_node>
+                        <entity variable="ser1">
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -213,8 +263,22 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                         </entity>
-                        <relationship>crm:P81_ongoing_throughout</relationship>
+                        <relationship>crm:P82_at_some_time_within</relationship>
                     </target_relation>
+                    <comments>
+                        <comment type="">
+                            <rationale/>
+                            <alternatives/>
+                            <typical_mistakes/>
+                            <local_habits/>
+                            <link_to_cook_book/>
+                            <example>
+                                <example_source/>
+                                <example_target/>
+                            </example>
+                            <comments_last_update date="" person="I suggest p82 as opposed to p81 here. The process to create the file occurs somewhere within the time span indicated. p81 would indicate that it happened throughout the time span indicated, which is unlikely I guess."/>
+                        </comment>
+                    </comments>
                 </path>
                 <range>
                     <source_node>cmd:MdCreationDate</source_node>
@@ -368,7 +432,7 @@
                     <source_node>cmdp:publisher</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E35_Title</type>
+                            <type>crm:E41_Appellation</type>
                             <instance_generator name="LocalTermURI">
                                 <arg name="hierarchy" type="constant">title</arg>
                                 <arg name="term" type="xpath">text()</arg>
@@ -410,6 +474,20 @@
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
+                    <comments>
+                        <comment type="">
+                            <rationale/>
+                            <alternatives/>
+                            <typical_mistakes/>
+                            <local_habits/>
+                            <link_to_cook_book/>
+                            <example>
+                                <example_source/>
+                                <example_target/>
+                            </example>
+                            <comments_last_update date="" person=""/>
+                        </comment>
+                    </comments>
                 </path>
                 <range>
                     <source_node>cmdp:alternative</source_node>
@@ -425,6 +503,20 @@
                             </label_generator>
                         </entity>
                     </target_node>
+                    <comments>
+                        <comment type="">
+                            <rationale/>
+                            <alternatives/>
+                            <typical_mistakes/>
+                            <local_habits/>
+                            <link_to_cook_book/>
+                            <example>
+                                <example_source/>
+                                <example_target/>
+                            </example>
+                            <comments_last_update date="" person=""/>
+                        </comment>
+                    </comments>
                 </range>
             </link>
             <link>
@@ -458,14 +550,14 @@
                         <relation>cmdp:subject</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
+                        <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
                     <source_node>cmdp:subject</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E42_Identifier</type>
+                            <type>crm:E55_Type</type>
                             <instance_info/>
                             <instance_generator name="LocalTermURI">
                                 <arg name="hierarchy" type="constant">id</arg>
@@ -479,7 +571,7 @@
                                 <entity>
                                     <type>crm:E55_Type</type>
                                     <instance_info>
-                                        <constant>subject</constant>
+                                        <constant>competence</constant>
                                     </instance_info>
                                     <instance_generator name="LocalTermURI">
                                         <arg name="hierarchy" type="constant">type</arg>

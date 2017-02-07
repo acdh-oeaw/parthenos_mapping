@@ -1,0 +1,325 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+                    table, td {border:1px solid grey;}
+              tr.domain {font-weight:bold;}
+                </style></head>
+   <h1>3M Mapping: dataset</h1>
+   <p>source file: <strong>Mapping301.x3ml</strong></p>
+   <table>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD</td>
+         <td>crmpe:PE22_Persistent_Dataset</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'cmdi-record'</span>
+            <span class="arg.xpath">cmd:Header/cmd:MdSelfLink/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdSelfLink
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E42_Identifier
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'ID'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header
+         </td>
+         <td><span class="link"> → </span>crm:P94i_was_created_by<span class="link"> → </span>
+            crm:E65_Creation
+            
+            <span class="link"> → </span>crm:P14_carried_out_by<span class="link"> → </span>crm:E39_Actor
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'actor'</span>
+            <span class="arg.xpath">cmd:MdCreator/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header
+         </td>
+         <td><span class="link"> → </span>crm:P12i_was_present_at<span class="link"> → </span>
+            crm:E65_Creation
+            
+            <span class="link"> → </span>crm:P4_has_time-span<span class="link"> → </span>
+            crm:E52_Time-Span
+            
+            <span class="link"> → </span>crm:P81_ongoing_throughout<span class="link"> → </span>http://www.w3.org/2000/01/rdf-schema#Literal
+         </td>
+         <td>
+            
+            
+            SimpleLabel(
+            <span class="arg.xpath">cmd:MdCreationDate/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdCollectionDisplayName
+         </td>
+         <td><span class="link"> → </span>crmpe:PP23i_is_dataset_part_of<span class="link"> → </span>crmpe:PE24_Volatile_Dataset
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'cmdi-collection'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:Header/cmd:MdSelfLink
+         </td>
+         <td><span class="link"> → </span>crm:P129_is_about<span class="link"> → </span>crm:E73_Information_Object
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'ID'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Resources/cmd:ResourceProxyList</td>
+         <td>crm:E73_Information_Object</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'resource'</span>
+            <span class="arg.xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:ResourceProxy/cmd:ResourceRef
+         </td>
+         <td><span class="link"> → </span>crm:P67i_is_referred_to_by<span class="link"> → </span>crmpe:PE24_Volatile_Dataset
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'resourceRef'</span>
+            <span class="arg.xpath">text()</span>
+            <span class="arg.xpath"></span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmd:ResourceProxy/cmd:ResourceType
+         </td>
+         <td><span class="link"> → </span>crm:P2_has_type<span class="link"> → </span>crm:E55_Type
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'resourceType'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr class="domain">
+         <td>D</td>
+         <td>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile</td>
+         <td>crmpe:PE24_Volatile_Dataset</td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'data'</span>
+            <span class="arg.xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Name/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection
+         </td>
+         <td><span class="link"> → </span>crm:P105_right_held_by<span class="link"> → </span>
+            crm:E40_Legal_Body
+            
+            legal_body
+            cmdp:GeneralInfo/cmdp:Owner/text()
+            
+            <span class="link"> → </span>crm:P107_has_current_or_former_member<span class="link"> → </span>crm:E21_Person
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'person'</span>
+            <span class="arg.xpath">cmdp:Project/cmdp:Contact/cmdp:Person/text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:GeneralInfo/cmdp:PublicationYear
+         </td>
+         <td><span class="link"> → </span>crm:P12i_was_present_at<span class="link"> → </span>
+            frbr:F30_Publication_Event
+            
+            <span class="link"> → </span>crm:P4_has_time-span<span class="link"> → </span>
+            crm:E52_Time-Span
+            
+            <span class="link"> → </span>crm:P81_ongoing_throughout<span class="link"> → </span>http://www.w3.org/2000/01/rdf-schema#Literal
+         </td>
+         <td>
+            
+            
+            Literal(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description
+         </td>
+         <td><span class="link"> → </span>crm:P3_has_note<span class="link"> → </span>http://www.w3.org/2000/01/rdf-schema#Literal
+         </td>
+         <td>
+            
+            
+            UUID()<br>
+            SimpleLabel(
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:Project/cmdp:Title
+         </td>
+         <td><span class="link"> → </span>crm:P102_has_title<span class="link"> → </span>crm:E35_Title
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'title'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:Access/cmdp:Availability
+         </td>
+         <td><span class="link"> → </span>crm:P104_is_subject_to<span class="link"> → </span>crm:E30_Right
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'access'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Organisation<br>cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Person
+         </td>
+         <td><span class="link"> → </span>crm:P105_right_held_by<span class="link"> → </span>
+            crm:E40_Legal_Body
+            
+            institution
+            text()
+            
+            <span class="link"> → </span>crm:P107_has_current_or_former_member<span class="link"> → </span>crm:E21_Person
+         </td>
+         <td>
+            
+            
+            (
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+      <tr>
+         <td>R</td>
+         <td><span class="link"> → </span>cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Email
+         </td>
+         <td><span class="link"> → </span>crm:P1_is_identified_by<span class="link"> → </span>crm:E51_Contact_Point
+         </td>
+         <td>
+            
+            
+            LocalTermURI(
+            <span class="arg.constant">'email'</span>
+            <span class="arg.xpath">text()</span>
+            )<br>
+            
+            
+         </td>
+      </tr>
+   </table>
+</html>
