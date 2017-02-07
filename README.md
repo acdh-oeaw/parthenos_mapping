@@ -31,12 +31,12 @@ This application parses CLARIN profiles from a given URL and generates x3ml (xml
 	maven
 
 ###Installation
-Get source code from github and compile it with command
+Get source code from github and compile it with command:
 	mvn clean compile assembly:single
 	
 
 ###Running
-Run the programm with following command
+Run the programm with following command:
 	java -jar jar_name -profile profileURL creatorType resourceType
 	
 ###Parameters
