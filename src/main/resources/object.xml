@@ -12,7 +12,7 @@
 		 -->
 	</property>
 	
-	<property name="crm:E35_Title" relationship="crm:P1_is_identified_by">
+	<property name="crm:E41_Appellation" relationship="crm:P1_is_identified_by">
 	
 		<concept name="file name">http://hdl.handle.net/11459/CCR_C-5435_155a7fae-a941-e6a8-4b63-4f6d1bd0c2aa</concept>
 		
