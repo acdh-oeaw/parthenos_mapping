@@ -4,16 +4,16 @@ package ac.at.acdh.transform;
 import java.util.ArrayList;
 import java.util.List;
 
-import ac.at.acdh.concept_mapping.Profile2CIDOCMap;
-import ac.at.acdh.transform.utils.CMDICreatorType;
-import ac.at.acdh.transform.utils.CMDIResourceType;
-import ac.at.acdh.transform.utils.TemplateGenerator;
-import ac.at.acdh.transform.utils.X3MLUtils;
-import ac.at.acdh.x3ml.DomainTargetNodeType;
-import ac.at.acdh.x3ml.Entity;
-import ac.at.acdh.x3ml.X3ML.Mappings.Mapping;
-import ac.at.acdh.x3ml.X3ML.Mappings.Mapping.Domain;
-import ac.at.acdh.x3ml.X3ML.Mappings.Mapping.Link.Path;
+import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
+import at.ac.acdh.transform.utils.CMDICreatorType;
+import at.ac.acdh.transform.utils.CMDIResourceType;
+import at.ac.acdh.transform.utils.TemplateGenerator;
+import at.ac.acdh.transform.utils.X3MLUtils;
+import gr.forth.x3ml.DomainTargetNodeType;
+import gr.forth.x3ml.Entity;
+import gr.forth.x3ml.X3ML.Mappings.Mapping;
+import gr.forth.x3ml.X3ML.Mappings.Mapping.Domain;
+import gr.forth.x3ml.X3ML.Mappings.Mapping.Link.Path;
 
 public class CMDHeaderMapper {
 	

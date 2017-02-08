@@ -2,12 +2,12 @@ package ac.at.acdh.transform;
 
 import com.ximpleware.VTDException;
 
-import ac.at.acdh.concept_mapping.ConceptMappingFactory;
-import ac.at.acdh.concept_mapping.Profile2CIDOCMap;
-import ac.at.acdh.transform.utils.CMDICreatorType;
-import ac.at.acdh.transform.utils.CMDIResourceType;
-import ac.at.acdh.x3ml.X3ML;
-import ac.at.acdh.x3ml.X3ML.Mappings;
+import at.ac.acdh.concept_mapping.ConceptMappingFactory;
+import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
+import at.ac.acdh.transform.utils.CMDICreatorType;
+import at.ac.acdh.transform.utils.CMDIResourceType;
+import gr.forth.x3ml.X3ML;
+import gr.forth.x3ml.X3ML.Mappings;
 
 public class ProfileTransformer {
 	

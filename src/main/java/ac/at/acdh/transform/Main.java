@@ -9,10 +9,10 @@ import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.PosixParser;
 
-import ac.at.acdh.transform.utils.CMDICreatorType;
-import ac.at.acdh.transform.utils.CMDIResourceType;
-import ac.at.acdh.transform.utils.XMLMarshaller;
-import ac.at.acdh.x3ml.X3ML;
+import at.ac.acdh.transform.utils.CMDICreatorType;
+import at.ac.acdh.transform.utils.CMDIResourceType;
+import at.ac.acdh.transform.utils.XMLMarshaller;
+import gr.forth.x3ml.X3ML;
 
 
 public class Main {
