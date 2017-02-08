@@ -1,6 +1,8 @@
 	<!-- <property name="id" />  -->
 	
 	<property name="crm:E42_Identifier" relationship="crm:P1_is_identified_by">
+	
+		<!-- vlo:id -->
 		<concept name="persistent identifier">http://hdl.handle.net/11459/CCR_C-2573_ae7c2548-8a86-ab6e-7099-e28b7697d1a2</concept>
 		<concept name="recordIdentifier">http://hdl.handle.net/11459/CCR_C-5193_55564c2c-5ef1-1849-874c-210f86e02402</concept>
 		
@@ -176,7 +178,9 @@
 	</property>
 	
 	<property name="crm:E30_Right" relationship="crm:P129i_is_subject_of">
-					<!-- A description of the licensing conditions under which the resource can be used. -->
+	<!-- vlo:license + availability -->
+	
+		<!-- A description of the licensing conditions under which the resource can be used. -->
 		<concept>http://www.isocat.org/datcat/DC-2457</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2457_45bbaa1a-7002-2ecd-ab9d-57a189f694a6</concept>
 		<!-- A description of the licensing conditions... -->
