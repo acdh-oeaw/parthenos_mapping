@@ -69,10 +69,15 @@ public class CMDIComponentsMapper {
 				}
 				
 				cmd.getLink().add(
-					utils.createLink(
-						path, utils.createRange(xpath, utils.createEntity(propertyMap.getName(), utils.crateInstanceGenerator("UUID", null), templGen.simpleLabelLG()))
+					utils.createLink(path, utils.createRange(xpath, 
+						utils.createEntity(
+								propertyMap.getName(),
+								utils.crateInstanceGenerator("UUID", null),
+								templGen.simpleLabelLG(),
+								propertyMap.getType() != null? templGen.hasTypeTemplate(propertyMap.getType()) : null)
+						)
 					)
-				);				
+				);
 			}
 		}
 		

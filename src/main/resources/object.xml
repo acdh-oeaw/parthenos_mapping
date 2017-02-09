@@ -205,3 +205,20 @@
 		<concept>http://purl.org/dc/terms/rights</concept>
 		<concept>http://purl.org/dc/terms/accessRights</concept>
 	</property>
+	
+	<!-- vlo:genre -->
+	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="Facet Genre">
+		<concept>http://www.isocat.org/datcat/DC-2470</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-2470_d191f2b2-6339-f031-b534-70d526b28357</concept>
+		<concept>http://www.isocat.org/datcat/DC-3899</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-3899_c6c608e7-cb2e-1832-09ff-aee36e1f2ed4</concept>
+		<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:type/@olac-linguistic-type</pattern>
+		<!-- Find concept and add attribute somehow -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:genre/text()</pattern>
+
+
+		<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Corpus/cmdp:Topic/text()</pattern>
+		<!--  BAS media-corpus-profile -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Keyword/text()</pattern>
+		<!-- IDS IDSAGD_Corpus -->
+	</property>

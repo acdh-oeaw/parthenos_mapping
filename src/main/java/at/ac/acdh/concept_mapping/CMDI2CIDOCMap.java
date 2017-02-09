@@ -53,6 +53,9 @@ public class CMDI2CIDOCMap {
 		@XmlAttribute
 		String relationship;
 		
+		@XmlAttribute
+		String type;
+		
 		Intermediate intermediate;
 
 		@XmlElement(name = "concept")

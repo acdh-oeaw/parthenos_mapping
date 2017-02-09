@@ -70,7 +70,7 @@ public class ConceptMappingFactory {
 					}
 				}
 				
-				propertyMapList.add(new PropertyMap(property.name, property.relationship, patterns, property.intermediate));		
+				propertyMapList.add(new PropertyMap(property.name, property.relationship, patterns, property.intermediate, property.type));		
 			}
 			profileMapping.getMappings().put(entity.name, propertyMapList);
 		}

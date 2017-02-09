@@ -40,8 +40,6 @@ public class ProfileTransformer {
 		
 		x3ml.setMappings(mappings);
 		return x3ml;
-		
-		//XMLMarshaller<X3ML> xmlUtils = new XMLMarshaller<>(X3ML.class);
 	}
 	
 	
@@ -68,6 +66,4 @@ public class ProfileTransformer {
 		
 		return uri;
 	}
-	
-
 }

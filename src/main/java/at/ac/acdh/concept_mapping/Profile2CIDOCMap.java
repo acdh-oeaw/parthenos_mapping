@@ -32,18 +32,17 @@ public class Profile2CIDOCMap {
 	public static class PropertyMap {
 		String name;
 		String relationship;
+		String type;
 		
 		Intermediate intermadiate;
 		
 		private Collection<String> patterns;
-
-		public PropertyMap(String name, String relationship, Collection<String> patterns) {
-			this(name, relationship, patterns, null);
-		}
 		
-		public PropertyMap(String name, String relationship, Collection<String> patterns, Intermediate intermadiate) {
+		public PropertyMap(String name, String relationship, Collection<String> patterns, Intermediate intermadiate, String type) {
 			this.name = name;
 			this.relationship = relationship;
+			this.type = type;
+			
 			this.patterns = patterns;
 			this.intermadiate = intermadiate;
 		}
@@ -80,6 +79,16 @@ public class Profile2CIDOCMap {
 		public void setPatterns(Collection<String> patterns) {
 			this.patterns = patterns;
 		}
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+		
+		
 	}
 
 }
