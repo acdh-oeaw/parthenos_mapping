@@ -1,4 +1,4 @@
-package ac.at.acdh.transform;
+package at.ac.acdh.transform;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;

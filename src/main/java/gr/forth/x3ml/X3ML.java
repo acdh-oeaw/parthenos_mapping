@@ -10,6 +10,8 @@ package gr.forth.x3ml;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.Attributes.Name;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -1123,8 +1125,17 @@ public class X3ML {
             @XmlAttribute(name = "uri", required = true)
             @XmlSchemaType(name = "anySimpleType")
             protected String uri;
+            
+            public Namespace(){}            
 
-            /**
+            public Namespace(String prefix, String uri) {
+				this.prefix = prefix;
+				this.uri = uri;
+			}
+
+
+
+			/**
              * Gets the value of the prefix property.
              * 
              * @return

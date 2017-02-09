@@ -1,4 +1,4 @@
-package ac.at.acdh.transform;
+package at.ac.acdh.transform;
 
 import java.util.ArrayList;
 import java.util.HashMap;
