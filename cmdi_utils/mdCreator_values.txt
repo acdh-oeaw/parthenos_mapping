@@ -1,0 +1,303 @@
+Ciprian-Virgil Gerstenberger
+dir2corpus + rs
+Amanda_E
+Arbil.2.6.1075:
+Laura Perlitz, Daniel Jettka
+micbeer
+shannon
+MAC META DATA Template Conversion
+Arbil.2.6.1076:
+himmelmann
+JJS/Amanda
+Alisa Noha
+hand
+dleechin
+alduk
+Arbil.2.6.1074:
+Arbil.1.2.17495
+merwill
+Novel Kishore Rai
+Anna Hätty
+gunter
+Arbil.1.2.17484
+CTS2CMD Converter
+cmdicast
+gleim
+Arbil.1.1.17200
+Michal Maziarz
+Amanda _E
+DGD2CMDI
+Arbil.2.4.35629:
+carosh
+NDA-invoerder-3
+morneg
+NDA-invoerder-1
+NDA-invoerder-2
+Koos Schell
+xls2imdi.pl
+Admin
+Jan Pieter Kunst
+HL
+Editor - Profile:local/SignLanguage.Profile.xml
+Szymon Acedanski
+sbiancardi
+INL/TiU
+Arbil.2.2.25147:
+marcin
+Arbil.1.3.18181
+Lidy Jansen
+Arbil.1.1.17015
+Koos–S
+IMDI Converter - 1.9 to 3.02 standard, Transformation Date: 
+Deutsches Textarchiv
+Corpman
+gewiss-coma2cmdi.xsl (Daniel Jettka, CLARIN-GeWiss-KP)
+marverh
+monfle
+Marcin Oleksy
+Arbil.1.3.18399
+Arbil.2.3.29579:
+imdi2cmdi.xsl
+mesch
+Oddrun Ohren
+NB
+[repair_cv_links]
+Koos_S/Amanda
+Lisette van Dinther
+Arbil.1.3.18388
+COALA 2.3.2
+edrls
+Martine de Bruin
+Arbil.1.3.18373
+Dobes Editor
+drude
+csv2imdi.pl
+VU/UvT
+Piotr Rychlik
+jacrin
+PF
+Deutsches Textarchiv (Dingler)
+Empresa
+Arbil.1.3.18108
+Onno Crasborn
+dir2corpus
+Editor - Profile:local/CNGT.Profile.xml
+Administrator
+cjuarez
+SfS Tübingen
+pautri
+janmen
+Florian Schiel
+Arbil.2.3.29638:
+tcl-script ms
+L.Boumans
+Arbil.2.1.19911:
+koos
+pbrown
+dwrToCMDI.pl
+Arbil.2.3.29638:Sign Language
+Wojciech Jaworski
+jadabrow
+Nina Wijsbek
+Editor -     Profile:local/SESSION.Profile.xml
+Axel Herold, CLARIN-D
+Editor-Profile:local/SESSION.Profile.xml
+Editor - Profile:local/UMB_UMP_ELDP.Profile.xml
+LittleBoy
+Editor - Profile:local/DBD_Profile.Profile.xml
+Meertens Institute
+hand rs
+Robert spanings
+Littleboy
+Carla Parra EscartÃ­n
+BrowsableCorpusEditor
+Gyri Smørdal Losnegaard
+Arbil.2.2.21041:
+Ewa Rudnicka
+heeringa
+dir2corpus-imdi
+Editor - Profile:LEXICONRESOURCEBUNDLE.Profile.xml
+Robert Spanings
+Koos/Amanda
+Sprakbanken
+Vis00003
+Arbil.2.6.1109:Language and Genetics
+woonic
+generateFoxml.pl
+kweza
+Editor - Profile:SESSION.Profile.xml
+Editor - Profile:CORPUS.Profile
+COALA v2.5.5
+Christian Heinrich
+Folkert de Vriend
+Arbil.2.3.24367:
+CMDI Maker by CLASS - Cologne Language Archive Services
+COALA v2.5.1
+COALA v2.5.2
+COALA v2.5.0
+CLAN cmdi
+INL
+NLP Leipzig CMDI Creator 2.0
+Knut Hofland
+COALA v2.3
+Editor - Profile:local/SESSION.Profile.xml
+guisil
+Arbil.2.4.29757:
+JJS en Robert Spanings
+olac2cmdi.xsl
+Arbil.2.4.35659:
+Amanda en Koos
+Michal Marcinczuk
+Arbil.2.5.36777:
+Braukmann
+alekoe
+pernipa
+Editor - Profile:local/Kata_Kolok_semi-spont.Profile.xml - SignLanguage.Profile
+Arbil.2.3.29454:
+Marcin Wolinski
+Arbil.2.1.19652:
+himmelma
+Editor - Profile:CORPUS.Profile.xml
+claweg
+bgualdieri
+Paul Post
+Bea
+metashareToCmdi.xsl remove_metashare_namespace.xsl
+Bartosz Zaborowski
+Ludwig-Uhland-Institut für Empirische Kulturwissenschaft
+becks
+Arbil.2.4.36550:Language and Genetics
+Diedrik
+Arbil.2.5.30830:
+servicedesk@tst-centrale.org
+malcherk
+o.crasborn
+dw
+Arbil.2.1.19502:
+Arbil.2.3.27823:
+dir2corpus + rs hand
+Arbil.1.3.18401:Rough_Cuts_Template
+ aep
+mirvst
+dobesarc
+Arbil.2.4.33659:
+Gunter
+Rood
+johannesdaxenberger
+Bernhard Jackl
+Laura Perlitz, Heidemarie Sambale, Daniel Jettka
+Nederlands Instituut voor Beeld en Geluid
+Arbil.2.3.32711:
+cmdi_mods.xsl
+nnstt01@uni-tuebingen.de
+Arbil.2.5.1038:
+eduardo
+Arbil.2.2.20763:
+DOBES Template Conversion
+Biblio
+tcl-script (MS)
+servicedesk@inl.nl
+Jan Strunk
+Daniel Jettka
+Pawel Kedzia
+Arbil.2.5.1035:
+Editor - Profile:SESSION.Profile
+COALA 2.4.1
+COALA 2.4.2
+COALA 2.4.4
+COALA 2.4.5
+Arbil.2.6.1067:
+Arbil.2.4.36550:
+corpman
+Bruna
+nb
+Altebockwinkel
+Arbil.2.6.1089:
+u726116
+Arbil.2.5.1032:
+Robert_S
+folk2cmdi
+Magnus Breder
+Script 0.31
+Administrador
+Arbil.1.2.17710
+Eva Maisel
+Lana
+Arbil.2.3.29579:Sign Language
+metashareToCmdi.xsl
+rs
+Arbil.2.5.1040:
+Koos
+Arbil.1.3.1.18545
+sd
+nikdej
+rs hand
+vnercesian
+Matthias Priesters
+dietuyt_mpi.nl@clarin.eu
+rwaldie
+Arbil.2.6.1103:
+sonwic
+Editor - Profile:local/LEXICONRESOURCEBUNDLE.Profile.xml
+Marco Passarotti
+Koos_S
+Gunn Inger Lyse Samdal
+Agnieszka Patejuk
+r.vansluijs_let.ru.nl@clarin.eu
+Niko Partanen, Izva Komi Documentation Project
+Farina Freigang
+IMDI API
+Editor - Profile:local/CORPUS.Profile.xml
+Arbil.2.4.35659:Language and Genetics
+Konrad Goluchowski
+Carolin Odebrecht
+Amanda
+gabcab
+Arbil.2.0.19450:
+HZSK
+admin
+CLARIN-DK-UCPH
+Editor - Profile:local/SESSION.Profile.xml - SignLanguage.Profile
+rskiba
+thomfalk
+NDA-invoerder-
+sugai030
+Arbil.2.1.19481:
+Arbil.1.3.18401
+Sebastian
+Daniël de Kok
+JJS
+Arbil.2.3.29189:
+u522129
+maabis
+boumar
+aborsch
+Arbil.2.5.1038:Language and Genetics
+Adam Pawlowski
+Mind Research Repository CMDI Creator 1.1
+Arbil.2.2.20828:
+Arbil.2.3.32478:
+dietuyt
+Arbil.2.2.22347:
+Douwe Zeldenrust
+Bartlomiej Niton
+LAMS IMDIAPI
+Jan de Jong
+Arbil.1.3.17503
+MARTIN GAENSZLE
+COALA v2.6.1
+sermei
+piotr.sikora@ipipan.waw.pl Sikora
+Diedrik van der Wal
+jolank
+roman
+Arbil.2.2.25329:Sign Language
+Adrien Barbaresi, Axel Herold, CLARIN-D
+Arbil.2.6.1108:
+jongwil
+Arbil.2.2.25329:
+PHPScript
+Arbil.2.6.1109:
+Arbil.1.2.17739
+Danijel Koržinek
+generateCMDI.pl
