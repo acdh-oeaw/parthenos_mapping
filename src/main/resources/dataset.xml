@@ -1,5 +1,5 @@
+	<!-- vlo: organisation -->
 	<property name="crm:E40_Legal_Body" relationship="crm:P105_right_held_by">
-		<!-- vlo: organisation -->
 		
 		<concept>http://www.isocat.org/datcat/DC-2459</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2459_fc4e74d6-84de-c8cd-1ae8-2c2be5ee90b1</concept>
@@ -40,4 +40,11 @@
 		<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Corpus</pattern>
 		<!--  BAS media-session-profile-->
 		<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern>
+	</property>
+	
+	<!-- vlo:format -->
+	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO format">
+		<concept>http://www.isocat.org/datcat/DC-2571</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-2571_2be2e583-e5af-34c2-3673-93359ec1f7df</concept>
+		<concept>http://purl.org/dc/terms/format</concept>
 	</property>
