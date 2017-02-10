@@ -207,7 +207,7 @@
 	</property>
 	
 	<!-- vlo:genre -->
-	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="Facet Genre">
+	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO Genre">
 		<concept>http://www.isocat.org/datcat/DC-2470</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2470_d191f2b2-6339-f031-b534-70d526b28357</concept>
 		<concept>http://www.isocat.org/datcat/DC-3899</concept>
@@ -221,4 +221,22 @@
 		<!--  BAS media-corpus-profile -->
 		<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Keyword/text()</pattern>
 		<!-- IDS IDSAGD_Corpus -->
+	</property>
+	
+	<!-- vlo:keywords -->
+	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO Keywords">
+		  <!-- concept 'metadata tag' -->
+        <concept>http://www.isocat.org/datcat/DC-5436</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-5436_6ab57c2c-5f8d-3561-6db6-d75da23d2637</concept>
+                <!-- concept 'keyword' -->
+                <concept>http://www.isocat.org/datcat/DC-278</concept>
+		<concept>http://hdl.handle.net/11459/CCR_C-278_336dd81a-626b-713e-c74a-34fa2ca26a71"</concept>
+		<!-- not an official ISOcat PID - added to support LrtInventoryResource, should be removed in the future -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:classification/text()</pattern>
+
+
+		<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Corpus/text()</pattern>
+		<!--  BAS -->
+		<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Collection/cmdp:Project/cmdp:Title/text()</pattern>
+		<!--  BAS -->
 	</property>
