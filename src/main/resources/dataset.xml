@@ -1,5 +1,8 @@
 	<!-- vlo: organisation -->
-	<property name="crm:E40_Legal_Body" relationship="crm:P105_right_held_by">
+	<property name="crm:E40_Legal_Body" relationship="crmpe:PP8i_is_dataset_hosted_by">
+	
+		<intermediate type="crmpe:PE7_Data_Hosting_Service " relationship="crm:PP2_provided_by"/>
+	
 		
 		<concept>http://www.isocat.org/datcat/DC-2459</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2459_fc4e74d6-84de-c8cd-1ae8-2c2be5ee90b1</concept>
