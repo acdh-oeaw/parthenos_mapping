@@ -45,7 +45,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>ac.at.acdh.transform.Main</mainClass>
+							<mainClass>at.ac.acdh.transform.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
