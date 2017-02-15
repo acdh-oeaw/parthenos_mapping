@@ -177,7 +177,7 @@
 	<!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
 	</property>
 	
-	<property name="crm:E30_Right" relationship="crm:is">
+	<property name="crm:E30_Right" relationship="crm:P129i_is_subject_of">
 	<!-- vlo:license + availability -->
 	
 		<!-- A description of the licensing conditions under which the resource can be used. -->
