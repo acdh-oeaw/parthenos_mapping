@@ -8,6 +8,7 @@ import com.ximpleware.VTDException;
 import at.ac.acdh.concept_mapping.ConceptMappingFactory;
 import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
 import at.ac.acdh.transformer.utils.CMDICreatorType;
+import at.ac.acdh.transformer.utils.ProfileClassificationService;
 import at.ac.acdh.transformer.utils.TemplateGenerator;
 import at.ac.acdh.transformer.utils.X3MLAdapter;
 import gr.forth.x3ml.X3ML;
@@ -18,6 +19,11 @@ import gr.forth.x3ml.X3ML.Namespaces.Namespace;
 public class ProfileTransformer {
 	
 	static Pattern PROFILE_ID = Pattern.compile(".*(clarin.eu:cr1:p_\\d{13}).*");
+	
+	public X3ML transform(String profileUrl, CMDICreatorType creatorType) throws VTDException{
+		String resourceType = new ProfileClassificationService().getType(extractProfileId(profileUrl));		
+		return transform(profileUrl, creatorType, resourceType);
+	}
 	
 	public X3ML transform(String profileUrl, CMDICreatorType creatorType, String resourceType) throws VTDException{
 		Profile2CIDOCMap conceptMappings = ConceptMappingFactory.getMapping(profileUrl);
@@ -64,12 +70,17 @@ public class ProfileTransformer {
 		return namespaces;
 	}
 	
-	private static String getProfileURI(String url){
+	private String getProfileURI(String url){
 		String uri = "http://www.clarin.eu/cmd/1/profiles/";
-		Matcher matcher = PROFILE_ID.matcher(url);
-		if(matcher.matches())
-			uri += matcher.group(1);
-		
+		uri += extractProfileId(url);		
 		return uri;
+	}
+	
+	private String extractProfileId(String url){
+		Matcher matcher = PROFILE_ID.matcher(url);
+		String id = "";
+		if(matcher.matches())
+			id += matcher.group(1);		
+		return id;
 	}
 }

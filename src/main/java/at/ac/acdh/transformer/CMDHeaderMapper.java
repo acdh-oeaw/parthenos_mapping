@@ -6,11 +6,10 @@ import java.util.List;
 
 import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
 import at.ac.acdh.transformer.utils.CMDICreatorType;
-import at.ac.acdh.transformer.utils.CMDIResourceType;
 import at.ac.acdh.transformer.utils.LinkNode;
+import at.ac.acdh.transformer.utils.LinkNode.ObjectNode;
 import at.ac.acdh.transformer.utils.TemplateGenerator;
 import at.ac.acdh.transformer.utils.X3MLAdapter;
-import at.ac.acdh.transformer.utils.LinkNode.ObjectNode;
 import gr.forth.x3ml.DomainTargetNodeType;
 import gr.forth.x3ml.Entity;
 import gr.forth.x3ml.X3ML.Mappings.Mapping;
@@ -82,7 +81,7 @@ class CMDHeaderMapper extends MappingGenerator{
 		cmd.getLink().add(link.toLink());
 			
 		
-		String relation = resourceType.equals(CMDIResourceType.SERVICE)? "crm:P129_is_about" : "crmpe:PP39_is_metadata_for";		
+		String relation = resourceType.equals("crmpe:PE8_E-Service")? "crm:P129_is_about" : "crmpe:PP39_is_metadata_for";		
 		Entity mainEntity = adapter.createEntity(resourceType, adapter.crateInstanceGenerator("UUID", null), null);
 		mainEntity.setGlobalVariable("main_entity");
 		

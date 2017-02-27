@@ -18,6 +18,7 @@ public class ConceptMappingFactory {
 	
 	public static Profile2CIDOCMap getMapping(String profileSchemaUrl) throws VTDException{
 		CMDI2CIDOCMap xml = Concepts2CIDOCFactory.unmarshall();
+		
 		ParsedProfile parsedProfile = ParsedProfileFactory.parse(profileSchemaUrl, true);
 		
 		//leave only xpath in profile specific section

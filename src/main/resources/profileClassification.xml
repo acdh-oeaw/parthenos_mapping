@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles>
+	
+	<type entity="crmpe:PE8_E-Service">
+		<profile id="clarin.eu:cr1:p_1423750293168" name="BASWebService" />
+		<profile id="clarin.eu:cr1:p_1381926654686" name="BASWebService" />
+		<profile id="clarin.eu:cr1:p_1324638957718" name="BASWebService" />
+		<profile id="clarin.eu:cr1:p_1311927752335" name="CLARINWebService"/>		
+		<profile id="clarin.eu:cr1:p_1469541567396" name="TextImagerWebService" />
+		<profile id="clarin.eu:cr1:p_1311927752306" name="WebLichtWebService"/>
+		<profile id="clarin.eu:cr1:p_1295178776924" name="serviceDescription"/>
+		<profile id="clarin.eu:cr1:p_1297242111880" name="AnnotationTool" />
+		<profile id="clarin.eu:cr1:p_1297242111879" name="Tool" /> <!-- tool -> software or service -->		
+		<profile id="clarin.eu:cr1:p_1360230992146" name="ToolService" />
+		<profile id="clarin.eu:cr1:p_1311927752306" name="ToolService" />
+	</type>
+	
+	<!-- 
+	<type entity="crmdig:D14_Software">
+		<profile id="clarin.eu:cr1:p_1288172614017" name="BamdesTool"/>
+		<profile id="clarin.eu:cr1:p_1290431694581" name="ToolProfile"/>
+		<profile id="clarin.eu:cr1:p_1469541567394" name="WebApplication" />
+	</type>	 
+	-->
+	
+	<!-- Dataset by default - crmpe:PE24_Volatile_Dataset-->
+	
+</profiles>
