@@ -40,9 +40,9 @@ public class ProfileTransformer {
 		//add mappings for header
 		mappings.getMapping().addAll(headerMapper.transformToMappings());		
 		//add mappings for resource part
-		mappings.getMapping().addAll(headerMapper.transformToMappings());		
+		mappings.getMapping().addAll(resourceProxyMapper.transformToMappings());		
 		//add mappings for components part
-		mappings.getMapping().addAll(headerMapper.transformToMappings());
+		mappings.getMapping().addAll(componentsMapper.transformToMappings());
 		
 		
 		x3ml.setMappings(mappings);
