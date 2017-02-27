@@ -5,7 +5,7 @@
 ]>
 
 <mappings>
-	<entity name="service">
+	<entity name="crmpe:PE8_E-Service">
 		<properties>
 			&objectProperties;
 		</properties>
@@ -13,7 +13,7 @@
 		
 	</entity>
 	
-	<entity name="dataset">	
+	<entity name="crmpe:PE24_Volatile_Dataset">	
 			
 			<properties>
 			&objectProperties;

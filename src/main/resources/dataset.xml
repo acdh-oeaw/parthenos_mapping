@@ -1,7 +1,6 @@
 	<!-- vlo: organisation -->
-	<property name="crm:E40_Legal_Body" relationship="crmpe:PP8i_is_dataset_hosted_by">
-	
-		<intermediate type="crmpe:PE7_Data_Hosting_Service " relationship="crm:PP2_provided_by"/>
+	<property relationship="crmpe:PP8i_is_dataset_hosted_by" name="crmpe:PE7_Data_Hosting_Service">	
+		<intermediate relationship="crm:PP2_provided_by" type="crm:E40_Legal_Body"/>
 	
 		
 		<concept>http://www.isocat.org/datcat/DC-2459</concept>
@@ -24,11 +23,10 @@
 		<!--  IDS WebLichtWebService -->
 		<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Creation/cmdp:Creators/cmdp:Creator</blacklistPattern>
 		<!--  IDS WebLichtWebService -->
-	</property>
+	</property>	
 	
-	
-	<property name="crmpe:PE25_RI_Consortium" relationship="crm:P94i_was_created_by">
-		<intermediate type="crm:E65_Creation" relationship="crm:P14_carried_out_by"/>
+	<property relationship="crm:P94i_was_created_by" name="crm:E65_Creation">
+		<intermediate type="crmpe:PE25_RI_Consortium" relationship="crm:P14_carried_out_by"/>
 		
 		<!-- vlo:projectName -->
 		<concept>http://www.isocat.org/datcat/DC-2536</concept>
@@ -46,7 +44,7 @@
 	</property>
 	
 	<!-- vlo:format -->
-	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO format">
+	<property relationship="crm:P2_has_type" name="crm:E55_Type" type="CLARIN VLO format">
 		<concept>http://www.isocat.org/datcat/DC-2571</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2571_2be2e583-e5af-34c2-3673-93359ec1f7df</concept>
 		<concept>http://purl.org/dc/terms/format</concept>

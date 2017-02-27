@@ -1,4 +1,4 @@
-package at.ac.acdh.transform;
+package at.ac.acdh.transformer;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,8 +7,9 @@ import com.ximpleware.VTDException;
 
 import at.ac.acdh.concept_mapping.ConceptMappingFactory;
 import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
-import at.ac.acdh.transform.utils.CMDICreatorType;
-import at.ac.acdh.transform.utils.CMDIResourceType;
+import at.ac.acdh.transformer.utils.CMDICreatorType;
+import at.ac.acdh.transformer.utils.TemplateGenerator;
+import at.ac.acdh.transformer.utils.X3MLAdapter;
 import gr.forth.x3ml.X3ML;
 import gr.forth.x3ml.X3ML.Mappings;
 import gr.forth.x3ml.X3ML.Namespaces;
@@ -18,7 +19,7 @@ public class ProfileTransformer {
 	
 	static Pattern PROFILE_ID = Pattern.compile(".*(clarin.eu:cr1:p_\\d{13}).*");
 	
-	public X3ML transform(String profileUrl, CMDICreatorType creatorType, CMDIResourceType resourceType) throws VTDException{
+	public X3ML transform(String profileUrl, CMDICreatorType creatorType, String resourceType) throws VTDException{
 		Profile2CIDOCMap conceptMappings = ConceptMappingFactory.getMapping(profileUrl);
 		
 		X3ML x3ml = new X3ML();	
@@ -28,20 +29,25 @@ public class ProfileTransformer {
 		
 		
 		Mappings mappings = new Mappings();
-		mappings = new Mappings();
+		
+		X3MLAdapter adapter = new X3MLAdapter();
+		TemplateGenerator templGen = new TemplateGenerator();
+		
+		MappingGenerator headerMapper = new CMDHeaderMapper(conceptMappings, resourceType, adapter, templGen, creatorType);
+		MappingGenerator resourceProxyMapper = new CMDResProxyMapper(conceptMappings, resourceType, adapter, templGen);
+		MappingGenerator componentsMapper = new CMDComponentsMapper(conceptMappings, resourceType, adapter, templGen);
 		
 		//add mappings for header
-		mappings.getMapping().addAll(new CMDHeaderMapper(conceptMappings).getMappings(creatorType, resourceType));
-		
+		mappings.getMapping().addAll(headerMapper.transformToMappings());		
 		//add mappings for resource part
+		mappings.getMapping().addAll(headerMapper.transformToMappings());		
+		//add mappings for components part
+		mappings.getMapping().addAll(headerMapper.transformToMappings());
 		
-		//add mappings for components part		
-		mappings.getMapping().addAll(new CMDIComponentsMapper(conceptMappings).getMappings(resourceType));
 		
 		x3ml.setMappings(mappings);
 		return x3ml;
-	}
-	
+	}	
 	
 	private Namespaces createNamespaces(String profileUrl){
 		Namespaces namespaces = new Namespaces();

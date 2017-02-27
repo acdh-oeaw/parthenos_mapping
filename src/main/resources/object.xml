@@ -1,6 +1,6 @@
 	<!-- <property name="id" />  -->
 	
-	<property name="crm:E42_Identifier" relationship="crm:P1_is_identified_by">
+	<property relationship="crm:P1_is_identified_by" name="crm:E42_Identifier">
 	
 		<!-- vlo:id -->
 		<concept name="persistent identifier">http://hdl.handle.net/11459/CCR_C-2573_ae7c2548-8a86-ab6e-7099-e28b7697d1a2</concept>
@@ -14,7 +14,7 @@
 		 -->
 	</property>
 	
-	<property name="crm:E41_Appellation" relationship="crm:P1_is_identified_by">
+	<property relationship="crm:P1_is_identified_by" name="crm:E41_Appellation">
 	
 		<concept name="file name">http://hdl.handle.net/11459/CCR_C-5435_155a7fae-a941-e6a8-4b63-4f6d1bd0c2aa</concept>
 		
@@ -54,7 +54,7 @@
 	</property>
 	
 	<!-- Description -->
-	<property name="http://www.w3.org/2000/01/rdf-schema#Literal" relationship="crm:P3_has_note">
+	<property relationship="crm:P3_has_note" name="http://www.w3.org/2000/01/rdf-schema#Literal">
 		<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
 		<concept name="note">http://hdl.handle.net/11459/CCR_C-6124_2e45fdf9-ced2-89c9-a09d-b4769e9fede6</concept>	
 		<concept>http://purl.org/dc/terms/description</concept>
@@ -177,7 +177,7 @@
 	<!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
 	</property>
 	
-	<property name="crm:E30_Right" relationship="crm:P129i_is_subject_of">
+	<property relationship="crm:P129i_is_subject_of" name="crm:E30_Right">
 	<!-- vlo:license + availability -->
 	
 		<!-- A description of the licensing conditions under which the resource can be used. -->
@@ -207,7 +207,7 @@
 	</property>
 	
 	<!-- vlo:genre -->
-	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO Genre">
+	<property relationship="crm:P2_has_type" name="crm:E55_Type" type="CLARIN VLO Genre">
 		<concept>http://www.isocat.org/datcat/DC-2470</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2470_d191f2b2-6339-f031-b534-70d526b28357</concept>
 		<concept>http://www.isocat.org/datcat/DC-3899</concept>
@@ -224,7 +224,7 @@
 	</property>
 	
 	<!-- vlo:keywords -->
-	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO Keywords">
+	<property relationship="crm:P2_has_type" name="crm:E55_Type" type="CLARIN VLO Keywords">
 		  <!-- concept 'metadata tag' -->
         <concept>http://www.isocat.org/datcat/DC-5436</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-5436_6ab57c2c-5f8d-3561-6db6-d75da23d2637</concept>
@@ -242,7 +242,7 @@
 	</property>
 	
 	<!-- vlo:subject -->
-	<property name="crm:E55_Type" relationship="crm:P129_is_about" type="CLARIN VLO Subject">
+	<property relationship="crm:P129_is_about" name="crm:E55_Type" type="CLARIN VLO Subject">
 		<concept>http://www.isocat.org/datcat/DC-2591</concept>
 		<concept>http://hdl.handle.net/11459/CCR_C-2591_f769d93b-c007-d2c9-aff2-99e9177e5764</concept>
 		<concept>http://purl.org/dc/terms/subject</concept>
@@ -280,7 +280,7 @@
 	</property>
 	
 	<!-- vlo:resourceClass -->
-	<property name="crm:E55_Type" relationship="crm:P2_has_type" type="CLARIN VLO resourceType">
+	<property relationship="crm:P2_has_type" name="crm:E55_Type" type="CLARIN VLO resourceType">
 		<concept>http://purl.org/dc/terms/type</concept>
 		<concept>http://purl.org/dc/elements/1.1/type</concept>
 		<concept>http://www.isocat.org/datcat/DC-3806</concept>

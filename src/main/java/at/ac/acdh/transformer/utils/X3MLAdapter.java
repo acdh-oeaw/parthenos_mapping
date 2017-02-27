@@ -1,4 +1,4 @@
-package at.ac.acdh.transform.utils;
+package at.ac.acdh.transformer.utils;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ import gr.forth.x3ml.X3ML.Mappings.Mapping.Link;
 import gr.forth.x3ml.X3ML.Mappings.Mapping.Link.Path;
 import gr.forth.x3ml.X3ML.Mappings.Mapping.Link.Range;
 
-public class X3MLUtils {
+public class X3MLAdapter {
 	
 	/*
 	 * there are 2 Arg classes, one in InstanceGen and the other in LabelGen but they are identical 
@@ -107,29 +107,25 @@ public class X3MLUtils {
 		
 		Path path = new Path();
 		path.setSourceRelation(srcRelation);
-		path.setTargetRelation(tgtRelation);
-		
+		path.setTargetRelation(tgtRelation);		
 		
 		return path;
 	}
 	
-	public Path createPathWithIntermediate(String sourceXpath, String intermediateRelation, String targetRelation, Entity targetEntity){
+	public Path createPathWithIntermediate(String sourceXpath, String intermediateRelation, Entity intermediateEntity, String targetRelation){
 		SourceRelationType srcRelation = new SourceRelationType();
 		srcRelation.getRelation().add(sourceXpath);
 		
 		TargetRelationType tgtRelation = new TargetRelationType();
 		tgtRelation.getEntityAndRelationship().add(intermediateRelation);
 		
-		if(targetEntity != null)
-			tgtRelation.getEntityAndRelationship().add(targetEntity);
+		if(intermediateEntity != null)
+			tgtRelation.getEntityAndRelationship().add(intermediateEntity);
 		
 		Path path = new Path();
 		path.setSourceRelation(srcRelation);	
 		path.setTargetRelation(tgtRelation);
-		path.getTargetRelation().getEntityAndRelationship().add(targetRelation);
-		
-		
-		
+		path.getTargetRelation().getEntityAndRelationship().add(targetRelation);		
 		
 		return path;
 	}
@@ -150,5 +146,9 @@ public class X3MLUtils {
 		link.setRange(range);
 		return link;
 	}
+	
+	public void createLink(String srcNode){}
+	
+	
 
 }

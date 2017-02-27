@@ -1,4 +1,4 @@
-package at.ac.acdh.transform.utils;
+package at.ac.acdh.transformer.utils;
 
 import java.util.Arrays;
 
@@ -8,7 +8,7 @@ import gr.forth.x3ml.LabelGenerator;
 
 public class TemplateGenerator {
 	
-	private X3MLUtils utils = new X3MLUtils();
+	private X3MLAdapter utils = new X3MLAdapter();
 	
 	public Additional hasTypeTemplate(String type){
 		Additional add = utils.createAditional( //hasType = metadata

@@ -2,6 +2,7 @@ package at.ac.acdh.concept_mapping;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -56,7 +57,8 @@ public class CMDI2CIDOCMap {
 		@XmlAttribute
 		String type;
 		
-		Intermediate intermediate;
+		@XmlElement(name = "intermediate")
+		List<Intermediate> intermediates;
 
 		@XmlElement(name = "concept")
 		Collection<String> concepts = new ArrayList<>();

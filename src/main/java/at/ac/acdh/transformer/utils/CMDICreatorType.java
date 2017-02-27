@@ -1,4 +1,4 @@
-package at.ac.acdh.transform.utils;
+package at.ac.acdh.transformer.utils;
 
 public enum CMDICreatorType {	
 	SOFTWARE,

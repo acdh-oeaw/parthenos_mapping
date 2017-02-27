@@ -34,17 +34,17 @@ public class Profile2CIDOCMap {
 		String relationship;
 		String type;
 		
-		Intermediate intermadiate;
+		List<Intermediate> intermadiates;
 		
 		private Collection<String> patterns;
 		
-		public PropertyMap(String name, String relationship, Collection<String> patterns, Intermediate intermadiate, String type) {
+		public PropertyMap(String name, String relationship, Collection<String> patterns, List<Intermediate> intermadiates, String type) {
 			this.name = name;
 			this.relationship = relationship;
 			this.type = type;
 			
 			this.patterns = patterns;
-			this.intermadiate = intermadiate;
+			this.intermadiates = intermadiates;
 		}
 
 		public String getName() {
@@ -64,12 +64,12 @@ public class Profile2CIDOCMap {
 		}		
 		
 
-		public Intermediate getIntermadiate() {
-			return intermadiate;
+		public List<Intermediate> getIntermadiates() {
+			return intermadiates;
 		}
 
-		public void setIntermadiate(Intermediate intermadiate) {
-			this.intermadiate = intermadiate;
+		public void setIntermadiates(List<Intermediate> intermadiates) {
+			this.intermadiates = intermadiates;
 		}
 
 		public Collection<String> getPatterns() {

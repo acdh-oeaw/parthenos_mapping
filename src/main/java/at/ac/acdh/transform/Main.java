@@ -9,9 +9,9 @@ import org.apache.commons.cli.OptionGroup;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.PosixParser;
 
-import at.ac.acdh.transform.utils.CMDICreatorType;
-import at.ac.acdh.transform.utils.CMDIResourceType;
-import at.ac.acdh.transform.utils.XMLMarshaller;
+import at.ac.acdh.transformer.ProfileTransformer;
+import at.ac.acdh.transformer.utils.CMDICreatorType;
+import at.ac.acdh.transformer.utils.CMDIResourceType;
 import gr.forth.x3ml.X3ML;
 
 
@@ -28,11 +28,11 @@ public class Main {
 		Options helpOptions = createHelpOption();
 		Options options = createOptions();
 
-		CommandLine cmd = null;
+		CommandLine cli = null;
 		HelpFormatter formatter = new HelpFormatter();		
 		try {
-			cmd = parser.parse(helpOptions, args);
-			if (cmd.hasOption("help")) {
+			cli = parser.parse(helpOptions, args);
+			if (cli.hasOption("help")) {
 				formatter.printHelp(HELP_TEXT_HEADER, "description of parameters", options, HELP_TEXT_FOOTER);
 				return;
 			}
@@ -41,31 +41,21 @@ public class Main {
 		}
 
 		try {
-			cmd = parser.parse(options, args);
+			cli = parser.parse(options, args);
 		} catch (org.apache.commons.cli.ParseException e) {
 			formatter.printHelp(HELP_TEXT_HEADER, "description of parameters", options, HELP_TEXT_FOOTER);
 			return;
 		}
 		
-		String url = cmd.getOptionValue("profile");
-		CMDICreatorType creatorType = cmd.hasOption("actor")? CMDICreatorType.ACTOR : CMDICreatorType.SOFTWARE;
-		CMDIResourceType resourceType = cmd.hasOption("dataset")? CMDIResourceType.DATASET : CMDIResourceType.SERVICE;
+		String url = cli.getOptionValue("profile");
+		CMDICreatorType creatorType = cli.hasOption("actor")? CMDICreatorType.ACTOR : CMDICreatorType.SOFTWARE;
+		String resourceType = cli.hasOption("dataset")? CMDIResourceType.DATASET : CMDIResourceType.SERVICE;
 		
-		
-		ProfileTransformer transformer = new ProfileTransformer();
 		XMLMarshaller<X3ML> xmlUtils = new XMLMarshaller<>(X3ML.class);
 		X3ML x3ml = new ProfileTransformer().transform(url, creatorType, resourceType);
 		
 		xmlUtils.marshal(x3ml, System.out);
 		
-		/*
-		X3ML service = transformer.transform("https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd",
-				CMDICreatorType.SOFTWARE, CMDIResourceType.SERVICE);
-		
-		X3ML dataset = transformer.transform("https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd",
-				CMDICreatorType.ACTOR, CMDIResourceType.DATASET);
-		
-		*/
 	}
 	
 
