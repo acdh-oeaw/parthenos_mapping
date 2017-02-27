@@ -66,6 +66,10 @@ public class Entity {
     @XmlAttribute(name = "variable")
     @XmlSchemaType(name = "anySimpleType")
     protected String variable;
+    
+    //custom field, seems that old version of x3ml didn't have it
+    @XmlAttribute(name = "global_variable")
+    protected String globalVariable;
 
     /**
      * Gets the value of the type property.
@@ -226,5 +230,17 @@ public class Entity {
     public void setVariable(String value) {
         this.variable = value;
     }
+
+
+	public String getGlobalVariable() {
+		return globalVariable;
+	}
+
+
+	public void setGlobalVariable(String globalVariable) {
+		this.globalVariable = globalVariable;
+	}
+    
+    
 
 }
