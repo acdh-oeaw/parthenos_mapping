@@ -41,16 +41,20 @@
 	<build>
 		<plugins>
 			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
+				<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-assembly-plugin</artifactId>
+            	<version>2.4</version>
 				<configuration>
+					<finalName>x3ml-gen</finalName>
 					<archive>
 						<manifest>
-							<mainClass>at.ac.acdh.transform.Main</mainClass>
+							<mainClass>at.ac.acdh.main.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
+					<appendAssemblyId>false</appendAssemblyId>
 				</configuration>
 			</plugin>
 		</plugins>
