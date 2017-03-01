@@ -1,4 +1,3 @@
-	<!-- <property name="id" />  -->
 	
 	<property relationship="crm:P1_is_identified_by" name="crm:E42_Identifier">
 	

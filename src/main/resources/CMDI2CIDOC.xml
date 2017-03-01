@@ -3,27 +3,22 @@
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
 ]>
-
 <mappings>
+
+	<!-- Service -->
 	<entity name="crmpe:PE8_E-Service">
 		<properties>
 			&objectProperties;
 		</properties>
-		<!-- <xi:include href="object.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>	 -->
 		
 	</entity>
 	
-	<entity name="crmpe:PE24_Volatile_Dataset">	
-			
-			<properties>
+	<!-- Dataset-->
+	<entity name="crmpe:PE24_Volatile_Dataset">				
+		<properties>
 			&objectProperties;
 			&datasetProperties;
-		</properties>
-			
-			<!-- 
-			<xi:include href="object.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>			
-			<xi:include href="dataset.xml" xmlns:xi="http://www.w3.org/2001/XInclude"></xi:include>
-			-->
+		</properties>			
 	</entity>
 
 </mappings>
