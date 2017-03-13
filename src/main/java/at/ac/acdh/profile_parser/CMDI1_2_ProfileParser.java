@@ -19,7 +19,12 @@ class CMDI1_2_ProfileParser extends ProfileParser{
 	@Override
 	protected String getCMDVersion() {
 		return "1.2";
-	}	
+	}
+	
+	@Override
+	protected String getNamespace() {
+		return "cmdp";
+	}
 	
 	@Override
 	protected String conceptAttributeName(){
@@ -82,7 +87,8 @@ class CMDI1_2_ProfileParser extends ProfileParser{
 				parent = parent.parent;
 			}
 			
-			String prefix = (namespace)? "/cmdp:CMD/cmdp:Components/" : "/CMD/Components/";
+
+			String prefix = (namespace)? "/cmd:CMD/cmd:Components/" : "/CMD/Components/";			
 			xpath = prefix + xpath + (node.type == NodeType.ATTRIBUTE || node.type == NodeType.CMD_VERSION_ATTR
 					? "@" + node.name : node.name + "/text()");
 			

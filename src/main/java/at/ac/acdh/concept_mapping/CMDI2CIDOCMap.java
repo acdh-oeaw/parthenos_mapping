@@ -2,103 +2,85 @@ package at.ac.acdh.concept_mapping;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "mappings")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class CMDI2CIDOCMap {
+public class CMDI2CIDOCMap{
 
 	@XmlElement(name = "entity")
 	Collection<ParthenosEntity> entities = new ArrayList<>();
-
+	
 	@Override
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		if (entities != null)
-			entities.forEach(e -> sb.append(e.toString()));
+		StringBuffer sb = new StringBuffer();
+		for(ParthenosEntity pe: entities)
+			sb.append(pe.toString() + "\n");
+		
 		return sb.toString();
+	}
+	
+
+	public Collection<ParthenosEntity> getEntities() {
+		return entities;
+	}
+
+	public void setEntities(Collection<ParthenosEntity> entities) {
+		this.entities = entities;
 	}
 
 	@XmlAccessorType(XmlAccessType.FIELD)
 	public static class ParthenosEntity {
-		@XmlAttribute
-		String name;		
+		@XmlAttribute String xpath;
+		@XmlAttribute String relationship;		
+		@XmlAttribute String type;
+		@XmlAttribute String hasType;
+		@XmlAttribute String var;
+		@XmlAttribute String globVar;
+		@XmlAttribute String condition;
 		
-		@XmlElementWrapper(name = "properties")
-		@XmlElement(name = "property")
-		Collection<Property> properties = new ArrayList<>();
+		@XmlElement(name = "link")
+		Collection<Link> links = new ArrayList<>();
 		
 		@Override
 		public String toString() {
-			StringBuilder sb = new StringBuilder("entity: " + name + "\n");
-			properties.forEach(sb::append);
-			return sb.toString();
-		}
-		
-	}
-	
-
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.FIELD)
-	public static class Property {
-		@XmlAttribute
-		String name;
-		
-		@XmlAttribute
-		String relationship;
-		
-		@XmlAttribute
-		String type;
-		
-		@XmlElement(name = "intermediate")
-		List<Intermediate> intermediates;
-
-		@XmlElement(name = "concept")
-		Collection<String> concepts = new ArrayList<>();
-
-		@XmlElement(name = "pattern")
-		Collection<String> patterns = new ArrayList<>();
-
-		@XmlElement(name = "blacklistPattern")
-		Collection<String> blacklistPatterns = new ArrayList<>();
-
-		@Override
-		public String toString() {
-			StringBuilder sb = new StringBuilder("\tproperty: -> " + relationship + " -> " + name + "\n");
-			if (concepts != null)
-				concepts.forEach(c -> sb.append("\t\t").append("concept: " + c).append("\n"));
-			if (patterns != null)
-				patterns.forEach(p -> sb.append("\t\t").append("pattern: " + p).append("\n"));
-			if (blacklistPatterns != null)
-				blacklistPatterns.forEach(b -> sb.append("\t\t").append("black pattern: " + b).append("\n"));
-
-			return sb.toString();
-		}
-	}
-	
-	@XmlRootElement
-	@XmlAccessorType(XmlAccessType.FIELD)
-	public static class Intermediate {
-		
-		@XmlAttribute
-		String type;
-		
-		@XmlAttribute
-		String relationship;
-
-		public String getType() {
-			return type;
+			StringBuffer sb = new StringBuffer("entity: ");
+			if(xpath != null)
+				sb.append(xpath + "->");
+			if(relationship != null)
+				sb.append(relationship + "->");
+			sb.append(type);
+			
+			if(hasType != null)
+				sb.append("hasType " + hasType);
+			
+			if(var != null)
+				sb.append("var=" + var);
+			
+			if(globVar != null)
+				sb.append("globVar=" + globVar);
+			
+			if(condition != null)
+				sb.append("condition=" + condition);
+			
+			sb.append("\n");
+			for(Link l: links)
+				sb.append(l.toString());
+			
+			return sb.toString();			
 		}
 
-		public void setType(String type) {
-			this.type = type;
+		public String getXpath() {
+			return xpath;
+		}
+
+		public void setXpath(String xpath) {
+			this.xpath = xpath;
 		}
 
 		public String getRelationship() {
@@ -108,7 +90,118 @@ public class CMDI2CIDOCMap {
 		public void setRelationship(String relationship) {
 			this.relationship = relationship;
 		}
+
+		public String getType() {
+			return type;
+		}
+
+		public void setType(String type) {
+			this.type = type;
+		}
+
+		public String getHasType() {
+			return hasType;
+		}
+
+		public void setHasType(String hasType) {
+			this.hasType = hasType;
+		}
+
+		public String getVar() {
+			return var;
+		}
+
+		public void setVar(String var) {
+			this.var = var;
+		}
+
+		public String getGlobVar() {
+			return globVar;
+		}
+
+		public void setGlobVar(String globVar) {
+			this.globVar = globVar;
+		}
+
+		public String getCondition() {
+			return condition;
+		}
+
+		public void setCondition(String condition) {
+			this.condition = condition;
+		}
+
+		public Collection<Link> getLinks() {
+			return links;
+		}
+
+		public void setLinks(Collection<Link> links) {
+			this.links = links;
+		}		
+	}	
+
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.FIELD)
+	public static class Link {		
+		@XmlElement(name = "entity")
+		Collection<ParthenosEntity> entities = new ArrayList<>();
 		
+		@XmlElement(name = "concept")
+		Collection<String> concepts = new ArrayList<>();
+
+		@XmlElement(name = "pattern")
+		Collection<String> patterns = new ArrayList<>();
+
+		@XmlElement(name = "blacklistPattern")
+		Collection<String> blacklistPatterns = new ArrayList<>();
+		
+		@Override
+		public String toString() {
+			StringBuffer sb = new StringBuffer("link:\n");		
+			
+			for(ParthenosEntity pe: entities)
+				sb.append(pe.toString());
+			
+			for(String concept: concepts)
+				sb.append(concept + "\n");
+			
+			for(String pattern: patterns)
+				sb.append(pattern + "\n");
+			
+			return sb.toString();			
+		}
+
+		public Collection<ParthenosEntity> getEntities() {
+			return entities;
+		}
+
+		public void setEntities(Collection<ParthenosEntity> entities) {
+			this.entities = entities;
+		}
+
+		public Collection<String> getConcepts() {
+			return concepts;
+		}
+
+		public void setConcepts(Collection<String> concepts) {
+			this.concepts = concepts;
+		}
+
+		public Collection<String> getPatterns() {
+			return patterns;
+		}
+
+		public void setPatterns(Collection<String> patterns) {
+			this.patterns = patterns;
+		}
+
+		public Collection<String> getBlacklistPatterns() {
+			return blacklistPatterns;
+		}
+
+		public void setBlacklistPatterns(Collection<String> blacklistPatterns) {
+			this.blacklistPatterns = blacklistPatterns;
+		}		
 	}
 
 }

@@ -1,7 +1,6 @@
 package at.ac.acdh.transformer.utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import gr.forth.x3ml.Entity;
@@ -17,22 +16,20 @@ public class LinkNode {
 	private String subject;
 	List<ObjectNode> objects = new ArrayList<>();
 	
-	public LinkNode(String subject, ObjectNode object) {
-		this.subject = subject;
-		objects.add(object);
-	}
 	
-	public LinkNode(String subject, ObjectNode... objects) {
+	public LinkNode(String subject, List<ObjectNode> objects) {
 		this.subject = subject;
-		this.objects.addAll(Arrays.asList(objects));
+		this.objects = objects;
 	}
 	
 	public Link toLink(){
 		if(objects == null || objects.size() == 0)
 			return null;
 		
+		String xpath = normalizeXPath(subject);
+		
 		SourceRelationType srcRelation = new SourceRelationType();
-		srcRelation.getRelation().add(subject);
+		srcRelation.getRelation().add(xpath);
 		TargetRelationType tgtRelation = new TargetRelationType();
 		RangeTargetNodeType rtnt = new RangeTargetNodeType();		
 		
@@ -54,13 +51,26 @@ public class LinkNode {
 		path.setTargetRelation(tgtRelation);
 		
 		Range range = new Range();
-		range.setSourceNode(subject);
+		range.setSourceNode(xpath);
 		range.setTargetNode(rtnt);
 		
 		Link link = new Link();
 		link.setPath(path);
 		link.setRange(range);
 		return link;		
+	}
+	
+	private String normalizeXPath(final String xpath){
+		String normalized = xpath;
+		
+		if(normalized.startsWith("/cmd:CMD/cmd:Components/"))
+			normalized = normalized.replace("/cmd:CMD/cmd:Components/", "");
+		
+		if(normalized.endsWith("/text()"))
+			normalized = normalized.replace("/text()", "");
+		
+		return normalized;
+		
 	}
 
 	public String getSubject() {

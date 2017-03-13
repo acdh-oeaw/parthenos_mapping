@@ -48,7 +48,7 @@
 					<finalName>x3ml-gen</finalName>
 					<archive>
 						<manifest>
-							<mainClass>at.ac.acdh.main.Main</mainClass>
+							<mainClass>at.ac.acdh.Main</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

@@ -146,9 +146,4 @@ public class X3MLAdapter {
 		link.setRange(range);
 		return link;
 	}
-	
-	public void createLink(String srcNode){}
-	
-	
-
 }

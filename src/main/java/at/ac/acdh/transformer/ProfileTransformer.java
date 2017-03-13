@@ -1,57 +1,37 @@
 package at.ac.acdh.transformer;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.ximpleware.VTDException;
 
-import at.ac.acdh.concept_mapping.ConceptMappingFactory;
-import at.ac.acdh.concept_mapping.Profile2CIDOCMap;
-import at.ac.acdh.transformer.utils.CMDICreatorType;
-import at.ac.acdh.transformer.utils.ProfileClassificationService;
-import at.ac.acdh.transformer.utils.TemplateGenerator;
-import at.ac.acdh.transformer.utils.X3MLAdapter;
+import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
+import at.ac.acdh.concept_mapping.Concepts2CIDOCFactory;
+import at.ac.acdh.profile_parser.ParsedProfile;
+import at.ac.acdh.profile_parser.ParsedProfileFactory;
 import gr.forth.x3ml.X3ML;
-import gr.forth.x3ml.X3ML.Mappings;
 import gr.forth.x3ml.X3ML.Namespaces;
 import gr.forth.x3ml.X3ML.Namespaces.Namespace;
 
 public class ProfileTransformer {
 	
-	static Pattern PROFILE_ID = Pattern.compile(".*(clarin.eu:cr1:p_\\d{13}).*");
+	static Pattern PROFILE_ID = Pattern.compile(".*(clarin.eu:cr1:p_\\d{13}).*");	
 	
-	public X3ML transform(String profileUrl, CMDICreatorType creatorType) throws VTDException{
-		String resourceType = new ProfileClassificationService().getType(extractProfileId(profileUrl));		
-		return transform(profileUrl, creatorType, resourceType);
-	}
-	
-	public X3ML transform(String profileUrl, CMDICreatorType creatorType, String resourceType) throws VTDException{
-		Profile2CIDOCMap conceptMappings = ConceptMappingFactory.getMapping(profileUrl);
-		
+	public X3ML transform(String profileUrl, List<String> conditions) throws VTDException{
 		X3ML x3ml = new X3ML();	
 		x3ml.setSourceType("xpath");
 		x3ml.setVersion("1.0");
 		x3ml.setNamespaces(createNamespaces(profileUrl));
 		
+		ParsedProfile parsedProfile = ParsedProfileFactory.parse(profileUrl, true);
 		
-		Mappings mappings = new Mappings();
+		//System.out.println(parsedProfile); System.exit(0);
 		
-		X3MLAdapter adapter = new X3MLAdapter();
-		TemplateGenerator templGen = new TemplateGenerator();
+		CMDI2CIDOCMap xmlMappings = Concepts2CIDOCFactory.unmarshall();
+		new Normalizer().normalise(xmlMappings, parsedProfile, conditions);
 		
-		MappingGenerator headerMapper = new CMDHeaderMapper(conceptMappings, resourceType, adapter, templGen, creatorType);
-		MappingGenerator resourceProxyMapper = new CMDResProxyMapper(conceptMappings, resourceType, adapter, templGen);
-		MappingGenerator componentsMapper = new CMDComponentsMapper(conceptMappings, resourceType, adapter, templGen);
-		
-		//add mappings for header
-		mappings.getMapping().addAll(headerMapper.transformToMappings());		
-		//add mappings for resource part
-		mappings.getMapping().addAll(resourceProxyMapper.transformToMappings());		
-		//add mappings for components part
-		mappings.getMapping().addAll(componentsMapper.transformToMappings());
-		
-		
-		x3ml.setMappings(mappings);
+		x3ml.setMappings(new CmdiToX3mlTransformer().transform(xmlMappings));
 		return x3ml;
 	}	
 	

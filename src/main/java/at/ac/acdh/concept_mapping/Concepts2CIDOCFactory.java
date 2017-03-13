@@ -15,9 +15,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
-class Concepts2CIDOCFactory {
+public class Concepts2CIDOCFactory {
 	
-	private static String CONCEPT_MAP = "/CMDI2CIDOC.xml";
+	private static String CONCEPT_MAP = "/mapping/CMDI2CIDOC.xml";
 	
 	public static CMDI2CIDOCMap unmarshall(){
 		final SAXParserFactory spf = SAXParserFactory.newInstance();

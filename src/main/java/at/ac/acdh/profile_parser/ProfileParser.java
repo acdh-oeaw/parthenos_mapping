@@ -2,9 +2,7 @@ package at.ac.acdh.profile_parser;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,40 +31,15 @@ abstract class ProfileParser{
 		vn = gen.getNav();
 		Map<String, CMDINode> xpaths = createMap(processElements());
 		
-		if(namespace){
-			Map<String, CMDINode> fixedNamespaceXpaths = new HashMap<>();
-			for(Entry<String, CMDINode> node: xpaths.entrySet()){
-				String xpath;
-				if(!node.getKey().startsWith("/cmdp:CMD/cmdp:Components/")){
-					xpath = node.getKey().replaceAll("cmdp:", "cmd:");
-				}else{
-					xpath = node.getKey().replaceFirst("/cmdp:CMD/cmdp:Components/", "/cmd:CMD/cmd:Components/");
-				}				
-				fixedNamespaceXpaths.put(xpath, node.getValue());
-			}
-			
-			xpaths = fixedNamespaceXpaths;
-		}
-		 
-		
 		return new ParsedProfile(xpaths);
-	}
-	
-	protected abstract String getCMDVersion();	
+	}	
+
+	protected abstract String getCMDVersion();
+	protected abstract String getNamespace();
 	protected abstract String conceptAttributeName();
 	protected abstract CRElement processNameAttributeNode() throws VTDException;
 	protected abstract Map<String, CMDINode> createMap(Collection<CRElement> nodes) throws VTDException;
 	
-//	protected ProfileHeader fillInHeader(VTDNav vn, ProfileHeader header) throws VTDException{
-//		AutoPilot ap = new AutoPilot(vn);
-//		header.id = 		evaluateXPath("//Header/ID/text()", ap);		
-//		header.name = 		evaluateXPath("//Header/Name/text()", ap);
-//		header.description = evaluateXPath("//Header/Description/text()", ap);
-//		header.status = 	evaluateXPath("//Header/Status/text()", ap);
-//		header.cmdiVersion = getCMDVersion();
-//		return header;
-//		
-//	}
 	
 	private Collection<CRElement> processElements() throws VTDException{
 		Collection<CRElement> nodes = new ArrayList<>();
@@ -83,7 +56,7 @@ abstract class ProfileParser{
 				_new.name = "";
 				_logger.error("Element at {} doenst have specified name, xpaths will be invalid", vn.getCurrentIndex());
 			}else if(namespace){
-				_new.name = "cmdp:" + _new.name;
+				_new.name = getNamespace() + ":" + _new.name;
 			}
 			
 			

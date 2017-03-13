@@ -12,7 +12,6 @@
 		<profile id="clarin.eu:cr1:p_1297242111880" name="AnnotationTool" />
 		<profile id="clarin.eu:cr1:p_1297242111879" name="Tool" /> <!-- tool -> software or service -->		
 		<profile id="clarin.eu:cr1:p_1360230992146" name="ToolService" />
-		<profile id="clarin.eu:cr1:p_1311927752306" name="ToolService" />
 	</type>
 	
 	<!-- 

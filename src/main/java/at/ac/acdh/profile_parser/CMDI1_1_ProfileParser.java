@@ -18,6 +18,11 @@ class CMDI1_1_ProfileParser extends ProfileParser{
 	}
 	
 	@Override
+	protected String getNamespace() {
+		return "cmd";
+	}
+	
+	@Override
 	protected String conceptAttributeName(){
 		return "dcr:datcat";
 	}		
@@ -63,8 +68,11 @@ class CMDI1_1_ProfileParser extends ProfileParser{
 				xpath = parent.name + "/" + xpath;
 				parent = parent.parent;
 			}
+			
+			
 			xpath = "/" + xpath + (node.type == NodeType.ATTRIBUTE || node.type == NodeType.CMD_VERSION_ATTR
 					? "@" + node.name : node.name + "/text()");
+			
 			
 			CMDINode cmdiNode = new CMDINode();
 			cmdiNode.isRequired = node.isRequired;

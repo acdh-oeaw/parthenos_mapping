@@ -22,6 +22,14 @@ public class ParsedProfile {
 		.collect(Collectors.toList());
 	}
 	
+	public Collection<String> getXPathsForComponent(String componentId){
+		return xpaths.entrySet()
+			.stream()
+			.filter(e -> e.getValue().component != null && e.getValue().component.id.equals(componentId))
+			.map(e -> e.getKey())
+			.collect(Collectors.toList());
+	}
+	
 	public Map<String, CMDINode> getElements(){
 		return xpaths.entrySet()
 		.stream()
