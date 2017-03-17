@@ -35,25 +35,30 @@ This application parses CLARIN profiles from a given URL and generates x3ml (xml
 
 	mvn clean compile assembly:single
 	
+It creates x3ml-gen.jar in target folder
+	
 
 ### Running
 
 #### Run the programm with following command:
 
-	java -jar jar_name -profile profileURL creatorType -resourceType namespace-quilified-CIDOC-CRM-class 
+	java -jar x3ml-gen.jar -profile <arg> -mappingXml <arg> -conditions <arg> <arg> ...
+	
+To print help:
+
+	java -jar  x3ml-gen.jar -help
 	
 ### Parameters
 
-1. profileURL   - url of the profiles xsd files
-2. creatorType  - type of parthenos entity that created CMDI record (cmd:CMD/cmd:Header/cmd:MdCreator field). Use -actor or -software
-3. resourceType - type of corresponding parthenos entity for the resource. Use crmpe:PE8_E-Service, crmpe:PE24_Volatile_Dataset or crmdig:D14_Software
+1. profile    - url of the profiles xsd files
+2. mappingXml - xml file that contains mappings. See CMDI2CIDOC.xml
+3. conditions - array of strings to filter conditional enitities. If parameter specified only entitities with condition that matches one of the passed values will be kept
 
-### Example
-#### print help
+### Example	
 
-	java -jar parthenos_mapping.jar -help
+#### generate x3ml mapping file for OLAC-DcmiTerms (describes datasets) profile for case when creator is a software (D14_Software).
 
-#### generate x3ml mapping file for OLAC-DcmiTerms profile for case when creator is a software (D14_Software) and type of the resource a service (PE8_E-Service)
 
-	java -jar parthenos_mapping.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -software -resourceType crmpe:PE8_E-Service
+	java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset
+	
 	
