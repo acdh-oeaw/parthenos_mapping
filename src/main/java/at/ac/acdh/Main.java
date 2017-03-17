@@ -18,7 +18,7 @@ import gr.forth.x3ml.X3ML;
 
 public class Main {
 	
-	static String HELP_TEXT_HEADER = "-profile url_of_xsd  -conditions cond1 cond2 ...\n";
+	static String HELP_TEXT_HEADER = "(-mappingXml path/to/mapping/xml) -profile url_of_xsd  -conditions cond1 cond2 ...\n";
 
 	public static void main(String[] args) throws Exception {
 		
@@ -46,14 +46,17 @@ public class Main {
 			return;
 		}
 		
+		String mappingXml = cli.getOptionValue("mappingXml"); 
 		String profileUrl = cli.getOptionValue("profile");
 		List<String> conditions = Arrays.asList(cli.getOptionValues("conditions")); 
-		X3ML x3ml = new ProfileTransformer().transform(profileUrl, conditions);
 		
-		new XMLIOService().marshal(x3ml, System.out);		
+		X3ML x3ml = mappingXml != null? 
+			new ProfileTransformer().transform(mappingXml, profileUrl, conditions):
+			new ProfileTransformer().transform(profileUrl, conditions);
+		
+			
+		new XMLIOService<X3ML>().marshal(x3ml, System.out);		
 	}
-	
-
 	
 	private static Options createHelpOption() {
 		Option help = new Option("help", "print this message");
@@ -64,17 +67,15 @@ public class Main {
 
 	private static Options createOptions() {
 		
-		Option profile = OptionBuilder.hasArg().isRequired(true).withDescription("URL of CLARIN profile XSD").create("profile");
+		Option mappingFile = OptionBuilder.hasArg().isRequired(false).withDescription("xml file with mappings").create("mappingXml");		
+		Option profile = OptionBuilder.hasArg().isRequired(true).withDescription("URL of CLARIN profile XSD").create("profile");		
+		Option conditions = OptionBuilder.hasArgs().isRequired(true).withDescription("Conditions to filter entities from xml").create("conditions");
 		
-		Option conditions = OptionBuilder.hasArgs().isRequired(true).withDescription("Conditions to filter entities from xml").create("conditions");		
-		
-		//Option resourceType = OptionBuilder.hasArg().isRequired(false).withDescription("Related CIDOC-CRM class for the type of the resource").create("resourceType");
-
 		Options options = new Options();
-		options.addOption(profile).addOption(conditions);
-		//options.addOption(resourceType);
-
-		return options;
+		return options
+			.addOption(mappingFile)
+			.addOption(profile)
+			.addOption(conditions);
 	}
 
 }

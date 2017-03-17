@@ -25,20 +25,20 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}type" maxOccurs="unbounded"/>
- *         &lt;element ref="{}instance_info" minOccurs="0"/>
- *         &lt;element ref="{}instance_generator" minOccurs="0"/>
- *         &lt;element ref="{}label_generator" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element ref="{}additional" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *       &lt;attribute name="variable" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{}type" maxOccurs="unbounded"/&gt;
+ *         &lt;element ref="{}instance_info" minOccurs="0"/&gt;
+ *         &lt;element ref="{}instance_generator" minOccurs="0"/&gt;
+ *         &lt;element ref="{}label_generator" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;element ref="{}additional" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="variable" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

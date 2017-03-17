@@ -23,20 +23,20 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="general_description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="source_info" type="{}source_infoComplexType"/>
- *         &lt;element name="target_info" type="{}target_infoComplexType" maxOccurs="unbounded"/>
- *         &lt;element name="mapping_info" type="{}mapping_infoComplexType"/>
- *         &lt;element name="example_data_info" type="{}example_data_infoComplexType"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="general_description" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="source_info" type="{}source_infoComplexType"/&gt;
+ *         &lt;element name="target_info" type="{}target_infoComplexType" maxOccurs="unbounded"/&gt;
+ *         &lt;element name="mapping_info" type="{}mapping_infoComplexType"/&gt;
+ *         &lt;element name="example_data_info" type="{}example_data_infoComplexType"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

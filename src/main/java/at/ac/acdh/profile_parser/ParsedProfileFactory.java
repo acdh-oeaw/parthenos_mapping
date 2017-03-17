@@ -5,10 +5,30 @@ import java.util.regex.Pattern;
 
 import com.ximpleware.VTDException;
 
+
+/**
+ * <p>This class is responsible for creating proper parser, based on CMDI version, and to return instance of {@link ParsedProfile}
+ * to caller.</p>
+ * 
+ * @author dostojic
+ *
+ */
 public class ParsedProfileFactory {
 	
 	private static Pattern CMDI_VER = Pattern.compile("registry/(\\d\\.[x0-9])/profiles/");
 	
+
+	/**
+	 * This method creates instance of {@link ProfileParser} based on CMDI version in passed url 
+	 * and calls its method {@link ProfileParser#parse(String, boolean)} to create parsed instance object.
+	 * If parsing was successful an instance of {@link ParsedProfile} is returned to the user
+	 * 
+	 * @param url - URL of a profile's XSD 
+	 * @param withNamespace - should construct xpaths with namespace
+	 * @return an instance of {@link ParsedProfile}
+	 * @throws VTDException if parsing of XSD fails
+	 * @throws IllegalArgumentException if unable to determinate CMDI version from url
+	 */
 	public static ParsedProfile parse(String url, boolean withNamespace) throws VTDException{
 		ProfileParser parser = createParser(url);
 		

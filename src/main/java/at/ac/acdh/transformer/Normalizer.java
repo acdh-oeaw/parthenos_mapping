@@ -13,22 +13,31 @@ import at.ac.acdh.profile_parser.ParsedProfile;
 /**
  * @author dostojic
  * 
- * The Normalizer class does following
- * # filters conditional entities
- * # replaces xpaths containing ?val
- * # converts concepts into xpaths
- * # filters xpaths with blackListPatterns
- * # removes all patterns that don't exist in profile
+ * The Normalizer class processes {@link CMDI2CIDOCMap} object by performing following actions
+ * <ul>
+ * <li>filters conditional entities with conditions provided by caller</li>
+ * <li>replaces ?val variable in profile specific xpaths</li>
+ * <li>converts concepts into patterns</li>
+ * <li>filters patterns with blackListPatterns</li>
+ * <li>removes all patterns that don't exist in profile</li> 
+ * </ul>
  *
+ * @see ProfileTransformer
  */
 
 public class Normalizer {
 	
+	/**
+	 * see class description for details
+	 * 
+	 * 
+	 * @param map
+	 * @param parsedProfile
+	 * @param conditions
+	 */
 	public void normalise(CMDI2CIDOCMap map, ParsedProfile parsedProfile, List<String> conditions){
 		
-		filterConditionalEntities(map.getEntities(), conditions);
-		//replaceComponentsWithXPaths(map.getEntities(), parsedProfile);
-		
+		filterConditionalEntities(map.getEntities(), conditions);		
 		String replacement = getReplacement(parsedProfile);
 		resolveXpaths(map.getEntities(), replacement);
 		List<Link> allLinks = getLinks(map.getEntities());		
@@ -41,7 +50,12 @@ public class Normalizer {
 		}
 	}
 	
-
+	/**
+	 * Creates replacement for ?val variable 
+	 * 
+	 * @param parsedProfile
+	 * @return part of profile specific xpath that comes after /cmd:CMD/cmd:Components/ part
+	 */	
 	public String getReplacement(ParsedProfile parsedProfile){
 		final String prefix = "/cmd:CMD/cmd:Components/";
 		String replacement = parsedProfile.getXPaths().stream().filter(xpath -> xpath.startsWith(prefix)).findFirst().orElse(null);
@@ -54,6 +68,13 @@ public class Normalizer {
 		}
 	}
 	
+	/**
+	 * removes conditional entities with their sub-tree from {@link CMDI2CIDOCMap} 
+	 * object if their conditions are not provided in parameter.
+	 * 
+	 * @param entities
+	 * @param conditions
+	 */
 	public void filterConditionalEntities(Collection<ParthenosEntity> entities, List<String> conditions) {
 		if(entities == null || conditions == null || conditions.isEmpty())
 			return;
@@ -75,7 +96,12 @@ public class Normalizer {
 		}
 	}
 	
-	
+	/**
+	 * for each entity replaces "?profileRoot" with the given string
+	 * 
+	 * @param entities
+	 * @param replacement - string to replace "?profileRoot"
+	 */
 	public void resolveXpaths(Collection<ParthenosEntity> entities, String replacement) {
 		if(entities == null)
 			return;
@@ -97,6 +123,12 @@ public class Normalizer {
 		}
 	}
 	
+	/**
+	 * for the given link and its patterns replaces "?profileRoot" with the given string
+	 * 
+	 * @param link
+	 * @param replacement - string to replace "?profileRoot"
+	 */
 	public void resolveProfileXpath(Link link, String replacement){
 		if(link == null || link.getPatterns() == null)
 			return;
@@ -113,6 +145,12 @@ public class Normalizer {
 	}
 			
 
+	/**
+	 * This method is called recursively to create a list of all links from {@link CMDI2CIDOCMap} object
+	 * 
+	 * @param entities
+	 * @return list of all links for the given list of entities
+	 */
 	public List<Link> getLinks(Collection<ParthenosEntity> entities) {
 		List<Link> links = new ArrayList<>();
 		for(ParthenosEntity entity: entities){
@@ -128,6 +166,12 @@ public class Normalizer {
 		return links;
 	}
 	
+	/**
+	 * This method is called recursively to create a list of all entities from {@link CMDI2CIDOCMap} object
+	 * 
+	 * @param entities
+	 * @return list of sub-entities for the given list of entities
+	 */
 	public List<ParthenosEntity> getEntities(Collection<ParthenosEntity> entities){
 		List<ParthenosEntity> ents = new ArrayList<>();
 		for(ParthenosEntity entity: entities){
@@ -142,6 +186,14 @@ public class Normalizer {
 		return ents;
 	}
 	
+	/**
+	 * transforms all concepts to patterns for the given link and profile
+	 * 
+	 * @param link
+	 * @param parsedProfile
+	 * 
+	 * @see ParsedProfile#getXPathsForConcept(String)
+	 */
 	public void convertConceptsToXPaths(Link link, ParsedProfile parsedProfile){
 		if(link.getConcepts() == null)
 			return;
@@ -163,6 +215,11 @@ public class Normalizer {
 		}
 	}
 	
+	/**
+	 * Removes all patterns from the given link that are specified in blacklist patterns
+	 * 
+	 * @param link
+	 */
 	public void filterWithBlackListPatterns(Link link) {
 		if(link.getBlacklistPatterns() == null || link.getPatterns() == null || link.getPatterns().isEmpty())
 			return;
@@ -178,8 +235,13 @@ public class Normalizer {
 		}		
 	}
 	
-	/*
-	 * remove all patterns that don't exist in profile's xsd
+	/**
+	 * removes all non existing patterns for the given link and profile
+	 * 
+	 * @param link 
+	 * @param parsedProfile
+	 *  
+	 * @see ParsedProfile#hasXPath(String)
 	 */
 	public void filterNonExistingPatterns(Link link, ParsedProfile parsedProfile) {
 		if(link.getPatterns() == null || link.getPatterns().isEmpty())

@@ -9,24 +9,47 @@ import com.ximpleware.VTDException;
 import at.ac.acdh.profile_parser.CMDINode.Component;
 import at.ac.acdh.profile_parser.CRElement.NodeType;
 
+/**
+ * 
+ * This class is responsible for parsing CMDI 1.1 profiles 
+ * 
+ * @see ProfileParser
+ * @author dostojic
+ *
+ */
 class CMDI1_1_ProfileParser extends ProfileParser{
 	
 
+	/**
+	 * @return 1.1
+	 * @see ProfileParser#getCMDVersion()
+	 */
 	@Override
 	protected String getCMDVersion() {
 		return "1.1";
 	}
 	
+	/**
+	 * @return cmd
+	 * @see ProfileParser#getNamespace()
+	 */
 	@Override
 	protected String getNamespace() {
 		return "cmd";
 	}
 	
+	/**
+	 * @return dcr:datcat
+	 * @see ProfileParser#conceptAttributeName()
+	 */
 	@Override
 	protected String conceptAttributeName(){
 		return "dcr:datcat";
 	}		
 
+	/**
+	 * @see ProfileParser#processNameAttributeNode()
+	 */
 	@Override
 	protected CRElement processNameAttributeNode() throws VTDException {
 		String name = extractAttributeValue("name");
@@ -55,6 +78,9 @@ class CMDI1_1_ProfileParser extends ProfileParser{
 		return elem;
 	}
 	
+	/**
+	 * @see ProfileParser#createMap(Collection)
+	 */
 	@Override
 	protected Map<String, CMDINode> createMap(Collection<CRElement> nodes) throws VTDException {
 		Map<String, CMDINode> xpaths = new LinkedHashMap<>();

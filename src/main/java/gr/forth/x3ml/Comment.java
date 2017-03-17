@@ -23,22 +23,22 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="rationale" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="alternatives" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="typical_mistakes" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="local_habits" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="link_to_cook_book" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="example" type="{}exampleComplexType"/>
- *         &lt;element ref="{}comments_last_update"/>
- *       &lt;/sequence>
- *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="rationale" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="alternatives" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="typical_mistakes" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="local_habits" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="link_to_cook_book" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="example" type="{}exampleComplexType"/&gt;
+ *         &lt;element ref="{}comments_last_update"/&gt;
+ *       &lt;/sequence&gt;
+ *       &lt;attribute name="type" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

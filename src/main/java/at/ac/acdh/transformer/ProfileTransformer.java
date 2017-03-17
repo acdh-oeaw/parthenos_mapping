@@ -14,11 +14,56 @@ import gr.forth.x3ml.X3ML;
 import gr.forth.x3ml.X3ML.Namespaces;
 import gr.forth.x3ml.X3ML.Namespaces.Namespace;
 
+/**
+ * 
+ * This class is responsible for converting CLARIN profiles into X3ML files. 
+ * It returns {@link X3ML} object for the given profile to the caller. 
+ * 
+ * @author dostojic
+ *
+ */
 public class ProfileTransformer {
 	
 	static Pattern PROFILE_ID = Pattern.compile(".*(clarin.eu:cr1:p_\\d{13}).*");	
 	
+	/**
+	 * 
+	 * @param mappingXml - path to the xml file containing mappings
+	 * @param profileUrl - profile's XSD
+	 * @param conditions - list of strings used for filtering conditional entities in xml mapping file
+	 * @return {@link X3ML} object that can be serialized to X3ML xml file
+	 * @throws VTDException
+	 */
+	public X3ML transform(String mappingXml, String profileUrl, List<String> conditions) throws VTDException{
+		return transform(Concepts2CIDOCFactory.unmarshall(mappingXml), profileUrl, conditions);
+	}
+	
+	/**
+	 * 
+	 * This method reads packed xml mapping file
+	 * 
+	 * @param profileUrl - profile's XSD
+	 * @param conditions - list of strings used for filtering conditional entities in xml mapping file
+	 * @return {@link X3ML} object that can be serialized to X3ML xml file
+	 * @throws VTDException
+	 */
 	public X3ML transform(String profileUrl, List<String> conditions) throws VTDException{
+		return transform(Concepts2CIDOCFactory.unmarshall(), profileUrl, conditions);		
+	}
+	
+	/**
+	 * This method parses profile, and based on mappings creates X3ML object.
+	 * 
+	 * 
+	 * @param xmlMappings - {@link CMDI2CIDOCMap} object 
+	 * @param profileUrl - url of the profile's XSD
+	 * @param conditions - list of strings used for filtering conditional entities in xml mapping file
+	 * @return {@link X3ML} object that can be serialized to X3ML xml file
+	 * @throws VTDException
+	 * 
+	 * @see ParsedProfileFactory ParsedProfile X3ML
+	 */
+	private X3ML transform(CMDI2CIDOCMap xmlMappings, String profileUrl, List<String> conditions)throws VTDException{
 		X3ML x3ml = new X3ML();	
 		x3ml.setSourceType("xpath");
 		x3ml.setVersion("1.0");
@@ -26,15 +71,17 @@ public class ProfileTransformer {
 		
 		ParsedProfile parsedProfile = ParsedProfileFactory.parse(profileUrl, true);
 		
-		//System.out.println(parsedProfile); System.exit(0);
-		
-		CMDI2CIDOCMap xmlMappings = Concepts2CIDOCFactory.unmarshall();
 		new Normalizer().normalise(xmlMappings, parsedProfile, conditions);
 		
 		x3ml.setMappings(new CmdiToX3mlTransformer().transform(xmlMappings));
 		return x3ml;
-	}	
+	}
 	
+	/**
+	 * 
+	 * @param profileUrl
+	 * @return {@link gr.forth.x3ml.X3ML.Namespaces} with list of namespaces required for rdf generation
+	 */
 	private Namespaces createNamespaces(String profileUrl){
 		Namespaces namespaces = new Namespaces();
 		
@@ -50,12 +97,23 @@ public class ProfileTransformer {
 		return namespaces;
 	}
 	
+	/** 
+	 * @param url
+	 * @return URI for cmdp namespace
+	 * 
+	 * @see ProfileTransformer#createNamespaces(String)
+	 */
 	private String getProfileURI(String url){
 		String uri = "http://www.clarin.eu/cmd/1/profiles/";
 		uri += extractProfileId(url);		
 		return uri;
 	}
 	
+	/**
+	 * 
+	 * @param url
+	 * @return extracted id from profiles URL 
+	 */
 	private String extractProfileId(String url){
 		Matcher matcher = PROFILE_ID.matcher(url);
 		String id = "";

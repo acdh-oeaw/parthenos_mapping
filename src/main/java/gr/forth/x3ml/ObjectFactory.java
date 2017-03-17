@@ -145,7 +145,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link InstanceGenerator.Arg }
+     * Create an instance of {@link Arg }
      * 
      */
     public Arg createInstanceGeneratorArg() {
@@ -153,7 +153,7 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link LabelGenerator.Arg }
+     * Create an instance of {@link Arg }
      * 
      */
     public Arg createLabelGeneratorArg() {

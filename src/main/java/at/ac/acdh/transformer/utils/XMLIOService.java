@@ -8,16 +8,24 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
-public class XMLIOService {
+/**
+ * 
+ * @author dostojic
+ * 
+ * Util class for marshaling and demarshaling XMLs using JAXB
+ *
+ */
+public class XMLIOService<T> {
 
-	public Object unmarshal(Class clazz, InputStream is) throws JAXBException {
-		JAXBContext jc = JAXBContext.newInstance(clazz);
+	public T unmarshal(InputStream is) throws JAXBException {
+		JAXBContext jc = JAXBContext.newInstance();
 		Unmarshaller unmarshaller = jc.createUnmarshaller();
-		return unmarshaller.unmarshal(is);
+		return (T) unmarshaller.unmarshal(is);
 	}
 
-	public void marshal(Object object, OutputStream os) throws JAXBException {
-		JAXBContext jaxbContext = JAXBContext.newInstance(object.getClass());
+	
+	public void marshal(T t, OutputStream os) throws JAXBException {
+		JAXBContext jaxbContext = JAXBContext.newInstance(t.getClass());
 		Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
 
 		// output pretty printed
@@ -26,7 +34,7 @@ public class XMLIOService {
 		jaxbMarshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION, "http://www.w3.org/2001/XMLSchema-instance");
 		jaxbMarshaller.setProperty(Marshaller.JAXB_NO_NAMESPACE_SCHEMA_LOCATION, "x3ml_v1.0.xsd");
 
-		jaxbMarshaller.marshal(object, os);
+		jaxbMarshaller.marshal(t, os);
 	}
 
 }

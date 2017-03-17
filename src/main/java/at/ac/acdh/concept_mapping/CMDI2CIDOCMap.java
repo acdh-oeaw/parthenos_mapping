@@ -9,6 +9,16 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
+/**
+ * 
+ * <p>CMDI2CIDOCMap class is java representative for xml file CMDI2CIDOC.xml.</p>
+ * <p>The xml file itself defines mappings between CMDI concepts/xpaths and CIDOC-CRM entities</p>
+ * 
+ * 
+ * @author dostojic
+ * 
+ */
 @XmlRootElement(name = "mappings")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CMDI2CIDOCMap{
@@ -26,6 +36,11 @@ public class CMDI2CIDOCMap{
 	}
 	
 
+	/**
+	 * @return list of specified {@link ParthenosEntity}
+	 * 
+	 * <p>Each {@link ParthenosEntity entity }will be transformed to one {@link gr.forth.x3ml.X3ML.Mappings.Mapping}</p>
+	 */
 	public Collection<ParthenosEntity> getEntities() {
 		return entities;
 	}
@@ -34,6 +49,15 @@ public class CMDI2CIDOCMap{
 		this.entities = entities;
 	}
 
+	/**
+	 * 
+	 * <p>ParthenosEntity consists of number of attributes used by business logic to create X3ML Entity object </p> 
+	 * 
+	 * @see gr.forth.x3ml.Entity
+	 * 
+	 * @author dostojic
+	 * 
+	 */
 	@XmlAccessorType(XmlAccessType.FIELD)
 	public static class ParthenosEntity {
 		@XmlAttribute String xpath;
@@ -75,6 +99,11 @@ public class CMDI2CIDOCMap{
 			return sb.toString();			
 		}
 
+		/**
+		 * @return value from xpath attribute
+		 * <p>If provided object will be transformed to 
+		 * corresponding x3ml class {@link gr.forth.x3ml.X3ML.Mappings.Mapping.Domain}</p>
+		 */
 		public String getXpath() {
 			return xpath;
 		}
@@ -83,6 +112,11 @@ public class CMDI2CIDOCMap{
 			this.xpath = xpath;
 		}
 
+		/**
+		 * @return value from relationship attribute
+		 * <p>Value represents relationship with parent entity 
+		 * corresponding x3ml class {@link gr.forth.x3ml.TargetRelationType}</p>
+		 */
 		public String getRelationship() {
 			return relationship;
 		}
@@ -91,6 +125,13 @@ public class CMDI2CIDOCMap{
 			this.relationship = relationship;
 		}
 
+		/**
+		 * @return value from type attribute
+		 * <p>Value represents CIDOC-CRM class
+		 * corresponding x3ml class {@link gr.forth.x3ml.TargetRelationType}</p>
+		 * 
+		 * use namespace qualified values
+		 */
 		public String getType() {
 			return type;
 		}
@@ -99,6 +140,11 @@ public class CMDI2CIDOCMap{
 			this.type = type;
 		}
 
+		/**
+		 * @return value from hasType attribute
+		 * <p>If provided entity gets crm:P2_has_type crm:E55_Type = value relationship</p> 
+		 * 
+		 */
 		public String getHasType() {
 			return hasType;
 		}
@@ -107,6 +153,12 @@ public class CMDI2CIDOCMap{
 			this.hasType = hasType;
 		}
 
+		/**
+		 * @return value from var attribute
+		 * <p>If provided entity is labeled with variable</p> 
+		 * 
+		 * <p>Variables are used by X3ML to link entities from different mappings</p>
+		 */
 		public String getVar() {
 			return var;
 		}
@@ -115,6 +167,13 @@ public class CMDI2CIDOCMap{
 			this.var = var;
 		}
 
+
+		/**
+		 * @return value from globVar attribute
+		 * <p>If provided entity is labeled with global variable</p>
+		 * 
+		 * <p>Variables are used by X3ML to link entities from different mappings</p>
+		 */
 		public String getGlobVar() {
 			return globVar;
 		}
@@ -123,6 +182,12 @@ public class CMDI2CIDOCMap{
 			this.globVar = globVar;
 		}
 
+		/**
+		 * @return value from condition attribute
+		 * <p>Used for filtering conditional entities. 
+		 * Filters are passed from command line</p>
+		 * 
+		 */
 		public String getCondition() {
 			return condition;
 		}
@@ -131,6 +196,12 @@ public class CMDI2CIDOCMap{
 			this.condition = condition;
 		}
 
+		/**
+		 * <p>Links are translated into (corresponding x3ml class) {@link gr.forth.x3ml.X3ML.Mappings.Mapping.Link} instances</p>
+		 * 
+		 * @return list of {@link Link}
+		 * 
+		 */
 		public Collection<Link> getLinks() {
 			return links;
 		}
@@ -140,9 +211,19 @@ public class CMDI2CIDOCMap{
 		}		
 	}	
 
+	/**
+	 * 
+	 * <p>Link class connects <a href="https://www.clarin.eu/content/component-metadata">CLARIN CMDI</a> elements with CIDOC-CRM ontology. 
+	 * It uses same elements as <a href="https://www.clarin.eu/">CLARIN</a> mapping between concepts and facets
+	 * such as patterns, concepts and blacklistPatterns</p>
+	 * 
+	 * 
+	 * @author dostojic
+	 * 
+	 */
 	@XmlRootElement
 	@XmlAccessorType(XmlAccessType.FIELD)
-	public static class Link {		
+	public static class Link {
 		@XmlElement(name = "entity")
 		Collection<ParthenosEntity> entities = new ArrayList<>();
 		
@@ -171,6 +252,12 @@ public class CMDI2CIDOCMap{
 			return sb.toString();			
 		}
 
+		/** 
+		 * <p>In case of multiple entities, intermediate nodes are created. In that case original order is preserved.</p>
+		 * 
+		 * @return list of {@link ParthenosEntity}
+		 * 
+		 */
 		public Collection<ParthenosEntity> getEntities() {
 			return entities;
 		}
@@ -179,6 +266,13 @@ public class CMDI2CIDOCMap{
 			this.entities = entities;
 		}
 
+		/** 
+		 * @return list of specified CLARIN concepts
+		 * 
+		 * <p>Concepts will be "translated" to xpaths for each profile.
+		 * One concept can be "translated" to many xpaths.</p>
+		 * 
+		 */
 		public Collection<String> getConcepts() {
 			return concepts;
 		}
@@ -187,6 +281,14 @@ public class CMDI2CIDOCMap{
 			this.concepts = concepts;
 		}
 
+		/** 
+		 * <p>For each pattern one link will be created.</p>
+		 * 
+		 * @return list of specified xpaths in CLARIN profiles
+		 *  
+		 * @see gr.forth.x3ml.SourceRelationType gr.forth.x3ml.X3ML.Mappings.Mapping.Link.Range
+		 * 
+		 */
 		public Collection<String> getPatterns() {
 			return patterns;
 		}
@@ -195,6 +297,12 @@ public class CMDI2CIDOCMap{
 			this.patterns = patterns;
 		}
 
+		/** 
+		 * <p>Patterns derived from concepts, that are specified in blacklist will be removed from further translation into x3ml classes</p>
+		 * 
+		 * @return blacklist of xpaths
+		 * 
+		 */
 		public Collection<String> getBlacklistPatterns() {
 			return blacklistPatterns;
 		}

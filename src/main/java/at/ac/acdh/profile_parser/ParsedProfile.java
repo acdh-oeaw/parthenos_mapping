@@ -6,6 +6,16 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+
+/**
+ * 
+ * <p>This class keeps information from processed CLARIN profile and provides API for analyzing xpaths,
+ *  concepts and components found in one profile</p>
+ * 
+ * <p>Information are kept in map(xpath, {@link CMDINode})</p>
+ * @author dostojic
+ *
+ */
 public class ParsedProfile {
 	
 	final Map<String, CMDINode> xpaths;
@@ -14,6 +24,12 @@ public class ParsedProfile {
 		this.xpaths = xpaths;
 	}
 	
+	/**
+	 * 
+	 * @return list of components used in profile
+	 * 
+	 * @see CMDINode Component
+	 */
 	public Collection<CMDINode> getComponents(){
 		return xpaths.entrySet()
 		.stream()
@@ -22,6 +38,11 @@ public class ParsedProfile {
 		.collect(Collectors.toList());
 	}
 	
+	/**
+	 * 
+	 * @param componentId
+	 * @return xpaths for the specified component in profile
+	 */
 	public Collection<String> getXPathsForComponent(String componentId){
 		return xpaths.entrySet()
 			.stream()
@@ -30,6 +51,10 @@ public class ParsedProfile {
 			.collect(Collectors.toList());
 	}
 	
+	/**
+	 * 
+	 * @return "submap" created by filtering entries that are components
+	 */
 	public Map<String, CMDINode> getElements(){
 		return xpaths.entrySet()
 		.stream()
@@ -37,10 +62,19 @@ public class ParsedProfile {
 		.collect(Collectors.toMap(e -> e.getKey(), e -> e.getValue(), (x,n)->x, LinkedHashMap::new));
 	}
 	
+	/**
+	 * 
+	 * @return xpaths for the profile
+	 */
 	public Collection<String> getXPaths(){
 		return xpaths.keySet();
 	}
 	
+	/**
+	 * 
+	 * @param concept
+	 * @return xpaths for the given concept
+	 */
 	public Collection<String> getXPathsForConcept(String concept){		
 		return xpaths.entrySet()
 		.stream()
@@ -49,11 +83,21 @@ public class ParsedProfile {
 		.collect(Collectors.toList());
 	}
 	
+	/**
+	 * 
+	 * @param xpath
+	 * @return concept for the given xpath
+	 */
 	public String getConcept(String xpath){
 		return xpaths.get(xpath) != null? (xpaths.get(xpath).concept != null? xpaths.get(xpath).concept : null) : null;
 	}
 	
-	
+	/**
+	 * Checks if profile has specified profiles. Works also with generic xpaths
+	 * 
+	 * @param xpath
+	 * @return true if profile has specified xpath
+	 */
 	//xpath will be pre-processed -> remove conditions, text()
 	public boolean hasXPath(String xpath){
 		final String normalisedXPath = preprocessXPath(xpath);
@@ -87,14 +131,11 @@ public class ParsedProfile {
 			return xpaths.containsKey(xpath);
 	}
 	
-	//for generic xpaths 
-	private Collection<CMDINode> getNodesForXPath(String xpath){
-		if(xpaths.containsKey(xpath))
-			return Arrays.asList(xpaths.get(xpath));		
-		
-		return null;
-	}
-	
+	/**
+	 * 
+	 * @param xpath
+	 * @return xpath without conditions
+	 */
 	private String preprocessXPath(String xpath){		
 		//remove conditions
 		xpath = xpath.replaceAll("\\[.*?\\]", "");

@@ -13,13 +13,28 @@ import gr.forth.x3ml.Entity;
 import gr.forth.x3ml.X3ML.Mappings;
 import gr.forth.x3ml.X3ML.Mappings.Mapping;
 
-
+/**
+ * This class is responsible for processing {@link ParthenosEntity} and {@link Link} objects 
+ * and converting them to objects from X3ML realm
+ * 
+ * 
+ * @see at.ac.acdh.concept_mapping  gr.forth.x3ml
+ * 
+ * 
+ * @author dostojic
+ *
+ */
 public class CmdiToX3mlTransformer {
 	
 	protected X3mlFacade x3mlFacade = new X3mlFacade();
 	
 	List<Mapping> x3mlMappings = new ArrayList<>();
 	
+	/**
+	 * 
+	 * @param xmlMappings - {@link CMDI2CIDOCMap} object
+	 * @return {@link Mappings}
+	 */
 	public Mappings transform(CMDI2CIDOCMap xmlMappings){
 		Mappings mappings = new Mappings();
 		
@@ -30,6 +45,11 @@ public class CmdiToX3mlTransformer {
 		return mappings;
 	}
 	
+	/**
+	 * This method processes entity elements from xml and for each creates {@link Mapping} object
+	 * 
+	 * @param pe - {@link ParthenosEntity}, entity element in mapping xml
+	 */
 	private void createMapping(ParthenosEntity pe){	
 		Mapping mapping =  x3mlFacade.createMapping(pe.getXpath(), pe.getType(), pe.getHasType(), pe.getVar(), pe.getGlobVar());
 		x3mlMappings.add(mapping);
@@ -42,6 +62,13 @@ public class CmdiToX3mlTransformer {
 		}		
 	}
 	
+	/**
+	 * This method processes link elements from xml and for each link and for each pattern
+	 *  creates {@link gr.forth.x3ml.X3ML.Mappings.Mapping.Link}
+	 * 
+	 * @param link - link element in mapping xml
+	 * @return list of x3ml links, one for each pattern in link element
+	 */
 	public List<gr.forth.x3ml.X3ML.Mappings.Mapping.Link> createLink(Link link){
 		
 		//preserve order of entities in map

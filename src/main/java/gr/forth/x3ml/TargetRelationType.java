@@ -23,19 +23,19 @@ import javax.xml.bind.annotation.XmlType;
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="target_relationType">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}if" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;sequence maxOccurs="unbounded" minOccurs="0">
- *           &lt;element ref="{}entity"/>
- *           &lt;element ref="{}relationship"/>
- *         &lt;/sequence>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="target_relationType"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element ref="{}if" maxOccurs="unbounded" minOccurs="0"/&gt;
+ *         &lt;sequence maxOccurs="unbounded" minOccurs="0"&gt;
+ *           &lt;element ref="{}entity"/&gt;
+ *           &lt;element ref="{}relationship"/&gt;
+ *         &lt;/sequence&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 

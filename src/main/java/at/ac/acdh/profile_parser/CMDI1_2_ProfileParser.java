@@ -10,27 +10,50 @@ import com.ximpleware.VTDGen;
 import at.ac.acdh.profile_parser.CMDINode.Component;
 import at.ac.acdh.profile_parser.CRElement.NodeType;
 
+/**
+ * 
+ * This class is responsible for parsing CMDI 1.2 profiles 
+ * 
+ * @see ProfileParser
+ * @author dostojic
+ *
+ */
 class CMDI1_2_ProfileParser extends ProfileParser{
 	
 	static final String ENVELOPE_URL = "https://infra.clarin.eu/CMDI/1.2/xsd/cmd-envelop.xsd";
 	
 	private static Map<String, CMDINode> envelope = null;
 
+	/**
+	 * @return 1.1
+	 * @see ProfileParser#getCMDVersion()
+	 */
 	@Override
 	protected String getCMDVersion() {
 		return "1.2";
 	}
 	
+	/**
+	 * @return cmdp
+	 * @see ProfileParser#getNamespace()
+	 */
 	@Override
 	protected String getNamespace() {
 		return "cmdp";
 	}
 	
+	/**
+	 * @return cmd:ConceptLink
+	 * @see ProfileParser#conceptAttributeName()
+	 */
 	@Override
 	protected String conceptAttributeName(){
 		return "cmd:ConceptLink";
 	}	
 	
+	/**
+	 * @see ProfileParser#processNameAttributeNode()
+	 */
 	@Override
 	protected CRElement processNameAttributeNode() throws VTDException {
 		//ref attribute
@@ -66,6 +89,9 @@ class CMDI1_2_ProfileParser extends ProfileParser{
 	}
 	
 	@Override
+	/**
+	 * @see ProfileParser#createMap()
+	 */
 	protected Map<String, CMDINode> createMap(Collection<CRElement> nodes) throws VTDException {
 		Map<String, CMDINode> xpaths = new LinkedHashMap<>();
 		
