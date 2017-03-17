@@ -1,0 +1,26 @@
+{
+  "cmdi2pe": [      
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1422885449343/xsd",
+			"pe_type": "crmpe:PE24_Volatile_Dataset",
+			"cmdi_records": [
+				"https://vlo.clarin.eu/data/clarin/results/cmdi/HZSK_Repository/oai_corpora_uni_hamburg_de_spoken_corpus_b1aja.xml",
+				"https://vlo.clarin.eu/data/clarin/results/cmdi/HZSK_Repository/oai_corpora_uni_hamburg_de_spoken_corpus_b1foodo.xml"
+          ]
+		},	
+		{
+          "xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1381926654510/xsd",
+		  "pe_type": "crmpe:PE24_Volatile_Dataset",
+          "cmdi_records": [
+            "https://vlo.clarin.eu/data/clarin/results/cmdi/CLARIN_OAIProvider_Institute_of_Computer_Science_NLP_Group_University_of_Leipzig/oai_dp_11022000000008F185dp484.xml"
+          ]
+        },
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1381926654438/xsd",
+			"pe_type": "crmpe:PE24_Volatile_Dataset",
+			"cmdi_records": [
+				"https://vlo.clarin.eu/data/clarin/results/cmdi/Berlin_Brandenburg_Academy_of_Sciences_and_Humanities_BBAW_/dta_1779.xml"
+			]
+		}
+	]
+}
