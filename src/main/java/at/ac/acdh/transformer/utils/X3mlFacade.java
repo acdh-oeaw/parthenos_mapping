@@ -181,7 +181,7 @@ public class X3mlFacade {
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI_CLARIN");
 		ig.getArg().add(crateArg("hierarchy", "constant", "type"));
-		ig.getArg().add(crateArg("hierarchy", "constant", type));
+		ig.getArg().add(crateArg("term", "constant", type));
 		
 		return ig;
 	}
