@@ -20,6 +20,7 @@ Mappings in X3ml:
 
 315 - Dataset/Multiresource - a mapping for a CMDI record describing multiple Resources
 
+334 - Deutsches Textarchiv - NERLiX VRE handmade mapping from Matteo and Davor
 
 # Generator
 This application parses CLARIN profiles from a given URL and generates x3ml (xml) mapping files
