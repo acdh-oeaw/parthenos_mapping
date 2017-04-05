@@ -6,7 +6,7 @@ with sample input and output files as well as the x3ml files containing the defi
 
 Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
-Mappings in X3ml (old version: generator policy without URI definition and PE 1.8)
+Mappings in X3ml (old version: generator policy without URI definition and PE 1.8):
 
 300 - E-Service - IULA UPF OAI Archive: Services for NLP
 
@@ -21,6 +21,10 @@ Mappings in X3ml (old version: generator policy without URI definition and PE 1.
 315 - Dataset/Multiresource - a mapping for a CMDI record describing multiple Resources
 
 334 - Deutsches Textarchiv - NERLiX VRE handmade mapping from Matteo and Davor
+
+Mappings in X3ml (new generator policy and PE1.11)
+
+365 - Dataset - modifications from George and Matteo
 
 # Generator
 This application parses CLARIN profiles from a given URL and generates x3ml (xml) mapping files
