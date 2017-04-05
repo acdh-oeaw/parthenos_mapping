@@ -6,7 +6,7 @@ with sample input and output files as well as the x3ml files containing the defi
 
 Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
-Mappings in X3ml:
+Mappings in X3ml (old version: generation policy without URI definition and PE 1.8)
 
 300 - E-Service - IULA UPF OAI Archive: Services for NLP
 
