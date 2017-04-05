@@ -6,7 +6,9 @@ with sample input and output files as well as the x3ml files containing the defi
 
 Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
-# Mappings in X3ml (old version: generator policy without URI definition and PE 1.8):
+# Mappings in X3ml 
+
+## PE1.8 and 1st release of the generator policy 
 
 300 - E-Service - IULA UPF OAI Archive: Services for NLP
 
@@ -22,7 +24,7 @@ Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
 334 - Deutsches Textarchiv - NERLiX VRE handmade mapping from Matteo and Davor
 
-# Mappings in X3ml (new generator policy and PE1.11)
+## PE1.11 and 2nd release of the generator policy
 
 365 - Dataset - modifications from George and Matteo
 
