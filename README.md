@@ -26,7 +26,9 @@ Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
 ## PE1.11 and 2nd release of the generator policy
 
-365 - Dataset - modifications from George and Matteo
+365 - Dataset - Official Mapping
+
+373 - Service - Official Mapping
 
 # Generator
 This application parses CLARIN profiles from a given URL and generates x3ml (xml) mapping files
