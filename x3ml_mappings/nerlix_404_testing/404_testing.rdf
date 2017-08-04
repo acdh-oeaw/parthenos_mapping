@@ -1,0 +1,455 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:parthenos="http://parthenos-project.eu/"
+    xmlns:frbr="http://www.cidoc-crm.org/frbr/"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:crmpe="http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"
+    xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+    xmlns:cmd="http://www.clarin.eu/cmd/1"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1381926654438">
+  <crmpe:PE22_Persistent_Dataset rdf:about="http://hdl.handle.net/11858/00-203C-0000-0029-F7EC-3">
+    <crmpe:PP39_is_metadata_for>
+      <crmpe:PE24_Volatile_Dataset rdf:about="http://parthenos-project.eu/Dataset/Vorlesungen%20%C3%BCber%20physicalische%20Geographie">
+        <crm:P94i_was_created_by>
+          <crm:E65_Creation rdf:about="uuid:AF">
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AN">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AT">
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Frank">
+                        <crm:P2_has_type>
+                          <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/nametype/forename">
+                            <rdfs:label>Forename</rdfs:label>
+                          </crm:E55_Type>
+                        </crm:P2_has_type>
+                        <rdfs:label>Frank</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Wiegand">
+                        <crm:P2_has_type>
+                          <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/nametype/surname">
+                            <rdfs:label>Surname</rdfs:label>
+                          </crm:E55_Type>
+                        </crm:P2_has_type>
+                        <rdfs:label>Wiegand</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/role/editor"/>
+                </crm:P14.1_in_the_role_of>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AM">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AS">
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Christian">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                        <rdfs:label>Christian</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Thomas">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                        <rdfs:label>Thomas</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of rdf:resource="http://parthenos-project.eu/Concept/role/editor"/>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AL">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AR">
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Matthias">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                        <rdfs:label>Matthias</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Boenig">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                        <rdfs:label>Boenig</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of rdf:resource="http://parthenos-project.eu/Concept/role/editor"/>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AK">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AQ">
+                    <crm:P1_is_identified_by>
+                      <crm:E42_Identifier rdf:about="http://d-nb.info/gnd/1019062681">
+                        <crm:P2_has_type>
+                          <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/identifiertype/PND">
+                            <rdfs:label>PND</rdfs:label>
+                          </crm:E55_Type>
+                        </crm:P2_has_type>
+                      </crm:E42_Identifier>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Bryan">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                        <rdfs:label>Bryan</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Jurish">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                        <rdfs:label>Jurish</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of rdf:resource="http://parthenos-project.eu/Concept/role/editor"/>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AJ">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AP">
+                    <crm:P1_is_identified_by>
+                      <crm:E42_Identifier rdf:about="http://d-nb.info/gnd/1018099549">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/identifiertype/PND"/>
+                      </crm:E42_Identifier>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Susanne">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                        <rdfs:label>Susanne</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Haaf">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                        <rdfs:label>Haaf</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of rdf:resource="http://parthenos-project.eu/Concept/role/editor"/>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AI">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AO">
+                    <crm:P1_is_identified_by>
+                      <crm:E42_Identifier rdf:about="http://d-nb.info/gnd/115266127">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/identifiertype/PND"/>
+                      </crm:E42_Identifier>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Alexander">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                        <rdfs:label>Alexander</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                    <crm:P1_is_identified_by>
+                      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Geyken">
+                        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                        <rdfs:label>Geyken</rdfs:label>
+                      </crm:E41_Appellation>
+                    </crm:P1_is_identified_by>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of rdf:resource="http://parthenos-project.eu/Concept/role/editor"/>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+            <crm:P01i_is_domain_of>
+              <crm:PC14_carried_out_by rdf:about="uuid:AG">
+                <crm:P01_has_domain>
+                  <crm:E21_Person rdf:about="uuid:AH">
+                    <rdfs:label>Hufeland</rdfs:label>
+                  </crm:E21_Person>
+                </crm:P01_has_domain>
+                <crm:P14.1_in_the_role_of>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/role/author">
+                    <rdfs:label>Author</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P14.1_in_the_role_of>
+              </crm:PC14_carried_out_by>
+            </crm:P01i_is_domain_of>
+          </crm:E65_Creation>
+        </crm:P94i_was_created_by>
+        <crmpe:PP32i_was_curated_by>
+          <crmpe:PE12_Data_Curating_Service rdf:about="uuid:AU">
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:BB">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Langfristige%20Bereitstellung%20der%20DTA-Ausgabe">
+                    <rdfs:label>Langfristige Bereitstellung der DTA-Ausgabe</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by>CLARIN-D</crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:BA">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Bilddigitalisierung">
+                    <rdfs:label>Bilddigitalisierung</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Lom">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                    <rdfs:label>Lom</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Nalan">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                    <rdfs:label>Nalan</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:AZ">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Besitz">
+                    <rdfs:label>Besitz</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/%C5%9Eeng%C3%B6r">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                    <rdfs:label>Şengör</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/A.%20M.%20Cel%C3%A2l">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                    <rdfs:label>A. M. Celâl</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:AY">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Projekt">
+                    <rdfs:label>Projekt</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by>Hidden Kosmos: Reconstructing A. v. Humboldt’s »Kosmos-Lectures« (Leitung Prof. Dr. Christian Kassung)</crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:AX">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Projekttr%C3%A4ger">
+                    <rdfs:label>Projektträger</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by>Humboldt-Universität zu Berlin</crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:AW">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Bearbeiter">
+                    <rdfs:label>Bearbeiter</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by rdf:resource="http://parthenos-project.eu/Actor/Appellation/Thomas"/>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Fiechter">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                    <rdfs:label>Fiechter</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Krell">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+                    <rdfs:label>Krell</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by rdf:resource="http://parthenos-project.eu/Actor/Appellation/Christian"/>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Benjamin">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                    <rdfs:label>Benjamin</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Tina">
+                    <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+                    <rdfs:label>Tina</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+            <crmpe:PP2_provided_by>
+              <crm:E39_Actor rdf:about="uuid:AV">
+                <crm:P2_has_type>
+                  <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Herausgeber">
+                    <rdfs:label>Herausgeber</rdfs:label>
+                  </crm:E55_Type>
+                </crm:P2_has_type>
+                <crm:P1_is_identified_by rdf:resource="http://parthenos-project.eu/Actor/Appellation/Thomas"/>
+                <crm:P1_is_identified_by rdf:resource="http://parthenos-project.eu/Actor/Appellation/Christian"/>
+              </crm:E39_Actor>
+            </crmpe:PP2_provided_by>
+          </crmpe:PE12_Data_Curating_Service>
+        </crmpe:PP32i_was_curated_by>
+        <crmpe:PP8i_is_dataset_hosted_by>
+          <crmpe:PE15_Data_E-Service rdf:about="uuid:AD">
+            <crmpe:PP49_provides_access_point>
+              <crmpe:PE29_Access_Point rdf:about="http://dspin.dwds.de:8088/ddc-sru/dta/"/>
+            </crmpe:PP49_provides_access_point>
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/SearchService">
+                <rdfs:label>SearchService</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+          </crmpe:PE15_Data_E-Service>
+        </crmpe:PP8i_is_dataset_hosted_by>
+        <crmpe:PP8i_is_dataset_hosted_by>
+          <crmpe:PE15_Data_E-Service rdf:about="uuid:AB">
+            <crmpe:PP49_provides_access_point>
+              <crmpe:PE29_Access_Point rdf:about="http://hdl.handle.net/11858/00-203C-0000-0029-ECDC-9"/>
+            </crmpe:PP49_provides_access_point>
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Resource">
+                <rdfs:label>Resource</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+          </crmpe:PE15_Data_E-Service>
+        </crmpe:PP8i_is_dataset_hosted_by>
+        <rdfs:label>Vorlesungen über physicalische Geographie</rdfs:label>
+        <rdfs:label>cmd:Resourceproxy</rdfs:label>
+        <crmpe:PP8i_is_dataset_hosted_by>
+          <crmpe:PE15_Data_E-Service rdf:about="uuid:AC">
+            <crmpe:PP49_provides_access_point>
+              <crmpe:PE29_Access_Point rdf:about="http://nbn-resolving.de/urn:nbn:de:kobv:b4-30911-9"/>
+            </crmpe:PP49_provides_access_point>
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/LandingPage">
+                <rdfs:label>LandingPage</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+          </crmpe:PE15_Data_E-Service>
+        </crmpe:PP8i_is_dataset_hosted_by>
+        <rdfs:label>TeiHeader</rdfs:label>
+        <crm:P1_is_identified_by>
+          <crm:E35_Title rdf:about="http://parthenos-project.eu/Dataset/Appellation/Vorlesungen%20%C3%BCber%20physicalische%20Geographie">
+            <rdfs:label>Vorlesungen über physicalische Geographie</rdfs:label>
+          </crm:E35_Title>
+        </crm:P1_is_identified_by>
+        <crm:P12i_was_present_at>
+          <frbr:F30_Publication_Event rdf:about="uuid:BC">
+            <crm:P129i_is_subject_of>
+              <crm:E30_Right rdf:about="http://parthenos-project.eu/Thing/Appellation/Namensnennung%20-%20Weitergabe%20unter%20gleichen%20Bedingungen%203.0%20Deutschland%20%28CC%20BY-SA%203.0%20DE%29">
+                <rdfs:label>Namensnennung - Weitergabe unter gleichen Bedingungen 3.0 Deutschland (CC BY-SA 3.0 DE)</rdfs:label>
+              </crm:E30_Right>
+            </crm:P129i_is_subject_of>
+            <crm:P14_carried_out_by>
+              <crm:E40_Legal_Body rdf:about="uuid:BF">
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Berlin-Brandenburgische%20Akademie%20der%20Wissenschaften%20%28BBAW%29">
+                    <rdfs:label xml:lang="de">Berlin-Brandenburgische Akademie der Wissenschaften (BBAW)</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Berlin-Brandenburg%20Academy%20of%20Sciences%20and%20Humanities%20%28BBAW%29">
+                    <rdfs:label xml:lang="en">Berlin-Brandenburg Academy of Sciences and Humanities (BBAW)</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P1_is_identified_by>
+                  <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Deutsches%20Textarchiv">
+                    <rdfs:label>Deutsches Textarchiv</rdfs:label>
+                  </crm:E41_Appellation>
+                </crm:P1_is_identified_by>
+                <crm:P76_has_contact_point>
+                  <crm:E45_Address rdf:about="http://parthenos-project.eu/Place/Appellation/J%C3%A4gerstr.%2022%2F23%2C%2010117%20Berlin">
+                    <rdfs:label>Jägerstr. 22/23, 10117 Berlin</rdfs:label>
+                  </crm:E45_Address>
+                </crm:P76_has_contact_point>
+                <crm:P76_has_contact_point>
+                  <crm:E51_Contact_Point rdf:about="http://parthenos-project.eu/Thing/Appellation/dta%40bbaw.de">
+                    <crm:P2_has_type>
+                      <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/contactpointtype/email">
+                        <rdfs:label>Email</rdfs:label>
+                      </crm:E55_Type>
+                    </crm:P2_has_type>
+                    <rdfs:label>dta@bbaw.de</rdfs:label>
+                  </crm:E51_Contact_Point>
+                </crm:P76_has_contact_point>
+              </crm:E40_Legal_Body>
+            </crm:P14_carried_out_by>
+            <crm:P4_has_time-span>
+              <crm:E52_Time-Span rdf:about="uuid:BE">
+                <crm:P82_at_some_time_within>2016-02-03T12:08:53Z</crm:P82_at_some_time_within>
+              </crm:E52_Time-Span>
+            </crm:P4_has_time-span>
+            <crm:P7_took_place_at>
+              <crm:E53_Place rdf:about="http://parthenos-project.eu/Place/Appellation/Berlin">
+                <rdfs:label>Berlin</rdfs:label>
+              </crm:E53_Place>
+            </crm:P7_took_place_at>
+          </frbr:F30_Publication_Event>
+        </crm:P12i_was_present_at>
+      </crmpe:PE24_Volatile_Dataset>
+    </crmpe:PP39_is_metadata_for>
+    <crmdig:L11i_was_output_of>
+      <crmdig:D7_Digital_Machine_Event rdf:about="uuid:AA">
+        <crmdig:L23_used_software_or_firmware>
+          <crmdig:D14_Software rdf:about="http://parthenos-project.eu/Software/clarin.eu%3Acr1%3Ap_1381926654438">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/cmdi-profile">
+                <rdfs:label>cmdi-profile</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+            <rdfs:label>clarin.eu:cr1:p_1381926654438</rdfs:label>
+          </crmdig:D14_Software>
+        </crmdig:L23_used_software_or_firmware>
+        <crm:P11_had_participant>
+          <crm:E39_Actor rdf:about="http://parthenos-project.eu/Actor/Deutsches%20Textarchiv">
+            <rdfs:label>Deutsches Textarchiv</rdfs:label>
+          </crm:E39_Actor>
+        </crm:P11_had_participant>
+        <crm:P4_has_time-span>
+          <crm:E52_Time-Span rdf:about="uuid:AE">
+            <crm:P82_at_some_time_within>2016-02-03</crm:P82_at_some_time_within>
+          </crm:E52_Time-Span>
+        </crm:P4_has_time-span>
+        <rdfs:label>Creation of CMDI record http://hdl.handle.net/11858/00-203C-0000-0029-F7EC-3</rdfs:label>
+      </crmdig:D7_Digital_Machine_Event>
+    </crmdig:L11i_was_output_of>
+    <crm:P2_has_type>
+      <crm:E55_Type rdf:about="http://parthenos-project.eu/Concept/Metadata">
+        <rdfs:label>Metadata</rdfs:label>
+      </crm:E55_Type>
+    </crm:P2_has_type>
+    <rdfs:label>http://hdl.handle.net/11858/00-203C-0000-0029-F7EC-3</rdfs:label>
+  </crmpe:PE22_Persistent_Dataset>
+  <crm:E21_Person rdf:about="uuid:BD">
+    <crm:P1_is_identified_by>
+      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Otto">
+        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/forename"/>
+        <rdfs:label>Otto</rdfs:label>
+      </crm:E41_Appellation>
+    </crm:P1_is_identified_by>
+    <crm:P1_is_identified_by>
+      <crm:E41_Appellation rdf:about="http://parthenos-project.eu/Actor/Appellation/Hufeland">
+        <crm:P2_has_type rdf:resource="http://parthenos-project.eu/Concept/nametype/surname"/>
+        <rdfs:label>Hufeland</rdfs:label>
+      </crm:E41_Appellation>
+    </crm:P1_is_identified_by>
+  </crm:E21_Person>
+</rdf:RDF>
+

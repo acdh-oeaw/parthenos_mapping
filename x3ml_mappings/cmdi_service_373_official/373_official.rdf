@@ -1,0 +1,89 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:crm="http://www.cidoc-crm.org/cidoc-crm/"
+    xmlns:parthenos="http://pathenos.d4science.org/handle/Clarin/VLO/"
+    xmlns:crmpe="http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"
+    xmlns:crmdig="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"
+    xmlns:cmd="http://www.clarin.eu/cmd/1"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:cmdp="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026">
+  <crmpe:PE22_Persistent_Dataset rdf:about="uuid:AA">
+    <crm:P129_is_about>
+      <crmpe:PE8_E-Service rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Service/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117">
+        <crm:P1_is_identified_by>
+          <crm:E35_Title rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/Service%20-%20XSLT%20applicator%20Web%20Service">
+            <rdfs:label>Service - XSLT applicator Web Service</rdfs:label>
+          </crm:E35_Title>
+        </crm:P1_is_identified_by>
+        <rdfs:label>http://services.iula.upf.edu/services/117</rdfs:label>
+        <crmpe:PP45_has_competency>
+          <crmpe:PE36_Competency_Type rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Concept/NLP%20service%2C%20Format%20Conversion%2C">
+            <rdfs:label>NLP service, Format Conversion,</rdfs:label>
+          </crmpe:PE36_Competency_Type>
+        </crmpe:PP45_has_competency>
+        <crm:P1_is_identified_by>
+          <crm:E35_Title rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/XSLT%20applicator%20Web%20Service">
+            <rdfs:label>XSLT applicator Web Service</rdfs:label>
+          </crm:E35_Title>
+        </crm:P1_is_identified_by>
+        <crmpe:PP45_has_competency>
+          <crmpe:PE36_Competency_Type rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Concept/SOAP%2C%20Soaplab%2C">
+            <rdfs:label>SOAP, Soaplab,</rdfs:label>
+          </crmpe:PE36_Competency_Type>
+        </crmpe:PP45_has_competency>
+        <crm:P3_has_note>A command line tool for applying XSLT stylesheets to XML documents.</crm:P3_has_note>
+        <crmpe:PP2_provided_by>
+          <crm:E39_Actor rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29">
+            <crm:P1_is_identified_by>
+              <crm:E41_Appellation rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Appellation/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29">
+                <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</rdfs:label>
+              </crm:E41_Appellation>
+            </crm:P1_is_identified_by>
+            <rdfs:label>Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)</rdfs:label>
+          </crm:E39_Actor>
+        </crmpe:PP2_provided_by>
+        <crm:P3_has_note>End point: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc. WSDL file: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc?wsdl.</crm:P3_has_note>
+        <crmpe:PP28_has_designated_access_point>
+          <crmpe:PE29_Access_Point rdf:about="http://services.iula.upf.edu/services/117"/>
+        </crmpe:PP28_has_designated_access_point>
+        <crm:P9i_forms_part_of>
+          <crmpe:PE1_Service rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Service/IULA%20UPF%20OAI%20Archive%3A%20Services%20for%20NLP">
+            <rdfs:label>IULA UPF OAI Archive: Services for NLP</rdfs:label>
+          </crmpe:PE1_Service>
+        </crm:P9i_forms_part_of>
+      </crmpe:PE8_E-Service>
+    </crm:P129_is_about>
+    <crmdig:L11i_was_output_of>
+      <crmdig:D7_Digital_Machine_Event rdf:about="uuid:AB">
+        <crmdig:L23_used_software_or_firmware>
+          <crmpe:PE38_Schema rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Software/clarin.eu%3Acr1%3Ap_1288172614026">
+            <crm:P2_has_type>
+              <crm:E55_Type rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Concept/software-type%2Fcmdi-profile">
+                <rdfs:label>cmdi-profile</rdfs:label>
+              </crm:E55_Type>
+            </crm:P2_has_type>
+            <rdfs:label>clarin.eu:cr1:p_1288172614026</rdfs:label>
+          </crmpe:PE38_Schema>
+        </crmdig:L23_used_software_or_firmware>
+        <crmdig:L23_used_software_or_firmware>
+          <crmpe:PE21_Persistent_Software rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Software/olac2cmdi.xsl">
+            <rdfs:label>olac2cmdi.xsl</rdfs:label>
+          </crmpe:PE21_Persistent_Software>
+        </crmdig:L23_used_software_or_firmware>
+        <crm:P4_has_time-span>
+          <crm:E52_Time-Span rdf:about="uuid:AC">
+            <crm:P82_at_some_time_within>2013-09-12</crm:P82_at_some_time_within>
+          </crm:E52_Time-Span>
+        </crm:P4_has_time-span>
+        <rdfs:label>Creation of CDMI record  oai:iula.upf.edu:117</rdfs:label>
+      </crmdig:D7_Digital_Machine_Event>
+    </crmdig:L11i_was_output_of>
+    <crm:P2_has_type>
+      <crm:E55_Type rdf:about="http://pathenos.d4science.org/handle/Clarin/VLO/Concept/Metadata">
+        <rdfs:label>metadata</rdfs:label>
+      </crm:E55_Type>
+    </crm:P2_has_type>
+    <rdfs:label>oai:iula.upf.edu:117</rdfs:label>
+  </crmpe:PE22_Persistent_Dataset>
+</rdf:RDF>
+

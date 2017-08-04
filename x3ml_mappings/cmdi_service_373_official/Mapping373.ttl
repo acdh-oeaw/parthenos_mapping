@@ -1,0 +1,97 @@
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix parthenos:  <http://pathenos.d4science.org/handle/Clarin/VLO/> .
+@prefix xml:     <http://www.w3.org/XML/1998/namespace> .
+@prefix cmdp:    <http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1288172614026> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cmd:     <http://www.clarin.eu/cmd/1> .
+@prefix crmpe:   <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/> .
+@prefix crmdig:  <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/> .
+@prefix crm:     <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/XSLT%20applicator%20Web%20Service>
+      a       crm:E35_Title ;
+      rdfs:label "XSLT applicator Web Service" .
+
+<http://services.iula.upf.edu/services/117>
+      a       crmpe:PE29_Access_Point .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Concept/NLP%20service%2C%20Format%20Conversion%2C>
+      a       crmpe:PE36_Competency_Type ;
+      rdfs:label "NLP service, Format Conversion," .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29>
+      a       crm:E39_Actor ;
+      rdfs:label "Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)" ;
+      crm:P1_is_identified_by
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Appellation/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29> .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Concept/software-type%2Fcmdi-profile>
+      a       crm:E55_Type ;
+      rdfs:label "cmdi-profile" .
+
+<uuid:AA>
+      a       crmpe:PE22_Persistent_Dataset ;
+      rdfs:label "oai:iula.upf.edu:117" ;
+      crm:P129_is_about <http://pathenos.d4science.org/handle/Clarin/VLO/Service/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117> ;
+      crm:P2_has_type <http://pathenos.d4science.org/handle/Clarin/VLO/Concept/Metadata> ;
+      crmdig:L11i_was_output_of
+              <uuid:AB> .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Service/http%3A%2F%2Fservices.iula.upf.edu%2Fservices%2F117>
+      a       crmpe:PE8_E-Service ;
+      rdfs:label "http://services.iula.upf.edu/services/117" ;
+      crmpe:PP28_has_designated_access_point
+              <http://services.iula.upf.edu/services/117> ;
+      crmpe:PP2_provided_by
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29> ;
+      crmpe:PP45_has_competency
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Concept/NLP%20service%2C%20Format%20Conversion%2C> , <http://pathenos.d4science.org/handle/Clarin/VLO/Concept/SOAP%2C%20Soaplab%2C> ;
+      crm:P1_is_identified_by
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/XSLT%20applicator%20Web%20Service> , <http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/Service%20-%20XSLT%20applicator%20Web%20Service> ;
+      crm:P3_has_note "End point: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc. WSDL file: http://ws04.iula.upf.edu/soaplab2-axis/services/format_conversion.xsltproc?wsdl." , "A command line tool for applying XSLT stylesheets to XML documents." ;
+      crm:P9i_forms_part_of
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Service/IULA%20UPF%20OAI%20Archive%3A%20Services%20for%20NLP> .
+
+<uuid:AB>
+      a       crmdig:D7_Digital_Machine_Event ;
+      rdfs:label "Creation of CDMI record  oai:iula.upf.edu:117" ;
+      crm:P4_has_time-span
+              <uuid:AC> ;
+      crmdig:L23_used_software_or_firmware
+              <http://pathenos.d4science.org/handle/Clarin/VLO/Software/olac2cmdi.xsl> , <http://pathenos.d4science.org/handle/Clarin/VLO/Software/clarin.eu%3Acr1%3Ap_1288172614026> .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Software/clarin.eu%3Acr1%3Ap_1288172614026>
+      a       crmpe:PE38_Schema ;
+      rdfs:label "clarin.eu:cr1:p_1288172614026" ;
+      crm:P2_has_type <http://pathenos.d4science.org/handle/Clarin/VLO/Concept/software-type%2Fcmdi-profile> .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Software/olac2cmdi.xsl>
+      a       crmpe:PE21_Persistent_Software ;
+      rdfs:label "olac2cmdi.xsl" .
+
+<uuid:AC>
+      a       crm:E52_Time-Span ;
+      crm:P82_at_some_time_within
+              "2013-09-12" .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Service/Appellation/Service%20-%20XSLT%20applicator%20Web%20Service>
+      a       crm:E35_Title ;
+      rdfs:label "Service - XSLT applicator Web Service" .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Service/IULA%20UPF%20OAI%20Archive%3A%20Services%20for%20NLP>
+      a       crmpe:PE1_Service ;
+      rdfs:label "IULA UPF OAI Archive: Services for NLP" .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Concept/SOAP%2C%20Soaplab%2C>
+      a       crmpe:PE36_Competency_Type ;
+      rdfs:label "SOAP, Soaplab," .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Concept/Metadata>
+      a       crm:E55_Type ;
+      rdfs:label "metadata" .
+
+<http://pathenos.d4science.org/handle/Clarin/VLO/Actor/Appellation/Universitat%20Pompeu%20Fabra.%20Institut%20Universitari%20de%20Ling%C3%BC%C3%ADstica%20Aplicada%20%28IULA%29>
+      a       crm:E41_Appellation ;
+      rdfs:label "Universitat Pompeu Fabra. Institut Universitari de Lingüística Aplicada (IULA)" .
+
+

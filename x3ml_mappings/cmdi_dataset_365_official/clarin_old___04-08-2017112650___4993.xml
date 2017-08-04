@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<generator_policy>
+	
+	<!-- The prefix is a namespace that must be declared in the X3ML definition.
+	In PARTHENOS it was decided that it is constructed by the namespace of PARTHENOS followed by the provider 
+	and the database that is being mapped
+	e.g. prefix="parthenos" and in the x3ml define <namespace prefix="parthenos" uri="http://parthenos-project.eu/FORTH/myDB/"/> -->
+
+    <generator name="ProjectURI" prefix="parthenos"> 
+        <pattern>Project/{term}</pattern>
+    </generator>
+    <generator name="ServiceURI" prefix="parthenos"> 
+        <pattern>Service/{term}</pattern>
+    </generator>
+	<generator name="DatasetURI" prefix="parthenos"> 
+        <pattern>Dataset/{term}</pattern>
+    </generator>
+    <generator name="DatasetAltClarinURI" prefix="parthenos"> 
+        <pattern>Dataset/{term1}{term2}</pattern>
+    </generator>
+	<generator name="SoftwareURI" prefix="parthenos"> 
+        <pattern>Software/{term}</pattern>
+    </generator>
+	<generator name="ActorURI" prefix="parthenos"> 
+        <pattern>Actor/{term}</pattern>
+    </generator>
+    <generator name="ConceptURI" prefix="parthenos"> 
+        <pattern>Concept/{term}</pattern>
+    </generator>
+    <generator name="ConceptURI_2step" prefix="parthenos">
+<pattern>Concept/{term1}/{term2}</pattern>
+</generator>
+    <generator name="PlaceURI" prefix="parthenos"> 
+        <pattern>Place/{term}</pattern>
+    </generator>
+
+    <generator name="ProjectAppellationURI" prefix="parthenos"> 
+        <pattern>Project/Appellation/{term}</pattern>
+    </generator>
+	<generator name="ServiceAppellationURI" prefix="parthenos"> 
+        <pattern>Service/Appellation/{term}</pattern>
+    </generator>
+	<generator name="DatasetAppellationURI" prefix="parthenos"> 
+        <pattern>Dataset/Appellation/{term}</pattern>
+    </generator>
+	<generator name="SoftwareAppellationURI" prefix="parthenos"> 
+        <pattern>Software/Appellation/{term}</pattern>
+    </generator>
+	<generator name="ActorAppellationURI" prefix="parthenos"> 
+        <pattern>Actor/Appellation/{term}</pattern>
+    </generator>
+    <generator name="ConceptAppellationURI" prefix="parthenos"> 
+        <pattern>Concept/Appellation/{term}</pattern>
+    </generator>
+	<generator name="PlaceAppellationURI" prefix="parthenos"> 
+        <pattern>Place/Appellation/{term}</pattern>
+    </generator>
+	
+    <generator name="URIorUUID">
+        <custom generatorClass="gr.forth.URIorUUID">
+            <set-arg name="text"/>
+        </custom>
+    </generator>
+    <generator name="RemoveTerm" prefix="parthenos">
+		        <custom generatorClass="gr.forth.RemoveTerm">
+            <set-arg name="termToRemove" type="constant"/>
+            <set-arg name="text"/>
+        </custom>
+    </generator>
+	<generator name="OneLevelCustomURI" prefix="parthenos">
+        <pattern>{level1}/{term}</pattern>
+    </generator>
+	<generator name="TwoLevelCustomURI" prefix="parthenos">
+        <pattern>{level1}/{level2}/{term}</pattern>
+    </generator>
+	<generator name="OneLevelCustomURIwCount" prefix="parthenos">
+        <pattern>{level1}/{count}/{term}</pattern>
+    </generator>
+	<generator name="TwoLevelCustomURIwCount" prefix="parthenos">
+        <pattern>{level1}/{level2}/{count}/{term}</pattern>
+    </generator>
+        
+	<generator name="SimpleLabel">
+        <pattern>{label}</pattern>
+    </generator>
+	<generator name="CompositeLabel">
+        <pattern>{label} {text}</pattern>
+    </generator>
+		
+</generator_policy>
