@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE doc [
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
@@ -53,14 +53,14 @@
 		<link>
 		
 			<!-- Dataset -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" condition="dataset">
-				&objectProperties;
-				&datasetProperties;
+			<entity xpath="/cmd:CMD/cmd:Components" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" condition="dataset">
+       &objectProperties;
+				<!-- &datasetProperties; -->
 			</entity>
 			
 			<!-- Service -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot?" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" globVar="mainEntity" condition="service">
-				&objectProperties;
+			<entity xpath="/cmd:CMD/cmd:Components" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" globVar="mainEntity" condition="service">
+				<!-- &objectProperties; -->
 			</entity>
 			
 			<!-- Software -->

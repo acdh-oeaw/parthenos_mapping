@@ -76,14 +76,15 @@ public class Normalizer {
 	 * @param conditions
 	 */
 	public void filterConditionalEntities(Collection<ParthenosEntity> entities, List<String> conditions) {
-		if(entities == null || conditions == null || conditions.isEmpty())
+		if(entities == null)
 			return;
+		
 		
 		Iterator<ParthenosEntity> entitiesIterator = entities.iterator();
 		
 		while (entitiesIterator.hasNext()) {
 			ParthenosEntity entity = entitiesIterator.next();
-			if(entity.getCondition() != null && !conditions.contains(entity.getCondition())){
+			if(entity.getCondition() != null && (conditions == null || conditions.isEmpty() || !conditions.contains(entity.getCondition()))){
 				entitiesIterator.remove();
 				continue;
 			}
