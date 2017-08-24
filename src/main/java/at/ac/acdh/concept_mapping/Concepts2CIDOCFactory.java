@@ -1,5 +1,6 @@
 package at.ac.acdh.concept_mapping;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,11 +8,15 @@ import java.io.StringReader;
 import java.nio.file.Paths;
 
 import javax.xml.bind.JAXB;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 
+import org.w3c.dom.Document;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
@@ -38,7 +43,7 @@ public class Concepts2CIDOCFactory {
 	 * @return CMDI2CIDOCMap instance
 	 */
 	public static CMDI2CIDOCMap unmarshall(String xmlFile) {
-		final SAXParserFactory spf = SAXParserFactory.newInstance();
+/*		final SAXParserFactory spf = SAXParserFactory.newInstance();
 		spf.setXIncludeAware(true);
 		spf.setNamespaceAware(true);
 		try {
@@ -52,7 +57,29 @@ public class Concepts2CIDOCFactory {
 
 		} catch (ParserConfigurationException | SAXException | IOException ex) {
 			throw new RuntimeException(ex);
-		}
+		}*/
+		
+		DocumentBuilderFactory fac = DocumentBuilderFactory.newInstance();
+		
+		fac.setNamespaceAware(true);
+		fac.setXIncludeAware(true);
+		
+
+		
+			DocumentBuilder builder;
+			try {
+				builder = fac.newDocumentBuilder();
+				Document doc = builder.parse(new File(xmlFile));
+				
+				return JAXB.unmarshal(new DOMSource(doc), CMDI2CIDOCMap.class);
+			} 
+			catch (ParserConfigurationException | SAXException | IOException ex) {
+				// TODO Auto-generated catch block
+				throw new RuntimeException(ex);
+			}
+		
+			
+
 	}
 
 	/**
