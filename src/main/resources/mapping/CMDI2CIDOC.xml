@@ -6,188 +6,110 @@
 <mappings>
 
 	<!-- Header -->
-	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata">
-		
-		
-		<link>			
-			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event"  />		
+	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
+		hasType="metadata">
+
+
+		<link>
+			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" />
 			<pattern>cmd:Header</pattern>
 		</link>
-		
-	
-		
-		<link>			
-			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"  var="data1"/>
-			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service"  />	
+
+
+
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" />
+			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" />
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
 		</link>
-			<link>			
-			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1"/>
-			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point"  />
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" />
+			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" />
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern>
-		</link>  
+		</link>
 
 		<link>
 
-		
-		<!-- Only one of these entities will be mapped -->
-	
-			<!-- Dataset  condition="dataset" -->
-       		<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset" >
-				<!-- &objectProperties;
-				&datasetProperties; -->
-				<link>
-					<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" />
-	
-					<!-- vlo:name -->
-						<concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
-						<concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
-						<concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>	
-					<!-- CLARIN-D Webservices name -->
-	
-						<concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
-						<concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept>
-						<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
-						<concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
-						<concept>http://purl.org/dc/terms/title</concept>
-						<concept>http://purl.org/dc/elements/1.1/title</concept>
-	
-						<pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl/text()</pattern>
-					<!-- BBAW teiHeader -->
-						<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:Label/text()</pattern>
-					<!-- IDS IDSAGD_Event -->
-						<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Speaker/cmdp:Label/text()</pattern>
-					<!-- IDS IDSAGD_Speaker -->
-						<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications/cmdp:Publication</pattern>
-					<!--  IMS TextCorpusProfile -->
-						<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications/cmdp:Publication</blacklistPattern>
-					<!-- IMS ToolProfile -->
-						<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
-					<!-- IMS c:LexicalResourceProfile -->
-						<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
-					<!-- IMS c:MultimodalCorpus -->		
-				</link>
+
+			<!-- Only one of these entities will be mapped -->
+
+			<!-- Dataset condition="dataset" -->
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset">
+
+				  
+				
+				 &objectProperties; &datasetProperties; 
 				
 
-				<link>
-	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" />
-	<entity relationship="crm:P14_carried_out_by" type="crmpe:PE25_RI_Consortium" />
-
-	<!-- vlo:projectName -->
-	<concept>http://www.isocat.org/datcat/DC-2536</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
-	<concept>http://www.isocat.org/datcat/DC-2537</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
-	<concept>http://www.isocat.org/datcat/DC-5414</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-5414_55fd7a9e-edae-d8ad-a64f-c8e1058e7a6d</concept>
-
-	<pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:orgName/cmdp:orgName[@role="project"]/text()</pattern>
-	<!-- BBAW teiHeader -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Corpus/text()</pattern>
-	<!-- BAS media-session-profile -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern>
-</link>
-
-
-
-<link>
-	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" />
-	
-	<!-- vlo:license + availability -->	
-	<!-- A description of the licensing conditions under which the resource can be used. -->
-	<concept>http://www.isocat.org/datcat/DC-2457</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2457_45bbaa1a-7002-2ecd-ab9d-57a189f694a6</concept>
-	<!-- A description of the licensing conditions... -->
-	<concept>http://www.isocat.org/datcat/DC-2453</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2453_1f0c3ea5-7966-ae11-d3c6-448424d4e6e8</concept>
-	<!-- A description of the terms of availability of the resource in simple words. -->
-	<concept>http://www.isocat.org/datcat/DC-3800</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-3800_12a79edd-0ffe-8d82-9831-45d125c54aee</concept>
-	<!-- licenceType: Indication of the type of a copyright licence. -->
-	<concept>http://www.isocat.org/datcat/DC-6846</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-6846_d6adb99c-15ac-fac7-7911-f64c48298ce3</concept>
-	<!-- DASISH from DC Rights -->
-	<concept>http://www.isocat.org/datcat/DC-5439</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-5439_98bb103d-476a-7f62-54b4-bf9de24d2229</concept>
-	
-	<!-- URL of the license -->
-	<concept>http://www.isocat.org/datcat/DC-6586</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-6586_2c79d86a-5a75-0890-d407-7d9cb86b9beb</concept>
-			
-	<!-- the DC is used in the distributionType facet -->
-	<concept>http://purl.org/dc/terms/license</concept>
-	<concept>http://purl.org/dc/terms/rights</concept>
-	<concept>http://purl.org/dc/terms/accessRights</concept>
-</link>   
 
 
 
 
+			</entity>
 
 
 
-       		</entity>
-			
-			
-			
 			<!-- Service -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot?" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity" condition="service">
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot?"
+				relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity"
+				condition="service">
 				&objectProperties;
 			</entity>
-			
+
 			<!-- Software -->
-			
+
 			<pattern>cmd:Components/?profileRoot</pattern>
-		
+
 		</link>
-		
-		<!--
-		<link>
-	
-			<entity Xpath="/cmd:CMD/cmd:Resources/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"  var="data1" condition="dataset"/>
-			
-			<pattern>cmd:Resoources/?profileRoot</pattern>
-		
-		</link>  -->
+
+		<!-- <link> <entity Xpath="/cmd:CMD/cmd:Resources/?profileRoot" relationship="crmpe:PP39_is_metadata_for" 
+			type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset"/> <pattern>cmd:Resoources/?profileRoot</pattern> 
+			</link> -->
 
 
 
 	</entity>
 
 
- <entity xpath="/cmd:CMD/cmd:Header" type="crmdig:D7_Digital_Machine_Event" >
-		
-		
-		<link>			
-		  <entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span"  />
-		  <entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal"/>
+	<entity xpath="/cmd:CMD/cmd:Header" type="crmdig:D7_Digital_Machine_Event">
+
+
+		<link>
+			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" />
+			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal" />
 			<pattern>cmd:MdCreationDate</pattern>
 		</link>
 
 		<link>
-		  <entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE21_Persistent_Software" />
-			  <pattern>cmd:MdCreator</pattern>
+			<entity relationship="crmdig:L23_used_software_or_firmware"
+				type="crmpe:PE21_Persistent_Software" />
+			<pattern>cmd:MdCreator</pattern>
 		</link>
 
 		<link>
-		  <entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE38_Schema" hasType="cmdi-profile"/>
-			  <pattern>cmd:MdProfile</pattern>
+			<entity relationship="crmdig:L23_used_software_or_firmware"
+				type="crmpe:PE38_Schema" hasType="cmdi-profile" />
+			<pattern>cmd:MdProfile</pattern>
 		</link>
 
- </entity>
+	</entity>
 
 
-       
-	
-	<entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE15_Data_E-Service" >
-		
-		<link>			
-			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />		
+
+
+	<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy"
+		type="crmpe:PE15_Data_E-Service">
+
+		<link>
+			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
 			<pattern>cmd:ResourceRef</pattern>
 		</link>
-		
-	
-			
+
+
+
 	</entity>
 
 </mappings>
