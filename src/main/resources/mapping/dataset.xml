@@ -67,3 +67,22 @@
 	<concept>http://hdl.handle.net/11459/CCR_C-2571_2be2e583-e5af-34c2-3673-93359ec1f7df</concept>
 	<concept>http://purl.org/dc/terms/format</concept>
 </link>
+
+<link>
+	<entity relationship="crm:P105_right_held-by" type="crm:E40_Legal_Body"  />
+	
+	<!-- vlo:owner -->
+	
+	<concept>http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
+	
+</link>
+
+
+<link>
+	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
+	
+	<!-- vlo:description -->
+	
+	<concept>http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
+	
+</link>

@@ -6,6 +6,7 @@
 <mappings>
 
 	<!-- Header -->
+	d
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
 		hasType="metadata">
 
@@ -36,12 +37,14 @@
 			<!-- Only one of these entities will be mapped -->
 
 			<!-- Dataset condition="dataset" -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset">
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot"
+				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" condition="dataset">
 
 				  
 				
-				 &objectProperties; &datasetProperties; 
-				
+				 &objectProperties; &datasetProperties;
+
 
 
 
