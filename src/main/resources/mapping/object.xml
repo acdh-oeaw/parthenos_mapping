@@ -1,15 +1,3 @@
-<link>
-	<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" />
-	
-	<!-- vlo:id -->
-	<concept name="persistent identifier">http://hdl.handle.net/11459/CCR_C-2573_ae7c2548-8a86-ab6e-7099-e28b7697d1a2</concept>
-	<concept name="recordIdentifier">http://hdl.handle.net/11459/CCR_C-5193_55564c2c-5ef1-1849-874c-210f86e02402</concept>
-	
-	<!-- <patern>cmd:CMD/cmd:Header/cmd:MdSelfLink</patern> doesn't belong here -->	
-	<!--handeled from code 
-	<patern>cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/@id</patern>
-	 -->
-</link>
 
 <link>
 	<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" />
@@ -24,7 +12,7 @@
 	<concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
 	
 	<concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept>
-	<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+	
 	<concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
 	<concept>http://purl.org/dc/terms/title</concept>
 	<concept>http://purl.org/dc/elements/1.1/title</concept>
@@ -37,6 +25,8 @@
 	<!-- IDS IDSAGD_Speaker -->
 	<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications/cmdp:Publication</pattern>
 	<!--  IMS TextCorpusProfile -->
+	
+
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications/cmdp:Publication</blacklistPattern>
 	<!-- IMS ToolProfile -->
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
@@ -44,6 +34,22 @@
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
 	<!-- IMS c:MultimodalCorpus -->		
 </link>
+
+
+<link>
+	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title" />
+
+		<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+
+</link>
+
+<link>
+	<entity relationship="crm:P105_right_held_by" type="crm:E40_Legal_Body" />
+
+		<concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
+
+</link>
+
 
 <link>	
 	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
@@ -172,7 +178,22 @@
 </link>
 
 <link>
-	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" />
+
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span"/>
+	<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+		<concept name="publication year">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
+
+
+</link>
+
+
+
+
+
+<link>
+	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" hasType="Access Rights" />
+	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
 	
 	<!-- vlo:license + availability -->	
 	<!-- A description of the licensing conditions under which the resource can be used. -->
@@ -257,7 +278,7 @@
 	<concept>http://hdl.handle.net/11459/CCR_C-6543_92dacb75-3098-0d5a-0665-94ddb6274f8c</concept>
 
 	<concept>http://www.isocat.org/datcat/DC-2503</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2503_72bd598f-4abf-e122-ed93-f2adf1ab8785</concept>
+<!--	<concept>http://hdl.handle.net/11459/CCR_C-2503_72bd598f-4abf-e122-ed93-f2adf1ab8785</concept> -->
 
 	<!--  <pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject/@olac-linguistic-field</pattern> -->
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject</pattern>
@@ -286,7 +307,7 @@
 	<concept>http://purl.org/dc/terms/type</concept>
 	<concept>http://purl.org/dc/elements/1.1/type</concept>
 	<concept>http://www.isocat.org/datcat/DC-3806</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-3806_e55e9ed6-b099-c21d-a634-3c7f4d22a215</concept>
+	<!--<concept>http://hdl.handle.net/11459/CCR_C-3806_e55e9ed6-b099-c21d-a634-3c7f4d22a215</concept> -->
 	<!-- not an official ISOcat PID - added to support cmdi-collectiontype, should be removed in the future -->
 	<concept>http://www.isocat.org/datcat/DC-5424</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-5424_3200a38b-344e-41de-e539-f71f80c38df8</concept>
@@ -298,3 +319,4 @@
 
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Creation/cmdp:Source/cmdp:MediaFiles</blacklistPattern>
 </link>
+

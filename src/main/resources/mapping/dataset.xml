@@ -14,75 +14,40 @@
 	<pattern>cmdp:Collection/cmdp:Access</pattern>
 </link>
 
+
+
+<!-- Mapping for component  "Project" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438125 -->
 <link>
-	<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE7_Data_Hosting_Service" />
-	<entity relationship="crm:PP2_provided_by" type="crm:E40_Legal_Body" />
-	
-	<!-- vlo: organisation -->
-	<concept>http://www.isocat.org/datcat/DC-2459</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2459_fc4e74d6-84de-c8cd-1ae8-2c2be5ee90b1</concept>
-	<concept>http://www.isocat.org/datcat/DC-2979</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
-	<concept>http://www.isocat.org/datcat/DC-6134</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-6134_72c22724-2615-fd70-2eff-8cd3cb59e91d</concept>
-	<concept>http://www.isocat.org/datcat/DC-6702</concept>
-	<!-- distribution rights holder -->
-	<concept>http://hdl.handle.net/11459/CCR_C-6837_8edd5107-ce2f-7f13-b8cd-1bd9750509b2</concept>
-	<!-- data provider -->
+	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project" relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title"/>>
+			<pattern>cmdp:Title</pattern>
+		</link>
 
-	<pattern>/cmd:CMD/Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Contact/cmdp:Organisation/text()</pattern>
-	<!-- IDS WebLichtWebService -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Creation/cmdp:Source/cmdp:MediaFiles/cmdp:MediaFile/cmdp:Access/cmdp:Contact/cmdp:Organisation/text()</pattern>
-	<!-- IDS WebLichtWebService -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Creation/cmdp:Source/cmdp:Derivation/cmdp:Organisation/text()</pattern>
-	<!-- IDS WebLichtWebService -->
-	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:WebLichtWebService/cmdp:Service/cmdp:Creation/cmdp:Creators/cmdp:Creator</blacklistPattern>
-	<!-- IDS WebLichtWebService -->
-</link>
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"/>>
+			<pattern>cmdp:Name</pattern>
+		</link>
 
-<link>
-	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" />
-	<entity relationship="crm:P14_carried_out_by" type="crmpe:PE25_RI_Consortium" />
+		<link>
+			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
+			<pattern>cmdp:Description/cmdp:Description</pattern>
+		</link>
 
-	<!-- vlo:projectName -->
-	<concept>http://www.isocat.org/datcat/DC-2536</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
-	<concept>http://www.isocat.org/datcat/DC-2537</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
-	<concept>http://www.isocat.org/datcat/DC-5414</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-5414_55fd7a9e-edae-d8ad-a64f-c8e1058e7a6d</concept>
+		<link>
+			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE_Team" />
+			<pattern>cmdp:Contact</pattern>
+		</link>
 
-	<pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:orgName/cmdp:orgName[@role="project"]/text()</pattern>
-	<!-- BBAW teiHeader -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Corpus/text()</pattern>
-	<!-- BAS media-session-profile -->
-	<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern>
-</link>
+	</entity>
+		<pattern>cmdp:Collection/cmdp:Project</pattern>
+		<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project"/>
+		
 
-<link>
-	<entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO format" />
-	
-	<!-- vlo:format -->
-	<concept>http://www.isocat.org/datcat/DC-2571</concept>
-	<concept>http://hdl.handle.net/11459/CCR_C-2571_2be2e583-e5af-34c2-3673-93359ec1f7df</concept>
-	<concept>http://purl.org/dc/terms/format</concept>
-</link>
-
-<link>
-	<entity relationship="crm:P105_right_held-by" type="crm:E40_Legal_Body"  />
-	
-	<!-- vlo:owner -->
-	
-	<concept>http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
-	
 </link>
 
 
-<link>
-	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
-	
-	<!-- vlo:description -->
-	
-	<concept>http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
-	
-</link>
+
+
+
+
