@@ -40,10 +40,8 @@
 			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot"
 				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" condition="dataset">
-
-				  
-				
-				 &objectProperties; &datasetProperties;
+				 &objectProperties; 
+				 &datasetProperties; 
 
 
 
@@ -109,6 +107,20 @@
 		<link>
 			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
 			<pattern>cmd:ResourceRef</pattern>
+		</link>
+
+
+
+	</entity>
+
+
+		<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
+		type="crmpe:PE29_Access_Point">
+
+		<link>
+			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
+			<pattern>cmd:ResourceType</pattern>
 		</link>
 
 

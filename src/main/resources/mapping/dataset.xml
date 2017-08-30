@@ -1,15 +1,18 @@
 <!-- Mapping for component  "Access" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438124 -->
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
-		<link>
-			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
-			<pattern>cmdp:Availability</pattern>
-		</link>
-		
+	
 		<link>			
 			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body" />
 			<pattern>cmdp:Contact</pattern>
 		</link>
+
+		<link>			
+			<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point" />
+			<pattern>cmdp:CatalogueLink</pattern>
+		</link>
+
+
 	</entity>
 	<pattern>cmdp:Collection/cmdp:Access</pattern>
 </link>
@@ -35,7 +38,7 @@
 		</link>
 
 		<link>
-			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE_Team" />
+			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team" />
 			<pattern>cmdp:Contact</pattern>
 		</link>
 
@@ -46,8 +49,59 @@
 
 </link>
 
+<!-- Mapping for component http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438113 -->
+
+<link>
+	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact" relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email" />
+			<pattern>cmdp:Email</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crmpe:PE29_Access_Point"/>
+			<pattern>cmdp:Website</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person" />
+			<pattern>cmdp:Person</pattern>
+		</link>
 
 
+	</entity>
+		<pattern>cmdp:Project/cmdp:Contact</pattern>
+		
+		
+
+</link>
 
 
+<link>
+	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:E45_Address"  />
+			<pattern>cmdp:Address</pattern>
+		</link>
 
+		<link>
+			<entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person" />
+			<pattern>cmdp:Person</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone" />
+			<pattern>cmdp:Telephone</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:PE29_Access_Point" />
+			<pattern>cmdp:Website</pattern>
+		</link>
+
+	</entity>
+		<pattern>cmdp:Access/cmdp:Contact</pattern>
+		
+		
+
+</link>

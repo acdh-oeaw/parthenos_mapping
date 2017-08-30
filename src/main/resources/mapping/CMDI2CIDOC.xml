@@ -113,4 +113,18 @@
 
 	</entity>
 
+
+		<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
+		type="crmpe:PE29_Access_Point">
+
+		<link>
+			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
+			<pattern>cmd:ResourceType</pattern>
+		</link>
+
+
+
+	</entity>
+
 </mappings>
