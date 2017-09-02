@@ -105,3 +105,30 @@
 		
 
 </link>
+
+	<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy"
+		type="crmpe:PE15_Data_E-Service">
+
+		<link>
+			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
+			<pattern>cmd:ResourceRef</pattern>
+		</link>
+
+
+
+	</entity>
+
+
+		<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
+		type="crmpe:PE29_Access_Point">
+
+		<link>
+			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
+			<pattern>cmd:ResourceType</pattern>
+		</link>
+
+
+
+	</entity>

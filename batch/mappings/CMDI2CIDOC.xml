@@ -6,7 +6,7 @@
 <mappings>
 
 	<!-- Header -->
-	d
+	
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
 		hasType="metadata">
 
@@ -16,7 +16,7 @@
 			<pattern>cmd:Header</pattern>
 		</link>
 
-
+		
 
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
