@@ -42,6 +42,7 @@ This application parses CLARIN profiles from a given URL and generates x3ml (xml
 ### Requirements:
 	java8
 	maven
+	jq library (for run.sh file in batch folder)
 
 ### Installation
 #### Get source code from github and compile it with command:
@@ -60,7 +61,8 @@ It creates x3ml-gen.jar in target folder
 To print help:
 
 	java -jar  x3ml-gen.jar -help
-	
+
+
 ### Parameters
 
 1. profile    - url of the profiles xsd files
@@ -73,5 +75,23 @@ To print help:
 
 
 	java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset
+
+
+### batch folder
+
+1. run.sh script - will process all the profiles specified in the cmdi.json file and all the .xml mapping files from mapping folder. All the mapping files created by the script will be stored in x3ml_mappings folder automatically created running the script.
+
+2. x3ml-gen.jar file - executable file creted compiling the source code (copied from target folder)
+
+3. .xml mapping files in mappings folder - mapping files containing mapping rules from CMDI to CIDOC-PE model.
+
+### .xml mapping files
+
+1. Mapping files are stored in batch/mappings folder and in src/main/resources/mapping folder. They are indipendent between each other and, in order to have a common mapping output, .xml files from src/main/resources/mapping should be copied in batch/mappings folder.
+
+2. Mapping files from src/main/resources/mapping folder are processed via the executable file x3ml-gen.jar file according to the syntax i.e java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset
+The mapping process will be runned just on the profile specified in the parameters i.e clarin.eu:cr1:p_1288172614026
+
+3. Mapping files from batch/mappings folder are processed by default by the run.sh script. run.sh script provides to a "global" mapping for all the profiles specified in the cmdi.json file.
 	
 	
