@@ -23,12 +23,12 @@
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project" relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
 		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title"/>>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title"/>
 			<pattern>cmdp:Title</pattern>
 		</link>
 
 		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"/>>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"/>
 			<pattern>cmdp:Name</pattern>
 		</link>
 

@@ -346,3 +346,37 @@
 	<pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
 
+
+
+
+<link>
+	
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	
+	<entity relationship="crm:P01i_is_domain_of" type="crm:PC14_carried_out_by" />
+	
+	<entity relationship="P01_has_domain" type="crm:E21_Person"/>
+	
+		<concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
+		<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName</pattern>
+	
+
+</link>
+
+<link>
+	
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	
+	<entity relationship="crm:P01i_is_domain_of" type="crm:PC14_carried_out_by" />
+	
+	<entity relationship="P01_has_domain" type="crm:E21_Person"/>
+	
+		<concept name="editor">http://hdl.handle.net/11459/CCR_C-4118_0d368d47-dc1e-bdda-98e0-0cbb56040423</concept>
+		<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</pattern>
+	
+
+</link>
+
+
+
+
