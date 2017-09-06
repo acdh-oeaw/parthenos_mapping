@@ -34,7 +34,7 @@
 
 		<link>
 
-
+		
 			<!-- Only one of these entities will be mapped -->
 
 			<!-- Dataset condition="dataset" -->
@@ -49,13 +49,10 @@
 			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot"
 				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" condition="tei">
-			    &objectProperties;  
+			  	&objectProperties;   
 				&teiProperties;
 				
 			</entity>
-
-
-
 
 
 			<!-- Service -->
@@ -70,11 +67,6 @@
 			<pattern>cmd:Components/?profileRoot</pattern>
 
 		</link>
-
-		<!-- <link> <entity Xpath="/cmd:CMD/cmd:Resources/?profileRoot" relationship="crmpe:PP39_is_metadata_for" 
-			type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset"/> <pattern>cmd:Resoources/?profileRoot</pattern> 
-			</link> -->
-
 
 
 	</entity>

@@ -24,11 +24,13 @@
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project" relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
 		<link>
 			<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title"/>
+			<concept name="title">http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
 			<pattern>cmdp:Title</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"/>
+			<concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
 			<pattern>cmdp:Name</pattern>
 		</link>
 
@@ -81,6 +83,7 @@
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
 		<link>
 			<entity relationship="crm:P76_has_contact_point" type="crm:E45_Address"  />
+			<concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
 			<pattern>cmdp:Address</pattern>
 		</link>
 
@@ -91,11 +94,13 @@
 
 		<link>
 			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone" />
+			<concept name="telephone">http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794</concept>
 			<pattern>cmdp:Telephone</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crm:P76_has_contact_point" type="crm:PE29_Access_Point" />
+			<concept name="web site">http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf</concept>
 			<pattern>cmdp:Website</pattern>
 		</link>
 
