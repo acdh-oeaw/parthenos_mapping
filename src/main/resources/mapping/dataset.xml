@@ -142,3 +142,206 @@
 
 
 	</entity>
+
+<!-- TEI MAPPING 
+
+
+
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy"
+		type="crmpe:PE15_Data_E-Service">
+
+		<link>
+			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
+			<pattern>cmd:ResourceRef</pattern>
+		</link>
+    </entity>
+</link>
+
+
+<link>
+	
+
+
+	<entity
+		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
+		type="crmpe:PE29_Access_Point">
+
+		<link>
+			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
+			<pattern>cmd:ResourceType</pattern>
+		</link>
+
+
+
+	</entity>
+</link>
+
+<link>
+	<entity relationship="crmpe:PP32i_was_curated_by" type="crmpe:PE12_Data_curating_Service" var="cure1"/>
+	<entity relationship="crm:PP2_provided_by" type="crm:E39_Actor"/>
+		<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</pattern>
+</link>
+
+<link>
+	<entity relationship="crm:P12i_was_present_at" type="frbr:F30_Publication_Event"/>
+		<pattern>cmdp:fileDesc/cmdp:publicationStmt</pattern>
+</link>
+
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author"
+		type="crm:E21_Person">
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
+			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+			<pattern>cmdp:persName/cmdp:surname</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
+			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+			<pattern>cmdp:persName/cmdp:forename</pattern>
+		</link>
+
+    </entity>
+</link>
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor"
+		type="crm:E21_Person">
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
+			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+			<pattern>cmdp:persName/cmdp:surname</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
+			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+			<pattern>cmdp:persName/cmdp:forename</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND" />
+			<pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
+		</link>
+
+    </entity>
+</link>
+
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt"
+		type="crm:E21_Person">
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
+			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+			<pattern>cmdp:persName/cmdp:forename</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
+			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+			<pattern>cmdp:persName/cmdp:surname</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND" />
+			<concept name="idNumber">http://hdl.handle.net/11459/CCR_C-3894_4d08cc31-25fe-af0c-add4-ca7bdc12f5f7</concept>
+			<pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="OrganisationName" />
+			<concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
+			<pattern>cmdp:orgName/cmdp:orgName</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P2_has_type" type="crm:E55_Type"  />
+			<pattern>cmdp:note/cmdp:note</pattern>
+		</link>
+
+    </entity>
+</link>
+
+
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt"
+		type="frbr:F30_Publication_Event">
+
+		<link>
+			<entity relationship="crm:P7_took_place_at" type="crm:E53_Place"  />
+			<concept name="publication place">http://hdl.handle.net/11459/CCR_C-5580_03e458f2-f873-8645-76eb-40e001b6c1ac</concept>
+			<pattern>cmdp:pubPlace</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" />
+			<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+			<concept name="pubDate">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
+			<pattern>cmdp:date</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P14_carried_out_by" type="crm:E40_Legal_Body"  />
+			<pattern>cmdp:publisher</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right"  />
+			<concept name="licence">http://hdl.handle.net/11459/CCR_C-3800_12a79edd-0ffe-8d82-9831-45d125c54aee</concept>
+			<pattern>cmdp:availability/cmdp:licence</pattern>
+		</link>
+
+    </entity>
+</link>
+
+
+<link>
+	<entity
+		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher"
+		type="crm:E40_Legal_Body">
+
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email"  />
+			<concept name="TEImail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
+			<pattern>cmdp:email</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P76_has_contact_point" type="crm:E45_Address" />
+			<concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
+			<pattern>cmdp:address/cmdp:addrLine</pattern>
+		</link>
+
+		<link>
+			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"  />
+			<concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
+			<pattern>cmdp:orgName/cmdp:orgName</pattern>
+		</link>
+		
+    </entity>
+</link> -->
+
+
+
+
+
+
+
+
+
+
+	
