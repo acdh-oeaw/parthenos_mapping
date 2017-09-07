@@ -46,13 +46,7 @@
 			</entity>
 
 
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot"
-				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
-				var="data1" condition="tei">
-			  	&objectProperties;   
-				&teiProperties;
-				
-			</entity> 
+			
 
 
 			<!-- Service -->

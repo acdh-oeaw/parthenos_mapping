@@ -59,7 +59,7 @@
 		<link>
 			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email" />
 			<concept name="e-mail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
-			<pattern>cmdp:Email</pattern>
+		<!--	<pattern>cmdp:Email</pattern> -->
 		</link>
 
 		<link>
@@ -143,7 +143,7 @@
 
 	</entity>
 
-<!-- TEI MAPPING 
+
 
 
 
