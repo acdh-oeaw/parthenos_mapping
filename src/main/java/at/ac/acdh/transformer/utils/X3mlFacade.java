@@ -1,5 +1,7 @@
 package at.ac.acdh.transformer.utils;
 
+
+import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
 import gr.forth.x3ml.DomainTargetNodeType;
@@ -27,9 +29,9 @@ public class X3mlFacade {
 	 * 
 	 * @see  Mapping
 	 */	
-	public Mapping createMapping(String srcNode, String type){
-		return createMapping(srcNode, type, null, null, null);
-	}	
+//	public Mapping createMapping(String srcNode, String type){
+//		return createMapping(srcNode, type, null, null, null);
+//	}	
 	
 	/**
 	 * 
@@ -42,7 +44,7 @@ public class X3mlFacade {
 	 * 
 	 * @see  Mapping
 	 */
-	public Mapping createMapping(String srcNode, String type, String hasType, String var, String globVar){		
+/*	public Mapping createMapping(String srcNode, String type, String hasType, String var, String globVar){		
 		DomainTargetNodeType target = new DomainTargetNodeType();
 		target.setEntity(createEntity(type, hasType, var, globVar));
 		Domain domain = new Domain(srcNode, target);
@@ -52,7 +54,20 @@ public class X3mlFacade {
 		
 		return mapping;
 		
-	}	
+	}	*/
+	
+	public Mapping createMapping(ParthenosEntity pe){		
+		DomainTargetNodeType target = new DomainTargetNodeType();
+		//target.setEntity(createEntity(type, hasType, var, globVar));
+		target.setEntity(createEntity(pe));
+		Domain domain = new Domain(pe.getXpath(), target);
+		
+		Mapping mapping = new Mapping();
+		mapping.setDomain(domain);
+		
+		return mapping;
+		
+	}		
 	
 	/**
 	 * 
@@ -61,9 +76,9 @@ public class X3mlFacade {
 	 * 
 	 * @see Entity
 	 */
-	public Entity createEntity(String type){
+/*	public Entity createEntity(String type){
 		return createEntity(type, null, null, null);
-	}
+	}*/
 	
 	/** 
 	 * 
@@ -83,7 +98,7 @@ public class X3mlFacade {
 	 * 
 	 *  @see Entity
 	 */
-	public Entity createEntity(String type, String hasType, String var, String globVar){
+/*	public Entity createEntity(String type, String hasType, String var, String globVar){
 		Entity entity = new Entity();
 		entity.getType().add(type);
 		
@@ -98,7 +113,24 @@ public class X3mlFacade {
 		entity.setInstanceGenerator(createUUIDIG());
 		
 		return entity;
-	}
+	}*/
+	
+	public Entity createEntity(ParthenosEntity pe){
+		Entity entity = new Entity();
+		entity.getType().add(pe.getType());
+		
+		//set variables 
+		entity.setVariable(pe.getVar());
+		entity.setGlobalVariable(pe.getGlobVar());
+		
+		if(pe.getHasType() != null){
+			entity.getAdditional().add(createAditionalHasType(pe.getHasType()));
+		}
+		
+		entity.setInstanceGenerator(createInstanceGenerator(pe));
+		
+		return entity;
+	}	
 	
 	/**
 	 * 
@@ -108,7 +140,8 @@ public class X3mlFacade {
 	 * @see Additional
 	 */
 	public Additional createAditionalHasType(String type){		
-		Entity e55 = createEntity("crm:E55_Type");
+		Entity e55 = new Entity();
+		e55.getType().add("crm:E55_Type");
 		e55.setInstanceInfo(createInstanceInfo(type, null, null));
 		
 		e55.setInstanceGenerator(createClarinTypeIG(type));
@@ -227,10 +260,21 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createUUIDIG(){
+/*	public InstanceGenerator createUUIDIG(){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("UUID");
 		return ig;		
+	}*/
+	
+	public InstanceGenerator createInstanceGenerator(ParthenosEntity pe){
+		
+		if(pe.getInstanceGenerator() != null)
+			return pe.getInstanceGenerator();
+			
+		InstanceGenerator ig = new InstanceGenerator();
+		ig.setName("UUID");
+
+		return ig;
 	}
 	
 	//there are 2 Arg classes, one in InstanceGen and the other in LabelGen but they are identical 

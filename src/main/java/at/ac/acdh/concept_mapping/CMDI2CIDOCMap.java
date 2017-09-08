@@ -8,7 +8,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
 
+import gr.forth.x3ml.InstanceGenerator;
 
 /**
  * 
@@ -70,6 +72,9 @@ public class CMDI2CIDOCMap{
 		
 		@XmlElement(name = "link")
 		Collection<Link> links = new ArrayList<>();
+		
+		@XmlElement(name = "instance-generator")
+		InstanceGenerator ig;
 		
 		@Override
 		public String toString() {
@@ -208,7 +213,15 @@ public class CMDI2CIDOCMap{
 
 		public void setLinks(Collection<Link> links) {
 			this.links = links;
-		}		
+		}
+		
+		public InstanceGenerator getInstanceGenerator(){
+			return this.ig;
+		}
+		
+		public void setInstanceGenerator(InstanceGenerator ig){
+			this.ig = ig;
+		}
 	}	
 
 	/**
@@ -311,5 +324,71 @@ public class CMDI2CIDOCMap{
 			this.blacklistPatterns = blacklistPatterns;
 		}		
 	}
-
+/*	
+	
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.FIELD)	
+	public static class InstanceGenerator{
+		@XmlAttribute 
+		String name;
+		
+		@XmlElement(name = "argument")
+		Collection<Argument> arguments;
+		
+		public String getName(){
+			return this.name;
+		}
+		
+		public void setName(String name){
+			this.name = name;
+		}
+		
+		public Collection<Argument> getArguments(){
+			return this.arguments;
+		}
+		
+		public void setArguments(Collection<Argument> arguments){
+			this.arguments = arguments;
+		}
+	
+		
+		
+	}
+	@XmlRootElement
+	@XmlAccessorType(XmlAccessType.FIELD)
+	public static class Argument{
+		@XmlAttribute
+		String name; 
+		
+		@XmlAttribute
+		String type;
+		
+		@XmlValue
+		String value;
+		
+		public String getName(){
+			return this.name;
+		}
+		
+		public void setName(String name){
+			this.name = name;
+		}
+		
+		public String getType(){
+			return this.type;
+		}
+		
+		public void setType(String type){
+			this.type = type;
+		}
+		
+		public String getValue(){
+			return this.value;
+		}
+		
+		public void setValue(String value){
+			this.value = value;
+		}
+	}
+*/
 }
