@@ -2,6 +2,7 @@
 <!DOCTYPE doc [
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
+	<!ENTITY teiProperties SYSTEM "tei.xml">
 ]>
 <mappings>
 
@@ -33,7 +34,7 @@
 
 		<link>
 
-
+		
 			<!-- Only one of these entities will be mapped -->
 
 			<!-- Dataset condition="dataset" -->
@@ -42,14 +43,10 @@
 				var="data1" condition="dataset">
 				 &objectProperties; 
 				 &datasetProperties; 
-
-
-
-
-
-
 			</entity>
 
+
+			
 
 
 			<!-- Service -->
@@ -64,11 +61,6 @@
 			<pattern>cmd:Components/?profileRoot</pattern>
 
 		</link>
-
-		<!-- <link> <entity Xpath="/cmd:CMD/cmd:Resources/?profileRoot" relationship="crmpe:PP39_is_metadata_for" 
-			type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset"/> <pattern>cmd:Resoources/?profileRoot</pattern> 
-			</link> -->
-
 
 
 	</entity>
@@ -100,31 +92,6 @@
 
 
 
-	<entity
-		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy"
-		type="crmpe:PE15_Data_E-Service">
 
-		<link>
-			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
-			<pattern>cmd:ResourceRef</pattern>
-		</link>
-
-
-
-	</entity>
-
-
-		<entity
-		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
-		type="crmpe:PE29_Access_Point">
-
-		<link>
-			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
-			<pattern>cmd:ResourceType</pattern>
-		</link>
-
-
-
-	</entity>
 
 </mappings>

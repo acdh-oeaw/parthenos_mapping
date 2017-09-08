@@ -1,11 +1,11 @@
 
 <link>
-	<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" />
+	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title" />
 	
 	<!-- vlo:name -->
 	<concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
 	<concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
-	
+	<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
 	<concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>	
 	<!-- CLARIN-D Webservices name -->
 	
@@ -36,12 +36,12 @@
 </link>
 
 
-<link>
+<!-- <link>
 	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title" />
 
 		<concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
 
-</link>
+</link> -->
 
 <link>
 	<entity relationship="crm:P105_right_held_by" type="crm:E40_Legal_Body" />
@@ -345,4 +345,38 @@
 <entity relationship="crmpe:PP23i_is_dataset_part_of" type="crmpe:PE24_Volatile_Dataset"/>
 	<pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
+
+
+
+
+<link>
+	
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	
+	<entity relationship="crm:P01i_is_domain_of" type="crm:PC14_carried_out_by" />
+	
+	<entity relationship="P01_has_domain" type="crm:E21_Person"/>
+	
+		<concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
+		<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName</pattern>
+	
+
+</link>
+
+<link>
+	
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	
+	<entity relationship="crm:P01i_is_domain_of" type="crm:PC14_carried_out_by" />
+	
+	<entity relationship="P01_has_domain" type="crm:E21_Person"/>
+	
+		<concept name="editor">http://hdl.handle.net/11459/CCR_C-4118_0d368d47-dc1e-bdda-98e0-0cbb56040423</concept>
+		<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</pattern>
+	
+
+</link>
+
+
+
 
