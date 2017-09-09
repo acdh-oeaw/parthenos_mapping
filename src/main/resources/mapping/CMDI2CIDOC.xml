@@ -2,7 +2,7 @@
 <!DOCTYPE doc [
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
-	<!ENTITY teiProperties SYSTEM "tei.xml">
+	
 ]>
 <mappings>
 
