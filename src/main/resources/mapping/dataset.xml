@@ -191,6 +191,9 @@
 </link>
 
 
+<!-- TEI mapping definition -->
+
+
 <link>
 	<entity
 		xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author"
