@@ -10,6 +10,8 @@ import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.Link;
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
 import at.ac.acdh.profile_parser.ParsedProfile;
 
+import org.slf4j.*;
+
 /**
  * @author dostojic
  * 
@@ -26,6 +28,7 @@ import at.ac.acdh.profile_parser.ParsedProfile;
  */
 
 public class Normalizer {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
 	 * see class description for details
@@ -200,7 +203,7 @@ public class Normalizer {
 		
 		for(String concept: link.getConcepts()){
 			Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
-			if(xpaths != null){
+			if(xpaths != null && !xpaths.isEmpty()){
 				//stripe xpath
 				
 				if(link.getPatterns() == null){
@@ -226,6 +229,7 @@ public class Normalizer {
 		
 		for (String blacklistPattern : link.getBlacklistPatterns()) {
 			Iterator<String> xpathIterator = link.getPatterns().iterator();
+			
 			while (xpathIterator.hasNext()) {
 				String xpath = xpathIterator.next();
 				if (xpath.contains(blacklistPattern)) {
@@ -252,12 +256,14 @@ public class Normalizer {
 			String xpath = xpathIterator.next();
 			boolean hit = false;
 			for(String profileXpath: parsedProfile.getXPaths()){				
-				if (profileXpath.contains(xpath)){
+				//if (profileXpath.contains(xpath)){
+				if (profileXpath.endsWith(xpath)){
 					hit = true;
 					break;
 				}
 			}
 			if(!hit){
+				logger.info("removing xpath \"" + xpath +"\" since it has no match in the profile");
 				xpathIterator.remove();
 			}
 		}
