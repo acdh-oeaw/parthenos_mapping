@@ -1,6 +1,6 @@
 package at.ac.acdh.profile_parser;
 
-import java.util.Arrays;
+
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -82,6 +82,20 @@ public class ParsedProfile {
 		.map(e -> e.getKey())
 		.collect(Collectors.toList());
 	}
+	
+	/**
+	 * 
+	 * @param concept
+	 * @param root required root path of the identified xpath
+	 * @return xpaths for the given concept which have the required root path
+	 */
+	public Collection<String> getXPathsForConcept(String root, String concept){		
+		return xpaths.entrySet()
+		.stream()
+		.filter(e -> e.getValue().concept != null && e.getValue().concept.equals(concept) && e.getKey().startsWith(root))
+		.map(e -> e.getKey())
+		.collect(Collectors.toList());
+	}	
 	
 	/**
 	 * 

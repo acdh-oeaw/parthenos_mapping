@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.Link;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
+import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import at.ac.acdh.transformer.utils.LinkNode;
 import at.ac.acdh.transformer.utils.LinkNode.ObjectNode;
 import at.ac.acdh.transformer.utils.X3mlFacade;

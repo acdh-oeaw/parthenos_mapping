@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.Link;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
+import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import at.ac.acdh.profile_parser.ParsedProfile;
 
 import org.slf4j.*;
@@ -202,7 +202,9 @@ public class Normalizer {
 			return;
 		
 		for(String concept: link.getConcepts()){
-			Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
+			Collection<String> xpaths = parsedProfile.getXPathsForConcept(((ParthenosEntity)link.getParent()).getXpath(), concept);
+			
+			
 			if(xpaths != null && !xpaths.isEmpty()){
 				//stripe xpath
 				
@@ -256,8 +258,8 @@ public class Normalizer {
 			String xpath = xpathIterator.next();
 			boolean hit = false;
 			for(String profileXpath: parsedProfile.getXPaths()){				
-				//if (profileXpath.contains(xpath)){
-				if (profileXpath.endsWith(xpath)){
+				if (profileXpath.contains(xpath)){
+				//if (profileXpath.endsWith(xpath)){
 					hit = true;
 					break;
 				}

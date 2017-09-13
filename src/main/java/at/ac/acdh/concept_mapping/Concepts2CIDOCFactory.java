@@ -1,18 +1,20 @@
 package at.ac.acdh.concept_mapping;
 
 import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
-import java.nio.file.Paths;
+
 
 import javax.xml.bind.JAXB;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParserFactory;
-import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.sax.SAXSource;
 import javax.xml.transform.stream.StreamSource;
 
@@ -71,9 +73,19 @@ public class Concepts2CIDOCFactory {
 				builder = fac.newDocumentBuilder();
 				Document doc = builder.parse(new File(xmlFile));
 				
-				return JAXB.unmarshal(new DOMSource(doc), CMDI2CIDOCMap.class);
+				Unmarshaller unmarshaller = JAXBContext.newInstance(CMDI2CIDOCMap.class).createUnmarshaller();
+				unmarshaller.setListener(new Unmarshaller.Listener() {
+					public void afterUnmarshal(Object target, Object parent){
+						if(target instanceof Node){
+							((Node)target).setParent(parent);
+						}
+					}
+				});
+				
+				return (CMDI2CIDOCMap)unmarshaller.unmarshal(doc);
+				//return JAXB.unmarshal(new DOMSource(doc), CMDI2CIDOCMap.class);
 			} 
-			catch (ParserConfigurationException | SAXException | IOException ex) {
+			catch (ParserConfigurationException | SAXException | IOException | JAXBException ex) {
 				// TODO Auto-generated catch block
 				throw new RuntimeException(ex);
 			}

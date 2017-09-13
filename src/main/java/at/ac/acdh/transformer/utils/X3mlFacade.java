@@ -1,7 +1,7 @@
 package at.ac.acdh.transformer.utils;
 
 
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
 import gr.forth.x3ml.DomainTargetNodeType;
