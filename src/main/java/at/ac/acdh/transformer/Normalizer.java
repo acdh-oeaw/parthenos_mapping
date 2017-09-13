@@ -205,17 +205,18 @@ public class Normalizer {
 			Collection<String> xpaths = parsedProfile.getXPathsForConcept(((ParthenosEntity)link.getParent()).getXpath(), concept);
 			
 			
-			if(xpaths != null && !xpaths.isEmpty()){
+			if(xpaths != null && !xpaths.isEmpty()){ //now identified xpaths replace the patterns
+				link.setPatterns(xpaths);
 				//stripe xpath
 				
-				if(link.getPatterns() == null){
+/*				if(link.getPatterns() == null){
 					link.setPatterns(new ArrayList<>());
 				}
 				for(String xpath: xpaths){
 					if(!link.getPatterns().contains(xpath)){
 						link.getPatterns().add(xpath);
 					}						
-				}				
+				}	*/			
 			}			
 		}
 	}
