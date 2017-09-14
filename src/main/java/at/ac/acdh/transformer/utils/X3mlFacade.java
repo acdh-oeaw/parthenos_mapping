@@ -58,7 +58,7 @@ public class X3mlFacade {
 	
 	public Mapping createMapping(ParthenosEntity pe){		
 		DomainTargetNodeType target = new DomainTargetNodeType();
-		//target.setEntity(createEntity(type, hasType, var, globVar));
+		//target.setEntity(createEntity(type, hasType,  var, globVar));
 		target.setEntity(createEntity(pe));
 		Domain domain = new Domain(pe.getXpath(), target);
 		
@@ -132,6 +132,8 @@ public class X3mlFacade {
 		return entity;
 	}	
 	
+
+
 	/**
 	 * 
 	 * @param type
@@ -149,6 +151,8 @@ public class X3mlFacade {
 		return createAditional("crm:P2_has_type", e55);
 	}
 	
+	
+
 	/**
 	 * 
 	 * @param relationship
