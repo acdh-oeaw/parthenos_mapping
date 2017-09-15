@@ -12,17 +12,19 @@
 		hasType="metadata">
 	
 	 	<instance-generator name="URIorUUID">
-          <arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
-          
+        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
 		</instance-generator> 
 
+		<label-generator name="SimpleLabel">
+    		<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+		</label-generator>
+		
 
 		<link>
 			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" />
 			<pattern>/cmd:Header</pattern>
 		</link>
 
-		
 
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
@@ -30,11 +32,13 @@
 			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" />
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
 		</link>
+
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" />
 			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" />
-			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern>
+			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern> 
+
 		</link>
 
 		<link>
