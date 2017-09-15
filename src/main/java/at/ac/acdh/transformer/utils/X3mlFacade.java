@@ -124,7 +124,7 @@ public class X3mlFacade {
 		entity.setGlobalVariable(pe.getGlobVar());
 		
 		if(pe.getHasType() != null){
-			entity.getAdditional().add(createAditionalHasType(pe.getHasType()));
+			entity.getAdditional().add(createAditionalHasType(pe));
 		}
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
@@ -141,15 +141,6 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditionalHasType(String type){		
-		Entity e55 = new Entity();
-		e55.getType().add("crm:E55_Type");
-		e55.setInstanceInfo(createInstanceInfo(type, null, null));
-		
-		e55.setInstanceGenerator(createClarinTypeIG(type));
-		
-		return createAditional("crm:P2_has_type", e55);
-	}
 	
 	
 
