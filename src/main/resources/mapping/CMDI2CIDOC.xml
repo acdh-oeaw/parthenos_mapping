@@ -10,11 +10,16 @@
 	
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
 		hasType="metadata">
+	
+	 	<instance-generator name="URIorUUID">
+          <arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
+          
+		</instance-generator> 
 
 
 		<link>
 			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" />
-			<pattern>cmd:Header</pattern>
+			<pattern>/cmd:Header</pattern>
 		</link>
 
 		

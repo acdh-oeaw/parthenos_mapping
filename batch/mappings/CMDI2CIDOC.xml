@@ -25,6 +25,11 @@
           <arg name="nn" type="nn">yyyyyyyyyyyyy</arg>
 			</instance-generator>
 
+			<label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
+          
+		</label-generator>
+
 				<link>
 					<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation"/>
 					<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span" />
