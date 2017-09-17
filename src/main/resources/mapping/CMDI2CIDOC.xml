@@ -11,10 +11,12 @@
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
 		hasType="metadata">
 	
+		
 	 	<instance-generator name="URIorUUID">
-        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
+        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+				
 		</instance-generator> 
-
+		
 		<label-generator name="SimpleLabel">
     		<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</label-generator>

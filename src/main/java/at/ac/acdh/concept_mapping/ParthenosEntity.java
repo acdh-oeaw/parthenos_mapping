@@ -46,6 +46,7 @@ public class ParthenosEntity extends Node {
 	@XmlElement(name = "instance-generator")
 	InstanceGenerator ig;
 
+
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer("entity: ");

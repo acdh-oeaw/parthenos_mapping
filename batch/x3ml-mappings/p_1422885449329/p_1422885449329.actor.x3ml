@@ -17,7 +17,9 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE22_Persistent_Dataset</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="URIorUUID">
+                            <arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+                        </instance_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -37,72 +39,18 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:Header/cmd:MdSelfLink</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmd:Header/cmd:MdSelfLink</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="URIorUUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmd:Header/cmd:MdCollectionDisplayName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmd:Header/cmd:MdCollectionDisplayName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="URIorUUID"/>
-                            <additional>
-<relationship>crm:P2_has_type</relationship>
-<entity>
-    <type>crm:E55_Type</type>
-    <instance_info>
-        <constant>collection</constant>
-    </instance_info>
-    <instance_generator name="LocalTermURI_CLARIN">
-        <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">collection</arg>
-    </instance_generator>
-</entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmd:Header</relation>
+                        <relation>/cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:Header</source_node>
+                    <source_node>/cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
-                            <instance_generator name="SoftwareURI">
-<arg name="nn" type="nn">xxxxxxxxxxxxx</arg>
-<arg name="nn" type="nn">yyyyyyyyyyyyy</arg>
-                            </instance_generator>
+                            <instance_generator name="URIorUUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -114,23 +62,42 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
-                        <entity global_variable="mainEntity">
+                        <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
                         <relationship>crmpe:PP8i_is_dataset_hosted_by</relationship>
-                        <entity global_variable="des1">
-                            <type>crmpe:PE15_Data_E-Service</type>
-                            <instance_generator name="URIorUUID"/>
-                        </entity>
-                        <relationship>crmpe:PP28_has_designated_access_point</relationship>
                     </target_relation>
                 </path>
                 <range>
                     <source_node>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</source_node>
                     <target_node>
                         <entity>
-                            <type>crmpe:PE29_Access_Point</type>
+                            <type>crmpe:PE15_Data_E-Service</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP39_is_metadata_for</relationship>
+                        <entity variable="data1">
+                            <type>crmpe:PE24_Volatile_Dataset</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crmpe:PP50_accessible_at</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE29_Access_point</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
                     </target_node>
@@ -148,7 +115,7 @@
                 <range>
                     <source_node>cmd:Components/cmdp:TextCorpusProfile</source_node>
                     <target_node>
-                        <entity global_variable="mainEntity">
+                        <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
@@ -158,25 +125,478 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Header</source_node>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile</source_node>
                 <target_node>
-                    <entity>
-                        <type>crmdig:D7_Digital_Machine_Event</type>
-                        <instance_generator name="SoftwareURI">
-                            <arg name="nn" type="nn">xxxxxxxxxxxxx</arg>
-                            <arg name="nn" type="nn">yyyyyyyyyyyyy</arg>
-                        </instance_generator>
+                    <entity variable="data1">
+                        <type>crmpe:PE24_Volatile_Dataset</type>
+                        <instance_generator name="URIorUUID"/>
                     </entity>
                 </target_node>
             </domain>
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:MdCreationDate</relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:PublicationTitle</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:PublicationTitle</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E35_Title</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:LegalOwner</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P105_right_held_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:LegalOwner</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E40_Legal_Body</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Project/cmdp:Description/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Project/cmdp:Description/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Creators/cmdp:Description/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Creators/cmdp:Description/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Contributors/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Contributors/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:CorpusContext/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:CorpusContext/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:ModalityInfo/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:ModalityInfo/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SegmentationUnits/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:SegmentationUnits/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:TagsetInfo/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:TagsetInfo/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:AnnotationToolInfo/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:AnnotationToolInfo/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Contributors/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Contributors/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:AnnotationTypes/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:TextTechnical/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:TextTechnical/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:TextTechnical/cmdp:LanguageScripts/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:TextTechnical/cmdp:LanguageScripts/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:TextCorpusInfo/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:DocumentationLanguages/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:DocumentationLanguages/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:DocumentationLanguages/cmdp:DocumentationLanguage/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:DocumentationLanguages/cmdp:DocumentationLanguage/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:Documentation/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:PublicationDate</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
-                        <entity>
+                        <entity variable="create1">
                             <type>crm:E65_Creation</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
@@ -189,7 +609,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:MdCreationDate</source_node>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:PublicationDate</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -201,17 +621,27 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:MdCreator</relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:PublicationDate</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P11_had_participant</relationship>
+                        <relationship>crm:P94i_was_created_by</relationship>
+                        <entity variable="create1">
+                            <type>crm:E65_Creation</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P4_has_time-span</relationship>
+                        <entity>
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P82_at_some_time_within</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:MdCreator</source_node>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:BibliographicCitations/cmdp:Publication/cmdp:PublicationDate</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E39_Actor</type>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
                     </target_node>
@@ -220,28 +650,113 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:MdProfile</relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Coverage/cmdp:TimeCoverage</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmdig:L23_used_software_or_firmware</relationship>
+                        <relationship>crm:P129_is_about</relationship>
+                        <entity variable="tempo1">
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P82a_begin_of_the_begin</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:MdProfile</source_node>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Coverage/cmdp:TimeCoverage</source_node>
                     <target_node>
                         <entity>
-                            <type>crmdig:D14_Software</type>
+                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Coverage/cmdp:TimeCoverage</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P129_is_about</relationship>
+                        <entity variable="tempo1">
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P82a_begin_of_the_begin</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Coverage/cmdp:TimeCoverage</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:License/cmdp:LicenseURL</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P129i_is_subject_of</relationship>
+                        <entity>
+                            <type>crm:E30_Right</type>
                             <instance_generator name="URIorUUID"/>
                             <additional>
 <relationship>crm:P2_has_type</relationship>
 <entity>
     <type>crm:E55_Type</type>
     <instance_info>
-        <constant>cmdi-profile</constant>
+        <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="LocalTermURI_CLARIN">
         <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">cmdi-profile</arg>
+        <arg name="term" type="constant">Access Rights</arg>
+    </instance_generator>
+</entity>
+                            </additional>
+                        </entity>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:License/cmdp:LicenseURL</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:SubGenre</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P2_has_type</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:CorpusInfo/cmdp:Content/cmdp:SubGenre</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_generator name="URIorUUID"/>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>CLARIN VLO Genre</constant>
+    </instance_info>
+    <instance_generator name="LocalTermURI_CLARIN">
+        <arg name="hierarchy" type="constant">type</arg>
+        <arg name="term" type="constant">CLARIN VLO Genre</arg>
     </instance_generator>
 </entity>
                             </additional>
@@ -249,17 +764,144 @@
                     </target_node>
                 </range>
             </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile</source_node>
-                <target_node>
-                    <entity global_variable="mainEntity">
-                        <type>crmpe:PE24_Volatile_Dataset</type>
-                        <instance_generator name="URIorUUID"/>
-                    </entity>
-                </target_node>
-            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Keyword</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P2_has_type</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Keyword</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_generator name="URIorUUID"/>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>CLARIN VLO Keywords</constant>
+    </instance_info>
+    <instance_generator name="LocalTermURI_CLARIN">
+        <arg name="hierarchy" type="constant">type</arg>
+        <arg name="term" type="constant">CLARIN VLO Keywords</arg>
+    </instance_generator>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE24_Volatile_Dataset</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Contact/cmdp:Person</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P94i_was_created_by</relationship>
+                        <entity variable="create1">
+                            <type>crm:E65_Creation</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P01i_is_domain_of</relationship>
+                        <entity>
+                            <type>crm:PC14_carried_out_by</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>P01_has_domain</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Contact/cmdp:Person</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E21_Person</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Project/cmdp:Contact/cmdp:Person</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P94i_was_created_by</relationship>
+                        <entity variable="create1">
+                            <type>crm:E65_Creation</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P01i_is_domain_of</relationship>
+                        <entity>
+                            <type>crm:PC14_carried_out_by</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>P01_has_domain</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Project/cmdp:Contact/cmdp:Person</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E21_Person</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Creators/cmdp:Creator/cmdp:Contact/cmdp:Person</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P94i_was_created_by</relationship>
+                        <entity variable="create1">
+                            <type>crm:E65_Creation</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P01i_is_domain_of</relationship>
+                        <entity>
+                            <type>crm:PC14_carried_out_by</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>P01_has_domain</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:TextCorpusProfile/cmdp:GeneralInfo/cmdp:Creators/cmdp:Creator/cmdp:Contact/cmdp:Person</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E21_Person</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
             <link>
                 <path>
                     <source_relation>
@@ -663,10 +1305,10 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</source_node>
+                <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
-                        <type>crmpe:PE29_Access_Point</type>
+                        <type>crmdig:D7_Digital_Machine_Event</type>
                         <instance_generator name="URIorUUID"/>
                     </entity>
                 </target_node>
@@ -674,17 +1316,22 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>cmd:MdCreationDate</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P2_has_type</relationship>
+                        <relationship>crm:P4_has_time_span</relationship>
+                        <entity>
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="URIorUUID"/>
+                        </entity>
+                        <relationship>crm:P82_at_some_time_within</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>cmd:MdCreationDate</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E55_Type</type>
+                            <type>rdf-schema#Literal</type>
                             <instance_generator name="URIorUUID"/>
                         </entity>
                     </target_node>
@@ -693,18 +1340,50 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceRef</relation>
+                        <relation>cmd:MdCreator</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P1i_identifies</relationship>
+                        <relationship>crmdig:L23_used_software_or_firmware</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceRef</source_node>
+                    <source_node>cmd:MdCreator</source_node>
                     <target_node>
-                        <entity global_variable="mainEntity">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
+                        <entity>
+                            <type>crmpe:PE21_Persistent_Software</type>
                             <instance_generator name="URIorUUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:MdProfile</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmdig:L23_used_software_or_firmware</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:MdProfile</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE38_Schema</type>
+                            <instance_generator name="URIorUUID"/>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>cmdi-profile</constant>
+    </instance_info>
+    <instance_generator name="LocalTermURI_CLARIN">
+        <arg name="hierarchy" type="constant">type</arg>
+        <arg name="term" type="constant">cmdi-profile</arg>
+    </instance_generator>
+</entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>

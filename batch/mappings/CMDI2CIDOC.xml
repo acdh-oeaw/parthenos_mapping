@@ -1,103 +1,108 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE doc [
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
+	
 ]>
 <mappings>
 
 	<!-- Header -->
-	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata">
+	
+	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
+		hasType="metadata">
+	
 		
-		<link>			
-			<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" />			
-			<pattern>cmd:Header/cmd:MdSelfLink</pattern>
-		</link>
+	 	<instance-generator name="URIorUUID">
+        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
+		</instance-generator> 
 		
-		<link>			
-			<entity relationship="crmpe:PP23i_is_dataset_part_of" type="crmpe:PE24_Volatile_Dataset" hasType="collection" />		
-			<pattern>cmd:Header/cmd:MdCollectionDisplayName</pattern>
-		</link>
-		
-		<link>
-			<entity xpath="/cmd:CMD/cmd:Header" relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event">
-			<instance-generator name="SoftwareURI">
-          <arg name="nn" type="nn">xxxxxxxxxxxxx</arg>	
-          <arg name="nn" type="nn">yyyyyyyyyyyyy</arg>
-			</instance-generator>
 
-			<label-generator name="SimpleLabel">
-          <arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
-          
+		<label-generator name="SimpleLabel">
+    		<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</label-generator>
+		
 
-				<link>
-					<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation"/>
-					<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span" />
-					<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
-					<pattern>cmd:MdCreationDate</pattern>
-				</link>
-				
-				<link>			
-					<entity relationship="crm:P11_had_participant" type="crm:E39_Actor" condition="creator-actor" />
-					<entity relationship="crmdig:L23_used_software_or_firmware" type="crmdig:D14_Software" condition="creator-software"/>
-					<pattern>cmd:MdCreator</pattern>
-				</link>
-				
-				<link>			
-					<entity relationship="crmdig:L23_used_software_or_firmware" type="crmdig:D14_Software" hasType="cmdi-profile"/>
-					<pattern>cmd:MdProfile</pattern>
-				</link>
-			</entity>
-			<pattern>cmd:Header</pattern>
+		<link>
+			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" />
+			<pattern>/cmd:Header</pattern>
 		</link>
-		
-		
-		<link>			
-			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" />
-			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" globVar="des1" />
-			<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point" />
+
+
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" />
+			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" />
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
 		</link>
-		
-		<!-- Only one of these entities will be mapped -->
-		<link>
-		
-			<!-- Dataset -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" condition="dataset">
 
-				&datasetProperties;
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" />
+			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" />
+			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern> 
+
+		</link>
+
+		<link>
+
+		
+			<!-- Only one of these entities will be mapped -->
+
+			<!-- Dataset condition="dataset" -->
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot"
+				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
+				var="data1" condition="dataset">
+				 &objectProperties; 
+				 &datasetProperties; 
 			</entity>
+
+
 			
+
+
 			<!-- Service -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot?" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" globVar="mainEntity" condition="service">
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot?"
+				relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity"
+				condition="service">
 				&objectProperties;
 			</entity>
-			
+
 			<!-- Software -->
-			
+
 			<pattern>cmd:Components/?profileRoot</pattern>
+
 		</link>
-		
+
+
 	</entity>
-	
-	<entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE29_Access_Point">
-		
-		<link>			
-			<entity relationship="crm:P2_has_type" type="crm:E55_Type" />		
-			<pattern>cmd:ResourceType</pattern>
+
+
+	<entity xpath="/cmd:CMD/cmd:Header" type="crmdig:D7_Digital_Machine_Event">
+
+
+		<link>
+			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" />
+			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal" />
+			<pattern>cmd:MdCreationDate</pattern>
 		</link>
-		
-		<link>			
-			<entity relationship="crm:P1i_identifies" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" />		
-			<pattern>cmd:ResourceRef</pattern>
+
+		<link>
+			<entity relationship="crmdig:L23_used_software_or_firmware"
+				type="crmpe:PE21_Persistent_Software" />
+			<pattern>cmd:MdCreator</pattern>
 		</link>
-		
-		<link>			
-			<entity relationship="crmpe:PP28i_is_designated_access_point_of" type="crmpe:PE15_Data_E-Service" globVar="des1" />
-			<entity relationship="crmpe:PP8_hosts_dataset" type="crmpe:PE24_Volatile_Dataset" globVar="mainEntity" />		
-			<pattern>../../../cmd:Components/?profileRoot</pattern>
+
+		<link>
+			<entity relationship="crmdig:L23_used_software_or_firmware"
+				type="crmpe:PE38_Schema" hasType="cmdi-profile" />
+			<pattern>cmd:MdProfile</pattern>
 		</link>
-			
+
 	</entity>
+
+
+
+
+
 
 </mappings>
