@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 import gr.forth.x3ml.InstanceGenerator;
+import gr.forth.x3ml.LabelGenerator;
 
 /**
  * 
@@ -42,11 +43,13 @@ public class ParthenosEntity extends Node {
 	@XmlAttribute
 	String subrelation;
 	@XmlElement(name = "link")
-	Collection<Link> links = new ArrayList<>();
+	Collection<Link> links = new ArrayList<Link>();
 
 	@XmlElement(name = "instance-generator")
 	InstanceGenerator ig;
-
+	
+	@XmlElement(name = "label-generator")
+	Collection<LabelGenerator> lg = new ArrayList<LabelGenerator>();
 
 	@Override
 	public String toString() {
@@ -216,6 +219,14 @@ public class ParthenosEntity extends Node {
 
 	public void setInstanceGenerator(InstanceGenerator ig) {
 		this.ig = ig;
+	}
+	
+	public Collection<LabelGenerator> getLabelGenerator(){
+		return this.lg;
+	}
+	
+	public void setLabelGenerator(Collection<LabelGenerator> lg){
+		this.lg = lg;
 	}
 
 	public String getSubrelation() {

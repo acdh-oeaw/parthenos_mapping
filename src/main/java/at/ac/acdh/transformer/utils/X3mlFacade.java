@@ -129,6 +129,9 @@ public class X3mlFacade {
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
 		
+		entity.getLabelGenerator().addAll(pe.getLabelGenerator());
+		
+		
 		return entity;
 	}	
 	
