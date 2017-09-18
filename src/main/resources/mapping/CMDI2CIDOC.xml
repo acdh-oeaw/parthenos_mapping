@@ -32,11 +32,6 @@
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" />
-			
-			
-			
-			
-
 			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" />
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
 		</link>
@@ -44,7 +39,12 @@
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" />
-			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" />
+			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" >
+
+			<instance-generator name="URIorUUID">
+        	<arg name="text" type="xpath">text()</arg>
+		</instance-generator> 
+			</entity>
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern> 
 
 		</link>
@@ -103,13 +103,27 @@
 
 		<link>
 			<entity relationship="crmdig:L23_used_software_or_firmware"
-				type="crmpe:PE21_Persistent_Software" />
+				type="crmpe:PE21_Persistent_Software" >
+
+				<instance-generator name="SoftwareURI">
+        			<arg name="term" type="xpath">text()</arg>
+				</instance-generator>
+
+			</entity>	
 			<pattern>cmd:MdCreator</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crmdig:L23_used_software_or_firmware"
-				type="crmpe:PE38_Schema" hasType="cmdi-profile" />
+				type="crmpe:PE38_Schema" hasType="cmdi-profile" >
+
+				<instance-generator name="SoftwareURI">
+        			<arg name="term" type="xpath">text()</arg>
+				</instance-generator>
+
+			</entity>
+
+
 			<pattern>cmd:MdProfile</pattern>
 		</link>
 

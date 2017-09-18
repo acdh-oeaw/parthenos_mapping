@@ -127,7 +127,13 @@
 		type="crmpe:PE15_Data_E-Service">
 
 		<link>
-			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
+			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" >
+
+				<instance-generator name="URIorUUID">
+        			<arg name="text" type="xpath">text()</arg>
+				</instance-generator>
+
+			</entity>
 			<pattern>cmd:ResourceRef</pattern>
 		</link>
 
@@ -136,12 +142,19 @@
 	</entity>
 
 
-		<entity
+	<entity
 		xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
 		type="crmpe:PE29_Access_Point">
 
 		<link>
-			<entity relationship="crm:P28_has_type" type="crm:E55_Type" />
+			<entity relationship="crm:P28_has_type" type="crm:E55_Type" >
+
+				<instance-generator name="ConceptURI_2step">
+        			<arg name="term1" type="constant">contactpointtype</arg>
+					<arg name="term2" type="xpath">text()</arg>
+				</instance-generator>
+
+			</entity>
 			<pattern>cmd:ResourceType</pattern>
 		</link>
 
