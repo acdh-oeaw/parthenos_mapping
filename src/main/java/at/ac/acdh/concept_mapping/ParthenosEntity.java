@@ -39,7 +39,8 @@ public class ParthenosEntity extends Node {
 	String globVar;
 	@XmlAttribute
 	String condition;
-
+	@XmlAttribute
+	String subrelation;
 	@XmlElement(name = "link")
 	Collection<Link> links = new ArrayList<>();
 
@@ -215,6 +216,14 @@ public class ParthenosEntity extends Node {
 
 	public void setInstanceGenerator(InstanceGenerator ig) {
 		this.ig = ig;
+	}
+
+	public String getSubrelation() {
+		return subrelation;
+	}
+
+	public void setSubrelation(String subrelation) {
+		this.subrelation = subrelation;
 	}
 
 }

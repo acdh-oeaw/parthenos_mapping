@@ -141,7 +141,15 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	
+	public Additional createAditionalHasType(ParthenosEntity pe){		
+		Entity e55 = new Entity();
+		e55.getType().add("crm:E55_Type");
+		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
+		
+		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
+		
+		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
+	}	
 	
 
 	/**
