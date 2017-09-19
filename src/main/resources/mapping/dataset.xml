@@ -122,12 +122,12 @@
 			
 
 	</link>
-
+   <link>
 		<entity
 			xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy"
 			type="crmpe:PE15_Data_E-Service">
 
-			
+			<link>
 				<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" >
 
 					<instance-generator name="URIorUUID">
@@ -139,7 +139,7 @@
 				
 				<pattern>cmd:ResourceRef</pattern>
 			
-			
+			</link>
 
 
 		</entity>
@@ -164,8 +164,7 @@
 
 
 		</entity>
-
-
+     </link>
 
 
 
