@@ -157,6 +157,10 @@
 						<arg name="term2" type="xpath">text()</arg>
 					</instance-generator>
 
+					<label-generator name="SimpleLabel">
+						<arg name="label" type="xpath">text()</arg>
+					</label-generator>
+
 				</entity>
 				<pattern>cmd:ResourceType</pattern>
 			</link>
@@ -175,7 +179,11 @@
 			type="crmpe:PE15_Data_E-Service">
 
 			<link>
-				<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" />
+				<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point" >
+					<instance-generator name="URIorUUID">
+						<arg name="text" type="xpath">text()</arg>
+					</instance-generator>
+				</entity>
 				<pattern>cmd:ResourceRef</pattern>
 			</link>
 		</entity>
