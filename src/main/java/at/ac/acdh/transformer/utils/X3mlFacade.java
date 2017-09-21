@@ -218,9 +218,9 @@ public class X3mlFacade {
 	 */
 	public InstanceGenerator createClarinTypeIG(String type){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("LocalTermURI_CLARIN");
-		ig.getArg().add(crateArg("hierarchy", "constant", "type"));
-		ig.getArg().add(crateArg("term", "constant", type));
+		ig.setName("ConceptURI_2step");
+		ig.getArg().add(crateArg("term1", "constant", "datasettype"));
+		ig.getArg().add(crateArg("term2", "constant", "metadata"));
 		
 		return ig;
 	}
