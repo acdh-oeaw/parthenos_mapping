@@ -150,6 +150,7 @@ public class X3mlFacade {
 		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
 		
 		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
+		//e55.getLabelGenerator().
 		
 		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
 	}	
@@ -216,11 +217,15 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createClarinTypeIG(String type){
+	public InstanceGenerator createClarinTypeIG(String types){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("ConceptURI_2step");
-		ig.getArg().add(crateArg("term1", "constant", "datasettype"));
-		ig.getArg().add(crateArg("term2", "constant", "metadata"));
+		if(types != null) {
+			for(String type : types.split("\\|")){
+				ig.getArg().add(crateArg("term1", "constant", type));
+			}
+		}
+		
 		
 		return ig;
 	}
