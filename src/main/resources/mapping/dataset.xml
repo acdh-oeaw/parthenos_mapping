@@ -48,7 +48,16 @@
 
 		</entity>
 			<pattern>cmdp:Collection/cmdp:Project</pattern>
-			<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project"/>
+			<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
+
+				<instance-generator name="ProjectURI">
+					<arg name="term" type="xpath">cmdp:Title/text()</arg>
+				</instance-generator>
+
+				<label-generator name="SimpleLabel">
+					<arg name="label" type="xpath">cmdp:Title/text()</arg>
+				</label-generator>
+			</entity>
 			
 
 	</link>
@@ -144,7 +153,7 @@
 
 		</entity>
 
-
+	
 		<entity
 			xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef"
 			type="crmpe:PE29_Access_Point">
@@ -165,10 +174,9 @@
 				<pattern>cmd:ResourceType</pattern>
 			</link>
 
-
-
 		</entity>
-     </link>
+
+	</link>
 
 
 
@@ -189,7 +197,7 @@
 		</entity>
 	</link>
 
-
+<!--
 	<link>
 		
 
@@ -207,7 +215,7 @@
 
 		</entity>
 	</link>
-
+-->
 	<link>
 		<entity relationship="crmpe:PP32i_was_curated_by" type="crmpe:PE12_Data_curating_Service" var="cure1"/>
 		<entity relationship="crm:PP2_provided_by" type="crm:E39_Actor"/>

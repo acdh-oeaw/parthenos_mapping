@@ -44,7 +44,16 @@
 </link> -->
 
 <link>
-	<entity relationship="crm:P105_right_held_by" type="crm:E40_Legal_Body" />
+	<entity relationship="crm:P105_right_held_by" type="crm:E40_Legal_Body" >
+
+		<instance-generator name="URIorUUID">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+	</entity>
 
 		<concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
 
@@ -52,7 +61,13 @@
 
 
 <link>	
-	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
+	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" >
+
+		<instance-generator name="Literal">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+
+	</entity>
 	
 	<!-- vlo:description -->
 	<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
@@ -179,9 +194,31 @@
 
 <link>
 
-	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
-	<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span"/>
-	<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
+
+		<label-generator name="CompositeLabel">
+			<arg name="label" type="constant">Cration Event of</arg>
+			<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+		</label-generator>
+
+	</entity>
+	<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span">
+
+		<label-generator name="CompositeLabel">
+			<arg name="label" type="constant">Cration Event of</arg>
+			<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+		</label-generator>
+
+	</entity>
+
+	<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+
+		<instance-generator name="CompositeLabel">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+
+	</entity>
+
 		<concept name="publication year">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
 
 
@@ -190,8 +227,22 @@
 
 <link>
 
-	<entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1"/>
-	<entity relationship="crm:P82a_begin_of_the_begin" type="http://www.w3.org/2001/XMLschema#dateTime" />
+	<entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1">
+
+		<label-generator name="CompositeLabel">
+			<arg name="label" type="constant">Tile Span covered as Subject by the Resource </arg>
+			<arg name="text" type="xpath">../../cmdp:Title/text()</arg>
+		</label-generator>
+
+	</entity>
+
+	<entity relationship="crm:P82a_begin_of_the_begin" type="http://www.w3.org/2001/XMLschema#dateTime" >
+
+		<instance-generator name="Literal">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+
+	</entity>
       
       	<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate/text()</pattern>
 	<concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
@@ -200,7 +251,13 @@
 <link>
 
 	<entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1"/>
-	<entity relationship="crm:P82a_begin_of_the_begin" type="http://www.w3.org/2001/XMLschema#dateTime" />
+	<entity relationship="crm:P82b_end_of_the_end" type="http://www.w3.org/2001/XMLschema#dateTime" >
+		
+		<instance-generator name="CompositeLabel">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+	
+	</entity>
       
       	<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate/text()</pattern>
 	<concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
@@ -210,8 +267,22 @@
 
 
 <link>
-	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" hasType="Access Rights" />
-	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal" />
+	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" hasType="Access Rights" >
+
+		<label-generator name="CompositeLabel">
+			<arg name="label" type="constant">Access Right for</arg>
+			<arg name="text" type="xpath">../../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+		</label-generator>
+	
+	</entity>
+
+	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+
+		<instance-generator name="Literal">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+
+	</entity>
 	
 	<!-- vlo:license + availability -->	
 	<!-- A description of the licensing conditions under which the resource can be used. -->
@@ -342,7 +413,19 @@
 
 <link>
 
-<entity relationship="crmpe:PP23i_is_dataset_part_of" type="crmpe:PE24_Volatile_Dataset"/>
+<entity relationship="crmpe:PP23i_is_dataset_part_of" type="crmpe:PE24_Volatile_Dataset">
+
+	<instance-generator name="DatasetURI">
+		<arg name="term" type="xpath">text()</arg>
+	</instance-generator>
+
+	<label-generator name="SimpleLabel">
+		<arg name="label" type="xpath">text()</arg>
+	</label-generator>
+
+</entity>
+
+
 	<pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
 
