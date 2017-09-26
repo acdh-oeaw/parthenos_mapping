@@ -3,36 +3,28 @@
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
 		<link>
-
 			<label-generator name="CompositeLabel">
-					<arg name="label" type="constant">Main Hosting for</arg>
-					<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+				<arg name="label" type="constant">Main Hosting for</arg>
+				<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
 			</label-generator>
-
-
-			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body" >
-				
+			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body">
 				<instance-generator name="ActorURI">
 					<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
 				</instance-generator>
 				<label-generator name="SimpleLabel">
 					<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
 				</label-generator>
-
 			</entity>
 			<pattern>cmdp:Contact</pattern>
 		</link>
 		<link>
-			<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point" >
-
+			<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point">
 				<instance-generator name="URIorUUID">
 					<arg name="text" type="xpath">text()</arg>
 				</instance-generator>
-
 				<label-generator name="SimpleLabel">
 					<arg name="label" type="xpath">text()</arg>
 				</label-generator>
-
 			</entity>
 			<concept name="catalogue link">http://hdl.handle.net/11459/CCR_C-2969_b04052d7-f726-ae8d-84f3-f9838e7bc296</concept>
 			<pattern>cmdp:CatalogueLink</pattern>
@@ -67,14 +59,17 @@
 			<concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
 			<pattern>cmdp:Name</pattern>
 		</link>
+		
 		<link>
 			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
 				<instance-generator name="Literal">
 					<arg name="term" type="xpath">text()</arg>
 				</instance-generator>
 			</entity>
+			<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
 			<pattern>cmdp:Description/cmdp:Description</pattern>
 		</link>
+		
 		<link>
 			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
 				<instance-generator name="ActorURI">
@@ -83,17 +78,21 @@
 			</entity>
 			<pattern>cmdp:Contact</pattern>
 		</link>
-	</entity>
-	<pattern>cmdp:Collection/cmdp:Project</pattern>
-	<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
-		<instance-generator name="ProjectURI">
-			<arg name="term" type="xpath">cmdp:Title/text()</arg>
-		</instance-generator>
-		<label-generator name="SimpleLabel">
-			<arg name="label" type="xpath">cmdp:Title/text()</arg>
-		</label-generator>
-	</entity>
+	
+	<link>
+		<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
+			<instance-generator name="ProjectURI">
+				<arg name="term" type="xpath">cmdp:Title/text()</arg>
+			</instance-generator>
+			<label-generator name="SimpleLabel">
+				<arg name="label" type="xpath">cmdp:Title/text()</arg>
+			</label-generator>
+		</entity>
+		<pattern>cmdp:Collection/cmdp:Project</pattern>
+	</link>
+ </entity>
 </link>
+
 <!-- Mapping for component http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438113 -->
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact" relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
@@ -152,10 +151,9 @@
 					<arg name="level1" type="constant">thingappellation</arg>
 					<arg name="term" type="xpath">text()</arg>
 				</instance-generator>
-			
 				<label-generator name="SimpleLabel">
 					<arg name="label" type="xpath">text()</arg>
-				</label-generator> 
+				</label-generator>
 			</entity>
 			<concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
 			<pattern>cmdp:Address</pattern>
@@ -209,6 +207,7 @@
 					<arg name="text" type="xpath">text()</arg>
 				</instance-generator>
 			</entity>
+			<concept name="cmd:ResourceRef">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept>
 			<pattern>cmd:ResourceRef</pattern>
 		</link>
 	</entity>
@@ -227,21 +226,6 @@
 		</link>
 	</entity>
 </link>
-<link>
-	<entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE15_Data_E-Service">
-		<link>
-			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point">
-				<instance-generator name="URIorUUID">
-					<arg name="text" type="xpath">text()</arg>
-				</instance-generator>
-			</entity>
-			<pattern>cmd:ResourceRef</pattern>
-		</link>
-	</entity>
-</link>
-<!--
-	<link><entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef" type="crmpe:PE29_Access_Point"><link><entity relationship="crm:P28_has_type" type="crm:E55_Type" /><pattern>cmd:ResourceType</pattern></link></entity></link>
--->
 <link>
 	<entity relationship="crmpe:PP32i_was_curated_by" type="crmpe:PE12_Data_curating_Service" var="cure1"/>
 	<entity relationship="crm:PP2_provided_by" type="crm:E39_Actor"/>
@@ -356,13 +340,3 @@
 	</entity>
 </link> 
 
-
-
-
-
-
-
-
-
-
-	
