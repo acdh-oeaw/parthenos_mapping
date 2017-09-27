@@ -187,13 +187,13 @@
 <link>
 	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
 		<label-generator name="CompositeLabel">
-			<arg name="label" type="constant">Cration Event of</arg>
+			<arg name="label" type="constant">Creation Event of</arg>
 			<arg name="text" type="xpath">../cmdp:Title/text()</arg>
 		</label-generator>
 	</entity>
 	<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span">
 		<label-generator name="CompositeLabel">
-			<arg name="label" type="constant">Cration Event of</arg>
+			<arg name="label" type="constant">Time Span of Creation Event for</arg>
 			<arg name="text" type="xpath">../cmdp:Title/text()</arg>
 		</label-generator>
 	</entity>
@@ -232,7 +232,7 @@
 	<concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
 </link>
 <link>
-	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" hasType="Access Rights">
+	<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" hasType="Access Rights|righttype|accessright" hasLabel="SimpleLabel(label)|Access Right">
 		<label-generator name="CompositeLabel">
 			<arg name="label" type="constant">Access Right for</arg>
 			<arg name="text" type="xpath">../../cmdp:GeneralInfo/cmdp:Title/text()</arg>

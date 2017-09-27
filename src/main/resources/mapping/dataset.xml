@@ -2,11 +2,15 @@
 <!-- Mapping for component  "Access" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438124 -->
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
-		<link>
+		
+		
 			<label-generator name="CompositeLabel">
 				<arg name="label" type="constant">Main Hosting for</arg>
 				<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
 			</label-generator>
+			
+		
+		<link>	
 			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body">
 				<instance-generator name="ActorURI">
 					<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
@@ -91,7 +95,7 @@
 			<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
 		</label-generator>
 		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email">
+			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email|contacttype|email" hasLabel="SimpleLabel(label)|Email">
 				<instance-generator name="TwoLevelCustomURI">
 					<arg name="level1" type="constant">Thing</arg>
 					<arg name="level2" type="constant">Appellation</arg>
@@ -159,7 +163,7 @@
 			<pattern>cmdp:Person</pattern>
 		</link>
 		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone">
+			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone|contacttype|phone" hasLabel="SimpleLabel(label)|Phone">
 				<instance-generator name="TwoLevelCustomURI">
 					<arg name="level1" type="constant">Thing</arg>
 					<arg name="level2" type="constant">Appellation</arg>

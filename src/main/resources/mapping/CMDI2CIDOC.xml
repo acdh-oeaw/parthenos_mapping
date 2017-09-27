@@ -9,7 +9,7 @@
 	<!-- Header -->
 	
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
-		hasType="metadata">
+		hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|Metadata">
 
 		
 		
@@ -151,7 +151,7 @@
 
 		<link>
 			<entity relationship="crmdig:L23_used_software_or_firmware"
-				type="crmpe:PE38_Schema" hasType="cmdi-profile" >
+				type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile" >
 
 				<instance-generator name="SoftwareURI">
         			<arg name="term" type="xpath">text()</arg>
