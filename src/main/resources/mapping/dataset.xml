@@ -78,18 +78,6 @@
 			</entity>
 			<pattern>cmdp:Contact</pattern>
 		</link>
-	
-	<link>
-		<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
-			<instance-generator name="ProjectURI">
-				<arg name="term" type="xpath">cmdp:Title/text()</arg>
-			</instance-generator>
-			<label-generator name="SimpleLabel">
-				<arg name="label" type="xpath">cmdp:Title/text()</arg>
-			</label-generator>
-		</entity>
-		<pattern>cmdp:Collection/cmdp:Project</pattern>
-	</link>
  </entity>
 </link>
 
@@ -339,4 +327,19 @@
 		</link>
 	</entity>
 </link> 
+
+	<link>
+
+		<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+
+		<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
+			<instance-generator name="ProjectURI">
+				<arg name="term" type="xpath">cmdp:Title/text()</arg>
+			</instance-generator>
+			<label-generator name="SimpleLabel">
+				<arg name="label" type="xpath">cmdp:Title/text()</arg>
+			</label-generator>
+		</entity>
+		<pattern>cmdp:Collection/cmdp:Project</pattern>
+	</link>
 

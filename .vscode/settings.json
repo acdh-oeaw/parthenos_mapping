@@ -1,4 +1,4 @@
 {
     "git.ignoreLimitWarning": true,
-    "git.path": null
+    "git.path": "/usr/bin/git"
 }
