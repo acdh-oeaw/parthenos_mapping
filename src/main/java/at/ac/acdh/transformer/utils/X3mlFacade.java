@@ -183,7 +183,7 @@ public class X3mlFacade {
 	public InstanceInfo createInstanceInfo(String constant, String language, String description){
 		InstanceInfo instanceInfo = new InstanceInfo();
 		
-		instanceInfo.setConstant(constant);
+		instanceInfo.setConstant(constant.split("\\|")[0]);
 		instanceInfo.setLanguage(language);
 		instanceInfo.setDescription(description);
 		
@@ -220,9 +220,11 @@ public class X3mlFacade {
 	public InstanceGenerator createClarinTypeIG(String types){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("ConceptURI_2step");
+
 		if(types != null) {
-			for(String type : types.split("\\|")){
-				ig.getArg().add(crateArg("term1", "constant", type));
+			String[] typeArr = types.split("\\|");
+			for(int i=1; i<typeArr.length; i++){
+				ig.getArg().add(crateArg("term" + i, "constant", typeArr[i]));
 			}
 		}
 		
