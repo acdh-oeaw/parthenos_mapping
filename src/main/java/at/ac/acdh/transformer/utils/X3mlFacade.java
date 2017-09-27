@@ -302,11 +302,22 @@ public class X3mlFacade {
 			for(String lgDefintion : pe.getHasLabel().split("\\|\\|")) {
 				LabelGenerator lg = new LabelGenerator();
 				String[] tokens = lgDefintion.split("\\|");
-				lg.setName(tokens[0]);
 				
-				for(int i=1; i<tokens.length; i++) {
-					lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+				if(tokens[0].indexOf('(') != -1) {
+					lg.setName(tokens[0].substring(0, tokens[0].indexOf('(')));
+					
+					for(int i=1; i<tokens.length; i++) {
+						lg.getArg().add(crateArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
+					}
 				}
+				else {
+					lg.setName(tokens[0]);
+					
+					for(int i=1; i<tokens.length; i++) {
+						lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+					}
+				}
+				
 				lgList.add(lg);
 			};
 		}
