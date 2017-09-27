@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE doc [
 	<!ENTITY objectProperties SYSTEM "object.xml">
 	<!ENTITY datasetProperties SYSTEM "dataset.xml">
@@ -9,21 +9,29 @@
 	<!-- Header -->
 	
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset"
-		hasType="metadata">
-	
+		hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|Metadata">
+
+		
 		
 	 	<instance-generator name="URIorUUID">
-        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>	
+        	<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</instance-generator> 
 		
-
+		
 		<label-generator name="SimpleLabel">
     		<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</label-generator>
 		
 
 		<link>
-			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" />
+			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event" >
+
+				<label-generator name="CompositeLabel">
+    				<arg name="label" type="constant">Creation of CMDI record</arg>
+					<arg name="text" type="xpath">cmd:MdSelfLink/text()</arg>
+				</label-generator>
+
+			</entity>
 			<pattern>/cmd:Header</pattern>
 		</link>
 
@@ -31,14 +39,28 @@
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" />
-			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" />
+			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service" >
+
+				<label-generator name="CompositeLabel">
+    				<arg name="label" type="constant">Online Hosting for</arg>
+					<arg name="text" type="xpath">../../../cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+				</label-generator>	
+
+			</entity>
+
+
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" />
-			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" />
+			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_point" >
+
+				<instance-generator name="URIorUUID">
+        			<arg name="text" type="xpath">text()</arg>
+				</instance-generator> 
+			</entity>
 			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern> 
 
 		</link>
@@ -53,7 +75,17 @@
 				relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"
 				var="data1" condition="dataset">
 				 &objectProperties; 
-				 &datasetProperties; 
+				 &datasetProperties;
+				<instance-generator name="RemoveTerm">
+        			<arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
+					<arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
+				</instance-generator> 
+
+				<label-generator name="SimpleLabel">
+    				<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+				</label-generator>
+				
+
 			</entity>
 
 
@@ -81,20 +113,58 @@
 
 
 		<link>
-			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" />
-			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal" />
+			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" >
+
+				<label-generator name="CompositeLabel">
+    				<arg name="label" type="Constant">Time span for the Creation of</arg>
+					<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+				</label-generator>			
+
+
+			</entity>
+			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal" >
+				
+				<instance-generator name="SimpleLabel">
+        			<arg name="label" type="xpath">text()</arg>
+				</instance-generator>
+				</entity>
 			<pattern>cmd:MdCreationDate</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crmdig:L23_used_software_or_firmware"
-				type="crmpe:PE21_Persistent_Software" />
+				type="crmpe:PE21_Persistent_Software" >
+
+				<instance-generator name="SoftwareURI">
+        			<arg name="term" type="xpath">text()</arg>
+				</instance-generator>
+
+				<label-generator name="SimpleLabel">
+        			<arg name="label" type="xpath">text()</arg>
+				</label-generator>
+
+				
+
+			</entity>	
 			<pattern>cmd:MdCreator</pattern>
 		</link>
 
 		<link>
 			<entity relationship="crmdig:L23_used_software_or_firmware"
-				type="crmpe:PE38_Schema" hasType="cmdi-profile" />
+				type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile" >
+
+				<instance-generator name="SoftwareURI">
+        			<arg name="term" type="xpath">text()</arg>
+				</instance-generator>
+
+				<label-generator name="SimpleLabel">
+					<arg name="label" type="xpath">text()</arg>
+				</label-generator>
+
+
+			</entity>
+
+
 			<pattern>cmd:MdProfile</pattern>
 		</link>
 
