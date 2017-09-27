@@ -1,6 +1,9 @@
 package at.ac.acdh.transformer.utils;
 
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import at.ac.acdh.concept_mapping.ParthenosEntity;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
@@ -10,7 +13,7 @@ import gr.forth.x3ml.InstanceGenerator;
 import gr.forth.x3ml.InstanceInfo;
 import gr.forth.x3ml.X3ML.Mappings.Mapping;
 import gr.forth.x3ml.X3ML.Mappings.Mapping.Domain;
-
+import gr.forth.x3ml.LabelGenerator;
 /**
  * 
  * @author dostojic
@@ -151,6 +154,8 @@ public class X3mlFacade {
 		
 		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
 		//e55.getLabelGenerator().
+		if(pe.getHasLabel() != null)
+			e55.getLabelGenerator().addAll(createLabelGenerator(pe));
 		
 		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
 	}	
@@ -288,6 +293,25 @@ public class X3mlFacade {
 		ig.setName("UUID");
 
 		return ig;
+	}
+	
+	public Collection<LabelGenerator> createLabelGenerator(ParthenosEntity pe){
+		ArrayList<LabelGenerator> lgList = new ArrayList<LabelGenerator>();
+		if(pe.getHasLabel() != null) {
+			
+			for(String lgDefintion : pe.getHasLabel().split("\\|\\|")) {
+				LabelGenerator lg = new LabelGenerator();
+				String[] tokens = lgDefintion.split("\\|");
+				lg.setName(tokens[0]);
+				
+				for(int i=1; i<tokens.length; i++) {
+					lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+				}
+				lgList.add(lg);
+			};
+		}
+		
+		return lgList;
 	}
 	
 	//there are 2 Arg classes, one in InstanceGen and the other in LabelGen but they are identical 

@@ -35,6 +35,8 @@ public class ParthenosEntity extends Node {
 	@XmlAttribute
 	String hasType;
 	@XmlAttribute
+	String hasLabel;
+	@XmlAttribute
 	String var;
 	@XmlAttribute
 	String globVar;
@@ -235,6 +237,14 @@ public class ParthenosEntity extends Node {
 
 	public void setSubrelation(String subrelation) {
 		this.subrelation = subrelation;
+	}
+
+	public String getHasLabel() {
+		return hasLabel;
+	}
+
+	public void setHasLabel(String hasLabel) {
+		this.hasLabel = hasLabel;
 	}
 
 }
