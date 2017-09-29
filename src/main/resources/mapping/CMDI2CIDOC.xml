@@ -77,8 +77,8 @@
 		<link>
 			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span">
 				<label-generator name="CompositeLabel">
-					<arg name="label" type="Constant">Time span for the Creation of</arg>
-					<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+					<arg name="label" type="constant">Time span for the Creation of</arg>
+					<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
 				</label-generator>
 			</entity>
 			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal">
