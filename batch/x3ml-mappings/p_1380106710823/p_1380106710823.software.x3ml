@@ -20,6 +20,9 @@
                         <instance_generator name="URIorUUID">
                             <arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
                         </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+                        </label_generator>
                         <additional>
                             <relationship>crm:P2_has_type</relationship>
                             <entity>
@@ -27,10 +30,13 @@
 <instance_info>
     <constant>metadata</constant>
 </instance_info>
-<instance_generator name="LocalTermURI_CLARIN">
-    <arg name="hierarchy" type="constant">type</arg>
-    <arg name="term" type="constant">metadata</arg>
+<instance_generator name="ConceptURI_2step">
+    <arg name="term1" type="constant">datasettype</arg>
+    <arg name="term2" type="constant">metadata</arg>
 </instance_generator>
+<label_generator name="Constant">
+    <arg name="text" type="constant">Metadata</arg>
+</label_generator>
                             </entity>
                         </additional>
                     </entity>
@@ -50,7 +56,11 @@
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Creation of CMDI record</arg>
+<arg name="text" type="xpath">cmd:MdSelfLink/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -64,7 +74,7 @@
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crmpe:PP8i_is_dataset_hosted_by</relationship>
                     </target_relation>
@@ -74,7 +84,11 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE15_Data_E-Service</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Online Hosting for</arg>
+<arg name="text" type="xpath">../../../cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -88,7 +102,7 @@
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crmpe:PP50_accessible_at</relationship>
                     </target_relation>
@@ -98,7 +112,9 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE29_Access_point</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="URIorUUID">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -117,7 +133,13 @@
                     <target_node>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="RemoveTerm">
+<arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
+<arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -129,7 +151,13 @@
                 <target_node>
                     <entity variable="data1">
                         <type>crmpe:PE24_Volatile_Dataset</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="RemoveTerm">
+                            <arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
+                            <arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </domain>
@@ -147,7 +175,36 @@
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="term" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:LexicalResourceProfile-DLU/cmdp:GeneralInfo-DLU/cmdp:ResourceName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:LexicalResourceProfile-DLU/cmdp:GeneralInfo-DLU/cmdp:ResourceName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="term" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -166,7 +223,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="URIorUUID">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -185,7 +247,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -204,7 +268,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -223,7 +289,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -242,7 +310,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -261,7 +331,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -280,7 +352,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -299,7 +373,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -318,7 +394,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -337,7 +415,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -356,7 +436,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -375,7 +457,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -394,7 +478,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -413,7 +499,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -432,7 +520,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -451,7 +541,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -470,7 +562,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -489,7 +583,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -508,7 +604,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -527,7 +625,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -546,7 +646,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -565,7 +667,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -584,7 +688,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -603,7 +709,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -622,7 +730,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -641,7 +751,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -660,7 +772,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -679,7 +793,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -698,7 +814,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -717,7 +835,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -736,7 +856,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -755,7 +877,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -774,7 +898,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -793,7 +919,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -812,7 +940,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -831,7 +961,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -850,7 +982,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -869,7 +1003,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -888,7 +1024,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -907,7 +1045,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -926,7 +1066,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -945,7 +1087,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -964,7 +1108,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -983,7 +1129,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -997,12 +1145,20 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Creation Event of</arg>
+<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                            </label_generator>
                         </entity>
                         <relationship>crm:P4_has_time-span</relationship>
                         <entity>
                             <type>crm:E52_Time-Span</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Time Span of Creation Event for</arg>
+<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                            </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
                     </target_relation>
@@ -1012,7 +1168,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="CompositeLabel">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1026,7 +1184,11 @@
                         <relationship>crm:P129_is_about</relationship>
                         <entity variable="tempo1">
                             <type>crm:E52_Time-Span</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Tile Span covered as Subject by the Resource </arg>
+<arg name="text" type="xpath">../../cmdp:Title/text()</arg>
+                            </label_generator>
                         </entity>
                         <relationship>crm:P82a_begin_of_the_begin</relationship>
                     </target_relation>
@@ -1036,7 +1198,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1050,9 +1214,9 @@
                         <relationship>crm:P129_is_about</relationship>
                         <entity variable="tempo1">
                             <type>crm:E52_Time-Span</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
+                        <relationship>crm:P82b_end_of_the_end</relationship>
                     </target_relation>
                 </path>
                 <range>
@@ -1060,7 +1224,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="CompositeLabel">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1074,7 +1240,11 @@
                         <relationship>crm:P129i_is_subject_of</relationship>
                         <entity>
                             <type>crm:E30_Right</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Access Right for</arg>
+<arg name="text" type="xpath">../../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            </label_generator>
                             <additional>
 <relationship>crm:P2_has_type</relationship>
 <entity>
@@ -1082,10 +1252,13 @@
     <instance_info>
         <constant>Access Rights</constant>
     </instance_info>
-    <instance_generator name="LocalTermURI_CLARIN">
-        <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">Access Rights</arg>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term1" type="constant">righttype</arg>
+        <arg name="term2" type="constant">accessright</arg>
     </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Access Right</arg>
+    </label_generator>
 </entity>
                             </additional>
                         </entity>
@@ -1097,7 +1270,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1111,7 +1286,11 @@
                         <relationship>crm:P129i_is_subject_of</relationship>
                         <entity>
                             <type>crm:E30_Right</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Access Right for</arg>
+<arg name="text" type="xpath">../../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            </label_generator>
                             <additional>
 <relationship>crm:P2_has_type</relationship>
 <entity>
@@ -1119,10 +1298,13 @@
     <instance_info>
         <constant>Access Rights</constant>
     </instance_info>
-    <instance_generator name="LocalTermURI_CLARIN">
-        <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">Access Rights</arg>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term1" type="constant">righttype</arg>
+        <arg name="term2" type="constant">accessright</arg>
     </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Access Right</arg>
+    </label_generator>
 </entity>
                             </additional>
                         </entity>
@@ -1134,7 +1316,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1153,7 +1337,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="DatasetURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1167,12 +1356,12 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crm:P01i_is_domain_of</relationship>
                         <entity>
                             <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>P01_has_domain</relationship>
                     </target_relation>
@@ -1182,7 +1371,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1196,12 +1385,12 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crm:P01i_is_domain_of</relationship>
                         <entity>
                             <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>P01_has_domain</relationship>
                     </target_relation>
@@ -1211,7 +1400,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1225,12 +1414,12 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crm:P01i_is_domain_of</relationship>
                         <entity>
                             <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>P01_has_domain</relationship>
                     </target_relation>
@@ -1240,7 +1429,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1254,12 +1443,12 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crm:P01i_is_domain_of</relationship>
                         <entity>
                             <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>P01_has_domain</relationship>
                     </target_relation>
@@ -1269,7 +1458,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1283,12 +1472,12 @@
                         <relationship>crm:P94i_was_created_by</relationship>
                         <entity variable="create1">
                             <type>crm:E65_Creation</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>crm:P01i_is_domain_of</relationship>
                         <entity>
                             <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                         <relationship>P01_has_domain</relationship>
                     </target_relation>
@@ -1298,7 +1487,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1317,7 +1506,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE34_Team</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1336,7 +1530,7 @@
                     <target_node>
                         <entity>
                             <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1348,7 +1542,11 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE15_Data_E-Service</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
+                        <label_generator name="CompositeLabel">
+                            <arg name="label" type="constant">Main Hosting for</arg>
+                            <arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </domain>
@@ -1366,7 +1564,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1385,7 +1588,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE29_access_Point</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="URIorUUID">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1395,9 +1603,9 @@
             <domain>
                 <source_node>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project</source_node>
                 <target_node>
-                    <entity variable="create1">
-                        <type>crm:E65_Creation</type>
-                        <instance_generator name="URIorUUID"/>
+                    <entity>
+                        <type>crmpe:PE35_Project</type>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1415,7 +1623,9 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="Literal">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1434,7 +1644,9 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE34_Team</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1446,7 +1658,12 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE34_Team</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="ActorURI">
+                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </domain>
@@ -1464,7 +1681,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1476,7 +1698,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1494,7 +1716,13 @@
                     <target_node>
                         <entity>
                             <type>crm:E45_Address</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="OneLevelCustomURI">
+<arg name="level1" type="constant">thingappellation</arg>
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1513,7 +1741,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1532,7 +1765,14 @@
                     <target_node>
                         <entity>
                             <type>crm:E51_Contact_Point</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="TwoLevelCustomURI">
+<arg name="level1" type="constant">Thing</arg>
+<arg name="level2" type="constant">Appellation</arg>
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                             <additional>
 <relationship>crm:P2_has_type</relationship>
 <entity>
@@ -1540,10 +1780,13 @@
     <instance_info>
         <constant>Telephone</constant>
     </instance_info>
-    <instance_generator name="LocalTermURI_CLARIN">
-        <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">Telephone</arg>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term1" type="constant">contacttype</arg>
+        <arg name="term2" type="constant">phone</arg>
     </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Phone</arg>
+    </label_generator>
 </entity>
                             </additional>
                         </entity>
@@ -1557,7 +1800,7 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE15_Data_E-Service</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1575,7 +1818,9 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE29_Access_Point</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="URIorUUID">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1587,7 +1832,7 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE29_Access_Point</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1605,7 +1850,13 @@
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="ConceptURI_2step">
+<arg name="term1" type="constant">contactpointtype</arg>
+<arg name="term2" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1617,7 +1868,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E21_Person</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1628,7 +1879,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E21_Person</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1639,7 +1890,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E21_Person</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1650,7 +1901,7 @@
                 <target_node>
                     <entity>
                         <type>frbr:F30_Publication_Event</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1661,7 +1912,7 @@
                 <target_node>
                     <entity>
                         <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1672,7 +1923,7 @@
                 <target_node>
                     <entity>
                         <type>crmdig:D7_Digital_Machine_Event</type>
-                        <instance_generator name="URIorUUID"/>
+                        <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
@@ -1685,7 +1936,11 @@
                         <relationship>crm:P4_has_time_span</relationship>
                         <entity>
                             <type>crm:E52_Time-Span</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="Constant">Time span for the Creation of</arg>
+<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+                            </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
                     </target_relation>
@@ -1695,7 +1950,9 @@
                     <target_node>
                         <entity>
                             <type>rdf-schema#Literal</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1714,7 +1971,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE21_Persistent_Software</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="SoftwareURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1733,7 +1995,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE38_Schema</type>
-                            <instance_generator name="URIorUUID"/>
+                            <instance_generator name="SoftwareURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                             <additional>
 <relationship>crm:P2_has_type</relationship>
 <entity>
@@ -1741,10 +2008,13 @@
     <instance_info>
         <constant>cmdi-profile</constant>
     </instance_info>
-    <instance_generator name="LocalTermURI_CLARIN">
-        <arg name="hierarchy" type="constant">type</arg>
-        <arg name="term" type="constant">cmdi-profile</arg>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term1" type="constant">softwaretype</arg>
+        <arg name="term2" type="constant">cmdiprofile</arg>
     </instance_generator>
+    <label_generator name="Constant">
+        <arg name="text" type="constant">cmdi-profile</arg>
+    </label_generator>
 </entity>
                             </additional>
                         </entity>

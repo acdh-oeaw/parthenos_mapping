@@ -56,14 +56,12 @@
 	</entity>
 	<concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
 </link>
-
 <link>
 	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
 		<instance-generator name="Literal">
 			<arg name="text" type="xpath">text()</arg>
 		</instance-generator>
 	</entity>
-
 	<!-- vlo:description -->
 	<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
 	<concept name="note">http://hdl.handle.net/11459/CCR_C-6124_2e45fdf9-ced2-89c9-a09d-b4769e9fede6</concept>
@@ -183,7 +181,6 @@
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:lexicalProfile/cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/</blacklistPattern>
 	<!-- Clarino_B_center_Repository_University_of_Bergen cmdp:lexicalProfile -->
 </link>
-
 <link>
 	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1">
 		<label-generator name="CompositeLabel">
@@ -204,7 +201,6 @@
 	</entity>
 	<concept name="publication year">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
 </link>
-
 <link>
 	<entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1">
 		<label-generator name="CompositeLabel">
@@ -220,7 +216,6 @@
 	<pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate/text()</pattern>
 	<concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
 </link>
-
 <link>
 	<entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1"/>
 	<entity relationship="crm:P82b_end_of_the_end" type="http://www.w3.org/2001/XMLschema#dateTime">

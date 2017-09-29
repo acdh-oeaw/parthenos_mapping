@@ -2,15 +2,11 @@
 <!-- Mapping for component  "Access" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438124 -->
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
-		
-		
-			<label-generator name="CompositeLabel">
-				<arg name="label" type="constant">Main Hosting for</arg>
-				<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
-			</label-generator>
-			
-		
-		<link>	
+		<label-generator name="CompositeLabel">
+			<arg name="label" type="constant">Main Hosting for</arg>
+			<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+		</label-generator>
+		<link>
 			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body">
 				<instance-generator name="ActorURI">
 					<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
@@ -63,7 +59,6 @@
 			<concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
 			<pattern>cmdp:Name</pattern>
 		</link>
-		
 		<link>
 			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
 				<instance-generator name="Literal">
@@ -73,7 +68,6 @@
 			<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
 			<pattern>cmdp:Description/cmdp:Description</pattern>
 		</link>
-		
 		<link>
 			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
 				<instance-generator name="ActorURI">
@@ -82,9 +76,8 @@
 			</entity>
 			<pattern>cmdp:Contact</pattern>
 		</link>
- </entity>
+	</entity>
 </link>
-
 <!-- Mapping for component http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438113 -->
 <link>
 	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact" relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
@@ -330,20 +323,17 @@
 			<pattern>cmdp:orgName/cmdp:orgName</pattern>
 		</link>
 	</entity>
-</link> 
-
-	<link>
-
-		<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
-
-		<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
-			<instance-generator name="ProjectURI">
-				<arg name="term" type="xpath">cmdp:Title/text()</arg>
-			</instance-generator>
-			<label-generator name="SimpleLabel">
-				<arg name="label" type="xpath">cmdp:Title/text()</arg>
-			</label-generator>
-		</entity>
-		<pattern>cmdp:Collection/cmdp:Project</pattern>
-	</link>
+</link>
+<link>
+	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+	<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
+		<instance-generator name="ProjectURI">
+			<arg name="term" type="xpath">cmdp:Title/text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">cmdp:Title/text()</arg>
+		</label-generator>
+	</entity>
+	<pattern>cmdp:Collection/cmdp:Project</pattern>
+</link>
 
