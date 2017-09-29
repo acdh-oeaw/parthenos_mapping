@@ -14,9 +14,12 @@
 	<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Keyword/text()</pattern>
 	<!-- IDS IDSAGD_Corpus -->
 </link>
+
+<!--
+
 <link>
 	<entity relationship="crm:P129_is_about" type="crm:E55_Type" hasType="CLARIN VLO Subject" />
-	<!-- vlo:subject -->
+	
 	<concept>http://www.isocat.org/datcat/DC-2591</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-2591_f769d93b-c007-d2c9-aff2-99e9177e5764</concept>
 	<concept>http://purl.org/dc/terms/subject</concept>
@@ -28,24 +31,28 @@
 	<concept>http://www.isocat.org/datcat/DC-6543</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-6543_92dacb75-3098-0d5a-0665-94ddb6274f8c</concept>
 	<concept>http://www.isocat.org/datcat/DC-2503</concept>
-	<!--<concept>http://hdl.handle.net/11459/CCR_C-2503_72bd598f-4abf-e122-ed93-f2adf1ab8785</concept> -->
-	<!--  <pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject/@olac-linguistic-field</pattern> -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject</pattern>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject[@dcterms-type="LCSH"]/text()</pattern>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:subject/cmdp:Topic/text()</pattern>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Content/cmdp:Topic/text()</pattern>
-	<!--  BAS -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:media-session-profile/cmdp:media-session/cmdp:Content/cmdp:Task/text()</pattern>
-	<!--  BAS -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Corpus/cmdp:Topic/text()</pattern>
-	<!--  BAS media-corpus-profile -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:IDSAGD_SpeechEvent/cmdp:Topic/text()</pattern>
-	<!-- IDS IDSAGD_Event -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Corpus/cmdp:Modality/cmdp:Modality/text()</pattern>
-	<!-- IDS IDSAGD_Corpus -->
+	
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:profileDesc/cmdp:textClass</blacklistPattern>
-	<!-- BBAW -->
+	
+	
 </link>
+
+-->
+
+
 <link>
 	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
 		<instance-generator name="serviceAppellationURI">
@@ -105,12 +112,12 @@
 	<pattern>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
 <link>
-	<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point">
+	<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point" hastype="data1">
 		<instance-generator name="URIorUUID">
 			<arg name="text" type="xpath">text()</arg>
 		</instance-generator>
 	</entity>
-	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms//cmd:ResourceRef</pattern>
+	<pattern>cmd:ResourceRef</pattern>
 </link>
 
 <link>
