@@ -8,13 +8,16 @@
 ]>
 <mappings>
 	<!-- Header -->
-	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|Metadata">
+	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|metadata">
 		<instance-generator name="URIorUUID">
 			<arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</instance-generator>
 		<label-generator name="SimpleLabel">
 			<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</label-generator>
+
+		
+
 		<link>
 			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event">
 				<label-generator name="CompositeLabel">
@@ -108,7 +111,7 @@
 					<arg name="label" type="xpath">text()</arg>
 				</label-generator>
 			</entity>
-			<pattern>cmd:MdProfile</pattern>
+			<pattern>cmd:CMD/cmd:Header/cmd:MdProfile</pattern>
 		</link>
 	</entity>
 </mappings>

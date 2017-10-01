@@ -1,19 +1,21 @@
+<!-->
 <link>
-	<entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO Genre" />
-	<!-- vlo:genre -->
+	<entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO Genre"/>
+	
 	<concept>http://www.isocat.org/datcat/DC-2470</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-2470_d191f2b2-6339-f031-b534-70d526b28357</concept>
 	<concept>http://www.isocat.org/datcat/DC-3899</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-3899_c6c608e7-cb2e-1832-09ff-aee36e1f2ed4</concept>
-	<!-- Removed attribute <pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:type/@olac-linguistic-type</pattern> -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:type</pattern>
-	<!-- Find concept and add attribute somehow -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:genre/text()</pattern>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:media-corpus-profile/cmdp:Corpus/cmdp:Topic/text()</pattern>
-	<!--  BAS media-corpus-profile -->
+	
 	<pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Corpus/cmdp:Keyword/text()</pattern>
-	<!-- IDS IDSAGD_Corpus -->
+	
 </link>
+-->
 
 <!--
 
@@ -64,14 +66,16 @@
 	</entity>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:title</pattern>
 </link>
+
+<!--
+
 <link>
 	<entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType" />
-	<!-- vlo:resourceClass -->
+	
 	<concept>http://purl.org/dc/terms/type</concept>
 	<concept>http://purl.org/dc/elements/1.1/type</concept>
 	<concept>http://www.isocat.org/datcat/DC-3806</concept>
-	<!--<concept>http://hdl.handle.net/11459/CCR_C-3806_e55e9ed6-b099-c21d-a634-3c7f4d22a215</concept> -->
-	<!-- not an official ISOcat PID - added to support cmdi-collectiontype, should be removed in the future -->
+	
 	<concept>http://www.isocat.org/datcat/DC-5424</concept>
 	<concept>http://hdl.handle.net/11459/CCR_C-5424_3200a38b-344e-41de-e539-f71f80c38df8</concept>
 	<concept>http://www.isocat.org/datcat/DC-3786</concept>
@@ -80,7 +84,9 @@
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:type/text()</pattern>
 	<pattern>/cmd:CMD/cmd:Components/cmdp:mods/cmdp:typeOfResource/text()</pattern>
 	<blacklistPattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Creation/cmdp:Source/cmdp:MediaFiles</blacklistPattern>
-</link>
+</link> -->
+
+
 <link>
 	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
 		<instance-generator name="Literal">
@@ -112,7 +118,7 @@
 	<pattern>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
 <link>
-	<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point" hastype="data1">
+	<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point" >
 		<instance-generator name="URIorUUID">
 			<arg name="text" type="xpath">text()</arg>
 		</instance-generator>
