@@ -228,8 +228,11 @@ public class X3mlFacade {
 
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
-			for(int i=1; i<typeArr.length; i++){
-				ig.getArg().add(crateArg("term" + i, "constant", typeArr[i]));
+			if(typeArr.length >=2) {
+				ig.getArg().add(crateArg("term", "constant", typeArr[1]));
+				for(int i=2; i<typeArr.length; i++){
+					ig.getArg().add(crateArg("term" + (i-1), "constant", typeArr[i]));
+				}
 			}
 		}
 		
