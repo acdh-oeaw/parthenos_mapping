@@ -1,339 +1,337 @@
-
 <!-- Mapping for component  "Access" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438124 -->
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
-		<label-generator name="CompositeLabel">
-			<arg name="label" type="constant">Main Hosting for</arg>
-			<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
-		</label-generator>
-		<link>
-			<entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body">
-				<instance-generator name="ActorURI">
-					<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
-				</label-generator>
-			</entity>
-			<pattern>cmdp:Contact</pattern>
-		</link>
-		<link>
-			<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point">
-				<instance-generator name="URIorUUID">
-					<arg name="text" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="catalogue link">http://hdl.handle.net/11459/CCR_C-2969_b04052d7-f726-ae8d-84f3-f9838e7bc296</concept>
-			<pattern>cmdp:CatalogueLink</pattern>
-		</link>
-	</entity>
-	<pattern>cmdp:Collection/cmdp:Access</pattern>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
+    <label-generator name="CompositeLabel">
+      <arg name="label" type="constant">Main Hosting for</arg>
+      <arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+    </label-generator>
+    <link>
+      <entity relationship="crmpe:PP2_provided_by" type="crm:E40_Legal_Body">
+        <instance-generator name="ActorURI">
+          <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+        </label-generator>
+      </entity>
+      <pattern>cmdp:Contact</pattern>
+    </link>
+    <link>
+      <entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point">
+        <instance-generator name="URIorUUID">
+          <arg name="text" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="catalogue link">http://hdl.handle.net/11459/CCR_C-2969_b04052d7-f726-ae8d-84f3-f9838e7bc296</concept>
+      <pattern>cmdp:CatalogueLink</pattern>
+    </link>
+  </entity>
+  <pattern>cmdp:Collection/cmdp:Access</pattern>
 </link>
 <!-- Mapping for component  "Project" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438125 -->
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project" relationship="crm:P2_has_type" type="crmpe:PE35_Project">
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
-				<instance-generator name="ProjectAppellationURI">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="title">http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
-			<pattern>cmdp:Title</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
-				<instance-generator name="ProjectAppellationURI">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
-			<pattern>cmdp:Name</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
-				<instance-generator name="Literal">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-			</entity>
-			<concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
-			<pattern>cmdp:Description/cmdp:Description</pattern>
-		</link>
-		<link>
-			<entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
-				<instance-generator name="ActorURI">
-					<arg name="term" type="xpath">cmdp:Organisation/text()</arg>
-				</instance-generator>
-			</entity>
-			<pattern>cmdp:Contact</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project" relationship="crm:P2_has_type" type="crmpe:PE35_Project">
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
+        <instance-generator name="ProjectAppellationURI">
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="title">http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
+      <pattern>cmdp:Title</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
+        <instance-generator name="ProjectAppellationURI">
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
+      <pattern>cmdp:Name</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+        <instance-generator name="Literal">
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+      </entity>
+      <concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
+      <pattern>cmdp:Description/cmdp:Description</pattern>
+    </link>
+    <link>
+      <entity relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
+        <instance-generator name="ActorURI">
+          <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+        </instance-generator>
+      </entity>
+      <pattern>cmdp:Contact</pattern>
+    </link>
+  </entity>
 </link>
 <!-- Mapping for component http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438113 -->
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact" relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
-		<instance-generator name="ActorURI">
-			<arg name="term" type="xpath">cmdp:Organization/text()</arg>
-		</instance-generator>
-		<label-generator name="SimpleLabel">
-			<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
-		</label-generator>
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email|contacttype|email" hasLabel="SimpleLabel(label)|Email">
-				<instance-generator name="TwoLevelCustomURI">
-					<arg name="level1" type="constant">Thing</arg>
-					<arg name="level2" type="constant">Appellation</arg>
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="e-mail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
-			<!--	<pattern>cmdp:Email</pattern> -->
-		</link>
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crmpe:PE29_Access_Point">
-				<instance-generator name="URIorUUID">
-					<arg name="text" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="URL/home page">http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320</concept>
-			<pattern>cmdp:Website</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person">
-				<instance-generator name="ActorURI">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
-			<pattern>cmdp:Person</pattern>
-		</link>
-	</entity>
-	<pattern>cmdp:Project/cmdp:Contact</pattern>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact" relationship="crmpe:PP44_has_maintaining_team" type="crmpe:PE34_Team">
+    <instance-generator name="ActorURI">
+      <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+    </instance-generator>
+    <label-generator name="SimpleLabel">
+      <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+    </label-generator>
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email|contacttype|email" hasLabel="SimpleLabel(label)|Email">
+        <instance-generator name="TwoLevelCustomURI">
+          <arg name="level1" type="constant">Thing</arg>
+          <arg name="level2" type="constant">Appellation</arg>
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="e-mail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
+      <!--	<pattern>cmdp:Email</pattern> -->
+    </link>
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crmpe:PE29_Access_Point">
+        <instance-generator name="URIorUUID">
+          <arg name="text" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="URL/home page">http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320</concept>
+      <pattern>cmdp:Website</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person">
+        <instance-generator name="ActorURI">
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
+      <pattern>cmdp:Person</pattern>
+    </link>
+  </entity>
+  <pattern>cmdp:Project/cmdp:Contact</pattern>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E45_Address">
-				<instance-generator name="OneLevelCustomURI">
-					<arg name="level1" type="constant">thingappellation</arg>
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
-			<pattern>cmdp:Address</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person">
-				<instance-generator name="ActorURI">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
-			<pattern>cmdp:Person</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone|contacttype|phone" hasLabel="SimpleLabel(label)|Phone">
-				<instance-generator name="TwoLevelCustomURI">
-					<arg name="level1" type="constant">Thing</arg>
-					<arg name="level2" type="constant">Appellation</arg>
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="telephone">http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794</concept>
-			<pattern>cmdp:Telephone</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:PE29_Access_Point">
-				<instance-generator name="URIorUUID">
-					<arg name="text" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<concept name="web site">http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf</concept>
-			<pattern>cmdp:Website</pattern>
-		</link>
-	</entity>
-	<pattern>cmdp:Access/cmdp:Contact</pattern>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:E45_Address">
+        <instance-generator name="OneLevelCustomURI">
+          <arg name="level1" type="constant">thingappellation</arg>
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
+      <pattern>cmdp:Address</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person">
+        <instance-generator name="ActorURI">
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
+      <pattern>cmdp:Person</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone|contacttype|phone" hasLabel="SimpleLabel(label)|Phone">
+        <instance-generator name="TwoLevelCustomURI">
+          <arg name="level1" type="constant">Thing</arg>
+          <arg name="level2" type="constant">Appellation</arg>
+          <arg name="term" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="telephone">http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794</concept>
+      <pattern>cmdp:Telephone</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:PE29_Access_Point">
+        <instance-generator name="URIorUUID">
+          <arg name="text" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <concept name="web site">http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf</concept>
+      <pattern>cmdp:Website</pattern>
+    </link>
+  </entity>
+  <pattern>cmdp:Access/cmdp:Contact</pattern>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE15_Data_E-Service">
-		<link>
-			<entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point">
-				<instance-generator name="URIorUUID">
-					<arg name="text" type="xpath">text()</arg>
-				</instance-generator>
-			</entity>
-			<concept name="cmd:ResourceRef">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept>
-			<pattern>cmd:ResourceRef</pattern>
-		</link>
-	</entity>
-	<entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef" type="crmpe:PE29_Access_Point">
-		<link>
-			<entity relationship="crm:P28_has_type" type="crm:E55_Type">
-				<instance-generator name="ConceptURI_2step">
-					<arg name="term1" type="constant">contactpointtype</arg>
-					<arg name="term2" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
-			<pattern>cmd:ResourceType</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE15_Data_E-Service">
+    <link>
+      <entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point">
+        <instance-generator name="URIorUUID">
+          <arg name="text" type="xpath">cmd:ResourceRef/text()</arg>
+        </instance-generator>
+      </entity>
+      <concept name="cmd:ResourceRef">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept>
+      <pattern>cmd:ResourceRef</pattern>
+    </link>
+  </entity>
+  <entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef" type="crmpe:PE29_Access_Point">
+    <link>
+      <entity relationship="crm:P28_has_type" type="crm:E55_Type">
+        <instance-generator name="ConceptURI_2step">
+          <arg name="term1" type="constant">contactpointtype</arg>
+          <arg name="term2" type="xpath">text()</arg>
+        </instance-generator>
+        <label-generator name="SimpleLabel">
+          <arg name="label" type="xpath">text()</arg>
+        </label-generator>
+      </entity>
+      <pattern>cmd:ResourceType</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity relationship="crmpe:PP32i_was_curated_by" type="crmpe:PE12_Data_curating_Service" var="cure1"/>
-	<entity relationship="crm:PP2_provided_by" type="crm:E39_Actor"/>
-	<pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</pattern>
+  <entity relationship="crmpe:PP32i_was_curated_by" type="crmpe:PE12_Data_curating_Service" var="cure1"/>
+  <entity relationship="crm:PP2_provided_by" type="crm:E39_Actor"/>
+  <pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</pattern>
 </link>
 <link>
-	<entity relationship="crm:P12i_was_present_at" type="frbr:F30_Publication_Event"/>
-	<pattern>cmdp:fileDesc/cmdp:publicationStmt</pattern>
+  <entity relationship="crm:P12i_was_present_at" type="frbr:F30_Publication_Event"/>
+  <pattern>cmdp:fileDesc/cmdp:publicationStmt</pattern>
 </link>
 <!-- TEI mapping definition -->
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author" type="crm:E21_Person">
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
-			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
-			<pattern>cmdp:persName/cmdp:surname</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
-			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
-			<pattern>cmdp:persName/cmdp:forename</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author" type="crm:E21_Person">
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname"/>
+      <concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+      <pattern>cmdp:persName/cmdp:surname</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename"/>
+      <concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+      <pattern>cmdp:persName/cmdp:forename</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor" type="crm:E21_Person">
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
-			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
-			<pattern>cmdp:persName/cmdp:surname</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
-			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
-			<pattern>cmdp:persName/cmdp:forename</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND" />
-			<pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor" type="crm:E21_Person">
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname"/>
+      <concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+      <pattern>cmdp:persName/cmdp:surname</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename"/>
+      <concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+      <pattern>cmdp:persName/cmdp:forename</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND"/>
+      <pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt" type="crm:E21_Person">
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename" />
-			<concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
-			<pattern>cmdp:persName/cmdp:forename</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname" />
-			<concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
-			<pattern>cmdp:persName/cmdp:surname</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND" />
-			<concept name="idNumber">http://hdl.handle.net/11459/CCR_C-3894_4d08cc31-25fe-af0c-add4-ca7bdc12f5f7</concept>
-			<pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="OrganisationName" />
-			<concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
-			<pattern>cmdp:orgName/cmdp:orgName</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P2_has_type" type="crm:E55_Type" />
-			<pattern>cmdp:note/cmdp:note</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt" type="crm:E21_Person">
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Forename"/>
+      <concept name="forename">http://hdl.handle.net/11459/CCR_C-4194_10476a01-dbce-7ad5-4cb2-f6eb7e777ff0</concept>
+      <pattern>cmdp:persName/cmdp:forename</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="Surname"/>
+      <concept name="surname">http://hdl.handle.net/11459/CCR_C-4195_cfa61853-c8ef-252d-b87c-e02ae6149ea1</concept>
+      <pattern>cmdp:persName/cmdp:surname</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E42_Identifier" hasType="PND"/>
+      <concept name="idNumber">http://hdl.handle.net/11459/CCR_C-3894_4d08cc31-25fe-af0c-add4-ca7bdc12f5f7</concept>
+      <pattern>cmdp:persName/cmdp:idno/cmdp:idno</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" hasType="OrganisationName"/>
+      <concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
+      <pattern>cmdp:orgName/cmdp:orgName</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P2_has_type" type="crm:E55_Type"/>
+      <pattern>cmdp:note/cmdp:note</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt" type="frbr:F30_Publication_Event">
-		<link>
-			<entity relationship="crm:P7_took_place_at" type="crm:E53_Place" />
-			<concept name="publication place">http://hdl.handle.net/11459/CCR_C-5580_03e458f2-f873-8645-76eb-40e001b6c1ac</concept>
-			<pattern>cmdp:pubPlace</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span" />
-			<entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-			<concept name="pubDate">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
-			<pattern>cmdp:date</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P14_carried_out_by" type="crm:E40_Legal_Body" />
-			<pattern>cmdp:publisher</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right" />
-			<concept name="licence">http://hdl.handle.net/11459/CCR_C-3800_12a79edd-0ffe-8d82-9831-45d125c54aee</concept>
-			<pattern>cmdp:availability/cmdp:licence</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt" type="frbr:F30_Publication_Event">
+    <link>
+      <entity relationship="crm:P7_took_place_at" type="crm:E53_Place"/>
+      <concept name="publication place">http://hdl.handle.net/11459/CCR_C-5580_03e458f2-f873-8645-76eb-40e001b6c1ac</concept>
+      <pattern>cmdp:pubPlace</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span"/>
+      <entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+      <concept name="pubDate">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
+      <pattern>cmdp:Date</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P14_carried_out_by" type="crm:E40_Legal_Body"/>
+      <pattern>cmdp:publisher</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P129i_is_subject_of" type="crm:E30_Right"/>
+      <concept name="licence">http://hdl.handle.net/11459/CCR_C-3800_12a79edd-0ffe-8d82-9831-45d125c54aee</concept>
+      <pattern>cmdp:availability/cmdp:licence</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher" type="crm:E40_Legal_Body">
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email" />
-			<concept name="TEImail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
-			<pattern>cmdp:email</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P76_has_contact_point" type="crm:E45_Address" />
-			<concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
-			<pattern>cmdp:address/cmdp:addrLine</pattern>
-		</link>
-		<link>
-			<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation" />
-			<concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
-			<pattern>cmdp:orgName/cmdp:orgName</pattern>
-		</link>
-	</entity>
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher" type="crm:E40_Legal_Body">
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Email"/>
+      <concept name="TEImail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
+      <pattern>cmdp:Email</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P76_has_contact_point" type="crm:E45_Address"/>
+      <concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
+      <pattern>cmdp:Address/cmdp:addrLine</pattern>
+    </link>
+    <link>
+      <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation"/>
+      <concept name="organization">http://hdl.handle.net/11459/CCR_C-2979_8030473e-bbcb-6b87-3fd2-90554429ec50</concept>
+      <pattern>cmdp:orgName/cmdp:orgName</pattern>
+    </link>
+  </entity>
 </link>
 <link>
-	<entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
-	<entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
-		<instance-generator name="ProjectURI">
-			<arg name="term" type="xpath">cmdp:Title/text()</arg>
-		</instance-generator>
-		<label-generator name="SimpleLabel">
-			<arg name="label" type="xpath">cmdp:Title/text()</arg>
-		</label-generator>
-	</entity>
-	<pattern>cmdp:Collection/cmdp:Project</pattern>
+  <entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
+  <entity relationship="crmpe:PP43i_is_project_activity_supported_by" type="crmpe:PE35_Project">
+    <instance-generator name="ProjectURI">
+      <arg name="term" type="xpath">cmdp:Title/text()</arg>
+    </instance-generator>
+    <label-generator name="SimpleLabel">
+      <arg name="label" type="xpath">cmdp:Title/text()</arg>
+    </label-generator>
+  </entity>
+  <pattern>cmdp:Collection/cmdp:Project</pattern>
 </link>
-
