@@ -43,7 +43,7 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="title">http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
+      
       <pattern>cmdp:Title</pattern>
     </link>
     <link>
@@ -55,16 +55,16 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="project name">http://hdl.handle.net/11459/CCR_C-2536_13fc5f10-c14a-1f64-a669-32736f6d3ef5</concept>
+    
       <pattern>cmdp:Name</pattern>
     </link>
     <link>
       <entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
         <instance-generator name="Literal">
-          <arg name="term" type="xpath">text()</arg>
+          <arg name="text" type="xpath">text()</arg>
         </instance-generator>
       </entity>
-      <concept name="description">http://hdl.handle.net/11459/CCR_C-2520_9eeedfb4-47d3-ddee-cfcb-99ac634bf1db</concept>
+      
       <pattern>cmdp:Description/cmdp:Description</pattern>
     </link>
     <link>
@@ -97,8 +97,8 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="e-mail">http://hdl.handle.net/11459/CCR_C-2521_7b01b455-0de8-d753-ad4e-dee49953ae98</concept>
-      <!--	<pattern>cmdp:Email</pattern> -->
+      
+      <pattern>cmdp:Email</pattern> 
     </link>
     <link>
       <entity relationship="crm:P76_has_contact_point" type="crmpe:PE29_Access_Point">
@@ -109,7 +109,7 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="URL/home page">http://hdl.handle.net/11459/CCR_C-2546_180dca37-c1d8-dffe-5d46-8f16de143320</concept>
+     
       <pattern>cmdp:Website</pattern>
     </link>
     <link>
@@ -121,14 +121,14 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
+     
       <pattern>cmdp:Person</pattern>
     </link>
   </entity>
-  <pattern>cmdp:Project/cmdp:Contact</pattern>
+ <!-- <pattern>cmdp:Project/cmdp:Contact</pattern> -->
 </link>
 <link>
-  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
+  <entity xpath="/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access" relationship="crm:P76i_provides_access_to" type="crm:E40_Legal_Body">
     <link>
       <entity relationship="crm:P76_has_contact_point" type="crm:E45_Address">
         <instance-generator name="OneLevelCustomURI">
@@ -139,8 +139,8 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="address">http://hdl.handle.net/11459/CCR_C-2505_b61e249b-ac68-b40a-0f21-03a4a26e16b4</concept>
-      <pattern>cmdp:Address</pattern>
+     
+      <pattern>cmdp:Contact/cmdp:Address</pattern>
     </link>
     <link>
       <entity relationship="crm:P107_has_current_or_former_member" type="crm:E21_Person">
@@ -151,8 +151,8 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="person">http://hdl.handle.net/11459/CCR_C-2978_0e9e4864-44c4-de22-66b1-9b38bca10836</concept>
-      <pattern>cmdp:Person</pattern>
+      
+      <pattern>cmdp:Contact/cmdp:Person</pattern>
     </link>
     <link>
       <entity relationship="crm:P76_has_contact_point" type="crm:E51_Contact_Point" hasType="Telephone|contacttype|phone" hasLabel="SimpleLabel(label)|Phone">
@@ -165,8 +165,8 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="telephone">http://hdl.handle.net/11459/CCR_C-2461_76a92748-423e-46a0-cc7c-84a7d1c46794</concept>
-      <pattern>cmdp:Telephone</pattern>
+      
+      <pattern>cmdp:Contact/cmdp:Telephone</pattern>
     </link>
     <link>
       <entity relationship="crm:P76_has_contact_point" type="crm:PE29_Access_Point">
@@ -177,21 +177,21 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <concept name="web site">http://hdl.handle.net/11459/CCR_C-63_95ec8724-267a-8689-a04d-50ae515bbacf</concept>
-      <pattern>cmdp:Website</pattern>
+      
+      <pattern>cmdp:Contact/cmdp:Website</pattern>
     </link>
   </entity>
-  <pattern>cmdp:Access/cmdp:Contact</pattern>
+  <pattern>cmdp:Contact</pattern>
 </link>
 <link>
   <entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy" type="crmpe:PE15_Data_E-Service">
     <link>
       <entity relationship="crmpe:PP49_provides_access_point" type="crmpe:PE29_Access_Point">
         <instance-generator name="URIorUUID">
-          <arg name="text" type="xpath">cmd:ResourceRef/text()</arg>
+          <arg name="text" type="xpath">text()</arg>
         </instance-generator>
       </entity>
-      <concept name="cmd:ResourceRef">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept>
+  <!-->    <concept name="cmd:ResourceRef">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept> -->
       <pattern>cmd:ResourceRef</pattern>
     </link>
   </entity>
