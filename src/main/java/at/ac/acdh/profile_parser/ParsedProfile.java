@@ -93,7 +93,7 @@ public class ParsedProfile {
 		return xpaths.entrySet()
 		.stream()
 		.filter(e -> e.getValue().concept != null && e.getValue().concept.equals(concept) && e.getKey().startsWith(root))
-		.map(e -> e.getKey())
+		.map(e -> e.getKey().replace((root + "/"), ""))
 		.collect(Collectors.toList());
 	}	
 	
