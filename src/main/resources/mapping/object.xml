@@ -213,7 +213,7 @@
       <arg name="text" type="xpath">text()</arg>
     </instance-generator>
   </entity>
-  <pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate/text()</pattern>
+  <pattern>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate/text()</pattern>
   <concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
 </link>
 <link>
@@ -223,7 +223,7 @@
       <arg name="text" type="xpath">text()</arg>
     </instance-generator>
   </entity>
-  <pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate/text()</pattern>
+  <pattern>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate/text()</pattern>
   <concept name="Time Coverage">http://hdl.handle.net/11459/CCR_C-2502_747eb0cd-03e9-cffb-34cc-d0c8c77e4c5a</concept>
 </link>
 <link>
@@ -355,6 +355,11 @@
   </entity>
   <pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
 </link>
+ 
+ 
+ <!--  
+ 
+ 
 <link>
   <entity relationship="crm:P94i_was_created_by" type="crm:E65_Creation" var="create1"/>
   <entity relationship="crm:P01i_is_domain_of" type="crm:PC14_carried_out_by"/>
@@ -369,3 +374,6 @@
   <concept name="editor">http://hdl.handle.net/11459/CCR_C-4118_0d368d47-dc1e-bdda-98e0-0cbb56040423</concept>
   <pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</pattern>
 </link>
+
+-->
+

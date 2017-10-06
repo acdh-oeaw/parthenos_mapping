@@ -25,7 +25,7 @@
 					<arg name="text" type="xpath">cmd:MdSelfLink/text()</arg>
 				</label-generator>
 			</entity>
-			<pattern>/cmd:Header</pattern>
+			<pattern>cmd:Header</pattern>
 		</link>
 		<link>
 			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1" />
