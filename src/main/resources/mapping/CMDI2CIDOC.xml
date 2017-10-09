@@ -111,7 +111,7 @@
 					<arg name="label" type="xpath">text()</arg>
 				</label-generator>
 			</entity>
-			<pattern>cmd:CMD/cmd:Header/cmd:MdProfile</pattern>
+			<pattern>cmd:MdProfile</pattern>
 		</link>
 	</entity>
 </mappings>

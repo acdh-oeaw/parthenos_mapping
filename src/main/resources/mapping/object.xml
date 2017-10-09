@@ -7,12 +7,16 @@
       <arg name="term" type="xpath">text()</arg>
     </label-generator>
   </entity>
+
+  
   <!-- vlo:name -->
   <concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
   <concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
   <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
   <concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>
-  <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+  <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept> 
+
+
   <!-- CLARIN-D Webservices name -->
   <concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
   <concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
@@ -42,7 +46,9 @@
       <arg name="term" type="xpath">text()</arg>
     </label-generator>
   </entity>
-  <concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept>
+
+ <concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept> 
+
 </link>
 <link>
   <entity relationship="crm:P105_right_held_by" type="crm:E40_Legal_Body">
@@ -53,7 +59,9 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
-  <concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept>
+
+  <concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept> 
+
 </link>
 <link>
   <entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
@@ -193,14 +201,14 @@
       <arg name="text" type="xpath">../cmdp:Title/text()</arg>
     </label-generator>
   </entity>
-  
   <entity relationship="crm:P82_at_some_time_within" type="http://www.w3.org/2000/01/rdf-schema#Literal">
     <instance-generator name="Literal">
       <arg name="text" type="xpath">text()</arg>
     </instance-generator>
   </entity>
-  
+<concept name="publication year">http://hdl.handle.net/11459/CCR_C-2538_8b697452-7ef3-9fce-ccf9-a7f344f11317</concept>
 </link>
+
 <link>
   <entity relationship="crm:P129_is_about" type="crm:E52_Time-Span" var="tempo1">
     <label-generator name="CompositeLabel">
@@ -354,10 +362,23 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
-  <pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
+  <pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName/text()</pattern>
 </link>
  
  
+<!--cmdp:Access -->
+
+
+<link>
+  <entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service"/>
+ 
+  <pattern>cmdp:Collection/cmdp:Access/text()</pattern>
+</link>
+
+
+
+
+
  <!--  
  
  
