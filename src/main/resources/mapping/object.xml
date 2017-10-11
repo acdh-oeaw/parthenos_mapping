@@ -4,7 +4,7 @@
       <arg name="term" type="xpath">text()</arg>
     </instance-generator>
     <label-generator name="SimpleLabel">
-      <arg name="term" type="xpath">text()</arg>
+      <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
 
@@ -14,15 +14,20 @@
   <concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
   <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
   <concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>
-  <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept> 
+ 
 
 
-  <!-- CLARIN-D Webservices name -->
+  <!-- CLARIN-D Webservices name --> 
   <concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
   <concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
   <concept>http://purl.org/dc/terms/title</concept>
   <concept>http://purl.org/dc/elements/1.1/title</concept>
   <pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl/text()</pattern>
+  
+ <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+ <pattern>cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern> 
+  
+  
   <!-- BBAW teiHeader -->
   <pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:Label/text()</pattern>
   <!-- IDS IDSAGD_Event -->
@@ -43,11 +48,11 @@
       <arg name="term" type="xpath">text()</arg>
     </instance-generator>
     <label-generator name="SimpleLabel">
-      <arg name="term" type="xpath">text()</arg>
+      <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
-
- <concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept> 
+	<pattern>cmdp:Collection/cmdp:GeneralInfo/cmdp:Name/text()</pattern>
+  <concept name="resource name">http://hdl.handle.net/11459/CCR_C-2544_3626545e-a21d-058c-ebfd-241c0464e7e5</concept> 
 
 </link>
 <link>
@@ -59,7 +64,7 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
-
+  <pattern>cmdp:Collection/cmdp:GeneralInfo/cmdp:Owner</pattern>
   <concept name="resource owner">http://hdl.handle.net/11459/CCR_C-2956_519a4aab-2f76-0fd3-090e-f0d6b81a7dbb</concept> 
 
 </link>

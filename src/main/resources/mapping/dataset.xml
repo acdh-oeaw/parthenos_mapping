@@ -181,7 +181,8 @@
           <arg name="text" type="xpath">text()</arg>
         </instance-generator>
       </entity>
-      <pattern>cmd:ResourceRef</pattern>
+      <concept name="resource">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb </concept>
+    <!-- <pattern>cmd:ResourceRef/text()</pattern> -->
     </link>
   </entity>
 </link>
@@ -197,7 +198,9 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      <pattern>cmd:ResourceType</pattern>
+      
+      <pattern>cmd:ResourceType/text()</pattern>
+      
     </link>
   </entity>
 </link>
