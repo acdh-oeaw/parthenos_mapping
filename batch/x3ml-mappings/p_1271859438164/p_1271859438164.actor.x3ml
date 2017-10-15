@@ -9,6 +9,7 @@
         <namespace prefix="parthenos" uri="http://parthenos-project.eu/"/>
         <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
         <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1271859438164"/>
+        <namespace prefix="reg" uri="http://parthenos.d4science.org/handle/Parthenos/REG/"/>
     </namespaces>
     <mappings>
         <mapping>
@@ -31,11 +32,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +46,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,66 +165,18 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title</relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:Title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title</source_node>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:Title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Name</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Name</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Owner</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P105_right_held_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Owner</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIorUUID">
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
@@ -236,14 +189,62 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:Name</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:Name</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:Owner</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P105_right_held_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:Owner</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E40_Legal_Body</type>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -257,14 +258,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -278,14 +279,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Creators/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Collection/cmdp:Creators/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Creators/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Collection/cmdp:Creators/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -299,14 +300,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:DocumentationLanguages/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Collection/cmdp:DocumentationLanguages/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:DocumentationLanguages/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Collection/cmdp:DocumentationLanguages/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -320,14 +321,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Corpus/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Corpus/cmdp:AnnotationTypes/cmdp:AnnotationType/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -341,14 +342,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:AnnotationTypes/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Corpus/cmdp:AnnotationTypes/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:AnnotationTypes/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Corpus/cmdp:AnnotationTypes/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -362,14 +363,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Corpus/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Corpus/cmdp:SubjectLanguages/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -383,14 +384,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Corpus/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Corpus/cmdp:SubjectLanguages/cmdp:SubjectLanguage/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -404,14 +405,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:Modality/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Corpus/cmdp:Modality/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Corpus/cmdp:Modality/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Corpus/cmdp:Modality/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -425,7 +426,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:PublicationYear</relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:PublicationYear</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
@@ -450,11 +451,11 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:PublicationYear</source_node>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:PublicationYear</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="CompositeLabel">
+                            <instance_generator name="Literal">
 <arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
@@ -464,7 +465,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate</relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129_is_about</relationship>
@@ -472,7 +473,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="constant">Tile Span covered as Subject by the Resource </arg>
+<arg name="label" type="constant">Tile Span covered as Subject by the Resource
+      </arg>
 <arg name="text" type="xpath">../../cmdp:Title/text()</arg>
                             </label_generator>
                         </entity>
@@ -480,7 +482,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate</source_node>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:minDate</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLschema#dateTime</type>
@@ -494,7 +496,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate</relation>
+                        <relation>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129_is_about</relationship>
@@ -506,11 +508,11 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate</source_node>
+                    <source_node>cmdp:Collection/cmdp:GeneralInfo/cmdp:TimeCoverage/cmdp:maxDate</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="CompositeLabel">
+                            <instance_generator name="Literal">
 <arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
@@ -520,7 +522,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Availability</relation>
+                        <relation>cmdp:Collection/cmdp:Access/cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -539,8 +541,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -552,7 +554,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Availability</source_node>
+                    <source_node>cmdp:Collection/cmdp:Access/cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -590,93 +592,6 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Creators/cmdp:Creator/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Creators/cmdp:Creator/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
                         <relation>cmdp:Collection/cmdp:Access</relation>
                     </source_relation>
                     <target_relation>
@@ -688,53 +603,6 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE15_Data_E-Service</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-<arg name="label" type="constant">Main Hosting for</arg>
-<arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:Project/cmdp:Contact</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crmpe:PP44_has_maintaining_team</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:Project/cmdp:Contact</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crmpe:PE34_Team</type>
-                            <instance_generator name="ActorURI">
-<arg name="term" type="xpath">cmdp:Organization/text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:Access/cmdp:Contact</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P76i_provides_access_to</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:Access/cmdp:Contact</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E40_Legal_Body</type>
                             <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
@@ -811,14 +679,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:CatalogueLink</relation>
+                        <relation>cmdp:CatalogueLink</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP28_has_designated_access_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:CatalogueLink</source_node>
+                    <source_node>cmdp:CatalogueLink</source_node>
                     <target_node>
                         <entity>
                             <type>crmpe:PE29_access_Point</type>
@@ -846,14 +714,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Title</relation>
+                        <relation>cmdp:Title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Title</source_node>
+                    <source_node>cmdp:Title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -870,14 +738,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Name</relation>
+                        <relation>cmdp:Name</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Name</source_node>
+                    <source_node>cmdp:Name</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -894,19 +762,19 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
-<arg name="term" type="xpath">text()</arg>
+<arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -941,7 +809,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -952,14 +820,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Email</relation>
+                        <relation>cmdp:Email</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P76_has_contact_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Email</source_node>
+                    <source_node>cmdp:Email</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E51_Contact_Point</type>
@@ -979,8 +847,8 @@
         <constant>Email</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">contacttype</arg>
-        <arg name="term2" type="constant">email</arg>
+        <arg name="term" type="constant">contacttype</arg>
+        <arg name="term1" type="constant">email</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Email</arg>
@@ -1018,14 +886,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Person</relation>
+                        <relation>cmdp:Person</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P107_has_current_or_former_member</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Project/cmdp:Contact/cmdp:Person</source_node>
+                    <source_node>cmdp:Person</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
@@ -1053,14 +921,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Address</relation>
+                        <relation>cmdp:Address</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P76_has_contact_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Address</source_node>
+                    <source_node>cmdp:Address</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E45_Address</type>
@@ -1078,14 +946,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Person</relation>
+                        <relation>cmdp:Person</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P107_has_current_or_former_member</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Person</source_node>
+                    <source_node>cmdp:Person</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
@@ -1102,14 +970,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Telephone</relation>
+                        <relation>cmdp:Telephone</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P76_has_contact_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Telephone</source_node>
+                    <source_node>cmdp:Telephone</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E51_Contact_Point</type>
@@ -1129,8 +997,8 @@
         <constant>Telephone</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">contacttype</arg>
-        <arg name="term2" type="constant">phone</arg>
+        <arg name="term" type="constant">contacttype</arg>
+        <arg name="term1" type="constant">phone</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Phone</arg>
@@ -1144,14 +1012,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Website</relation>
+                        <relation>cmdp:Website</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P76_has_contact_point</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:TextCorpusProfile/cmdp:Collection/cmdp:Access/cmdp:Contact/cmdp:Website</source_node>
+                    <source_node>cmdp:Website</source_node>
                     <target_node>
                         <entity>
                             <type>crm:PE29_Access_Point</type>
@@ -1211,20 +1079,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -1280,17 +1148,6 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
                 <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
@@ -1310,8 +1167,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -1381,8 +1238,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

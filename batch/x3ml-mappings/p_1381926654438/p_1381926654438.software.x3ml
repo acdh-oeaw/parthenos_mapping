@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,14 +164,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title</relation>
+                        <relation>cmdp:fileDesc/cmdp:titleStmt/cmdp:title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:titleStmt/cmdp:title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -179,7 +179,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -188,14 +188,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:title</relation>
+                        <relation>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:title</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -203,7 +203,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -212,14 +212,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl</relation>
+                        <relation>cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -227,7 +227,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -236,7 +236,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</relation>
+                        <relation>cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
@@ -261,11 +261,11 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="CompositeLabel">
+                            <instance_generator name="Literal">
 <arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
@@ -275,7 +275,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</relation>
+                        <relation>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
@@ -300,11 +300,11 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="CompositeLabel">
+                            <instance_generator name="Literal">
 <arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
@@ -314,14 +314,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:profileDesc/cmdp:textClass/cmdp:classCode</relation>
+                        <relation>cmdp:profileDesc/cmdp:textClass/cmdp:classCode</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:profileDesc/cmdp:textClass/cmdp:classCode</source_node>
+                    <source_node>cmdp:profileDesc/cmdp:textClass/cmdp:classCode</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -360,209 +360,6 @@
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:persName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:persName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -644,7 +441,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -709,20 +506,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -745,14 +542,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:surname</relation>
+                        <relation>cmdp:persName/cmdp:surname</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:surname</source_node>
+                    <source_node>cmdp:persName/cmdp:surname</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -774,14 +571,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:forename</relation>
+                        <relation>cmdp:persName/cmdp:forename</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author/cmdp:persName/cmdp:forename</source_node>
+                    <source_node>cmdp:persName/cmdp:forename</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -814,14 +611,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:surname</relation>
+                        <relation>cmdp:persName/cmdp:surname</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:surname</source_node>
+                    <source_node>cmdp:persName/cmdp:surname</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -843,14 +640,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:forename</relation>
+                        <relation>cmdp:persName/cmdp:forename</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor/cmdp:persName/cmdp:forename</source_node>
+                    <source_node>cmdp:persName/cmdp:forename</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -912,14 +709,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:forename</relation>
+                        <relation>cmdp:persName/cmdp:forename</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:forename</source_node>
+                    <source_node>cmdp:persName/cmdp:forename</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -941,14 +738,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:surname</relation>
+                        <relation>cmdp:persName/cmdp:surname</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:surname</source_node>
+                    <source_node>cmdp:persName/cmdp:surname</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -970,14 +767,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:idno/cmdp:idno</relation>
+                        <relation>cmdp:persName/cmdp:idno/cmdp:idno</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName/cmdp:idno/cmdp:idno</source_node>
+                    <source_node>cmdp:persName/cmdp:idno/cmdp:idno</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E42_Identifier</type>
@@ -999,14 +796,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:orgName/cmdp:idno/cmdp:idno</relation>
+                        <relation>cmdp:orgName/cmdp:idno/cmdp:idno</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:orgName/cmdp:idno/cmdp:idno</source_node>
+                    <source_node>cmdp:orgName/cmdp:idno/cmdp:idno</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E42_Identifier</type>
@@ -1028,14 +825,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:orgName/cmdp:orgName</relation>
+                        <relation>cmdp:orgName/cmdp:orgName</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:orgName/cmdp:orgName</source_node>
+                    <source_node>cmdp:orgName/cmdp:orgName</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -1068,14 +865,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:pubPlace</relation>
+                        <relation>cmdp:pubPlace</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P7_took_place_at</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:pubPlace</source_node>
+                    <source_node>cmdp:pubPlace</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E53_Place</type>
@@ -1087,7 +884,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</relation>
+                        <relation>cmdp:date</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P4_has_time_span</relationship>
@@ -1099,7 +896,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</source_node>
+                    <source_node>cmdp:date</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -1149,84 +946,6 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:email</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P76_has_contact_point</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:email</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E51_Contact_Point</type>
-                            <instance_generator name="UUID"/>
-                            <additional>
-<relationship>crm:P2_has_type</relationship>
-<entity>
-    <type>crm:E55_Type</type>
-    <instance_info>
-        <constant>Email</constant>
-    </instance_info>
-    <instance_generator name="ConceptURI_2step"/>
-</entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:address/cmdp:addrLine</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P76_has_contact_point</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:address/cmdp:addrLine</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E45_Address</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:orgName/cmdp:orgName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher/cmdp:orgName/cmdp:orgName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-        <mapping>
-            <domain>
                 <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
@@ -1246,8 +965,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -1317,8 +1036,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

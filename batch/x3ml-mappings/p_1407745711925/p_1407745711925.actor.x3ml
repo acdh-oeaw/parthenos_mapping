@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,14 +164,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:sourceWorkInfo/cmdp:title</relation>
+                        <relation>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceName</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:sourceWorkInfo/cmdp:title</source_node>
+                    <source_node>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceName</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -179,7 +179,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -188,14 +188,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceShortName</relation>
+                        <relation>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceShortName</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceShortName</source_node>
+                    <source_node>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:resourceShortName</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -203,7 +203,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -212,14 +212,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:description</relation>
+                        <relation>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:description</source_node>
+                    <source_node>cmdp:resourceCommonInfo/cmdp:identificationInfo/cmdp:description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -233,14 +233,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:annotationInfo/cmdp:annotationDescription</relation>
+                        <relation>cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:annotationInfo/cmdp:annotationDescription</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:annotationInfo/cmdp:annotationDescription</source_node>
+                    <source_node>cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:annotationInfo/cmdp:annotationDescription</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -254,63 +254,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:timeCoverageInfo/cmdp:timeCoverage</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P129_is_about</relationship>
-                        <entity variable="tempo1">
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-<arg name="label" type="constant">Tile Span covered as Subject by the Resource </arg>
-<arg name="text" type="xpath">../../cmdp:Title/text()</arg>
-                            </label_generator>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:timeCoverageInfo/cmdp:timeCoverage</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="Literal">
-<arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:timeCoverageInfo/cmdp:timeCoverage</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P129_is_about</relationship>
-                        <entity variable="tempo1">
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82b_end_of_the_end</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:corpusProfile/cmdp:corpusInfo/cmdp:corpusPartGeneralInfo/cmdp:timeCoverageInfo/cmdp:timeCoverage</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="CompositeLabel">
-<arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/cmdp:licence/cmdp:licenceURL</relation>
+                        <relation>cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/cmdp:licence/cmdp:licenceURL</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -329,8 +273,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -342,7 +286,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:corpusProfile/cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/cmdp:licence/cmdp:licenceURL</source_node>
+                    <source_node>cmdp:resourceCommonInfo/cmdp:distributionInfo/cmdp:licenceInfo/cmdp:licence/cmdp:licenceURL</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -411,7 +355,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -476,20 +420,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -564,46 +508,6 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:email</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P76_has_contact_point</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:email</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E51_Contact_Point</type>
-                            <instance_generator name="UUID"/>
-                            <additional>
-<relationship>crm:P2_has_type</relationship>
-<entity>
-    <type>crm:E55_Type</type>
-    <instance_info>
-        <constant>Email</constant>
-    </instance_info>
-    <instance_generator name="ConceptURI_2step"/>
-</entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-        <mapping>
-            <domain>
                 <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
@@ -623,8 +527,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -694,8 +598,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

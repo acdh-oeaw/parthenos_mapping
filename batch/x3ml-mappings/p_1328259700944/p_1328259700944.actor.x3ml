@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,66 +164,18 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Title</relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Title</source_node>
+                    <source_node>cmdp:GeneralInfo/cmdp:Title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Name</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Name</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Owner</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P105_right_held_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Owner</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="URIorUUID">
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
@@ -236,14 +188,62 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Name</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:Name</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Owner</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P105_right_held_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:Owner</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E40_Legal_Body</type>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Description/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:Description/cmdp:Description</source_node>
+                    <source_node>cmdp:GeneralInfo/cmdp:Description/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -257,7 +257,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:PublicationYear</relation>
+                        <relation>cmdp:GeneralInfo/cmdp:PublicationYear</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
@@ -282,11 +282,11 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:PhotoSinger/cmdp:GeneralInfo/cmdp:PublicationYear</source_node>
+                    <source_node>cmdp:GeneralInfo/cmdp:PublicationYear</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="CompositeLabel">
+                            <instance_generator name="Literal">
 <arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
@@ -406,7 +406,7 @@
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
                             <instance_generator name="Literal">
-<arg name="term" type="xpath">text()</arg>
+<arg name="text" type="xpath">text()</arg>
                             </instance_generator>
                         </entity>
                     </target_node>
@@ -420,7 +420,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -485,20 +485,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -554,17 +554,6 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
                 <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
@@ -584,8 +573,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -655,8 +644,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

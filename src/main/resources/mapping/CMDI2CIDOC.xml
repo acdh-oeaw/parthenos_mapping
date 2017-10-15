@@ -76,6 +76,7 @@
 			<pattern>cmd:Components/?profileRoot</pattern>
 		</link>
 	</entity>
+	
 	<entity xpath="/cmd:CMD/cmd:Header" type="crmdig:D7_Digital_Machine_Event">
 		<link>
 			<entity relationship="crm:P4_has_time_span" type="crm:E52_Time-Span">

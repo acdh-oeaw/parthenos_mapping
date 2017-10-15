@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,14 +164,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Title</relation>
+                        <relation>cmdp:Title</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Title</source_node>
+                    <source_node>cmdp:Title</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -179,7 +179,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -188,14 +188,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Name</relation>
+                        <relation>cmdp:Name</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Name</source_node>
+                    <source_node>cmdp:Name</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -203,7 +203,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -212,14 +212,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -233,14 +233,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:InfoLink/cmdp:Description</relation>
+                        <relation>cmdp:InfoLink/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:InfoLink/cmdp:Description</source_node>
+                    <source_node>cmdp:InfoLink/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -254,14 +254,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Project/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Project/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Project/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Project/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -275,14 +275,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Project/cmdp:InfoLink/cmdp:Description</relation>
+                        <relation>cmdp:Project/cmdp:InfoLink/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Project/cmdp:InfoLink/cmdp:Description</source_node>
+                    <source_node>cmdp:Project/cmdp:InfoLink/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -296,14 +296,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Content_Languages/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Content/cmdp:Content_Languages/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Content_Languages/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Content/cmdp:Content_Languages/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -317,14 +317,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Content_Languages/cmdp:Content_Language/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Content/cmdp:Content_Languages/cmdp:Content_Language/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Content_Languages/cmdp:Content_Language/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Content/cmdp:Content_Languages/cmdp:Content_Language/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -338,14 +338,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Content/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Content/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -359,14 +359,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Actors/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Actors/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -380,14 +380,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -401,14 +401,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -422,14 +422,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:Actor_Language/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:Actor_Language/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:Actor_Language/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:SL-Actors/cmdp:SL-Actor/cmdp:Actor_Languages/cmdp:Actor_Language/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -443,14 +443,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -464,14 +464,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:MediaFile/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:MediaFile/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -485,14 +485,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Validation/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:WrittenResource/cmdp:Validation/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Validation/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:WrittenResource/cmdp:Validation/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -506,14 +506,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -527,14 +527,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:WrittenResource/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:WrittenResource/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -548,14 +548,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -569,14 +569,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:Source/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:Source/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -590,14 +590,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -611,14 +611,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:References/cmdp:descriptions/cmdp:Description</relation>
+                        <relation>cmdp:References/cmdp:descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:References/cmdp:descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:References/cmdp:descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -632,14 +632,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:References/cmdp:InfoLink/cmdp:Description</relation>
+                        <relation>cmdp:References/cmdp:InfoLink/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:References/cmdp:InfoLink/cmdp:Description</source_node>
+                    <source_node>cmdp:References/cmdp:InfoLink/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -653,7 +653,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:Availability</relation>
+                        <relation>cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -672,8 +672,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -685,7 +685,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:Availability</source_node>
+                    <source_node>cmdp:Resources/cmdp:MediaFile/cmdp:Access/cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -699,7 +699,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:Availability</relation>
+                        <relation>cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -718,8 +718,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -731,7 +731,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:Availability</source_node>
+                    <source_node>cmdp:Resources/cmdp:WrittenResource/cmdp:Access/cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -745,7 +745,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:Availability</relation>
+                        <relation>cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -764,8 +764,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -777,7 +777,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:Availability</source_node>
+                    <source_node>cmdp:Resources/cmdp:Source/cmdp:Access/cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -791,7 +791,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:Availability</relation>
+                        <relation>cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -810,8 +810,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -823,7 +823,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:Availability</source_node>
+                    <source_node>cmdp:Resources/cmdp:Anonyms/cmdp:Access/cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -837,14 +837,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:SubGenre</relation>
+                        <relation>cmdp:SL-Content/cmdp:SubGenre</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:SubGenre</source_node>
+                    <source_node>cmdp:SL-Content/cmdp:SubGenre</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -866,14 +866,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Subject</relation>
+                        <relation>cmdp:SL-Content/cmdp:Subject</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129_is_about</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:lat-SL-session/cmdp:SL-Content/cmdp:Subject</source_node>
+                    <source_node>cmdp:SL-Content/cmdp:Subject</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -912,49 +912,6 @@
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:Project/cmdp:Contact</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crmpe:PP44_has_maintaining_team</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:Project/cmdp:Contact</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crmpe:PE34_Team</type>
-                            <instance_generator name="ActorURI">
-<arg name="term" type="xpath">cmdp:Organization/text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">cmdp:Organisation/text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:Access/cmdp:Contact</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P76i_provides_access_to</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:Access/cmdp:Contact</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -1086,7 +1043,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -1094,6 +1051,48 @@
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Email</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P76_has_contact_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Email</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E51_Contact_Point</type>
+                            <instance_generator name="TwoLevelCustomURI">
+<arg name="level1" type="constant">Thing</arg>
+<arg name="level2" type="constant">Appellation</arg>
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>Email</constant>
+    </instance_info>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term" type="constant">contacttype</arg>
+        <arg name="term1" type="constant">email</arg>
+    </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Email</arg>
+    </label_generator>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
         </mapping>
         <mapping>
             <domain>
@@ -1176,20 +1175,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -1242,17 +1241,30 @@
                     </entity>
                 </target_node>
             </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Date</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P4_has_time_span</relationship>
+                        <entity>
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                        <relationship>crm:P82_at_some_time_within</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Date</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
         </mapping>
         <mapping>
             <domain>
@@ -1275,8 +1287,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -1346,8 +1358,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

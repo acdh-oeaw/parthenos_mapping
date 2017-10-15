@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -133,7 +133,12 @@
                     <target_node>
                         <entity>
                             <type>crmpe:PE8_E-Service</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -141,34 +146,60 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:ToolService?</source_node>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:ToolService</source_node>
                 <target_node>
                     <entity>
                         <type>crmpe:PE8_E-Service</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="ServiceURI">
+                            <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+                        </label_generator>
                     </entity>
                 </target_node>
             </domain>
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
+                        <relation>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
+                        <relationship>crm:P9i_forms_part_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
+                    <source_node>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
                     <target_node>
                         <entity>
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetURI">
+                            <type>crmpe:PE1_Service</type>
+                            <instance_generator name="ServiceAppellationURI">
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmd:ResourceRef</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP28_has_designated_access_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmd:ResourceRef</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE29_Access_Point</type>
+                            <instance_generator name="URIorUUID">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -195,8 +226,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -266,8 +297,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

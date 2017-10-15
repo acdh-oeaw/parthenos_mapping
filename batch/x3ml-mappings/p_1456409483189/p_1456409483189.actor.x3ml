@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,14 +164,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Name</relation>
+                        <relation>cmdp:Name</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Name</source_node>
+                    <source_node>cmdp:Name</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>
@@ -179,7 +179,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -188,14 +188,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Description</relation>
+                        <relation>cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Description</source_node>
+                    <source_node>cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -209,14 +209,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Session/cmdp:Content</relation>
+                        <relation>cmdp:Session/cmdp:Content</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Session/cmdp:Content</source_node>
+                    <source_node>cmdp:Session/cmdp:Content</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -230,14 +230,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Session/cmdp:Speaker/cmdp:LocationData/cmdp:Location/cmdp:LocationType</relation>
+                        <relation>cmdp:Session/cmdp:Speaker/cmdp:LocationData/cmdp:Location/cmdp:LocationType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Session/cmdp:Speaker/cmdp:LocationData/cmdp:Location/cmdp:LocationType</source_node>
+                    <source_node>cmdp:Session/cmdp:Speaker/cmdp:LocationData/cmdp:Location/cmdp:LocationType</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -251,63 +251,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Duration</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P129_is_about</relationship>
-                        <entity variable="tempo1">
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-<arg name="label" type="constant">Tile Span covered as Subject by the Resource </arg>
-<arg name="text" type="xpath">../../cmdp:Title/text()</arg>
-                            </label_generator>
-                        </entity>
-                        <relationship>crm:P82a_begin_of_the_begin</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Duration</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="Literal">
-<arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Duration</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P129_is_about</relationship>
-                        <entity variable="tempo1">
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P82b_end_of_the_end</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Duration</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2001/XMLschema#dateTime</type>
-                            <instance_generator name="CompositeLabel">
-<arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Availability</relation>
+                        <relation>cmdp:Availability</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -326,8 +270,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -339,7 +283,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Availability</source_node>
+                    <source_node>cmdp:Availability</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -353,7 +297,7 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:DistributionType</relation>
+                        <relation>cmdp:DistributionType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129i_is_subject_of</relationship>
@@ -372,8 +316,8 @@
         <constant>Access Rights</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">righttype</arg>
-        <arg name="term2" type="constant">accessright</arg>
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Access Right</arg>
@@ -385,7 +329,7 @@
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:DistributionType</source_node>
+                    <source_node>cmdp:DistributionType</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -399,14 +343,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Genre</relation>
+                        <relation>cmdp:Genre</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Genre</source_node>
+                    <source_node>cmdp:Genre</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -428,14 +372,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Keywords</relation>
+                        <relation>cmdp:Keywords</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Keywords</source_node>
+                    <source_node>cmdp:Keywords</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -457,14 +401,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Session/cmdp:Subject</relation>
+                        <relation>cmdp:Session/cmdp:Subject</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P129_is_about</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Session/cmdp:Subject</source_node>
+                    <source_node>cmdp:Session/cmdp:Subject</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -503,35 +447,6 @@
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:DGDEvent/cmdp:Staff/cmdp:TechnicianParticipating</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:DGDEvent/cmdp:Staff/cmdp:TechnicianParticipating</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -618,7 +533,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -683,20 +598,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -749,17 +664,30 @@
                     </entity>
                 </target_node>
             </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Date</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P4_has_time_span</relationship>
+                        <entity>
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                        <relationship>crm:P82_at_some_time_within</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Date</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
         </mapping>
         <mapping>
             <domain>
@@ -782,8 +710,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -853,8 +781,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>

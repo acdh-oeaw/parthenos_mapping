@@ -31,11 +31,11 @@
     <constant>metadata</constant>
 </instance_info>
 <instance_generator name="ConceptURI_2step">
-    <arg name="term1" type="constant">datasettype</arg>
-    <arg name="term2" type="constant">metadata</arg>
+    <arg name="term" type="constant">datasettype</arg>
+    <arg name="term1" type="constant">metadata</arg>
 </instance_generator>
 <label_generator name="Constant">
-    <arg name="text" type="constant">Metadata</arg>
+    <arg name="text" type="constant">metadata</arg>
 </label_generator>
                             </entity>
                         </additional>
@@ -45,14 +45,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:Header</relation>
+                        <relation>cmd:Header</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L11i_was_output_of</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:Header</source_node>
+                    <source_node>cmd:Header</source_node>
                     <target_node>
                         <entity>
                             <type>crmdig:D7_Digital_Machine_Event</type>
@@ -164,14 +164,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Name</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:Name</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Name</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:Name</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -179,7 +179,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -188,14 +188,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Name</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Name</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Name</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Name</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E41_Appellation</type>
@@ -203,7 +203,7 @@
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="term" type="xpath">text()</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -212,14 +212,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Description</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Description</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -233,14 +233,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -254,14 +254,98 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Genres/cmdp:Genre</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Contacts/cmdp:Contact/cmdp:Descriptions/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:Genres/cmdp:Genre</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Genres/cmdp:Genre</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:Genres/cmdp:Genre</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -283,14 +367,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Genres/cmdp:Genre</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Genres/cmdp:Genre</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Genres/cmdp:Genre</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Genres/cmdp:Genre</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -312,14 +396,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:ResourceType</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:ResourceType</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -341,14 +425,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:ResourceType</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:ResourceType</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -370,14 +454,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:ResourceType</relation>
+                        <relation>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:ResourceType</source_node>
+                    <source_node>cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -416,93 +500,6 @@
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:Contacts/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Contacts/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:Contacts/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Contacts/cmdp:Contact/cmdp:Person</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>crm:P01i_is_domain_of</relationship>
-                        <entity>
-                            <type>crm:PC14_carried_out_by</type>
-                            <instance_generator name="UUID"/>
-                        </entity>
-                        <relationship>P01_has_domain</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:LCC_DataProviderProfile/cmdp:LCC_DataProvider/cmdp:LCC_DataSourceList/cmdp:LCC_DataSource/cmdp:LCC_SentenceList/cmdp:LCC_Sentence/cmdp:Contacts/cmdp:Contact/cmdp:Person</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E21_Person</type>
-                            <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
                 </range>
@@ -610,7 +607,7 @@
                     <entity>
                         <type>crmpe:PE34_Team</type>
                         <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organization/text()</arg>
+                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
@@ -618,6 +615,48 @@
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Email</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P76_has_contact_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Email</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E51_Contact_Point</type>
+                            <instance_generator name="TwoLevelCustomURI">
+<arg name="level1" type="constant">Thing</arg>
+<arg name="level2" type="constant">Appellation</arg>
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>Email</constant>
+    </instance_info>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term" type="constant">contacttype</arg>
+        <arg name="term1" type="constant">email</arg>
+    </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Email</arg>
+    </label_generator>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
             <link>
                 <path>
                     <source_relation>
@@ -732,8 +771,8 @@
         <constant>Telephone</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">contacttype</arg>
-        <arg name="term2" type="constant">phone</arg>
+        <arg name="term" type="constant">contacttype</arg>
+        <arg name="term1" type="constant">phone</arg>
     </instance_generator>
     <label_generator name="SimpleLabel">
         <arg name="label" type="constant">Phone</arg>
@@ -790,20 +829,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:ResourceType</relation>
+                        <relation>/cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P28_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:ResourceType</source_node>
+                    <source_node>/cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
-<arg name="term1" type="constant">contactpointtype</arg>
-<arg name="term2" type="xpath">text()</arg>
+<arg name="term" type="constant">contactpointtype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -859,17 +898,6 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
                 <source_node>/cmd:CMD/cmd:Header</source_node>
                 <target_node>
                     <entity>
@@ -889,8 +917,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-<arg name="label" type="Constant">Time span for the Creation of</arg>
-<arg name="label" type="Xpath">../cmd:MdSelfLink/text()</arg>
+<arg name="label" type="constant">Time span for the Creation of</arg>
+<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -960,8 +988,8 @@
         <constant>cmdi-profile</constant>
     </instance_info>
     <instance_generator name="ConceptURI_2step">
-        <arg name="term1" type="constant">softwaretype</arg>
-        <arg name="term2" type="constant">cmdiprofile</arg>
+        <arg name="term" type="constant">softwaretype</arg>
+        <arg name="term1" type="constant">cmdiprofile</arg>
     </instance_generator>
     <label_generator name="Constant">
         <arg name="text" type="constant">cmdi-profile</arg>
