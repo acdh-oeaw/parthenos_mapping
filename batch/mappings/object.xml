@@ -367,7 +367,8 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
-  <pattern>cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName/text()</pattern>
+ 
+ <pattern>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName/text()</pattern>
 </link>
  
  
