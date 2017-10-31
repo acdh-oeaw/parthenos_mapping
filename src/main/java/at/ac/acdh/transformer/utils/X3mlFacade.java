@@ -1,5 +1,10 @@
 package at.ac.acdh.transformer.utils;
 
+
+import java.util.ArrayList;
+import java.util.Collection;
+
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
 import gr.forth.x3ml.DomainTargetNodeType;
@@ -8,7 +13,7 @@ import gr.forth.x3ml.InstanceGenerator;
 import gr.forth.x3ml.InstanceInfo;
 import gr.forth.x3ml.X3ML.Mappings.Mapping;
 import gr.forth.x3ml.X3ML.Mappings.Mapping.Domain;
-
+import gr.forth.x3ml.LabelGenerator;
 /**
  * 
  * @author dostojic
@@ -27,9 +32,9 @@ public class X3mlFacade {
 	 * 
 	 * @see  Mapping
 	 */	
-	public Mapping createMapping(String srcNode, String type){
-		return createMapping(srcNode, type, null, null, null);
-	}	
+//	public Mapping createMapping(String srcNode, String type){
+//		return createMapping(srcNode, type, null, null, null);
+//	}	
 	
 	/**
 	 * 
@@ -42,7 +47,7 @@ public class X3mlFacade {
 	 * 
 	 * @see  Mapping
 	 */
-	public Mapping createMapping(String srcNode, String type, String hasType, String var, String globVar){		
+/*	public Mapping createMapping(String srcNode, String type, String hasType, String var, String globVar){		
 		DomainTargetNodeType target = new DomainTargetNodeType();
 		target.setEntity(createEntity(type, hasType, var, globVar));
 		Domain domain = new Domain(srcNode, target);
@@ -52,7 +57,20 @@ public class X3mlFacade {
 		
 		return mapping;
 		
-	}	
+	}	*/
+	
+	public Mapping createMapping(ParthenosEntity pe){		
+		DomainTargetNodeType target = new DomainTargetNodeType();
+		//target.setEntity(createEntity(type, hasType,  var, globVar));
+		target.setEntity(createEntity(pe));
+		Domain domain = new Domain(pe.getXpath(), target);
+		
+		Mapping mapping = new Mapping();
+		mapping.setDomain(domain);
+		
+		return mapping;
+		
+	}		
 	
 	/**
 	 * 
@@ -61,9 +79,9 @@ public class X3mlFacade {
 	 * 
 	 * @see Entity
 	 */
-	public Entity createEntity(String type){
+/*	public Entity createEntity(String type){
 		return createEntity(type, null, null, null);
-	}
+	}*/
 	
 	/** 
 	 * 
@@ -83,7 +101,7 @@ public class X3mlFacade {
 	 * 
 	 *  @see Entity
 	 */
-	public Entity createEntity(String type, String hasType, String var, String globVar){
+/*	public Entity createEntity(String type, String hasType, String var, String globVar){
 		Entity entity = new Entity();
 		entity.getType().add(type);
 		
@@ -98,8 +116,30 @@ public class X3mlFacade {
 		entity.setInstanceGenerator(createUUIDIG());
 		
 		return entity;
-	}
+	}*/
 	
+	public Entity createEntity(ParthenosEntity pe){
+		Entity entity = new Entity();
+		entity.getType().add(pe.getType());
+		
+		//set variables 
+		entity.setVariable(pe.getVar());
+		entity.setGlobalVariable(pe.getGlobVar());
+		
+		if(pe.getHasType() != null){
+			entity.getAdditional().add(createAditionalHasType(pe));
+		}
+		
+		entity.setInstanceGenerator(createInstanceGenerator(pe));
+		
+		entity.getLabelGenerator().addAll(pe.getLabelGenerator());
+		
+		
+		return entity;
+	}	
+	
+
+
 	/**
 	 * 
 	 * @param type
@@ -107,15 +147,20 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditionalHasType(String type){		
-		Entity e55 = createEntity("crm:E55_Type");
-		e55.setInstanceInfo(createInstanceInfo(type, null, null));
+	public Additional createAditionalHasType(ParthenosEntity pe){		
+		Entity e55 = new Entity();
+		e55.getType().add("crm:E55_Type");
+		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
 		
-		e55.setInstanceGenerator(createClarinTypeIG(type));
+		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
+		//e55.getLabelGenerator().
+		if(pe.getHasLabel() != null)
+			e55.getLabelGenerator().addAll(createLabelGenerator(pe));
 		
-		return createAditional("crm:P2_has_type", e55);
-	}
+		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
+	}	
 	
+
 	/**
 	 * 
 	 * @param relationship
@@ -143,7 +188,7 @@ public class X3mlFacade {
 	public InstanceInfo createInstanceInfo(String constant, String language, String description){
 		InstanceInfo instanceInfo = new InstanceInfo();
 		
-		instanceInfo.setConstant(constant);
+		instanceInfo.setConstant(constant.split("\\|")[0]);
 		instanceInfo.setLanguage(language);
 		instanceInfo.setDescription(description);
 		
@@ -177,11 +222,20 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createClarinTypeIG(String type){
+	public InstanceGenerator createClarinTypeIG(String types){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("LocalTermURI_CLARIN");
-		ig.getArg().add(crateArg("hierarchy", "constant", "type"));
-		ig.getArg().add(crateArg("term", "constant", type));
+		ig.setName("ConceptURI_2step");
+
+		if(types != null) {
+			String[] typeArr = types.split("\\|");
+			if(typeArr.length >=2) {
+				ig.getArg().add(crateArg("term", "constant", typeArr[1]));
+				for(int i=2; i<typeArr.length; i++){
+					ig.getArg().add(crateArg("term" + (i-1), "constant", typeArr[i]));
+				}
+			}
+		}
+		
 		
 		return ig;
 	}
@@ -227,10 +281,51 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createUUIDIG(){
+/*	public InstanceGenerator createUUIDIG(){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("UUID");
 		return ig;		
+	}*/
+	
+	public InstanceGenerator createInstanceGenerator(ParthenosEntity pe){
+		
+		if(pe.getInstanceGenerator() != null)
+			return pe.getInstanceGenerator();
+			
+		InstanceGenerator ig = new InstanceGenerator();
+		ig.setName("UUID");
+
+		return ig;
+	}
+	
+	public Collection<LabelGenerator> createLabelGenerator(ParthenosEntity pe){
+		ArrayList<LabelGenerator> lgList = new ArrayList<LabelGenerator>();
+		if(pe.getHasLabel() != null) {
+			
+			for(String lgDefintion : pe.getHasLabel().split("\\|\\|")) {
+				LabelGenerator lg = new LabelGenerator();
+				String[] tokens = lgDefintion.split("\\|");
+				
+				if(tokens[0].indexOf('(') != -1) {
+					lg.setName(tokens[0].substring(0, tokens[0].indexOf('(')));
+					
+					for(int i=1; i<tokens.length; i++) {
+						lg.getArg().add(crateArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
+					}
+				}
+				else {
+					lg.setName(tokens[0]);
+					
+					for(int i=1; i<tokens.length; i++) {
+						lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+					}
+				}
+				
+				lgList.add(lg);
+			};
+		}
+		
+		return lgList;
 	}
 	
 	//there are 2 Arg classes, one in InstanceGen and the other in LabelGen but they are identical 

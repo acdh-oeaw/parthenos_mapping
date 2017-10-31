@@ -6,9 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.Link;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
+import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import at.ac.acdh.profile_parser.ParsedProfile;
+
+import org.slf4j.*;
 
 /**
  * @author dostojic
@@ -26,6 +28,7 @@ import at.ac.acdh.profile_parser.ParsedProfile;
  */
 
 public class Normalizer {
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	/**
 	 * see class description for details
@@ -200,18 +203,21 @@ public class Normalizer {
 			return;
 		
 		for(String concept: link.getConcepts()){
-			Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
-			if(xpaths != null){
+			Collection<String> xpaths = parsedProfile.getXPathsForConcept(((ParthenosEntity)link.getParent()).getXpath(), concept);
+			
+			
+			if(xpaths != null && !xpaths.isEmpty()){ //now identified xpaths replace the patterns
+				link.setPatterns(xpaths);
 				//stripe xpath
 				
-				if(link.getPatterns() == null){
+/*				if(link.getPatterns() == null){
 					link.setPatterns(new ArrayList<>());
 				}
 				for(String xpath: xpaths){
 					if(!link.getPatterns().contains(xpath)){
 						link.getPatterns().add(xpath);
 					}						
-				}				
+				}	*/			
 			}			
 		}
 	}
@@ -227,6 +233,7 @@ public class Normalizer {
 		
 		for (String blacklistPattern : link.getBlacklistPatterns()) {
 			Iterator<String> xpathIterator = link.getPatterns().iterator();
+			
 			while (xpathIterator.hasNext()) {
 				String xpath = xpathIterator.next();
 				if (xpath.contains(blacklistPattern)) {
@@ -254,11 +261,13 @@ public class Normalizer {
 			boolean hit = false;
 			for(String profileXpath: parsedProfile.getXPaths()){				
 				if (profileXpath.contains(xpath)){
+				//if (profileXpath.endsWith(xpath)){
 					hit = true;
 					break;
 				}
 			}
 			if(!hit){
+				logger.info("removing xpath \"" + xpath +"\" since it has no match in the profile");
 				xpathIterator.remove();
 			}
 		}

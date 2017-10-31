@@ -72,7 +72,7 @@ public class Main {
 		
 		Option mappingFile = Option.builder("mappingXml").hasArg().required(false).desc("xml file with mappings").build();		
 		Option profile = Option.builder("profile").hasArg().required(true).desc("URL of CLARIN profile XSD").build();		
-		Option conditions = Option.builder("conditions").hasArgs().desc("Conditions to exclude entities from xml").build();
+		Option conditions = Option.builder("conditions").hasArgs().required(true).desc("Conditions to exclude entities from xml").build();
 		
 		Options options = new Options();
 		return options

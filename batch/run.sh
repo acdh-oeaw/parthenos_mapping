@@ -12,7 +12,7 @@ MAPPING_XML=mappings/CMDI2CIDOC.xml
 hash jq 2>/dev/null || { echo >&2 "jq library is required but it's not installed.  Aborting."; exit 1; }
 hash wget 2>/dev/null || { echo >&2 "wget library is required but it's not installed.  Aborting."; exit 1; }
 
-JSON_FILE=cmdi-test.json
+JSON_FILE=cmdi.json
 
 rm -R $OUT_DIR
 mkdir $OUT_DIR

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.Link;
-import at.ac.acdh.concept_mapping.CMDI2CIDOCMap.ParthenosEntity;
+import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosEntity;
 import at.ac.acdh.transformer.utils.LinkNode;
 import at.ac.acdh.transformer.utils.LinkNode.ObjectNode;
 import at.ac.acdh.transformer.utils.X3mlFacade;
@@ -51,7 +51,7 @@ public class CmdiToX3mlTransformer {
 	 * @param pe - {@link ParthenosEntity}, entity element in mapping xml
 	 */
 	private void createMapping(ParthenosEntity pe){	
-		Mapping mapping =  x3mlFacade.createMapping(pe.getXpath(), pe.getType(), pe.getHasType(), pe.getVar(), pe.getGlobVar());
+		Mapping mapping =  x3mlFacade.createMapping(pe);
 		x3mlMappings.add(mapping);
 		
 		//process links
@@ -75,7 +75,7 @@ public class CmdiToX3mlTransformer {
 		List<ObjectNode> relationships = new ArrayList<>();
 		if(link.getEntities() != null){
 			for(ParthenosEntity pe: link.getEntities()){
-				Entity entity = x3mlFacade.createEntity(pe.getType(), pe.getHasType(), pe.getVar(), pe.getGlobVar());
+				Entity entity = x3mlFacade.createEntity(pe);
 				relationships.add(new ObjectNode(pe.getRelationship(), entity));
 				
 				if(pe.getXpath() != null)
