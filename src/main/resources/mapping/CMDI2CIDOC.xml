@@ -6,6 +6,8 @@
 <!ENTITY serviceProperties SYSTEM "service.xml">
 	
 ]>
+<!--This mapping file defines the main mapping rules between CMDI model and CIDOC-PE model.
+Aims to define the general part of the mapping in common with each CLARIN profile. Author Matteo Lorenzini-->
 <mappings>
 	<!-- Header -->
 	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|metadata">

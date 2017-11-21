@@ -62,6 +62,12 @@ To print help:
 
 	java -jar  x3ml-gen.jar -help
 
+Java 9
+
+	To make the JAXB APIs available at runtime, specify the following command-line option:
+        --add-modules java.xml.bind ie:
+			sudo java -jar  --add-modules java.xml.bind  x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd -mappingXml /Users/matteo/GitHub/parthenos_mapping/src/main/resources/mapping/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3ml
+
 
 ### Parameters
 
