@@ -1,6 +1,4 @@
-
-
-
+<!--Author Matteo Lorenzini-->
 <link>
 	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
 		<instance-generator name="serviceAppellationURI">

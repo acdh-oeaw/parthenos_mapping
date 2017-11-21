@@ -1,3 +1,4 @@
+<!--Author Matteo Lorenzini-->
 <!-- Mapping for component  "Access" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438124 -->
 <link>
   <entity xpath="/cmd:CMD/cmd:Components/?profileRoot/cmdp:Collection/cmdp:Access" relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
