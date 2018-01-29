@@ -6,7 +6,7 @@
         <namespace prefix="crm" uri="http://www.cidoc-crm.org/cidoc-crm/"/>
         <namespace prefix="crmdig" uri="http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"/>
         <namespace prefix="crmpe" uri="http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"/>
-        <namespace prefix="parthenos" uri="http://parthenos-project.eu/"/>
+        <namespace prefix="parthenos" uri="http://parthenos.d4science.org/handle/"/>
         <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
         <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1328259700948"/>
     </namespaces>
