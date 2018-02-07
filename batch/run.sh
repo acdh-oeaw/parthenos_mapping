@@ -36,10 +36,12 @@ while IFS= read -r xsd &&
 	  #generate x3ml files
 	  verbose "generating x3ml mappings for $xsd"
 	  
-	  condition=dataset
-	  if [ $type = "crmpe:PE8_E-Service" ]; then
-	  	condition=service
+	 if [ $type = "crmpe:PE8_E-Service" ]; then
+	  	condition= "service"
+          else if [ $type = "crmpe:PE24_Volatile_Dataset" ]; then
+                condition = "dataset"
 	  fi
+	  
 	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
 	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
 	  
