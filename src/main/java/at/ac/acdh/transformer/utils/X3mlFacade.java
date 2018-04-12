@@ -343,7 +343,7 @@ public class X3mlFacade {
      */
     private boolean hasValidXpath(List<Arg> args) {
         for(Arg arg : args) {
-            if(arg.getType().equals("xpath")) {
+            if("xpath".equals(arg.getType())) {
                 return this.validXpaths.contains(arg.getValue().replace("/text()", "").replaceAll("(\\.\\./)+", "/"));
             }
         }
