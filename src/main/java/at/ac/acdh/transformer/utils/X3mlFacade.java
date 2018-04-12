@@ -3,6 +3,8 @@ package at.ac.acdh.transformer.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import at.ac.acdh.concept_mapping.ParthenosEntity;
 import gr.forth.x3ml.Additional;
@@ -23,7 +25,12 @@ import gr.forth.x3ml.LabelGenerator;
  * 
  */
 public class X3mlFacade {
-	
+    
+    Collection validXpaths;
+    
+    public X3mlFacade(Collection<String> validXpaths) {
+        this.validXpaths = validXpaths;
+    }
 	/**
 	 * 
 	 * @param srcNode
@@ -132,8 +139,8 @@ public class X3mlFacade {
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
 		
-		entity.getLabelGenerator().addAll(pe.getLabelGenerator());
-		
+		//only labels with a valid xpath are set
+		entity.getLabelGenerator().addAll(pe.getLabelGenerator().stream().filter(lg -> hasValidXpath(lg.getArg())).collect(Collectors.toList()));
 		
 		return entity;
 	}	
@@ -208,8 +215,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI_CLARIN(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI_CLARIN");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}
@@ -229,9 +236,9 @@ public class X3mlFacade {
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
 			if(typeArr.length >=2) {
-				ig.getArg().add(crateArg("term", "constant", typeArr[1]));
+				ig.getArg().add(createArg("term", "constant", typeArr[1]));
 				for(int i=2; i<typeArr.length; i++){
-					ig.getArg().add(crateArg("term" + (i-1), "constant", typeArr[i]));
+					ig.getArg().add(createArg("term" + (i-1), "constant", typeArr[i]));
 				}
 			}
 		}
@@ -253,8 +260,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}	
@@ -270,7 +277,7 @@ public class X3mlFacade {
 	public InstanceGenerator createSimpleLabel(String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("SimpleLabel");
-		ig.getArg().add(crateArg("label", "xpath", xpath));
+		ig.getArg().add(createArg("label", "xpath", xpath));
 		
 		return ig;
 	}
@@ -289,7 +296,7 @@ public class X3mlFacade {
 	
 	public InstanceGenerator createInstanceGenerator(ParthenosEntity pe){
 		
-		if(pe.getInstanceGenerator() != null)
+		if(pe.getInstanceGenerator() != null && hasValidXpath(pe.getInstanceGenerator().getArg()))
 			return pe.getInstanceGenerator();
 			
 		InstanceGenerator ig = new InstanceGenerator();
@@ -297,6 +304,8 @@ public class X3mlFacade {
 
 		return ig;
 	}
+	
+
 	
 	public Collection<LabelGenerator> createLabelGenerator(ParthenosEntity pe){
 		ArrayList<LabelGenerator> lgList = new ArrayList<LabelGenerator>();
@@ -310,14 +319,14 @@ public class X3mlFacade {
 					lg.setName(tokens[0].substring(0, tokens[0].indexOf('(')));
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
+						lg.getArg().add(createArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
 					}
 				}
 				else {
 					lg.setName(tokens[0]);
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+						lg.getArg().add(createArg("label" + i, "constant", tokens[i]));
 					}
 				}
 				
@@ -327,6 +336,19 @@ public class X3mlFacade {
 		
 		return lgList;
 	}
+	
+	   /**
+     * @param args a List of Arg objects
+     * @return information if the list contains an Arg-object of the type xpath with a valid xpath
+     */
+    private boolean hasValidXpath(List<Arg> args) {
+        for(Arg arg : args) {
+            if(arg.getType().equals("xpath")) {
+                return this.validXpaths.contains(arg.getValue().replace("/text()", "").replaceAll("\\.\\./", ""));
+            }
+        }
+        return false;
+    }
 	
 	//there are 2 Arg classes, one in InstanceGen and the other in LabelGen but they are identical 
 	/**
@@ -338,7 +360,7 @@ public class X3mlFacade {
 	 * 
 	 * @see Arg
 	 */
-	public Arg crateArg(String name, String type, String value){
+	public Arg createArg(String name, String type, String value){
 		Arg arg = new Arg();
 		arg.setName(name);
 		arg.setType(type);

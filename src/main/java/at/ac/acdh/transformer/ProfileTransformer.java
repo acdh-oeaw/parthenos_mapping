@@ -73,7 +73,7 @@ public class ProfileTransformer {
 		
 		new Normalizer().normalise(xmlMappings, parsedProfile, conditions);
 		
-		x3ml.setMappings(new CmdiToX3mlTransformer().transform(xmlMappings));
+		x3ml.setMappings(new CmdiToX3mlTransformer(parsedProfile.getXPaths()).transform(xmlMappings));
 		return x3ml;
 	}
 	

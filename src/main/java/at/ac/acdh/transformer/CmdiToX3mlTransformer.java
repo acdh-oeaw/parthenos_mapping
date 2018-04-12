@@ -1,6 +1,7 @@
 package at.ac.acdh.transformer;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
@@ -26,9 +27,13 @@ import gr.forth.x3ml.X3ML.Mappings.Mapping;
  */
 public class CmdiToX3mlTransformer {
 	
-	protected X3mlFacade x3mlFacade = new X3mlFacade();
+	protected X3mlFacade x3mlFacade;
 	
 	List<Mapping> x3mlMappings = new ArrayList<>();
+	
+	public CmdiToX3mlTransformer(Collection<String> validXpaths) {
+	    this.x3mlFacade =  new X3mlFacade(validXpaths);
+	}
 	
 	/**
 	 * 
