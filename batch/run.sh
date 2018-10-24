@@ -30,6 +30,7 @@ while IFS= read -r xsd &&
 	  
 	  
 	  mkdir $OUT_DIR/$profileId
+	  DATASET_X3ML=$OUT_DIR/$profileId/$profileId.dataset.x3ml
 	  ACTOR_X3ML=$OUT_DIR/$profileId/$profileId.actor.x3ml
 	  SOFTWARE_X3ML=$OUT_DIR/$profileId/$profileId.software.x3ml
 	  
@@ -37,13 +38,14 @@ while IFS= read -r xsd &&
 	  verbose "generating x3ml mappings for $xsd"
 	  
 	 condition=dataset
-	if [ $type = "crmpe:PE8_E-Service" ]; then
-	condition=service
+	if [ $type = "crm:E39_Actor" ]; then
+	condition=actor
 	fi
 
-	  
+	 
 	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
 	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
+
 	  
 	  cmdRecords=$(jq -c -r .cmdi2pe[$counter].cmdi_records[] $JSON_FILE)
 	  let counter=counter+1
