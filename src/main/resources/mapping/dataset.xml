@@ -18,7 +18,7 @@
       <pattern>cmdp:Contact</pattern>
     </link>
     <link>
-      <entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_access_Point">
+      <entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point">
         <instance-generator name="URIorUUID">
           <arg name="text" type="xpath">text()</arg>
         </instance-generator>

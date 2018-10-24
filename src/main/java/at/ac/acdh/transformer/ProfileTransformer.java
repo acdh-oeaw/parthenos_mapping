@@ -90,7 +90,7 @@ public class ProfileTransformer {
 		namespaces.getNamespace().add(new Namespace("crm", "http://www.cidoc-crm.org/cidoc-crm/"));
 		namespaces.getNamespace().add(new Namespace("crmdig", "http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/"));
 		namespaces.getNamespace().add(new Namespace("crmpe", "http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"));
-		namespaces.getNamespace().add(new Namespace("parthenos", "http://parthenos.d4science.org/handle/"));
+		namespaces.getNamespace().add(new Namespace("parthenos", "http://parthenos.d4science.org/handle/Clarin/VLO/")); 
 		namespaces.getNamespace().add(new Namespace("cmd", "http://www.clarin.eu/cmd/1"));
 		namespaces.getNamespace().add(new Namespace("cmdp", getProfileURI(profileUrl)));//derive from xsd url
 		
