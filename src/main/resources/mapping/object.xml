@@ -1,11 +1,11 @@
 <!--Author Matteo Lorenzini-->
 <link>
-  <entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
-    <instance-generator name="DatasetAppellationURI">
-      <arg name="term" type="xpath">text()</arg>
+  <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
+    <instance-generator name="UUID">
+      
     </instance-generator>
     <label-generator name="SimpleLabel">
-      <arg name="label" type="xpath">text()</arg>
+      <arg name="label" type="constant">text()</arg>
     </label-generator>
   </entity>
 
