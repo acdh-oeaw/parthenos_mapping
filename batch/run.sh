@@ -7,7 +7,7 @@ function verbose {
 }
 
 OUT_DIR=x3ml-mappings
-MAPPING_XML=mappings/CMDI2CIDOC.xml
+MAPPING_XML=../src/main/resources/mapping/CMDI2CIDOC.xml
 
 hash jq 2>/dev/null || { echo >&2 "jq library is required but it's not installed.  Aborting."; exit 1; }
 hash wget 2>/dev/null || { echo >&2 "wget library is required but it's not installed.  Aborting."; exit 1; }
