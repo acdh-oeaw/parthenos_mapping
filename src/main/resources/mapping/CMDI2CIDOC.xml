@@ -53,7 +53,7 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 			<!-- Dataset condition="dataset" -->
 			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset"  var="data1" condition="dataset">
 				 &objectProperties; 				 &datasetProperties;
-				
+		
 				<instance-generator name="RemoveTerm">
 					<arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
 					<arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
@@ -62,7 +62,7 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 				<label-generator name="SimpleLabel">
 					<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
 				</label-generator>
-			
+				
 			</entity>
 			<!-- Service -->
 			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity" condition="service">
