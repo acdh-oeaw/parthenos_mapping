@@ -1,11 +1,11 @@
 <!--Author Matteo Lorenzini-->
 <link>
-  <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
-    <instance-generator name="UUID">
-      
-    </instance-generator>
+  <entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
+    <instance-generator name="DatasetAppellationURI">
+			<arg name="term" type="constant">iexist</arg>
+		</instance-generator>
     <label-generator name="SimpleLabel">
-      <arg name="label" type="constant">text()</arg>
+      <arg name="label" type="constant">iexist</arg>
     </label-generator>
   </entity>
 
@@ -43,6 +43,8 @@
   <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
   <!-- IMS c:MultimodalCorpus -->
 </link>
+
+
 <link>
   <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
     <instance-generator name="DatasetAppellationURI">
@@ -342,7 +344,15 @@
   <!-- BBAW -->
 </link>
 <link>
-  <entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType"/>
+  <entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType|clarinvloresourcetype" hasLabel="SimpleLabel(label)|CLARIN VLO resource Type"> 
+  <instance-generator name="ConceptURI_2step">
+        <arg name="term" type="constant">datasettype</arg>
+        <arg name="term1" type="xpath">type()</arg>
+      </instance-generator>
+      <label-generator name="SimpleLabel">
+        <arg name="label" type="xpath">text()</arg>
+      </label-generator>
+  </entity>
   <!-- vlo:resourceClass -->
   <concept>http://purl.org/dc/terms/type</concept>
   <concept>http://purl.org/dc/elements/1.1/type</concept>

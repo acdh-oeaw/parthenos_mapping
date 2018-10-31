@@ -200,6 +200,10 @@
 </link>
 <link>
   <entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef" type="crmpe:PE29_Access_Point">
+    <instance-generator name="URIorUUID">
+          <arg name="text" type="xpath"></arg>
+        </instance-generator>
+  
     <link>
       <entity relationship="crm:P28_has_type" type="crm:E55_Type">
         <instance-generator name="ConceptURI_2step">
