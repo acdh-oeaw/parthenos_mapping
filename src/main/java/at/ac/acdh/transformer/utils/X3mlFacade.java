@@ -224,7 +224,7 @@ public class X3mlFacade {
 	 */
 	public InstanceGenerator createClarinTypeIG(String types){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("ConceptURI");
+		ig.setName("ConceptURI_2step");
 
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
