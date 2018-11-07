@@ -8,6 +8,8 @@
         <namespace prefix="crmpe" uri="http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"/>
         <namespace prefix="parthenos" uri="http://parthenos.d4science.org/handle/Clarin/VLO/"/>
         <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
+        <namespace prefix="reg" uri="http://parthenos.d4science.org/handle/Parthenos/REG/"/>
+        <namespace prefix="frbr" uri="http://iflastandards.info/ns/fr/frbr/frbroo/"/>
         <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1337778924955"/>
     </namespaces>
     <mappings>
@@ -17,8 +19,8 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE22_Persistent_Dataset</type>
-                        <instance_generator name="URIorUUID">
-                            <arg name="text" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+                        <instance_generator name="DatasetURI">
+                            <arg name="term" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
@@ -74,7 +76,10 @@
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="DatasetVerMergeURI">
+<arg name="term" type="constant">volatile</arg>
+<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                            </instance_generator>
                         </entity>
                         <relationship>crmpe:PP8i_is_dataset_hosted_by</relationship>
                     </target_relation>
@@ -102,7 +107,10 @@
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="DatasetVerMergeURI">
+<arg name="term" type="constant">volatile</arg>
+<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                            </instance_generator>
                         </entity>
                         <relationship>crmpe:PP50_accessible_at</relationship>
                     </target_relation>
@@ -133,9 +141,9 @@
                     <target_node>
                         <entity variable="data1">
                             <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="RemoveTerm">
-<arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
-<arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
+                            <instance_generator name="DatasetVerMergeURI">
+<arg name="term" type="constant">volatile</arg>
+<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
@@ -151,9 +159,9 @@
                 <target_node>
                     <entity variable="data1">
                         <type>crmpe:PE24_Volatile_Dataset</type>
-                        <instance_generator name="RemoveTerm">
-                            <arg name="termToRemove" type="constant">http://hdl.handle.net</arg>
-                            <arg name="text" type="xpath">../../cmd:Header/cmd:MdSelfLink/text()</arg>
+                        <instance_generator name="DatasetVerMergeURI">
+                            <arg name="term" type="constant">volatile</arg>
+                            <arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
                             <arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
@@ -1024,7 +1032,9 @@
                 <target_node>
                     <entity>
                         <type>crmpe:PE29_Access_Point</type>
-                        <instance_generator name="UUID"/>
+                        <instance_generator name="URIorUUID">
+                            <arg name="text" type="xpath"></arg>
+                        </instance_generator>
                     </entity>
                 </target_node>
             </domain>
