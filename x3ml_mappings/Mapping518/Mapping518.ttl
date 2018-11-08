@@ -1,0 +1,64 @@
+@prefix reg:   <http://parthenos.d4science.org/handle/Parthenos/REG/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix parthenos: <http://parthenos.d4science.org/handle/Clarin/VLO/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix cmdp:  <http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1380106710826> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cmd:   <http://www.clarin.eu/cmd/> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<hdl:11221/90D1-0610-7244-8-4@md=cmdi>
+        a                           crmpe:PE22_Persistent_Dataset ;
+        rdfs:label                  "hdl:11221/90D1-0610-7244-8-4@md=cmdi" ;
+        crmpe:PP39_is_metadata_for  <uuid:AB> ;
+        crm:P2_has_type             reg:1ibc0ch8pn5f7 ;
+        crmdig:L11i_was_output_of   <uuid:AA> .
+
+reg:1ibc0ch8pn5f7  a  crm:E55_Type ;
+        rdfs:label  "metadata" .
+
+<uuid:AA>  a                  crmdig:D7_Digital_Machine_Event ;
+        rdfs:label            "Creation of CMDI record hdl:11221/90D1-0610-7244-8-4@md=cmdi" ;
+        crm:P4_has_time_span  <uuid:AE> ;
+        crmdig:L23_used_software_or_firmware
+                parthenos:sok35c9fux4o , parthenos:rl2bl4qlgmzp .
+
+<hdl:11221/90D1-0610-7243-A>
+        a       crmpe:PE29_Access_Point .
+
+<uuid:AD>  a    crmpe:PE15_Data_E-Service ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-0610-7243-A> .
+
+parthenos:sok35c9fux4o
+        a                crmpe:PE38_Schema ;
+        rdfs:label       "clarin.eu:cr1:p_1380106710826" ;
+        crm:P2_has_type  reg:1h7lx25tdvsrn .
+
+parthenos:rl2bl4qlgmzp
+        a           crmpe:PE21_Persistent_Software ;
+        rdfs:label  "CLARIN-DK-UCPH" .
+
+<uuid:AB>  a                      crmpe:PE24_Volatile_Dataset ;
+        crmpe:PP50_accessible_at  <hdl:11221/90D1-0610-7243-A> , <hdl:11221/90D1-0610-7244-8-4> ;
+        crmpe:PP8i_is_dataset_hosted_by
+                <uuid:AD> , <uuid:AC> .
+
+reg:1h7lx25tdvsrn  a  crm:E55_Type ;
+        rdfs:label  "cmdi-profile" .
+
+<uuid:AE>  a                         crm:E52_Time-Span ;
+        rdfs:label                   "Time span for the Creation of hdl:11221/90D1-0610-7244-8-4@md=cmdi" ;
+        crm:P82_at_some_time_within  "2014-12-17" .
+
+<uuid:AC>  a    crmpe:PE15_Data_E-Service ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-0610-7244-8-4> .
+
+<hdl:11221/90D1-0610-7244-8-4>
+        a       crmpe:PE29_Access_Point .
+
+
