@@ -4,8 +4,10 @@
         <general_description/>
         <source>
             <source_info>
-                <source_schema schema_file="p_1380106710826___17-10-2018112949___1746.xml" type="" version=""/>
+                <source_schema schema_file="oai_clarin_dk_dkclarin_527740___18-10-2018105001___402.xml" type="" version=""/>
                 <namespaces>
+                    <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1380106710826"/>
+                    <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
                     <namespace prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
                 </namespaces>
             </source_info>
@@ -58,7 +60,7 @@
         <example_data_info>
             <example_data_from/>
             <example_data_contact_person/>
-            <example_data_source_record xml_link="test___08-11-2018140910___1726.xml"/>
+            <example_data_source_record xml_link="oai_clarin_dk_dkclarin_527740___18-10-2018105001___402.xml"/>
             <generator_policy_info generator_link="PARTHENOS-GeneratorPolicy_v1.5___06-11-2018162844___5606.xml"/>
             <example_data_target_record rdf_link="Mapping518.ttl"/>
             <thesaurus_info/>
