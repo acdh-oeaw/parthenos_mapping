@@ -208,8 +208,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI_CLARIN(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI_CLARIN");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}
@@ -224,14 +224,15 @@ public class X3mlFacade {
 	 */
 	public InstanceGenerator createClarinTypeIG(String types){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("ConceptURI_2step");
+		ig.setName("ConceptURI");
 
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
 			if(typeArr.length >=2) {
-				ig.getArg().add(crateArg("term", "constant", typeArr[1]));
+				ig.getArg().add(createArg("term", "constant", typeArr[1]));
 				for(int i=2; i<typeArr.length; i++){
-					ig.getArg().add(crateArg("term" + (i-1), "constant", typeArr[i]));
+					ig.getArg().add(createArg("term" + (i-1), "constant", typeArr[i]));
+					ig.setName("ConceptURI_" + i + "step"); //just overwriting the previous value instead of if/else
 				}
 			}
 		}
@@ -253,8 +254,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}	
@@ -270,7 +271,7 @@ public class X3mlFacade {
 	public InstanceGenerator createSimpleLabel(String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("SimpleLabel");
-		ig.getArg().add(crateArg("label", "xpath", xpath));
+		ig.getArg().add(createArg("label", "xpath", xpath));
 		
 		return ig;
 	}
@@ -310,14 +311,14 @@ public class X3mlFacade {
 					lg.setName(tokens[0].substring(0, tokens[0].indexOf('(')));
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
+						lg.getArg().add(createArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
 					}
 				}
 				else {
 					lg.setName(tokens[0]);
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+						lg.getArg().add(createArg("label" + i, "constant", tokens[i]));
 					}
 				}
 				
@@ -338,7 +339,7 @@ public class X3mlFacade {
 	 * 
 	 * @see Arg
 	 */
-	public Arg crateArg(String name, String type, String value){
+	public Arg createArg(String name, String type, String value){
 		Arg arg = new Arg();
 		arg.setName(name);
 		arg.setType(type);
