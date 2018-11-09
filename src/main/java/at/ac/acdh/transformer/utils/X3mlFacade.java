@@ -127,7 +127,10 @@ public class X3mlFacade {
 		entity.setGlobalVariable(pe.getGlobVar());
 		
 		if(pe.getHasType() != null){
-			entity.getAdditional().add(createAditionalHasType(pe));
+			entity.getAdditional().add(createAdditionalHasTypeE55(pe));
+			
+			if(pe.getHasType().split("#").length == 2)
+			    entity.getAdditional().add(createAdditionalHasTypeP71(pe));
 		}
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
@@ -147,7 +150,7 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditionalHasType(ParthenosEntity pe){		
+	public Additional createAdditionalHasTypeE55(ParthenosEntity pe){		
 		Entity e55 = new Entity();
 		e55.getType().add("crm:E55_Type");
 		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
@@ -155,10 +158,23 @@ public class X3mlFacade {
 		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
 		//e55.getLabelGenerator().
 		if(pe.getHasLabel() != null)
-			e55.getLabelGenerator().addAll(createLabelGenerator(pe));
+			e55.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel().split("#")[0]));
 		
-		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
+		return createAdditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
 	}	
+	
+	   public Additional createAdditionalHasTypeP71(ParthenosEntity pe){       
+	        Entity p71 = new Entity();
+	        p71.getType().add("crm:P71i_is_listed_in");
+	        p71.setInstanceInfo(createInstanceInfo(pe.getHasType().split("#")[1], null, null));
+	        
+	        p71.setInstanceGenerator(createClarinTypeIG(pe.getHasType().split("#")[1]));
+	        //e55.getLabelGenerator().
+	        if(pe.getHasLabel() != null && pe.getHasLabel().split("#").length == 2)
+	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel().split("#")[1]));
+	        
+	        return createAdditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), p71);
+	    }   
 	
 
 	/**
@@ -169,7 +185,7 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditional(String relationship, Entity entity){
+	public Additional createAdditional(String relationship, Entity entity){
 		Additional additional = new Additional();
 		additional.setRelationship(relationship);
 		additional.setEntity(entity);
@@ -299,11 +315,11 @@ public class X3mlFacade {
 		return ig;
 	}
 	
-	public Collection<LabelGenerator> createLabelGenerator(ParthenosEntity pe){
+	public Collection<LabelGenerator> createLabelGenerator(String hasLabel){
 		ArrayList<LabelGenerator> lgList = new ArrayList<LabelGenerator>();
-		if(pe.getHasLabel() != null) {
+		if(hasLabel != null) {
 			
-			for(String lgDefintion : pe.getHasLabel().split("\\|\\|")) {
+			for(String lgDefintion : hasLabel.split("\\|\\|")) {
 				LabelGenerator lg = new LabelGenerator();
 				String[] tokens = lgDefintion.split("\\|");
 				
