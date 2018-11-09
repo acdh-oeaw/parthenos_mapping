@@ -26,11 +26,11 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-   <concept name="catalogue link">http://hdl.handle.net/11459/CCR_C-2969_b04052d7-f726-ae8d-84f3-f9838e7bc296</concept>
+      <concept name="catalogue link">http://hdl.handle.net/11459/CCR_C-2969_b04052d7-f726-ae8d-84f3-f9838e7bc296</concept>
       <!--<pattern>cmdp:CatalogueLink</pattern>-->
     </link>
   </entity>
-<!--  <pattern>cmdp:Collection/cmdp:Access</pattern>-->
+  <!--  <pattern>cmdp:Collection/cmdp:Access</pattern>-->
 </link>
 <!-- Mapping for component  "Project" http://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/components/clarin.eu:cr1:c_1271859438125 -->
 <link>
@@ -45,7 +45,7 @@
         </label-generator>
       </entity>
       <concept name="project title">http://hdl.handle.net/11459/CCR_C-2537_fa206273-223a-f4fa-dde3-ba59b965701f</concept>
-     <pattern>cmdp:Title</pattern> 
+      <pattern>cmdp:Title</pattern>
     </link>
     <link>
       <entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
@@ -194,18 +194,18 @@
       </entity>
       <concept name="resource">http://hdl.handle.net/10032/dcd794bbc034670be87f0700bb287bfb</concept>
       <concept name="resource">http://hdl:10032/8dea0a90551b4c0d708092a13f05ab22</concept>
-    <pattern>cmd:ResourceRef/text()</pattern> 
+      <pattern>cmd:ResourceRef/text()</pattern>
     </link>
   </entity>
 </link>
 <link>
   <entity xpath="/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef" type="crmpe:PE29_Access_Point">
     <instance-generator name="URIorUUID">
-          <arg name="text" type="xpath"></arg>
-        </instance-generator>
-  
+      <arg name="text" type="xpath"></arg>
+    </instance-generator>
+
     <link>
-      <entity relationship="crm:P28_has_type" type="crm:E55_Type">
+      <entity relationship="crm:P2_has_type" type="crm:E55_Type">
         <instance-generator name="ConceptURI_2step">
           <arg name="term" type="constant">contactpointtype</arg>
           <arg name="term1" type="xpath">text()</arg>
@@ -214,9 +214,9 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
       </entity>
-      
-      <pattern>/cmd:ResourceType/text()</pattern>
-      
+
+      <pattern>cmd:ResourceType/text()</pattern>
+
     </link>
   </entity>
 </link>
@@ -230,7 +230,7 @@
   <entity relationship="crm:P12i_was_present_at" type="frbr:F30_Publication_Event"/>
   <pattern>cmdp:fileDesc/cmdp:publicationStmt</pattern>
 </link>
- <!--TEI mapping definition--> 
+<!--TEI mapping definition-->
 <link>
   <entity xpath="/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author" type="crm:E21_Person">
     <link>

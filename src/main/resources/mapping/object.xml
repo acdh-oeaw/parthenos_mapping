@@ -1,4 +1,6 @@
 <!--Author Matteo Lorenzini-->
+
+
 <link>
   <entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
     <instance-generator name="DatasetAppellationURI">
@@ -6,6 +8,18 @@
 		</instance-generator>
     <label-generator name="SimpleLabel">
       <arg name="label" type="constant">iexist</arg>
+    </label-generator>
+  </entity>
+  <pattern>/cmdp:fileDesc/cmdp:titleStmt/cmdp:title/text()</pattern>
+</link>
+
+<link>
+  <entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
+    <instance-generator name="DatasetAppellationURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+    <label-generator name="SimpleLabel">
+      <arg name="label" type="xpath">text()</arg>
     </label-generator>
   </entity>
 
@@ -42,6 +56,7 @@
   <!-- IMS c:LexicalResourceProfile -->
   <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
   <!-- IMS c:MultimodalCorpus -->
+  <blacklistPattern>cmdp:titleStmt</blacklistPattern>
 </link>
 
 
@@ -344,10 +359,10 @@
   <!-- BBAW -->
 </link>
 <link>
-  <entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType|clarinvloresourcetype" hasLabel="SimpleLabel(label)|CLARIN VLO resource Type"> 
+  <entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType|clarinvloresourcetype" hasLabel="SimpleLabel(label)|CLARIN VLO resourceType"> 
   <instance-generator name="ConceptURI_2step">
         <arg name="term" type="constant">datasettype</arg>
-        <arg name="term1" type="xpath">type()</arg>
+        <arg name="term1" type="xpath">text()</arg>
       </instance-generator>
       <label-generator name="SimpleLabel">
         <arg name="label" type="xpath">text()</arg>
