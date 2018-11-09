@@ -258,6 +258,10 @@ public class Normalizer {
 		Iterator<String> xpathIterator = link.getPatterns().iterator();
 		while (xpathIterator.hasNext()) {
 			String xpath = xpathIterator.next();
+			if(xpath.startsWith("..")) //allow xpath starting with dots like ../xx/yy
+			    xpath = xpath.substring(2);
+			if(xpath.startsWith("//")) //allow xpath starting with double slash like //xx/yy
+			    xpath = xpath.substring(1);
 			boolean hit = false;
 			for(String profileXpath: parsedProfile.getXPaths()){				
 				if (profileXpath.contains(xpath)){
