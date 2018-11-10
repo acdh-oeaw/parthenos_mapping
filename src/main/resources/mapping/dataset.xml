@@ -215,7 +215,7 @@
         </label-generator>
       </entity>
 
-      <pattern>cmd:ResourceType/text()</pattern>
+      <pattern>../cmd:ResourceType/text()</pattern>
 
     </link>
   </entity>
