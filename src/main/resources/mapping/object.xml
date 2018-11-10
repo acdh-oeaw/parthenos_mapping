@@ -326,7 +326,13 @@
   <!--  BAS -->
 </link>
 <link>
-  <entity relationship="crm:P129_is_about" type="crm:E55_Type" hasType="CLARIN VLO Subject"/>
+  <entity relationship="crm:P129_is_about" type="crm:E55_Type" hasType="CLARIN VLO Subject#metadata#metadata">
+  <instance-generator name="ConceptURI_2step">
+        <arg name="term" type="constant">subject</arg>
+        <arg name="term1" type="xpath">text()</arg>
+      </instance-generator>
+     
+  </entity>
   <!-- vlo:subject -->
   <concept>http://www.isocat.org/datcat/DC-2591</concept>
   <concept>http://hdl.handle.net/11459/CCR_C-2591_f769d93b-c007-d2c9-aff2-99e9177e5764</concept>
