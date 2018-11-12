@@ -326,7 +326,7 @@
   <!--  BAS -->
 </link>
 <link>
-  <entity relationship="crm:P129_is_about" type="crm:E55_Type" hasType="CLARIN VLO Subject#metadata#metadata">
+  <entity relationship="crm:P129_is_about" type="crm:E55_Type" isListed="CLARIN VLO Subject|ClarinVLOSubject" igUri="DatasetURI">
   <instance-generator name="ConceptURI_2step">
         <arg name="term" type="constant">subject</arg>
         <arg name="term1" type="xpath">text()</arg>
@@ -364,7 +364,7 @@
   <!-- BBAW -->
 </link>
 <link>
-  <entity relationship="crm:P2_has_type" type="crm:E55_Type" hasType="CLARIN VLO resourceType|clarinvloresourcetype" hasLabel="SimpleLabel(label)|CLARIN VLO resourceType"> 
+  <entity relationship="crm:P2_has_type" type="crm:E55_Type" isListed="CLARIN VLO resourceType|clarinvloresourcetype" isListedLabel="SimpleLabel(label)|CLARIN VLO resourceType"> 
   <instance-generator name="ConceptURI_2step">
         <arg name="term" type="constant">datasettype</arg>
         <arg name="term1" type="xpath">text()</arg>
