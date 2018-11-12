@@ -36,6 +36,8 @@ public class ParthenosEntity extends Node {
 	String hasType;
 	@XmlAttribute
 	String hasLabel;
+	@XmlAttribute
+	String igUri;
     @XmlAttribute
     String isListed;
     @XmlAttribute
@@ -273,5 +275,13 @@ public class ParthenosEntity extends Node {
 	public void setHasLabel(String hasLabel) {
 		this.hasLabel = hasLabel;
 	}
+
+    public String getIgUri() {
+        return this.igUri;
+    }
+
+    public void setIgUri(String igUri) {
+        this.igUri = igUri;
+    }
 
 }

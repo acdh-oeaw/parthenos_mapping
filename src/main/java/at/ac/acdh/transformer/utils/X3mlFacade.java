@@ -157,7 +157,7 @@ public class X3mlFacade {
 		e55.getType().add("crm:E55_Type");
 		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
 		
-		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
+		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType(), null));
 		//e55.getLabelGenerator().
 		if(pe.getHasLabel() != null)
 			e55.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel()));
@@ -170,7 +170,7 @@ public class X3mlFacade {
 	        p71.getType().add("E32_Authority_Document");
 	        p71.setInstanceInfo(createInstanceInfo(pe.getIsListed(), null, null));
 	        
-	        p71.setInstanceGenerator(createClarinTypeIG(pe.getIsListed()));
+	        p71.setInstanceGenerator(createClarinTypeIG(pe.getIsListed(), pe.getIgUri()));
 
 	        if(pe.getIsListedLabel() != null)
 	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getIsListedLabel()));
@@ -240,9 +240,9 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createClarinTypeIG(String types){
+	public InstanceGenerator createClarinTypeIG(String types, String igUri){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("ConceptURI");
+		ig.setName(igUri==null?"ConceptURI":igUri);
 
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
