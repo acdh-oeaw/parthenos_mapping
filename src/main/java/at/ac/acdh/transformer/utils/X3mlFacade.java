@@ -165,7 +165,7 @@ public class X3mlFacade {
 	
 	   public Additional createAdditionalHasTypeP71(ParthenosEntity pe){       
 	        Entity p71 = new Entity();
-	        p71.getType().add("crm:P71i_is_listed_in");
+	        p71.getType().add("E32_Authority_Document");
 	        p71.setInstanceInfo(createInstanceInfo(pe.getHasType().split("#")[1], null, null));
 	        
 	        p71.setInstanceGenerator(createClarinTypeIG(pe.getHasType().split("#")[1]));
@@ -173,7 +173,7 @@ public class X3mlFacade {
 	        if(pe.getHasLabel() != null && pe.getHasLabel().split("#").length == 2)
 	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel().split("#")[1]));
 	        
-	        return createAdditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), p71);
+	        return createAdditional(pe.getSubrelation() == null?"crm:P71i_is_listed_in":pe.getSubrelation(), p71);
 	    }   
 	
 
