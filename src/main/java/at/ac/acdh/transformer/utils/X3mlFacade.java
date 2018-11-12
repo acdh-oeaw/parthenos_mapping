@@ -126,12 +126,14 @@ public class X3mlFacade {
 		entity.setVariable(pe.getVar());
 		entity.setGlobalVariable(pe.getGlobVar());
 		
-		if(pe.getHasType() != null){
+		if(pe.getHasType() != null)
 			entity.getAdditional().add(createAdditionalHasTypeE55(pe));
 			
-			if(pe.getHasType().split("#").length == 2)
-			    entity.getAdditional().add(createAdditionalHasTypeP71(pe));
-		}
+			    
+
+		if(pe.getIsListed() != null) 
+		    entity.getAdditional().add(createAdditionalHasTypeP71(pe));
+
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
 		
@@ -158,7 +160,7 @@ public class X3mlFacade {
 		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
 		//e55.getLabelGenerator().
 		if(pe.getHasLabel() != null)
-			e55.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel().split("#")[0]));
+			e55.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel()));
 		
 		return createAdditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
 	}	
@@ -166,12 +168,12 @@ public class X3mlFacade {
 	   public Additional createAdditionalHasTypeP71(ParthenosEntity pe){       
 	        Entity p71 = new Entity();
 	        p71.getType().add("E32_Authority_Document");
-	        p71.setInstanceInfo(createInstanceInfo(pe.getHasType().split("#")[1], null, null));
+	        p71.setInstanceInfo(createInstanceInfo(pe.getIsListed(), null, null));
 	        
-	        p71.setInstanceGenerator(createClarinTypeIG(pe.getHasType().split("#")[1]));
-	        //e55.getLabelGenerator().
-	        if(pe.getHasLabel() != null && pe.getHasLabel().split("#").length == 2)
-	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel().split("#")[1]));
+	        p71.setInstanceGenerator(createClarinTypeIG(pe.getIsListed()));
+
+	        if(pe.getIsListedLabel() != null)
+	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getIsListedLabel()));
 	        
 	        return createAdditional(pe.getSubrelation() == null?"crm:P71i_is_listed_in":pe.getSubrelation(), p71);
 	    }   
