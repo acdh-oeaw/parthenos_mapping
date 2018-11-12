@@ -268,10 +268,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-                                <arg name="term" type="constant">iexist</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-                                <arg name="label" type="constant">iexist</arg>
+                                <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -292,10 +292,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-                                <arg name="term" type="constant">iexist</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-                                <arg name="label" type="constant">iexist</arg>
+                                <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -316,10 +316,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-                                <arg name="term" type="constant">iexist</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-                                <arg name="label" type="constant">iexist</arg>
+                                <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -340,10 +340,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-                                <arg name="term" type="constant">iexist</arg>
+                                <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-                                <arg name="label" type="constant">iexist</arg>
+                                <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -468,15 +468,20 @@
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="ConceptURI_2step">
+                                <arg name="term" type="constant">subject</arg>
+                                <arg name="term1" type="xpath">text()</arg>
+                            </instance_generator>
                             <additional>
-                                <relationship>crm:P2_has_type</relationship>
+                                <relationship>crm:P71i_is_listed_in</relationship>
                                 <entity>
-                                    <type>crm:E55_Type</type>
+                                    <type>crm:E32_Authority_Document</type>
                                     <instance_info>
                                         <constant>CLARIN VLO Subject</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI_2step"/>
+                                    <instance_generator name="DatasetURI">
+                                        <arg name="term" type="constant">ClarinVLOSubject</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -499,23 +504,23 @@
                             <type>crm:E55_Type</type>
                             <instance_generator name="ConceptURI_2step">
                                 <arg name="term" type="constant">datasettype</arg>
-                                <arg name="term1" type="xpath">type()</arg>
+                                <arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
                                 <arg name="label" type="xpath">text()</arg>
                             </label_generator>
                             <additional>
-                                <relationship>crm:P2_has_type</relationship>
+                                <relationship>crm:P71i_is_listed_in</relationship>
                                 <entity>
-                                    <type>crm:E55_Type</type>
+                                    <type>crm:E32_Authority_Document</type>
                                     <instance_info>
                                         <constant>CLARIN VLO resourceType</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI_2step">
+                                    <instance_generator name="ConceptURI">
                                         <arg name="term" type="constant">clarinvloresourcetype</arg>
                                     </instance_generator>
                                     <label_generator name="SimpleLabel">
-                                        <arg name="label" type="constant">CLARIN VLO resource Type</arg>
+                                        <arg name="label" type="constant">CLARIN VLO resourceType</arg>
                                     </label_generator>
                                 </entity>
                             </additional>
@@ -691,14 +696,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:ResourceType</relation>
+                        <relation>../cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P28_has_type</relationship>
+                        <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:ResourceType</source_node>
+                    <source_node>../cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
