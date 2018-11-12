@@ -167,7 +167,7 @@ public class X3mlFacade {
 	
 	   public Additional createAdditionalHasTypeP71(ParthenosEntity pe){       
 	        Entity p71 = new Entity();
-	        p71.getType().add("E32_Authority_Document");
+	        p71.getType().add("crm:E32_Authority_Document");
 	        p71.setInstanceInfo(createInstanceInfo(pe.getIsListed(), null, null));
 	        
 	        p71.setInstanceGenerator(createClarinTypeIG(pe.getIsListed(), pe.getIgUri()));
