@@ -78,6 +78,12 @@ public class CmdiToX3mlTransformer {
 				Entity entity = x3mlFacade.createEntity(pe);
 				relationships.add(new ObjectNode(pe.getRelationship(), entity));
 				
+				if("PE24_Volatile_Dataset".equals(pe.getType()) && pe.getXpath() != null && pe.getXpath().contains("teiHeader")) {
+				    entity = new Entity();
+				    entity.getType().add("E33_Linguistic_Object");
+				    relationships.add(new ObjectNode(pe.getRelationship(), entity));
+				}
+				
 				if(pe.getXpath() != null)
 					createMapping(pe);//create new mapping 
 			}
