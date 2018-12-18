@@ -4,6 +4,7 @@ package at.ac.acdh.transformer.utils;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import at.ac.acdh.concept_mapping.Link;
 import at.ac.acdh.concept_mapping.ParthenosEntity;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
@@ -121,6 +122,9 @@ public class X3mlFacade {
 	public Entity createEntity(ParthenosEntity pe){
 		Entity entity = new Entity();
 		entity.getType().add(pe.getType());
+		
+		if("crmpe:PE24_Volatile_Dataset".equals(pe.getType()) && ((Link) pe.getParent()).getPatterns().stream().anyMatch(pattern -> pattern.contains("cmdp:teiHeader")))
+		    entity.getType().add("crm:E33_Linguistic_Object");
 		
 		//set variables 
 		entity.setVariable(pe.getVar());

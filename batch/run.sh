@@ -43,8 +43,8 @@ while IFS= read -r xsd &&
 	fi
 
 	 
-	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
-	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
+	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
+	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
 
 	  
 	  cmdRecords=$(jq -c -r .cmdi2pe[$counter].cmdi_records[] $JSON_FILE)
