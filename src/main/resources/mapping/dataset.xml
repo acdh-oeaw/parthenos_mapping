@@ -238,7 +238,7 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
     </entity>
-  <pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</pattern>
+  <pattern>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:resp</pattern>
 </link>
 <link>
   <entity relationship="crm:P12i_was_present_at" type="frbr:F30_Publication_Event"/>
