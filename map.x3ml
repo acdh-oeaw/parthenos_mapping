@@ -497,19 +497,24 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</relation>
+                        <relation>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:resp</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP32i_was_curated_by</relationship>
                         <entity variable="cure1">
                             <type>crmpe:PE12_Data_curating_Service</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                         </entity>
                         <relationship>crm:PP2_provided_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</source_node>
+                    <source_node>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:resp</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E39_Actor</type>
