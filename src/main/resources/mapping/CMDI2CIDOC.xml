@@ -118,14 +118,12 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 			<pattern>cmd:MdCreator</pattern>
 		</link>
 		<link>
-			<entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile">
-				<instance-generator name="SoftwareURI">
-					<arg name="term" type="xpath">text()</arg>
-				</instance-generator>
-				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">text()</arg>
-				</label-generator>
-			</entity>
+			<!--<entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile"> -->
+				<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+        <instance-generator name="Literal">
+          <arg name="text" type="xpath">text()</arg>
+        </instance-generator>
+      </entity>
 			<pattern>cmd:MdProfile</pattern>
 		</link>
 	</entity>
