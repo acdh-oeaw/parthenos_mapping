@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 import gr.forth.x3ml.InstanceGenerator;
-import gr.forth.x3ml.LabelGenerator;
 
 /**
  * 
