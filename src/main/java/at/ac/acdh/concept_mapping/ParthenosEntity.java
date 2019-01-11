@@ -56,7 +56,7 @@ public class ParthenosEntity extends Node {
 	InstanceGenerator ig;
 	
 	@XmlElement(name = "label-generator")
-	Collection<LabelGenerator> lg = new ArrayList<LabelGenerator>();
+	Collection<ParthenosLabelGenerator> lg = new ArrayList<ParthenosLabelGenerator>();
 
 	@Override
 	public String toString() {
@@ -251,11 +251,11 @@ public class ParthenosEntity extends Node {
 		this.ig = ig;
 	}
 	
-	public Collection<LabelGenerator> getLabelGenerator(){
+	public Collection<ParthenosLabelGenerator> getLabelGenerator(){
 		return this.lg;
 	}
 	
-	public void setLabelGenerator(Collection<LabelGenerator> lg){
+	public void setLabelGenerator(Collection<ParthenosLabelGenerator> lg){
 		this.lg = lg;
 	}
 
