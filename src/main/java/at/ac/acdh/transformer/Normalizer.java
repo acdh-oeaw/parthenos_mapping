@@ -7,7 +7,9 @@ import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
 import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosArg;
 import at.ac.acdh.concept_mapping.ParthenosEntity;
+import at.ac.acdh.concept_mapping.ParthenosLabelGenerator;
 import at.ac.acdh.profile_parser.ParsedProfile;
 
 import org.slf4j.*;
@@ -51,6 +53,8 @@ public class Normalizer {
 				filterNonExistingPatterns(link, parsedProfile);
 			}
 		}
+		
+		processArgsConcept(map.getEntities(), parsedProfile);
 	}
 	
 	/**
@@ -276,5 +280,30 @@ public class Normalizer {
 			}
 		}
 	}
-
+	
+	public void processArgsConcept(Collection<ParthenosEntity> entities, ParsedProfile parsedProfile) {
+	    for(ParthenosEntity pe : entities) {
+	        if(pe.getLinks() != null) {
+	            for(Link link : pe.getLinks()) {
+	                processArgsConcept(link.getEntities(), parsedProfile);
+	            }
+	        }
+	        for(ParthenosLabelGenerator plg:pe.getLabelGenerator()) {
+	            for(ParthenosArg parg:plg.getArgs()) {
+	                for(String concept : parg.getConcepts()) {
+	                    parg.getContent().clear();
+	                    parg.getContent().addAll(parsedProfile.getXPathsForConcept(concept));
+	                }
+	                
+	                for(String blacklistPattern: parg.getBlacklistPatterns()) {
+	                    parg.getContent().remove(blacklistPattern);
+	                }
+	                
+	                for(String pattern : parg.getPatterns()) {
+	                    parg.getContent().add(pattern);
+	                }
+	            }
+	        }
+	    }
+	}
 }

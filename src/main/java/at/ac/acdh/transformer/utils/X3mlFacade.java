@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosArg;
 import at.ac.acdh.concept_mapping.ParthenosEntity;
+import at.ac.acdh.concept_mapping.ParthenosLabelGenerator;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
 import gr.forth.x3ml.DomainTargetNodeType;
@@ -141,7 +143,7 @@ public class X3mlFacade {
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
 		
-		entity.getLabelGenerator().addAll(pe.getLabelGenerator());
+		pe.getLabelGenerator().forEach(plg -> entity.getLabelGenerator().add(createLabelGenrator(plg)));
 		
 		
 		return entity;
@@ -367,6 +369,25 @@ public class X3mlFacade {
 		arg.setType(type);
 		arg.setValue(value);
 		return arg;
+	}
+	
+	public Arg createArg(ParthenosArg parg) {
+	    Arg arg = new Arg();
+        arg.setName(parg.getName());
+        arg.setType(parg.getType());
+        arg.setValue(parg.getContent()!= null?parg.getContent().get(0):"");	    
+	    
+	    return arg;
+	}
+	
+	public LabelGenerator createLabelGenrator(ParthenosLabelGenerator plg) {
+	    LabelGenerator lg = new LabelGenerator();
+	    
+	    lg.setName(plg.getName());
+	    
+	    plg.getArgs().forEach(parg -> lg.getArg().add(createArg(parg)));
+	    
+	    return lg;
 	}
 	
 }
