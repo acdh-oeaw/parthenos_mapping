@@ -291,8 +291,12 @@ public class Normalizer {
 	        for(ParthenosLabelGenerator plg:pe.getLabelGenerator()) {
 	            for(ParthenosArg parg:plg.getArgs()) {
 	                for(String concept : parg.getConcepts()) {
-	                    parg.getContent().clear();
-	                    parg.getContent().addAll(parsedProfile.getXPathsForConcept(concept));
+	                    Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
+	                    if(xpaths != null && !xpaths.isEmpty()) {
+	                        parg.getContent().clear();
+	                        parg.getContent().addAll(xpaths);
+	                        break;
+	                    }
 	                }
 	                
 	                for(String blacklistPattern: parg.getBlacklistPatterns()) {
