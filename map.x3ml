@@ -92,7 +92,7 @@
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
 <arg name="label" type="constant">Online Hosting for</arg>
-<arg name="text" type="xpath">../../../cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+<arg name="text" type="xpath">/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title/text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -147,7 +147,7 @@
 <arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+<arg name="label" type="xpath">/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title/text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -166,7 +166,7 @@
                             <arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
-                            <arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            <arg name="label" type="xpath">/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title/text()</arg>
                         </label_generator>
                     </entity>
                 </target_node>
