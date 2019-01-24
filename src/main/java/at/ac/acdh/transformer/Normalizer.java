@@ -290,12 +290,13 @@ public class Normalizer {
 	        }
 	        for(ParthenosLabelGenerator plg:pe.getLabelGenerator()) {
 	            for(ParthenosArg parg:plg.getArgs()) {
+	                if(!parg.getConcepts().isEmpty() || !parg.getPatterns().isEmpty())
+	                    parg.getContent().clear(); //since it's a mixed element there might be some empty Strings as content
+	                
 	                for(String concept : parg.getConcepts()) {
 	                    Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
 	                    if(xpaths != null && !xpaths.isEmpty()) {
-	                        parg.getContent().clear();
 	                        parg.getContent().addAll(xpaths);
-	                        break;
 	                    }
 	                }
 	                
@@ -304,9 +305,7 @@ public class Normalizer {
 	                }
 	                
 	                for(String pattern : parg.getPatterns()) {
-	                    parg.getContent().clear();
 	                    parg.getContent().add(pattern);
-	                    break;
 	                }
 	            }
 	        }
