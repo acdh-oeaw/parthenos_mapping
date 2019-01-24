@@ -304,7 +304,9 @@ public class Normalizer {
 	                }
 	                
 	                for(String pattern : parg.getPatterns()) {
+	                    parg.getContent().clear();
 	                    parg.getContent().add(pattern);
+	                    break;
 	                }
 	            }
 	        }
