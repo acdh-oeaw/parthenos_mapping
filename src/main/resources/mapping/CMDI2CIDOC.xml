@@ -17,9 +17,6 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 		<label-generator name="SimpleLabel">
 			<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
 		</label-generator>
-
-
-
 		<link>
 			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event">
 				<label-generator name="CompositeLabel">
@@ -41,6 +38,7 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 					<arg name="label" type="constant">Online Hosting for</arg>
 					<arg name="text" type="xpath">
 						<concept name="resource">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
+						<concept name="resource">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
 						<pattern>cmd:CMD/cmd:Resources/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern></arg>
 				</label-generator>
 			</entity>
@@ -72,7 +70,9 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 				</instance-generator>
 
 				<label-generator name="SimpleLabel">
-					<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+					<arg name="label" type="xpath">
+					<concept name="resource">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
+					<pattern>cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern></arg>
 				</label-generator>
 
 			</entity>
@@ -117,16 +117,16 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 					<arg name="label" type="xpath">text()</arg>
 				</label-generator>
 			</entity>
-			<pattern>cmd:MdCreator</pattern>
+			<pattern>cmd:MdProfile</pattern>
 		</link>
 		<link>
 			<!--<entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile"> -->
 			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
 				<instance-generator name="Literal">
-					<arg name="text" type="xpath">text()</arg>
+					<arg name="text" type="xpath">concat("Created by: ", text())</arg>
 				</instance-generator>
 			</entity>
-			<pattern>cmd:MdProfile</pattern>
+			<pattern>cmd:MdCreator</pattern>
 		</link>
 	</entity>
 </mappings>

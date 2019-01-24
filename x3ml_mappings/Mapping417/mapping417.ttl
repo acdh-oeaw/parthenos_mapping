@@ -1,0 +1,66 @@
+@prefix dcddm: <https://colreg.de.dariah.eu/schemas/DCDDM/2.0/> .
+@prefix parthenos: <http://pathenos.d4science.org/handle/DariahDE/> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/> .
+@prefix reg:   <http://parthenos.d4science.org/handle/Parthenos/REG/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix marcrel: <http://id.loc.gov/vocabulary/relators/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix cld:   <http://purl.org/cld/terms/> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/> .
+@prefix api:   <https://colreg.de.dariah.eu/schemas/API/1.0/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<uuid:AA>  a                   crmpe:PE2_Hosting_Service ;
+        crmpe:PP2_provided_by  parthenos:1jeo9zhxsxhep .
+
+parthenos:r1ic2kuc80fo
+        a           crmpe:PE29_Access_Point ;
+        rdfs:label  "http://www.deutsch-juedische-publizistik.de/index.shtml" .
+
+parthenos:1jeo9zhxsxhep
+        a           crm:E40_Legal_Body ;
+        rdfs:label  "Agent name: Salomon Ludwig Steinheim-Institut für deutsch-jüdische Geschichte an der Universität Duisburg-Essen" .
+
+<uuid:AD>  a        crm:E42_Identifier ;
+        rdfs:label  "56c05f817c8dec511be4ccd5" .
+
+<uuid:AB>  a                   crmpe:PE2_Hosting_Service ;
+        crmpe:PP2_provided_by  parthenos:skstog7qabzm .
+
+parthenos:tofpiz6i0hf7
+        a           crm:E55_Type ;
+        rdfs:label  "textsammlung" .
+
+parthenos:t87emmyudmb5
+        a           crm:E41_Appellation ;
+        rdfs:label  "DJP" .
+
+parthenos:r17ty0cwtc9u
+        a                               crm:E78_Collection , crm:E42_Identifier , crm:E33_Linguistic_Object ;
+        rdfs:label                      "text()" , "Collection:  56c054617c8dec511be4ccbd" ;
+        crmpe:PP4i_is_object_hosted_by  <uuid:AB> , <uuid:AA> ;
+        crm:P1_is_identified_by         parthenos:r17ty0cwtc9u , parthenos:r1ic2kuc80fo , parthenos:t87emmyudmb5 , parthenos:1hbd9c088uz3l , parthenos:1hv8adz0b6sfa ;
+        crm:P2_has_type                 parthenos:tofpiz6i0hf7 ;
+        crm:P31i_was_modified_by        <uuid:AC> ;
+        crm:P3_has_note                 "Unter dem Titel Staat, Nation, Gesellschaft haben das Duisburger Institut für Sprach- und Sozialforschung DISS und das Steinheim-Institut die jüdische Vision einer integrativen Gesellschaft in den Debatten des 19. Jahrhunderts untersucht.\n\nDie Begriffe Staat, Nation, Gesellschaft bezeichnen zentrale Themenfelder, zu denen sich deutsch-jüdische Autoren - als Juden - seit der Aufklärung und während des gesamten 19. Jahrhunderts an die deutsche Mehrheitsgesellschaft wandten. Sie skizzierten zutiefst engagiert und in beispielloser Breite und Vielfalt die sozialethischen Grundlagen, auf denen ein europäisches Deutschland erstehen sollte. Sie bekräftigten zugleich mit großem Nachdruck das Jahrtausende gewachsene, ethische Erbe des Judentums selbst, das in diesem Deutschland endlich anerkannt und zu neuem Leben erweckt werden sollte. Adressat waren die christlichen Hierarchien und die oft repressiv eingestellten bürgerlichen Eliten und Obrigkeiten in Deutschland. Mit dem Schlagwort vom christlichen Staat sperrten sie sich gegen die politische und soziale Gleichberechtigung der Juden bis weit ins wilhelminische Kaiserreich. Viele deutsch­-jüdische Autoren des 19. Jahrhunderts bestimmten dagegen in der jüdischen Vision der gerechten Gesellschaft das Projekt der Moderne schlechthin. Sie plädierten für das Zusammenrücken von Judentum und Christentum um das Zentrum der gemeinsamen Ethik, für die gemeinsame Arbeit an der neuen Gesellschaft und für die universalistische Vollendung der ethischen Mission der monotheistischen Schwesterreligionen. Vor dem Hintergrund der Debatte um Differenz und Konvergenz zwischen Judentum und Christentum erläuterten sie die ethischen und sozialethischen Anschauungen des Judentums und stellten diese gewachsene, ethische Tradition in unmittelbare Beziehung zur modernen Wertedebatte, insbesondere zur Vereinbarkeit von Freiheit, Gleichheit und Gerechtigkeit."@de .
+
+<uuid:AC>  a                     crm:E11_Modification ;
+        crm:P1_is_identified_by  <uuid:AD> .
+
+parthenos:skstog7qabzm
+        a           crm:E40_Legal_Body ;
+        rdfs:label  "Agent name: Duisburger Institut für Sprach- und Sozialforschung" .
+
+parthenos:1hbd9c088uz3l
+        a           crm:E51_Contact_Point ;
+        rdfs:label  "steinheim@steinheim-institut.org" .
+
+parthenos:1hv8adz0b6sfa
+        a           crm:E35_Title ;
+        rdfs:label  "Deutsch-Jüdische Publizistik" .
+
+
