@@ -125,7 +125,7 @@ public class X3mlFacade {
 		Entity entity = new Entity();
 		entity.getType().add(pe.getType());
 		
-		if("crmpe:PE24_Volatile_Dataset".equals(pe.getType()) && ((Link) pe.getParent()).getPatterns().stream().anyMatch(pattern -> pattern.contains("cmdp:teiHeader")))
+		if("crmpe:PE24_Volatile_Dataset".equals(pe.getType()) && ((Link) pe.getParent()).getPatterns().stream().anyMatch(pattern -> pattern.contains("cmdp:teiHeader")||pattern.contains("cmdp:TextCorpusProfile")))
 		    entity.getType().add("crm:E33_Linguistic_Object");
 		
 		//set variables 
