@@ -254,6 +254,8 @@
           <arg name="label" type="xpath">text()</arg>
         </label-generator>
   </entity>
+  <concept name="resource">http://hdl.handle.net/11459/CCR_C-2484_669684e7-cb9e-ea96-59cb-a25fe89b9b9d</concept>
+  
   <pattern>cmdp:profileDesc/cmdp:langUsage/cmdp:language</pattern>
 </link>
 <!--TEI mapping definition-->
