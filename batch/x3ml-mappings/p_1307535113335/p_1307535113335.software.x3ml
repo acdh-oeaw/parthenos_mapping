@@ -92,7 +92,7 @@
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
 <arg name="label" type="constant">Online Hosting for</arg>
-<arg name="text" type="xpath">../../../cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+<arg name="text" type="xpath">/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -184,10 +184,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="constant">iexist</arg>
+<arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="label" type="constant">iexist</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -401,6 +401,31 @@
                             <type>crmpe:PE24_Volatile_Dataset</type>
                             <instance_generator name="DatasetURI">
 <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:Language/cmdp:LanguageName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P72_has_language</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:Language/cmdp:LanguageName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E56_Language</type>
+                            <instance_generator name="ConceptURI_2step">
+<arg name="term" type="constant">languagetype</arg>
+<arg name="term1" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
 <arg name="label" type="xpath">text()</arg>
@@ -805,14 +830,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>/cmd:ResourceType</relation>
+                        <relation>../cmd:ResourceType</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P28_has_type</relationship>
+                        <relationship>crm:P2_has_type</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>/cmd:ResourceType</source_node>
+                    <source_node>../cmd:ResourceType</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E55_Type</type>
@@ -915,14 +940,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:MdCreator</relation>
+                        <relation>cmd:MdProfile</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crmdig:L23_used_software_or_firmware</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:MdCreator</source_node>
+                    <source_node>cmd:MdProfile</source_node>
                     <target_node>
                         <entity>
                             <type>crmpe:PE21_Persistent_Software</type>
@@ -939,39 +964,20 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:MdProfile</relation>
+                        <relation>cmd:MdCreator</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmdig:L23_used_software_or_firmware</relationship>
+                        <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:MdProfile</source_node>
+                    <source_node>cmd:MdCreator</source_node>
                     <target_node>
                         <entity>
-                            <type>crmpe:PE38_Schema</type>
-                            <instance_generator name="SoftwareURI">
-<arg name="term" type="xpath">text()</arg>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">concat("Created by: ", text())</arg>
                             </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">text()</arg>
-                            </label_generator>
-                            <additional>
-<relationship>crm:P2_has_type</relationship>
-<entity>
-    <type>crm:E55_Type</type>
-    <instance_info>
-        <constant>cmdi-profile</constant>
-    </instance_info>
-    <instance_generator name="ConceptURI_2step">
-        <arg name="term" type="constant">softwaretype</arg>
-        <arg name="term1" type="constant">cmdiprofile</arg>
-    </instance_generator>
-    <label_generator name="Constant">
-        <arg name="text" type="constant">cmdi-profile</arg>
-    </label_generator>
-</entity>
-                            </additional>
                         </entity>
                     </target_node>
                 </range>
