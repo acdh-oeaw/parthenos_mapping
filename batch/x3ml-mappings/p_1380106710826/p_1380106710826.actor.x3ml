@@ -186,10 +186,10 @@
                         <entity>
                             <type>crm:E35_Title</type>
                             <instance_generator name="DatasetAppellationURI">
-<arg name="term" type="constant">iexist</arg>
+<arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="label" type="constant">iexist</arg>
+<arg name="label" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
