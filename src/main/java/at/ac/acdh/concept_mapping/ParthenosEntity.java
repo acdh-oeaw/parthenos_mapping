@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
 import gr.forth.x3ml.InstanceGenerator;
-import gr.forth.x3ml.LabelGenerator;
 
 /**
  * 
@@ -37,6 +36,12 @@ public class ParthenosEntity extends Node {
 	@XmlAttribute
 	String hasLabel;
 	@XmlAttribute
+	String igUri;
+    @XmlAttribute
+    String isListed;
+    @XmlAttribute
+    String isListedLabel;
+	@XmlAttribute
 	String var;
 	@XmlAttribute
 	String globVar;
@@ -51,7 +56,7 @@ public class ParthenosEntity extends Node {
 	InstanceGenerator ig;
 	
 	@XmlElement(name = "label-generator")
-	Collection<LabelGenerator> lg = new ArrayList<LabelGenerator>();
+	Collection<ParthenosLabelGenerator> lg = new ArrayList<ParthenosLabelGenerator>();
 
 	@Override
 	public String toString() {
@@ -64,6 +69,9 @@ public class ParthenosEntity extends Node {
 
 		if (hasType != null)
 			sb.append("hasType " + hasType);
+
+		if (isListed != null)
+	            sb.append("hasType " + hasType);
 
 		if (var != null)
 			sb.append("var=" + var);
@@ -142,6 +150,26 @@ public class ParthenosEntity extends Node {
 
 	public void setHasType(String hasType) {
 		this.hasType = hasType;
+	}
+	
+	public void setIsListed(String isListed) {
+        this.isListed = isListed;
+    }
+
+    public String getIsListed() {
+	    return this.isListed;
+	}
+	
+	public String getIsListedLabel() {
+        return isListedLabel;
+    }
+
+    public void setIsListedLabel(String isListedLabel) {
+        this.isListedLabel = isListedLabel;
+    }
+
+    public void SetIsListed(String isListed) {
+	    this.isListed = isListed;
 	}
 
 	/**
@@ -223,11 +251,11 @@ public class ParthenosEntity extends Node {
 		this.ig = ig;
 	}
 	
-	public Collection<LabelGenerator> getLabelGenerator(){
+	public Collection<ParthenosLabelGenerator> getLabelGenerator(){
 		return this.lg;
 	}
 	
-	public void setLabelGenerator(Collection<LabelGenerator> lg){
+	public void setLabelGenerator(Collection<ParthenosLabelGenerator> lg){
 		this.lg = lg;
 	}
 
@@ -246,5 +274,13 @@ public class ParthenosEntity extends Node {
 	public void setHasLabel(String hasLabel) {
 		this.hasLabel = hasLabel;
 	}
+
+    public String getIgUri() {
+        return this.igUri;
+    }
+
+    public void setIgUri(String igUri) {
+        this.igUri = igUri;
+    }
 
 }

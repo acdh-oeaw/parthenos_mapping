@@ -7,7 +7,9 @@ import java.util.List;
 
 import at.ac.acdh.concept_mapping.CMDI2CIDOCMap;
 import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosArg;
 import at.ac.acdh.concept_mapping.ParthenosEntity;
+import at.ac.acdh.concept_mapping.ParthenosLabelGenerator;
 import at.ac.acdh.profile_parser.ParsedProfile;
 
 import org.slf4j.*;
@@ -51,6 +53,8 @@ public class Normalizer {
 				filterNonExistingPatterns(link, parsedProfile);
 			}
 		}
+		
+		processArgsConcept(map.getEntities(), parsedProfile);
 	}
 	
 	/**
@@ -258,6 +262,10 @@ public class Normalizer {
 		Iterator<String> xpathIterator = link.getPatterns().iterator();
 		while (xpathIterator.hasNext()) {
 			String xpath = xpathIterator.next();
+			if(xpath.startsWith("..")) //allow xpath starting with dots like ../xx/yy
+			    xpath = xpath.substring(2);
+			if(xpath.startsWith("//")) //allow xpath starting with double slash like //xx/yy
+			    xpath = xpath.substring(1);
 			boolean hit = false;
 			for(String profileXpath: parsedProfile.getXPaths()){				
 				if (profileXpath.contains(xpath)){
@@ -272,5 +280,35 @@ public class Normalizer {
 			}
 		}
 	}
-
+	
+	public void processArgsConcept(Collection<ParthenosEntity> entities, ParsedProfile parsedProfile) {
+	    for(ParthenosEntity pe : entities) {
+	        if(pe.getLinks() != null) {
+	            for(Link link : pe.getLinks()) {
+	                processArgsConcept(link.getEntities(), parsedProfile);
+	            }
+	        }
+	        for(ParthenosLabelGenerator plg:pe.getLabelGenerator()) {
+	            for(ParthenosArg parg:plg.getArgs()) {
+	                if(!parg.getConcepts().isEmpty() || !parg.getPatterns().isEmpty())
+	                    parg.getContent().clear(); //since it's a mixed element there might be some empty Strings as content
+	                
+	                for(String concept : parg.getConcepts()) {
+	                    Collection<String> xpaths = parsedProfile.getXPathsForConcept(concept);
+	                    if(xpaths != null && !xpaths.isEmpty()) {
+	                        parg.getContent().addAll(xpaths);
+	                    }
+	                }
+	                
+	                for(String blacklistPattern: parg.getBlacklistPatterns()) {
+	                    parg.getContent().remove(blacklistPattern);
+	                }
+	                
+	                for(String pattern : parg.getPatterns()) {
+	                    parg.getContent().add(pattern);
+	                }
+	            }
+	        }
+	    }
+	}
 }

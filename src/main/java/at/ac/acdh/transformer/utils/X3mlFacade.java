@@ -4,7 +4,10 @@ package at.ac.acdh.transformer.utils;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import at.ac.acdh.concept_mapping.Link;
+import at.ac.acdh.concept_mapping.ParthenosArg;
 import at.ac.acdh.concept_mapping.ParthenosEntity;
+import at.ac.acdh.concept_mapping.ParthenosLabelGenerator;
 import gr.forth.x3ml.Additional;
 import gr.forth.x3ml.Arg;
 import gr.forth.x3ml.DomainTargetNodeType;
@@ -122,17 +125,25 @@ public class X3mlFacade {
 		Entity entity = new Entity();
 		entity.getType().add(pe.getType());
 		
+		if("crmpe:PE24_Volatile_Dataset".equals(pe.getType()) && ((Link) pe.getParent()).getPatterns().stream().anyMatch(pattern -> pattern.contains("cmdp:teiHeader")||pattern.contains("cmdp:TextCorpusProfile")))
+		    entity.getType().add("crm:E33_Linguistic_Object");
+		
 		//set variables 
 		entity.setVariable(pe.getVar());
 		entity.setGlobalVariable(pe.getGlobVar());
 		
-		if(pe.getHasType() != null){
-			entity.getAdditional().add(createAditionalHasType(pe));
-		}
+		if(pe.getHasType() != null)
+			entity.getAdditional().add(createAdditionalHasTypeE55(pe));
+			
+			    
+
+		if(pe.getIsListed() != null) 
+		    entity.getAdditional().add(createAdditionalHasTypeP71(pe));
+
 		
 		entity.setInstanceGenerator(createInstanceGenerator(pe));
 		
-		entity.getLabelGenerator().addAll(pe.getLabelGenerator());
+		pe.getLabelGenerator().forEach(plg -> entity.getLabelGenerator().add(createLabelGenrator(plg)));
 		
 		
 		return entity;
@@ -147,18 +158,31 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditionalHasType(ParthenosEntity pe){		
+	public Additional createAdditionalHasTypeE55(ParthenosEntity pe){		
 		Entity e55 = new Entity();
 		e55.getType().add("crm:E55_Type");
 		e55.setInstanceInfo(createInstanceInfo(pe.getHasType(), null, null));
 		
-		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType()));
+		e55.setInstanceGenerator(createClarinTypeIG(pe.getHasType(), null));
 		//e55.getLabelGenerator().
 		if(pe.getHasLabel() != null)
-			e55.getLabelGenerator().addAll(createLabelGenerator(pe));
+			e55.getLabelGenerator().addAll(createLabelGenerator(pe.getHasLabel()));
 		
-		return createAditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
+		return createAdditional(pe.getSubrelation() == null?"crm:P2_has_type":pe.getSubrelation(), e55);
 	}	
+	
+	   public Additional createAdditionalHasTypeP71(ParthenosEntity pe){       
+	        Entity p71 = new Entity();
+	        p71.getType().add("crm:E32_Authority_Document");
+	        p71.setInstanceInfo(createInstanceInfo(pe.getIsListed(), null, null));
+	        
+	        p71.setInstanceGenerator(createClarinTypeIG(pe.getIsListed(), pe.getIgUri()));
+
+	        if(pe.getIsListedLabel() != null)
+	            p71.getLabelGenerator().addAll(createLabelGenerator(pe.getIsListedLabel()));
+	        
+	        return createAdditional(pe.getSubrelation() == null?"crm:P71i_is_listed_in":pe.getSubrelation(), p71);
+	    }   
 	
 
 	/**
@@ -169,7 +193,7 @@ public class X3mlFacade {
 	 * 
 	 * @see Additional
 	 */
-	public Additional createAditional(String relationship, Entity entity){
+	public Additional createAdditional(String relationship, Entity entity){
 		Additional additional = new Additional();
 		additional.setRelationship(relationship);
 		additional.setEntity(entity);
@@ -208,8 +232,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI_CLARIN(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI_CLARIN");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}
@@ -222,16 +246,17 @@ public class X3mlFacade {
 	 * 
 	 * @see InstanceGenerator
 	 */
-	public InstanceGenerator createClarinTypeIG(String types){
+	public InstanceGenerator createClarinTypeIG(String types, String igUri){
 		InstanceGenerator ig = new InstanceGenerator();
-		ig.setName("ConceptURI_2step");
+		ig.setName(igUri==null?"ConceptURI":igUri);
 
 		if(types != null) {
 			String[] typeArr = types.split("\\|");
 			if(typeArr.length >=2) {
-				ig.getArg().add(crateArg("term", "constant", typeArr[1]));
+				ig.getArg().add(createArg("term", "constant", typeArr[1]));
 				for(int i=2; i<typeArr.length; i++){
-					ig.getArg().add(crateArg("term" + (i-1), "constant", typeArr[i]));
+					ig.getArg().add(createArg("term" + (i-1), "constant", typeArr[i]));
+					ig.setName("ConceptURI_" + i + "step"); //just overwriting the previous value instead of if/else
 				}
 			}
 		}
@@ -253,8 +278,8 @@ public class X3mlFacade {
 	public InstanceGenerator createLocalTermURI(String hierarchy, String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("LocalTermURI");
-		ig.getArg().add(crateArg("hierarchy", "constant", hierarchy));
-		ig.getArg().add(crateArg("term", "xpath", xpath));
+		ig.getArg().add(createArg("hierarchy", "constant", hierarchy));
+		ig.getArg().add(createArg("term", "xpath", xpath));
 		
 		return ig;
 	}	
@@ -270,7 +295,7 @@ public class X3mlFacade {
 	public InstanceGenerator createSimpleLabel(String xpath){
 		InstanceGenerator ig = new InstanceGenerator();
 		ig.setName("SimpleLabel");
-		ig.getArg().add(crateArg("label", "xpath", xpath));
+		ig.getArg().add(createArg("label", "xpath", xpath));
 		
 		return ig;
 	}
@@ -298,11 +323,11 @@ public class X3mlFacade {
 		return ig;
 	}
 	
-	public Collection<LabelGenerator> createLabelGenerator(ParthenosEntity pe){
+	public Collection<LabelGenerator> createLabelGenerator(String hasLabel){
 		ArrayList<LabelGenerator> lgList = new ArrayList<LabelGenerator>();
-		if(pe.getHasLabel() != null) {
+		if(hasLabel != null) {
 			
-			for(String lgDefintion : pe.getHasLabel().split("\\|\\|")) {
+			for(String lgDefintion : hasLabel.split("\\|\\|")) {
 				LabelGenerator lg = new LabelGenerator();
 				String[] tokens = lgDefintion.split("\\|");
 				
@@ -310,14 +335,14 @@ public class X3mlFacade {
 					lg.setName(tokens[0].substring(0, tokens[0].indexOf('(')));
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
+						lg.getArg().add(createArg(tokens[0].substring(tokens[0].indexOf('(') +1, tokens[0].length() -1), "constant", tokens[i]));
 					}
 				}
 				else {
 					lg.setName(tokens[0]);
 					
 					for(int i=1; i<tokens.length; i++) {
-						lg.getArg().add(crateArg("label" + i, "constant", tokens[i]));
+						lg.getArg().add(createArg("label" + i, "constant", tokens[i]));
 					}
 				}
 				
@@ -338,12 +363,31 @@ public class X3mlFacade {
 	 * 
 	 * @see Arg
 	 */
-	public Arg crateArg(String name, String type, String value){
+	public Arg createArg(String name, String type, String value){
 		Arg arg = new Arg();
 		arg.setName(name);
 		arg.setType(type);
 		arg.setValue(value);
 		return arg;
+	}
+	
+	public Arg createArg(ParthenosArg parg) {
+	    Arg arg = new Arg();
+        arg.setName(parg.getName());
+        arg.setType(parg.getType());
+        arg.setValue(parg.getContent()!= null?parg.getContent().get(0):"");	    
+	    
+	    return arg;
+	}
+	
+	public LabelGenerator createLabelGenrator(ParthenosLabelGenerator plg) {
+	    LabelGenerator lg = new LabelGenerator();
+	    
+	    lg.setName(plg.getName());
+	    
+	    plg.getArgs().forEach(parg -> lg.getArg().add(createArg(parg)));
+	    
+	    return lg;
 	}
 	
 }

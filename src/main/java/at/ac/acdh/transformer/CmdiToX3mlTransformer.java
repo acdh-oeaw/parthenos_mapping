@@ -77,6 +77,7 @@ public class CmdiToX3mlTransformer {
 			for(ParthenosEntity pe: link.getEntities()){
 				Entity entity = x3mlFacade.createEntity(pe);
 				relationships.add(new ObjectNode(pe.getRelationship(), entity));
+
 				
 				if(pe.getXpath() != null)
 					createMapping(pe);//create new mapping 

@@ -92,6 +92,8 @@ public class ProfileTransformer {
 		namespaces.getNamespace().add(new Namespace("crmpe", "http://parthenos.d4science.org/CRMext/CRMpe.rdfs/"));
 		namespaces.getNamespace().add(new Namespace("parthenos", "http://parthenos.d4science.org/handle/Clarin/VLO/")); 
 		namespaces.getNamespace().add(new Namespace("cmd", "http://www.clarin.eu/cmd/1"));
+		namespaces.getNamespace().add(new Namespace("reg", "http://parthenos.d4science.org/handle/Parthenos/REG/"));
+		namespaces.getNamespace().add(new Namespace("frbr", "http://iflastandards.info/ns/fr/frbr/frbroo/"));
 		namespaces.getNamespace().add(new Namespace("cmdp", getProfileURI(profileUrl)));//derive from xsd url
 		
 		return namespaces;

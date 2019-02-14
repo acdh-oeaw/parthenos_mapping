@@ -7,7 +7,7 @@ function verbose {
 }
 
 OUT_DIR=x3ml-mappings
-MAPPING_XML=mappings/CMDI2CIDOC.xml
+MAPPING_XML=../src/main/resources/mapping/CMDI2CIDOC.xml
 
 hash jq 2>/dev/null || { echo >&2 "jq library is required but it's not installed.  Aborting."; exit 1; }
 hash wget 2>/dev/null || { echo >&2 "wget library is required but it's not installed.  Aborting."; exit 1; }
@@ -43,8 +43,8 @@ while IFS= read -r xsd &&
 	fi
 
 	 
-	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
-	  java -jar x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
+	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
+	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
 
 	  
 	  cmdRecords=$(jq -c -r .cmdi2pe[$counter].cmdi_records[] $JSON_FILE)

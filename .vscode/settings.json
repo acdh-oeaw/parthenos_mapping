@@ -1,5 +1,3 @@
 {
-    "git.ignoreLimitWarning": true,
-    "git.path": "/usr/bin/git",
     "java.configuration.updateBuildConfiguration": "automatic"
 }

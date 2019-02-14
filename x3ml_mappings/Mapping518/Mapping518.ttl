@@ -1,0 +1,86 @@
+@prefix reg:   <http://parthenos.d4science.org/handle/Parthenos/REG/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix parthenos: <http://parthenos.d4science.org/handle/Clarin/VLO/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix cmdp:  <http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1380106710826> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cmd:   <http://www.clarin.eu/cmd/1> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/> .
+@prefix frbr:  <http://iflastandards.info/ns/fr/frbr/frbroo/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+parthenos:1ji7r8ecscoyt
+        a                               crmpe:PE24_Volatile_Dataset ;
+        crmpe:PP23i_is_dataset_part_of  parthenos:ure00ejbafcm ;
+        crmpe:PP32i_was_curated_by      <uuid:AD> ;
+        crmpe:PP50_accessible_at        <hdl:11221/90D1-421C-70C9-5> , <hdl:11221/90D1-421C-7100-E-B> ;
+        crmpe:PP8i_is_dataset_hosted_by
+                <uuid:AC> , <uuid:AB> ;
+        crm:P12i_was_present_at         <uuid:AF> ;
+        crm:P1_is_identified_by         parthenos:1iyexohki2tlt ;
+        crm:P3_has_note                 "CSTtags" , "csttaggerXML" .
+
+reg:1ibc0ch8pn5f7  a  crm:E55_Type ;
+        rdfs:label  "metadata" .
+
+<uuid:AA>  a                  crmdig:D7_Digital_Machine_Event ;
+        rdfs:label            "Creation of CMDI record hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crm:P4_has_time_span  <uuid:AG> ;
+        crmdig:L23_used_software_or_firmware
+                parthenos:sok35c9fux4o , parthenos:rl2bl4qlgmzp .
+
+<uuid:AF>  a    frbr:F30_Publication_Event .
+
+<hdl:11221/90D1-421C-7100-E-B>
+        a       crmpe:PE29_Access_Point .
+
+reg:1h7lx25tdvsrn  a  crm:E55_Type ;
+        rdfs:label  "cmdi-profile" .
+
+<uuid:AD>  a                 crmpe:PE12_Data_curating_Service ;
+        crm:PP2_provided_by  <uuid:AE> .
+
+parthenos:ure00ejbafcm
+        a           crmpe:PE24_Volatile_Dataset ;
+        rdfs:label  "CLARIN-DK-UCPH Repository" .
+
+parthenos:sok35c9fux4o
+        a                crmpe:PE38_Schema ;
+        rdfs:label       "clarin.eu:cr1:p_1380106710826" ;
+        crm:P2_has_type  reg:1h7lx25tdvsrn .
+
+parthenos:rl2bl4qlgmzp
+        a           crmpe:PE21_Persistent_Software ;
+        rdfs:label  "CLARIN-DK-UCPH" .
+
+parthenos:1iyexohki2tlt
+        a           crm:E35_Title ;
+        rdfs:label  "iexist" .
+
+parthenos:urxgrzgauji0
+        a                           crmpe:PE22_Persistent_Dataset ;
+        rdfs:label                  "hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crmpe:PP39_is_metadata_for  parthenos:1ji7r8ecscoyt ;
+        crm:P2_has_type             reg:1ibc0ch8pn5f7 ;
+        crmdig:L11i_was_output_of   <uuid:AA> .
+
+<hdl:11221/90D1-421C-70C9-5>
+        a       crmpe:PE29_Access_Point .
+
+<uuid:AB>  a    crmpe:PE15_Data_E-Service ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-421C-7100-E-B> .
+
+<uuid:AG>  a                         crm:E52_Time-Span ;
+        rdfs:label                   "Time span for the Creation of hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crm:P82_at_some_time_within  "2014-11-04" .
+
+<uuid:AE>  a    crm:E21_Person , crm:E39_Actor .
+
+<uuid:AC>  a    crmpe:PE15_Data_E-Service ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-421C-70C9-5> .
+
+
