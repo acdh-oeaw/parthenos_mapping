@@ -30,21 +30,20 @@ while IFS= read -r xsd &&
 	  
 	  
 	  mkdir $OUT_DIR/$profileId
-	  DATASET_X3ML=$OUT_DIR/$profileId/$profileId.dataset.x3ml
-	  ACTOR_X3ML=$OUT_DIR/$profileId/$profileId.actor.x3ml
-	  SOFTWARE_X3ML=$OUT_DIR/$profileId/$profileId.software.x3ml
 	  
 	  #generate x3ml files
 	  verbose "generating x3ml mappings for $xsd"
 	  
-	 condition=dataset
-	if [ $type = "crm:E39_Actor" ]; then
-	condition=actor
+	 
+	if [ $type = "crmpe:PE24_Volatile_Dataset" ]; then
+		condition=dataset
+	else
+		condition=service
 	fi
 
 	 
-	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-actor $condition > $ACTOR_X3ML
-	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > $SOFTWARE_X3ML
+	  
+	  java -jar ../target/x3ml-gen.jar -mappingXml $MAPPING_XML -profile $xsd -conditions creator-software $condition > ${OUT_DIR}/${profileId}/${profileId}.${condition}.x3ml
 
 	  
 	  cmdRecords=$(jq -c -r .cmdi2pe[$counter].cmdi_records[] $JSON_FILE)
@@ -58,7 +57,7 @@ while IFS= read -r xsd &&
 			wget $cmdiUrl > /dev/null 2>&1
 			verbose "transforming $cmdi into $OUT_DIR/$profileId/$cmdi.rdf"
 			#	format text/turtle
-			java -jar x3ml.jar -format text/turtle -xml $cmdi -x3ml $ACTOR_X3ML -policy policy.xml -rdf $OUT_DIR/$profileId/$cmdi.rdf > /dev/null 2>&1
+			java -jar x3ml.jar -format text/turtle -xml $cmdi -x3ml $condition > ${OUT_DIR}/${profileId}/${profileId}.${condition}.x3ml -policy policy.xml -rdf $OUT_DIR/$profileId/$cmdi.rdf > /dev/null 2>&1
 			rm $cmdi
 		done
 	fi
