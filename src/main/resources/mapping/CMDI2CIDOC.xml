@@ -77,7 +77,7 @@ Aims to define the general part of the mapping in common with each CLARIN profil
 
 			</entity>
 			<!-- Service -->
-			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity" condition="service">
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" var="data1" entiVar="mainEntity" condition="service">
 				&serviceProperties;
 
 				<instance-generator name="ServiceURI">

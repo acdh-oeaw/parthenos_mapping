@@ -1,0 +1,5 @@
+2019-02-28 12:56:16,662  INFO [           main] [at.ac.acdh.transformer.Normalizer#filterNonExistingPatterns:278] - removing xpath "/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:title" since it has no match in the profile
+2019-02-28 12:56:16,663  INFO [           main] [at.ac.acdh.transformer.Normalizer#filterNonExistingPatterns:278] - removing xpath "/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:description" since it has no match in the profile
+2019-02-28 12:56:16,663  INFO [           main] [at.ac.acdh.transformer.Normalizer#filterNonExistingPatterns:278] - removing xpath "/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:alternative" since it has no match in the profile
+2019-02-28 12:56:16,664  INFO [           main] [at.ac.acdh.transformer.Normalizer#filterNonExistingPatterns:278] - removing xpath "/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:publisher" since it has no match in the profile
+2019-02-28 12:56:16,664  INFO [           main] [at.ac.acdh.transformer.Normalizer#filterNonExistingPatterns:278] - removing xpath "/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject" since it has no match in the profile
