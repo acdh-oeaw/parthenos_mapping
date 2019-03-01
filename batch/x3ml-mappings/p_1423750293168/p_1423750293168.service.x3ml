@@ -10,7 +10,7 @@
         <namespace prefix="cmd" uri="http://www.clarin.eu/cmd/1"/>
         <namespace prefix="reg" uri="http://parthenos.d4science.org/handle/Parthenos/REG/"/>
         <namespace prefix="frbr" uri="http://iflastandards.info/ns/fr/frbr/frbroo/"/>
-        <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1328259700925"/>
+        <namespace prefix="cmdp" uri="http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1423750293168"/>
     </namespaces>
     <mappings>
         <mapping>
@@ -130,23 +130,22 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmd:Components/cmdp:DynaSAND_sub_location</relation>
+                        <relation>cmd:Components/cmdp:BASWebService</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmpe:PP39_is_metadata_for</relationship>
+                        <relationship>crm:P129_is_about</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmd:Components/cmdp:DynaSAND_sub_location</source_node>
+                    <source_node>cmd:Components/cmdp:BASWebService</source_node>
                     <target_node>
-                        <entity variable="data1">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetVerMergeURI">
-<arg name="term" type="constant">volatile</arg>
-<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                        <entity>
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+<arg name="label" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </label_generator>
                         </entity>
                     </target_node>
@@ -155,16 +154,15 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:DynaSAND_sub_location</source_node>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:BASWebService</source_node>
                 <target_node>
-                    <entity variable="data1">
-                        <type>crmpe:PE24_Volatile_Dataset</type>
-                        <instance_generator name="DatasetVerMergeURI">
-                            <arg name="term" type="constant">volatile</arg>
-                            <arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                    <entity>
+                        <type>crmpe:PE8_E-Service</type>
+                        <instance_generator name="ServiceURI">
+                            <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
-                            <arg name="label" type="xpath">cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            <arg name="label" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                         </label_generator>
                     </entity>
                 </target_node>
@@ -175,15 +173,15 @@
                         <relation>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
+                        <relationship>crm:P9i_forms_part_of</relationship>
                     </target_relation>
                 </path>
                 <range>
                     <source_node>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
                     <target_node>
                         <entity>
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetURI">
+                            <type>crmpe:PE1_Service</type>
+                            <instance_generator name="ServiceAppellationURI">
 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
@@ -193,77 +191,13 @@
                     </target_node>
                 </range>
             </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:DynaSAND_sub_location/cmdp:Collection/cmdp:Access</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE15_Data_E-Service</type>
-                        <instance_generator name="UUID"/>
-                        <label_generator name="CompositeLabel">
-                            <arg name="label" type="constant">Main Hosting for</arg>
-                            <arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
-                        </label_generator>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:DynaSAND_sub_location/cmdp:Collection/cmdp:Project</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE35_Project</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:DynaSAND_sub_location/cmdp:Collection/cmdp:Project/cmdp:Contact</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE34_Team</type>
-                        <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
-                        </instance_generator>
-                        <label_generator name="SimpleLabel">
-                            <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
-                        </label_generator>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:DynaSAND_sub_location/cmdp:Collection/cmdp:Access/cmdp:Contact</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E40_Legal_Body</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE15_Data_E-Service</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
             <link>
                 <path>
                     <source_relation>
                         <relation>cmd:ResourceRef</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crmpe:PP49_provides_access_point</relationship>
+                        <relationship>crmpe:PP28_has_designated_access_point</relationship>
                     </target_relation>
                 </path>
                 <range>
@@ -278,88 +212,6 @@
                     </target_node>
                 </range>
             </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE29_Access_Point</type>
-                        <instance_generator name="URIorUUID">
-                            <arg name="text" type="xpath"></arg>
-                        </instance_generator>
-                    </entity>
-                </target_node>
-            </domain>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>../cmd:ResourceType</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P2_has_type</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>../cmd:ResourceType</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E55_Type</type>
-                            <instance_generator name="ConceptURI_2step">
-<arg name="term" type="constant">contactpointtype</arg>
-<arg name="term1" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-<arg name="label" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:author</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E21_Person</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:editor</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E21_Person</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</source_node>
-                <target_node>
-                    <entity>
-                        <type>crm:E21_Person</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt</source_node>
-                <target_node>
-                    <entity>
-                        <type>frbr:F30_Publication_Event</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
         </mapping>
         <mapping>
             <domain>
