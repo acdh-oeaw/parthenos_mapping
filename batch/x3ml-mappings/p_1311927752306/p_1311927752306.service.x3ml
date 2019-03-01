@@ -139,7 +139,7 @@
                 <range>
                     <source_node>cmd:Components/cmdp:ToolService</source_node>
                     <target_node>
-                        <entity>
+                        <entity variable="data1">
                             <type>crmpe:PE8_E-Service</type>
                             <instance_generator name="ServiceURI">
 <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
@@ -156,7 +156,7 @@
             <domain>
                 <source_node>/cmd:CMD/cmd:Components/cmdp:ToolService</source_node>
                 <target_node>
-                    <entity>
+                    <entity variable="data1">
                         <type>crmpe:PE8_E-Service</type>
                         <instance_generator name="ServiceURI">
                             <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
