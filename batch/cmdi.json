@@ -2,7 +2,7 @@
   "cmdi2pe": [
         {
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd",
-			"pe_type": "crmpe:PE24_Volatile_Dataset",			
+			"pe_type": "crmpe:PE8_E-Service",			
 			"cmdi_records": []
 		},
 		{
@@ -12,7 +12,7 @@
 		},
 		{
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1380106710826/xsd",
-			"pe_type": "crmpe:PE24_Volatile_Dataset",
+			"pe_type": "crmpe:PE8_E-Service",
 			"cmdi_records": []
 		},
 		{
@@ -244,7 +244,7 @@
 		},
 		{
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1320657629644/xsd",
-			"pe_type": "crmpe:PE24_Volatile_Dataset",
+			"pe_type": "crmpe:PE8_E-Service",
 			"cmdi_records": []
 		},
 		{
@@ -529,7 +529,47 @@
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1361876010525/xsd",
 			"pe_type": "crmpe:PE24_Volatile_Dataset",
 			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1299509410083/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1360230992146/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
 		},	
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1469541567396/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},	
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1311927752335/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1505397653795/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1381926654686/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1324638957718/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
+		{
+			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1295178776924/xsd",
+			"pe_type": "crmpe:PE8_E-Service",
+			"cmdi_records": []
+		},
 		{
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1381926654510/xsd",
 			"pe_type": "crmpe:PE24_Volatile_Dataset",
