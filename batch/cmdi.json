@@ -574,7 +574,6 @@
 			"xsd": "https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1381926654510/xsd",
 			"pe_type": "crmpe:PE24_Volatile_Dataset",
 			"cmdi_records": [
-				"https://vlo.clarin.eu/data/clarin/results/cmdi/CLARIN_OAIProvider_Institute_of_Computer_Science_NLP_Group_University_of_Leipzig/oai_dp_11022000000008F185dp484.xml"
 			]
         }
      ]
