@@ -40,6 +40,8 @@
 		</label-generator>
 
 	</entity>
+	<concept name="publisher">http://purl.org/dc/terms/publisher</concept>
+		
 	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:publisher</pattern>
 </link>
 
