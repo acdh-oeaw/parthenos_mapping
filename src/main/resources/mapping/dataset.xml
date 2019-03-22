@@ -230,7 +230,7 @@
       <arg name="label" type="xpath">text()</arg>
     </label-generator>
     </entity>
-  <entity relationship="crm:PP2_provided_by" type="crm:E39_Actor">
+  <entity relationship="crmpe:PP2_provided_by" type="crm:E39_Actor">
   <instance-generator name="ActorURI">
       <arg name="term" type="xpath">text()</arg>
     </instance-generator>
