@@ -75,16 +75,16 @@ Java 9:
 
 ### Example	
 
-#### generate x3ml mapping file for DATASET.
+#### Generate x3ml mapping file for DATASET.
 
 sudo java -jar  x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3m   
 	
 
-#### generate x3ml mapping file for SERVICE.
+#### Generate x3ml mapping file for SERVICE.
 
 java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions service > map.x3m
 
-### batch folder
+### Running from Batch folder
 
 1. run.sh script - will process all the profiles specified in the cmdi.json file and all the .xml mapping files from mapping folder. All the mapping files created by the script will be stored in x3ml_mappings folder automatically created running the script.
 
