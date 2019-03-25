@@ -66,9 +66,9 @@ Java 9
 
 To make the JAXB APIs available at runtime, specify the following command-line option:
 	--add-modules java.xml.bind ie:
-		java -jar  --add-modules java.xml.bind  x3ml-gen.jar 
-		-profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd 
-		-mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3ml
+			java -jar  --add-modules java.xml.bind  x3ml-gen.jar 
+			-profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd 
+			-mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3ml
 
 
 ### Parameters
