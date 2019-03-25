@@ -66,7 +66,7 @@ Java 9
 
 	To make the JAXB APIs available at runtime, specify the following command-line option:
         --add-modules java.xml.bind ie:
-			sudo java -jar  --add-modules java.xml.bind  x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd -mappingXml /Users/matteo/GitHub/parthenos_mapping/src/main/resources/mapping/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3ml
+			java -jar  --add-modules java.xml.bind  x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3ml
 
 
 ### Parameters
@@ -77,11 +77,14 @@ Java 9
 
 ### Example	
 
-#### generate x3ml mapping file for OLAC-DcmiTerms (describes datasets) profile for case when creator is a software (D14_Software).
+#### generate x3ml mapping file for DATASET.
 
+sudo java -jar  x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1271859438164/xsd -mappingXml /home/matteo/parthenos_mapping/src/main/resources/mapping/CMDI2CIDOC.xml -conditions creator-software dataset > map.x3m   
+	
 
-	java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset
+#### generate x3ml mapping file for SERVICE.
 
+java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions service > map.x3m
 
 ### batch folder
 
@@ -91,13 +94,6 @@ Java 9
 
 3. .xml mapping files in mappings folder - mapping files containing mapping rules from CMDI to CIDOC-PE model.
 
-### .xml mapping files
 
-1. Mapping files are stored in batch/mappings folder and in src/main/resources/mapping folder. They are indipendent between each other and, in order to have a common mapping output, .xml files from src/main/resources/mapping should be copied in batch/mappings folder.
-
-2. Mapping files from src/main/resources/mapping folder are processed via the executable file x3ml-gen.jar file according to the syntax i.e java -jar x3ml-gen.jar -profile https://catalog.clarin.eu/ds/ComponentRegistry/rest/registry/1.x/profiles/clarin.eu:cr1:p_1288172614026/xsd -mappingXml path/to/CMDI2CIDOC.xml -conditions creator-software dataset
-The mapping process will be runned just on the profile specified in the parameters i.e clarin.eu:cr1:p_1288172614026
-
-3. Mapping files from batch/mappings folder are processed by default by the run.sh script. run.sh script provides to a "global" mapping for all the profiles specified in the cmdi.json file.
 	
 	
