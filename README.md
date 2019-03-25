@@ -10,29 +10,29 @@ Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
 ## PE1.8 and 1st release of the generator policy 
 
-300 - E-Service - IULA UPF OAI Archive: Services for NLP
+300 - E-Service - IULA UPF OAI Archive: Services for NLP (Deprecated)
 
-303 - Dataset - modifications from George
+303 - Dataset - modifications from George (Deprecated)
 
-305 - Example of generator's output (our generator)
+305 - Example of generator's output (our generator)(Deprecated)
 
-307 - copy of 303 with updates from matteo
+307 - copy of 303 with updates from matteo (Deprecated)
 
-313 - Dataset - output of the generator
+313 - Dataset - output of the generator (Deprecated)
 
-315 - Dataset/Multiresource - a mapping for a CMDI record describing multiple Resources
+315 - Dataset/Multiresource - a mapping for a CMDI record describing multiple Resources (Deprecated)
 
 334 - Deutsches Textarchiv - NERLiX VRE handmade mapping from Matteo and Davor
 
 ## PE1.11 and 2nd release of the generator policy
 
-365 - Dataset - Official Mapping
+548 - Dataset - Official Mapping
 
-373 - Service - Official Mapping
+554 - Service - Official Mapping
 
 403 -NERLiX - Stable Mapping
 
-404 -NERLiX - Testing MApping
+404 -NERLiX - Testing Mapping
 
 # Generator
 This application parses CLARIN profiles from a given URL and generates x3ml (xml) mapping files
