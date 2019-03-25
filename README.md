@@ -30,9 +30,9 @@ Separate folder "ontologies" collects a snaphost of the underlying ontologies.
 
 554 - Service - Official Mapping
 
-403 -NERLiX - Stable Mapping
+403 -NERLiX - Stable Mapping (Unpublished)
 
-404 -NERLiX - Testing Mapping
+404 -NERLiX - Testing Mapping (Unpublished)
 
 # Generator
 This application parses CLARIN profiles from a given URL and generates x3ml (xml) mapping files
