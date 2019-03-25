@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+PARTHENOS Entities CRMpe 1.11 Encoded in RDFS
+
+RDFS updated by FORTH March 14, 2017
+corrected typos that by Luca Frosini pointed out
+
+RDFS updated by FORTH March 9, 2017
+
+RDFS updated by CNR February 2, 2017
+added PE20_Volatile_Digital_Object as subclass of PE32_Curated_Thing
+
+RDFS updated by CNR January 30, 2017
+corrected PE20, PE21 and PP28i (they contained blanks)
+
+RDFS updated by FORTH-ICS September 19, 2016
+corrected some typos, added PE26, removed PE27, added PP41 and PP42
+
+RDFS created by FORTH-ICS August 19, 2016
+
+Encoding Rules:
+1. The RDF spelling rules do not allow blanks. Hence we have replaced them by underscores.
+   The blank between the concept identifier and concept name is replaced by underscore too.
+   For instance "PE1_Service" or "PP1_currently_offers".
+
+2. RDF does not allow to instantiate properties beginning from a range value.
+   Therefore, each CRMpe property is represented as two RDFS properties.
+   For instance "PP1 currently offers(is currently offered by)" is represented as:
+   "PP1_currently offers" for the domain to range direction and "PP1i_is_currently_offered_by" for the range to domain direction.
+
+-->
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
+xml:base="http://www.ics.forth.gr/isl/CRMpe/" xml:lang="en">
+
+
+<rdfs:Class rdf:about="PE1_Service">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE2_Hosting_Service">
+	<rdfs:subClassOf rdf:resource="PE1_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE3_Curating_Service">
+	<rdfs:subClassOf rdf:resource="PE1_Service"/>
+</rdfs:Class>
+
+<!--<rdfs:Class  rdf:about="PE4_Physical_Hosting_Service">
+	<rdfs:subClassOf rdf:resource="PE2_Hosting_Service"/>
+</rdfs:Class>-->
+
+<rdfs:Class  rdf:about="PE5_Digital_Hosting_Service">
+	<rdfs:subClassOf rdf:resource="PE2_Hosting_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE6_Software_Hosting_Service">
+	<rdfs:subClassOf rdf:resource="PE5_Digital_Hosting_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE7_Data_Hosting_Service">
+	<rdfs:subClassOf rdf:resource="PE5_Digital_Hosting_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE8_E-Service">
+	<rdfs:subClassOf rdf:resource="PE1_Service"/>
+</rdfs:Class>
+
+<!--<rdfs:Class  rdf:about="PE9_Physical_Curating_Service">
+	<rdfs:subClassOf rdf:resource="PE3_Curating_Service"/>
+</rdfs:Class> -->
+
+<rdfs:Class  rdf:about="PE10_Digital_Curating_Service">
+	<rdfs:subClassOf rdf:resource="PE3_Curating_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE11_Software_Curating_Service">
+	<rdfs:subClassOf rdf:resource="PE10_Digital_Curating_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE12_Data_Curating_Service">
+	<rdfs:subClassOf rdf:resource="PE10_Digital_Curating_Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE13_Software_Computing_E-Service">
+	<rdfs:subClassOf rdf:resource="PE6_Software_Hosting_Service"/>
+	<rdfs:subClassOf rdf:resource="PE8_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE14_Software_Delivery_E-Service">
+	<rdfs:subClassOf rdf:resource="PE6_Software_Hosting_Service"/>
+	<rdfs:subClassOf rdf:resource="PE8_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE15_Data_E-Service">
+	<rdfs:subClassOf rdf:resource="PE7_Data_Hosting_Service"/>
+	<rdfs:subClassOf rdf:resource="PE8_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE16_Curated_Software_E-Service">
+	<rdfs:subClassOf rdf:resource="PE11_Software_Curating_Service"/>
+	<rdfs:subClassOf rdf:resource="PE14_Software_Delivery_E-Service"/>
+	<rdfs:subClassOf rdf:resource="PE13_Software_Computing_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE17_Curated_Data_E-Service">
+	<rdfs:subClassOf rdf:resource="PE12_Data_Curating_Service"/>
+	<rdfs:subClassOf rdf:resource="PE15_Data_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE18_Dataset">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE19_Persistent_Digital_Object">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE20_Volatile_Digital_Object">
+	<rdfs:subClassOf rdf:resource="PE32_Curated_Thing"/>
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE21_Persistent_Software">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subClassOf rdf:resource="PE19_Persistent_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE22_Persistent_Dataset">
+	<rdfs:subClassOf rdf:resource="PE18_Dataset"/>
+	<rdfs:subClassOf rdf:resource="PE19_Persistent_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE23_Volatile_Software">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subClassOf rdf:resource="PE20_Volatile_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE24_Volatile_Dataset">
+	<rdfs:subClassOf rdf:resource="PE18_Dataset"/>
+	<rdfs:subClassOf rdf:resource="PE20_Volatile_Digital_Object"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE25_RI_Consortium">
+    <rdfs:subClassOf rdf:resource="PE34_Team"/>
+</rdfs:Class>
+
+
+<rdfs:Class rdf:about="PE26_RI_Project">
+	<rdfs:subClassOf rdf:resource="PE35_Project"/>
+</rdfs:Class>
+
+<!--
+<rdfs:Class rdf:about="PE27_Service_Action">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+</rdfs:Class>
+-->
+
+<rdfs:Class rdf:about="PE28_Curation_Plan">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E29_Design_or_Procedure"/>
+</rdfs:Class>
+
+<rdfs:Class rdf:about="PE29_Access_Point">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E51_Contact_Point"/>
+</rdfs:Class>
+
+<!--
+<rdfs:Class  rdf:about="PE30_Digital_Object_Insert">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event"/>
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E79_Part_Addition"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE31_Digital_Object_Remove">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D7_Digital_Machine_Event"/>
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E80_Part_removal"/>
+</rdfs:Class>
+-->
+
+<rdfs:Class  rdf:about="PE32_Curated_Thing">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E70_Thing"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="http://www.cidoc-crm.org/cidoc-crm/E78_Curated_Holding">
+	<rdfs:subClassOf rdf:resource="PE32_Curated_Thing"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE33_E-Access_Brokering_Service">
+	<rdfs:subClassOf rdf:resource="PE8_E-Service"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE34_Team">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E74_Group"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE35_Project">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE36_Competency_Type">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE37_Protocol_Type">
+	<rdfs:subClassOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E55_Type"/>
+</rdfs:Class>
+
+<rdfs:Class  rdf:about="PE38_Schema">
+	<rdfs:subClassOf rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+</rdfs:Class>
+
+<rdf:Property rdf:about="PP1_currently_offers">
+	<rdfs:domain rdf:resource="PE26_RI_Project"/>
+	<rdfs:range rdf:resource="PE1_Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P9_consists_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP1i_is_currently_offered_by">
+	<rdfs:domain rdf:resource="PE1_Service"/>
+	<rdfs:range rdf:resource="PE26_RI_Project"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P9i_forms_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP2_provided_by">
+	<rdfs:domain rdf:resource="PE1_Service"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP2i_provides">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+	<rdfs:range rdf:resource="PE1_Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P14i_performed"/>
+</rdf:Property>
+
+<!--
+<rdf:Property rdf:about="PP3_requested_by">
+	<rdfs:domain rdf:resource="PE27_Service_Action"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P14_carried_out_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP3i_requests">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E39_Actor"/>
+	<rdfs:range rdf:resource="PE27_Service_Action"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P14i_performed"/>
+</rdf:Property>
+-->
+
+<rdf:Property rdf:about="PP4_hosts_object">
+	<rdfs:domain rdf:resource="PE2_Hosting_Service"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E70_Thing"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP4i_is_object_hosted_by">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E70_Thing"/>
+	<rdfs:range rdf:resource="PE2_Hosting_Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+
+<!--<rdf:Property rdf:about="PP5_hosts_physical_object">
+	<rdfs:domain rdf:resource="PE4_Physical_Hosting_Service"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing"/>
+	<rdfs:subPropertyOf rdf:resource="PP4_hosts_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP5i_is_physical_object_hosted_by">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E18_Physical_Thing"/>
+	<rdfs:range rdf:resource="PE4_Physical_Hosting_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP4i_is_object_hosted_by"/>
+</rdf:Property>-->
+
+<rdf:Property rdf:about="PP6_hosts_digital_object">
+	<rdfs:domain rdf:resource="PE5_Digital_Hosting_Service"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="PP4_hosts_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP6i_is_digital_object_hosted_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:range rdf:resource="PE5_Digital_Hosting_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP4i_is_object_hosted_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP7_hosts_software_object">
+	<rdfs:domain rdf:resource="PE6_Software_Hosting_Service"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP6_hosts_digital_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP7i_is_software_object_hosted_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:range rdf:resource="PE6_Software_Hosting_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP6i_is_digital_object_hosted_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP8_hosts_dataset">
+	<rdfs:domain rdf:resource="PE7_Data_Hosting_Service"/>
+	<rdfs:range rdf:resource="PE18_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP6_hosts_digital_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP8i_is_dataset_hosted_by">
+	<rdfs:domain rdf:resource="PE18_Dataset"/>
+	<rdfs:range rdf:resource="PE7_Data_Hosting_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP6i_is_digital_object_hosted_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP11_curates_volatile_digital_object">
+	<rdfs:domain rdf:resource="PE10_Digital_Curating_Service"/>
+	<rdfs:range rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="PP32_curates"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP11i_is_volatile_digital_object_curated_by">
+	<rdfs:domain rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:range rdf:resource="PE10_Digital_Curating_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP32i_is_curated_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP12_curates_volatile_software">
+	<rdfs:domain rdf:resource="PE11_Software_Curating_Service"/>
+	<rdfs:range rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP11_curates_volatile_digital_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP12i_is_volatile_software_curated_by">
+	<rdfs:domain rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:range rdf:resource="PE11_Software_Curating_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP11i_is_volatile_digital_object_curated_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP13_curates_volatile_dataset">
+	<rdfs:domain rdf:resource="PE12_Data_Curating_Service"/>
+	<rdfs:range rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP11_curates_volatile_digital_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP13i_is_volatile_dataset_curated_by">
+	<rdfs:domain rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:range rdf:resource="PE12_Data_Curating_Service"/>
+	<rdfs:subPropertyOf rdf:resource="PP11i_is_volatile_digital_object_curated_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP14_runs_on_request">
+	<rdfs:domain rdf:resource="PE13_Software_Computing_E-Service"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP14i_is_run_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:range rdf:resource="PE13_Software_Computing_E-Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP15_delivers_on_request">
+	<rdfs:domain rdf:resource="PE14_Software_Delivery_E-Service"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP15i_is_delivered_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:range rdf:resource="PE14_Software_Delivery_E-Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP16_has_persistent_digital_object_part">
+	<rdfs:domain rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:range rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP16i_is_persistent_digital_object_part_of">
+	<rdfs:domain rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:range rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106i_forms_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP17_has_snapshot">
+	<rdfs:domain rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:range rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130_shows_features_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP17i_is_snapshot_of">
+	<rdfs:domain rdf:resource="PE19_Persistent_Digital_Object"/>
+	<rdfs:range rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P130i_features_are_also_found_on"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP18_has_digital_object_part">
+	<rdfs:domain rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106_is_composed_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP18i_is_digital_object_part_of">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:range rdf:resource="PE20_Volatile_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P106i_forms_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP19_has_persistent_software_part">
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP16_has_persistent_digital_object_part"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP19i_is_persistent_software_part_of">
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP16i_is_persistent_digital_object_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP20_has_persistent_dataset_part">
+	<rdfs:domain rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:range rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP16_has_persistent_digital_object_part"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP20i_is_persistent_dataset_part_of">
+	<rdfs:domain rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:range rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP16i_is_persistent_digital_object_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP21_has_software_part">
+	<rdfs:domain rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP18_has_digital_object_part"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP21i_is_software_part_of">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:range rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP18i_is_digital_object_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP22_has_release">
+	<rdfs:domain rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:range rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP17_has_snapshot"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP22i_is_release_of">
+	<rdfs:domain rdf:resource="PE21_Persistent_Software"/>
+	<rdfs:range rdf:resource="PE23_Volatile_Software"/>
+	<rdfs:subPropertyOf rdf:resource="PP17i_is_snapshot_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP23_has_dataset_part">
+	<rdfs:domain rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:range rdf:resource="PE18_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP18_has_digital_object_part"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP23i_is_dataset_part_of">
+	<rdfs:domain rdf:resource="PE18_Dataset"/>
+	<rdfs:range rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP18i_is_digital_object_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP24_has_dataset_snapshot">
+	<rdfs:domain rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:range rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP17_has_snapshot"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP24i_is_dataset_snapshot_of">
+	<rdfs:domain rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:range rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="PP17i_is_snapshot_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP25_has_maintaining_RI">
+	<rdfs:domain rdf:resource="PE26_RI_Project"/>
+	<rdfs:range rdf:resource="PE25_RI_Consortium"/>
+	<rdfs:subPropertyOf rdf:resource="PP44_has_maintaining_team"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP25i_is_maintaining_RI_of">
+	<rdfs:domain rdf:resource="PE25_RI_Consortium"/>
+	<rdfs:range rdf:resource="PE26_RI_Project"/>
+	<rdfs:subPropertyOf rdf:resource="PP44i_is_maintaining_team_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP28_has_designated_access_point">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="PE29_Access_Point"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P1_is_identified_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP28i_is_designated_access_point_of">
+	<rdfs:domain rdf:resource="PE29_Access_Point"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P1i_identifies"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP29_uses_access_protocol">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP29i_is_access_protocol_used_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D14_Software"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP31_uses_curation_plan">
+	<rdfs:domain rdf:resource="PE3_Curating_Service"/>
+	<rdfs:range rdf:resource="PE28_Curation_Plan"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33_used_specific_technique"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP31i_is_curation_plan_used_by">
+	<rdfs:domain rdf:resource="PE28_Curation_Plan"/>
+	<rdfs:range rdf:resource="PE3_Curating_Service"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P33i_was_used_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP32_curates">
+	<rdfs:domain rdf:resource="PE3_Curating_Service"/>
+	<rdfs:range rdf:resource="PE32_Curated_Thing"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP32i_is_curated_by">
+	<rdfs:domain rdf:resource="PE32_Curated_Thing"/>
+	<rdfs:range rdf:resource="PE3_Curating_Service"/>
+</rdf:Property>
+
+<!-- the next two declarations affect the CIDOC CRM P147 curated (was curated by) 
+which is declared as subproperty of PP32 curates (is curated by) -->
+<rdf:Property rdf:about="http://www.cidoc-crm.org/cidoc-crm/P147_curated"> 
+	<rdfs:subPropertyOf rdf:resource="PP32_curates"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="http://www.cidoc-crm.org/cidoc-crm/P147i_was_curated_by">
+	<rdfs:subPropertyOf rdf:resource="PP32i_is_curated_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP39_is_metadata_for">
+	<rdfs:domain rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P129_is_about"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP39i_has_metadata">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:range rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P129i_is_subject_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP40_created_successor_of">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E65_Creation"/>
+	<rdfs:range rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP40i_is_deprecated_by">
+	<rdfs:domain rdf:resource="PE22_Persistent_Dataset"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E65_Creation"/>
+	<rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP41_is_index_of">
+	<rdfs:domain rdf:resource="PE24_Volatile_Dataset"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP41i_is_indexed_by">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:range rdf:resource="PE24_Volatile_Dataset"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP42_has_declarative_time">
+	<rdfs:domain rdf:resource="PE1_Service"/>
+	<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</rdf:Property>
+    
+<rdf:Property rdf:about="PP43_supported_project_activity">
+	<rdfs:domain rdf:resource="PE35_Project"/>
+	<rdfs:range rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P9_consists_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP43i_is_project_activity_supported_by">
+	<rdfs:domain rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E7_Activity"/>
+	<rdfs:range rdf:resource="PE35_Project"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P9i_forms_part_of"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP44_has_maintaining_team">
+	<rdfs:domain rdf:resource="PE35_Project"/>
+	<rdfs:range rdf:resource="PE34_Team"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P17_was_motivated_by"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP44i_is_maintaining_team_of">
+	<rdfs:domain rdf:resource="PE34_Team"/>
+	<rdfs:range rdf:resource="PE35_Project"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P17i_motivated"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP45_has_competency">
+	<rdfs:domain rdf:resource="PE1_Service"/>
+	<rdfs:range rdf:resource="PE36_Competency_Type"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P21_had_general_purpose"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP45i_is_competency_of">
+	<rdfs:domain rdf:resource="PE36_Competency_Type"/>
+	<rdfs:range rdf:resource="PE1_Service"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P21i_was_purpose_of"/>
+</rdf:Property>
+    
+<rdf:Property rdf:about="PP46_brokers_access_to">
+	<rdfs:domain rdf:resource="PE33_E-Access_Brokering_Service"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP46i_has_access_brokered_by">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="PE33_E-Access_Brokering_Service"/>
+</rdf:Property>  
+    
+<rdf:Property rdf:about="PP47_has_protocol_type">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="PE37_Protocol_Type"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P125_used_object_of_type"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP47i_is_protocol_type_of">
+	<rdfs:domain rdf:resource="PE37_Protocol_Type"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P125i_was_type_of_object_used_in"/>
+</rdf:Property>
+    
+<rdf:Property rdf:about="PP48_uses_protocol_parameter">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="PE38_Schema"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16_used_specific_object"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP48i_is_protocol_parameter_of">
+	<rdfs:domain rdf:resource="PE38_Schema"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+    <rdfs:subPropertyOf rdf:resource="http://www.cidoc-crm.org/cidoc-crm/P16i_was_used_for"/>
+</rdf:Property>
+    
+<rdf:Property rdf:about="PP49_provides_access_point">
+	<rdfs:domain rdf:resource="PE8_E-Service"/>
+	<rdfs:range rdf:resource="PE29_Access_Point"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP49i_is_access_point_provided_by">
+	<rdfs:domain rdf:resource="PE29_Access_Point"/>
+	<rdfs:range rdf:resource="PE8_E-Service"/>
+</rdf:Property>
+    
+<rdf:Property rdf:about="PP50_accessible_at">
+	<rdfs:domain rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+	<rdfs:range rdf:resource="PE29_Access_Point"/>
+</rdf:Property>
+
+<rdf:Property rdf:about="PP50i_provides_access_to">
+	<rdfs:domain rdf:resource="PE29_Access_Point"/>
+	<rdfs:range rdf:resource="http://www.ics.forth.gr/isl/CRMdig/D1_Digital_Object"/>
+</rdf:Property>
+    
+</rdf:RDF>
