@@ -172,14 +172,14 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:title</relation>
+                        <relation>cmdp:alternative</relation>
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P1_is_identified_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:title</source_node>
+                    <source_node>cmdp:alternative</source_node>
                     <target_node>
                         <entity>
                             <type>crm:E35_Title</type>

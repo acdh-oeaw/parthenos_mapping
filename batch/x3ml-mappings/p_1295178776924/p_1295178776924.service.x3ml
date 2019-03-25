@@ -74,11 +74,10 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
-                        <entity variable="data1">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetVerMergeURI">
-<arg name="term" type="constant">volatile</arg>
-<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                        <entity variable="service1">
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crmpe:PP8i_is_dataset_hosted_by</relationship>
@@ -105,11 +104,10 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
-                        <entity variable="data1">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetVerMergeURI">
-<arg name="term" type="constant">volatile</arg>
-<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                        <entity variable="service1">
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crmpe:PP50_accessible_at</relationship>
@@ -139,7 +137,7 @@
                 <range>
                     <source_node>cmd:Components/cmdp:serviceDescription</source_node>
                     <target_node>
-                        <entity variable="data1">
+                        <entity variable="service1">
                             <type>crmpe:PE8_E-Service</type>
                             <instance_generator name="ServiceURI">
 <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
@@ -156,7 +154,7 @@
             <domain>
                 <source_node>/cmd:CMD/cmd:Components/cmdp:serviceDescription</source_node>
                 <target_node>
-                    <entity variable="data1">
+                    <entity variable="service1">
                         <type>crmpe:PE8_E-Service</type>
                         <instance_generator name="ServiceURI">
                             <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
@@ -167,6 +165,93 @@
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:serviceDescriptionText</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:serviceDescriptionText</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:contacts/cmdp:contact/cmdp:description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:contacts/cmdp:contact/cmdp:description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:operations/cmdp:serviceOperation/cmdp:operationDescriptionText</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:operations/cmdp:serviceOperation/cmdp:operationDescriptionText</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE24_Volatile_Dataset</type>
+                            <instance_generator name="DatasetURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
             <link>
                 <path>
                     <source_relation>

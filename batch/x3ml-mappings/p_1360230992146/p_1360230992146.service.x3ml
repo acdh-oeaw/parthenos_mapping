@@ -74,11 +74,10 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
-                        <entity variable="data1">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetVerMergeURI">
-<arg name="term" type="constant">volatile</arg>
-<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                        <entity variable="service1">
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crmpe:PP8i_is_dataset_hosted_by</relationship>
@@ -105,11 +104,10 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crmpe:PP39_is_metadata_for</relationship>
-                        <entity variable="data1">
-                            <type>crmpe:PE24_Volatile_Dataset</type>
-                            <instance_generator name="DatasetVerMergeURI">
-<arg name="term" type="constant">volatile</arg>
-<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+                        <entity variable="service1">
+                            <type>crmpe:PE8_E-Service</type>
+                            <instance_generator name="ServiceURI">
+<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
                             </instance_generator>
                         </entity>
                         <relationship>crmpe:PP50_accessible_at</relationship>
@@ -139,7 +137,7 @@
                 <range>
                     <source_node>cmd:Components/cmdp:ToolService</source_node>
                     <target_node>
-                        <entity variable="data1">
+                        <entity variable="service1">
                             <type>crmpe:PE8_E-Service</type>
                             <instance_generator name="ServiceURI">
 <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
@@ -156,7 +154,7 @@
             <domain>
                 <source_node>/cmd:CMD/cmd:Components/cmdp:ToolService</source_node>
                 <target_node>
-                    <entity variable="data1">
+                    <entity variable="service1">
                         <type>crmpe:PE8_E-Service</type>
                         <instance_generator name="ServiceURI">
                             <arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
@@ -167,6 +165,311 @@
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Title</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:Title</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E35_Title</type>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Name</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:Name</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="DatasetAppellationURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:Owner</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P105_right_held_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:Owner</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E40_Legal_Body</type>
+                            <instance_generator name="ActorURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:DANS-DC-metadata/cmdp:Description</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:DANS-DC-metadata/cmdp:Description</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:GeneralInfo/cmdp:PublicationYear</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P94i_was_created_by</relationship>
+                        <entity variable="create1">
+                            <type>crm:E65_Creation</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Creation Event of</arg>
+<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                            </label_generator>
+                        </entity>
+                        <relationship>crm:P4_has_time-span</relationship>
+                        <entity>
+                            <type>crm:E52_Time-Span</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Time Span of Creation Event for</arg>
+<arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                            </label_generator>
+                        </entity>
+                        <relationship>crm:P82_at_some_time_within</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:GeneralInfo/cmdp:PublicationYear</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:DANS-DC-metadata/cmdp:AccessRights</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P129i_is_subject_of</relationship>
+                        <entity>
+                            <type>crm:E30_Right</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="CompositeLabel">
+<arg name="label" type="constant">Access Right for</arg>
+<arg name="text" type="xpath">../../cmdp:GeneralInfo/cmdp:Title/text()</arg>
+                            </label_generator>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>Access Rights</constant>
+    </instance_info>
+    <instance_generator name="ConceptURI_2step">
+        <arg name="term" type="constant">righttype</arg>
+        <arg name="term1" type="constant">accessright</arg>
+    </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">Access Right</arg>
+    </label_generator>
+</entity>
+                            </additional>
+                        </entity>
+                        <relationship>crm:P3_has_note</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:DANS-DC-metadata/cmdp:AccessRights</source_node>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+<arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:tags/cmdp:tag</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P2_has_type</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:tags/cmdp:tag</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_generator name="UUID"/>
+                            <additional>
+<relationship>crm:P2_has_type</relationship>
+<entity>
+    <type>crm:E55_Type</type>
+    <instance_info>
+        <constant>CLARIN VLO Keywords</constant>
+    </instance_info>
+    <instance_generator name="ConceptURI"/>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:DANS-DC-metadata/cmdp:Subject</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P129_is_about</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:DANS-DC-metadata/cmdp:Subject</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_generator name="ConceptURI_2step">
+<arg name="term" type="constant">subject</arg>
+<arg name="term1" type="xpath">text()</arg>
+                            </instance_generator>
+                            <additional>
+<relationship>crm:P71i_is_listed_in</relationship>
+<entity>
+    <type>crm:E32_Authority_Document</type>
+    <instance_info>
+        <constant>CLARIN VLO Subject</constant>
+    </instance_info>
+    <instance_generator name="DatasetURI">
+        <arg name="term" type="constant">ClarinVLOSubject</arg>
+    </instance_generator>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:applicationType</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P2_has_type</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:applicationType</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E55_Type</type>
+                            <instance_generator name="ConceptURI_2step">
+<arg name="term" type="constant">datasettype</arg>
+<arg name="term1" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+<relationship>crm:P71i_is_listed_in</relationship>
+<entity>
+    <type>crm:E32_Authority_Document</type>
+    <instance_info>
+        <constant>CLARIN VLO resourceType</constant>
+    </instance_info>
+    <instance_generator name="ConceptURI">
+        <arg name="term" type="constant">clarinvloresourcetype</arg>
+    </instance_generator>
+    <label_generator name="SimpleLabel">
+        <arg name="label" type="constant">CLARIN VLO resourceType</arg>
+    </label_generator>
+</entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crmpe:PP23i_is_dataset_part_of</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crmpe:PE24_Volatile_Dataset</type>
+                            <instance_generator name="DatasetURI">
+<arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+<arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
             <link>
                 <path>
                     <source_relation>
