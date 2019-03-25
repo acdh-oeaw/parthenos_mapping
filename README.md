@@ -64,7 +64,7 @@ To print help:
 
 Java 9:
 
-	--add-modules java.xml.bind java -jar x3ml-gen.jar -profile <arg> -mappingXml <arg> -conditions <arg> <arg> ...
+	java -jar --add-modules java.xml.bind  x3ml-gen.jar -profile <arg> -mappingXml <arg> -conditions <arg> <arg> ...
 
 
 ### Parameters
