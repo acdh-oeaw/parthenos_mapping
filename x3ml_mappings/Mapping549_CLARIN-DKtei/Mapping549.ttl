@@ -1,0 +1,118 @@
+@prefix reg:   <http://parthenos.d4science.org/handle/Parthenos/REG/> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix parthenos: <http://parthenos.d4science.org/handle/Clarin/VLO/> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix cmdp:  <http://www.clarin.eu/cmd/1/profiles/clarin.eu:cr1:p_1380106710826> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix cmd:   <http://www.clarin.eu/cmd/1> .
+@prefix crmpe: <http://parthenos.d4science.org/CRMext/CRMpe.rdfs/> .
+@prefix frbr:  <http://iflastandards.info/ns/fr/frbr/frbroo/> .
+@prefix crmdig: <http://www.ics.forth.gr/isl/CRMext/CRMdig.rdfs/> .
+@prefix crm:   <http://www.cidoc-crm.org/cidoc-crm/> .
+
+<uuid:AC>  a        crmpe:PE15_Data_E-Service ;
+        rdfs:label  "Online Hosting for Annotation: Udskrift af Multimediebeskatning, csttaggerXML" ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-421C-70C9-5> .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/Appellation/8F5B3C60-4EBD-3357-999D-DD2788F8A114>
+        a           crm:E35_Title ;
+        rdfs:label  "iexist" .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/Appellation/6A077284-C475-3910-B941-DA17EA8215B9>
+        a           crm:E35_Title ;
+        rdfs:label  "Udskrift af Multimediebeskatning" .
+
+<uuid:AB>  a        crmpe:PE15_Data_E-Service ;
+        rdfs:label  "Online Hosting for Annotation: Udskrift af Multimediebeskatning, csttaggerXML" ;
+        crmpe:PP49_provides_access_point
+                <hdl:11221/90D1-421C-7100-E-B> .
+
+<hdl:11221/90D1-421C-70C9-5>
+        a                crmpe:PE29_Access_Point ;
+        crm:P2_has_type  <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/contactpointtype/BE8545AE-7AB0-376E-9589-8AAE7ACFBD7A> .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/contactpointtype/815C2753-7BEC-3B60-850A-2AE4D2CE875D>
+        a           crm:E55_Type ;
+        rdfs:label  "LandingPage" .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/09FD5D51-EFDC-341E-AABD-09B4981F4DC9>
+        a           crmpe:PE24_Volatile_Dataset ;
+        rdfs:label  "CLARIN-DK-UCPH Repository" .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/languagetype/5CA2AA84-5C8C-35AC-A6B0-16841F100D82>
+        a           crm:E56_Language ;
+        rdfs:label  "da" .
+
+<uuid:AA>  a                  crmdig:D7_Digital_Machine_Event ;
+        rdfs:label            "Creation of CMDI record hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crm:P3_has_note       "Created by: CLARIN-DK-UCPH" ;
+        crm:P4_has_time_span  <uuid:AF> ;
+        crmdig:L23_used_software_or_firmware
+                <http://parthenos.d4science.org/handle/Clarin/VLO/Software/4924BCD6-D683-35EA-A163-B03EE6BF0519> .
+
+<hdl:11221/90D1-421C-7100-E-B>
+        a                crmpe:PE29_Access_Point ;
+        crm:P2_has_type  <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/contactpointtype/815C2753-7BEC-3B60-850A-2AE4D2CE875D> .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/datasettype/9CE1CDD8-B561-31B3-B861-0FB58369B429>
+        a                      crm:E55_Type ;
+        rdfs:label             "textAnnotation" ;
+        crm:P71i_is_listed_in  <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/F41E1F66-1F7F-3CFD-95AF-5D95BD50A393> .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/3798BC6C-6C81-3463-9077-5F7E2DE592F4>
+        a                               crm:E33_Linguistic_Object , crmpe:PE24_Volatile_Dataset ;
+        rdfs:label                      "Annotation: Udskrift af Multimediebeskatning, csttaggerXML" ;
+        crmpe:PP23i_is_dataset_part_of  <http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/09FD5D51-EFDC-341E-AABD-09B4981F4DC9> ;
+        crmpe:PP32i_was_curated_by      <http://parthenos.d4science.org/handle/Clarin/VLO/Service/ACFDD553-EE05-3132-8946-D459B5E2DB05> ;
+        crmpe:PP50_accessible_at        <hdl:11221/90D1-421C-7100-E-B> , <hdl:11221/90D1-421C-70C9-5> ;
+        crmpe:PP8i_is_dataset_hosted_by
+                <uuid:AC> , <uuid:AB> ;
+        crm:P12i_was_present_at         <uuid:AD> ;
+        crm:P1_is_identified_by         <http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/Appellation/8F5B3C60-4EBD-3357-999D-DD2788F8A114> , <http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/Appellation/6A077284-C475-3910-B941-DA17EA8215B9> ;
+        crm:P2_has_type                 <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/datasettype/9CE1CDD8-B561-31B3-B861-0FB58369B429> ;
+        crm:P3_has_note                 "CSTtags" , "csttaggerXML" ;
+        crm:P72_has_language            <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/languagetype/5CA2AA84-5C8C-35AC-A6B0-16841F100D82> .
+
+<uuid:AF>  a                         crm:E52_Time-Span ;
+        rdfs:label                   "Time span for the Creation of hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crm:P82_at_some_time_within  "2014-11-04" .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/C880C107-C228-3B03-B867-145A9CCDE7D6>
+        a                           crmpe:PE22_Persistent_Dataset ;
+        rdfs:label                  "hdl:11221/90D1-421C-7100-E-B@md=cmdi" ;
+        crmpe:PP39_is_metadata_for  <http://parthenos.d4science.org/handle/Clarin/VLO/Dataset/3798BC6C-6C81-3463-9077-5F7E2DE592F4> ;
+        crm:P2_has_type             <http://parthenos.d4science.org/handle/Parthenos/REG/Concept/datasettype/9F81F3C0-7476-30D9-BF67-93673DD8E475> ;
+        crmdig:L11i_was_output_of   <uuid:AA> .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/datasettype/9F81F3C0-7476-30D9-BF67-93673DD8E475>
+        a           crm:E55_Type ;
+        rdfs:label  "metadata" .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/contactpointtype/BE8545AE-7AB0-376E-9589-8AAE7ACFBD7A>
+        a           crm:E55_Type ;
+        rdfs:label  "Resource" .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Service/ACFDD553-EE05-3132-8946-D459B5E2DB05>
+        a                    crmpe:PE12_Data_curating_Service ;
+        rdfs:label           "Pos-tagging" ;
+        crm:PP2_provided_by  <http://parthenos.d4science.org/handle/Clarin/VLO/Actor/ACFDD553-EE05-3132-8946-D459B5E2DB05> .
+
+<uuid:AE>  a    crm:E21_Person .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Software/4924BCD6-D683-35EA-A163-B03EE6BF0519>
+        a           crmpe:PE21_Persistent_Software ;
+        rdfs:label  "clarin.eu:cr1:p_1380106710826" .
+
+<http://parthenos.d4science.org/handle/Parthenos/REG/Concept/F41E1F66-1F7F-3CFD-95AF-5D95BD50A393>
+        a           crm:E32_Authority_Document ;
+        rdfs:label  "CLARIN VLO resourceType" .
+
+<http://parthenos.d4science.org/handle/Clarin/VLO/Actor/ACFDD553-EE05-3132-8946-D459B5E2DB05>
+        a           crm:E39_Actor ;
+        rdfs:label  "Pos-tagging" .
+
+<uuid:AD>  a    frbr:F30_Publication_Event .
+
+
