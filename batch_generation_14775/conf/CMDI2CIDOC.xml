@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE doc [
+	
+<!ENTITY objectProperties SYSTEM "object.xml">
+<!ENTITY datasetProperties SYSTEM "dataset.xml">
+<!ENTITY serviceProperties SYSTEM "service.xml">
+	
+]>
+<!--This mapping file defines the main mapping rules between CMDI model and CIDOC-PE model.
+Aims to define the general part of the mapping in common with each CLARIN profile. Author Matteo Lorenzini-->
+<mappings>
+	<!-- Header -->
+	<entity xpath="/cmd:CMD" type="crmpe:PE22_Persistent_Dataset" hasType="metadata|datasettype|metadata" hasLabel="Constant(text)|metadata">
+		<instance-generator name="DatasetURI">
+			<arg name="term" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">cmd:Header/cmd:MdSelfLink/text()</arg>
+		</label-generator>
+		<link>
+			<entity relationship="crmdig:L11i_was_output_of" type="crmdig:D7_Digital_Machine_Event">
+				<label-generator name="CompositeLabel">
+					<arg name="label" type="constant">Creation of CMDI record</arg>
+					<arg name="text" type="xpath">cmd:MdSelfLink/text()</arg>
+				</label-generator>
+			</entity>
+			<pattern>cmd:Header</pattern>
+		</link>
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1">
+				<instance-generator name="DatasetVerMergeURI">
+					<arg name="term" type="constant">volatile</arg>
+					<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+				</instance-generator>
+			</entity>
+			<entity relationship="crmpe:PP8i_is_dataset_hosted_by" type="crmpe:PE15_Data_E-Service">
+				<label-generator name="CompositeLabel">
+					<arg name="label" type="constant">Online Hosting for</arg>
+					<arg name="text" type="xpath">
+						
+  
+  <!-- vlo:name -->
+  <concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
+  <concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
+  <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+  <concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>
+ 
+  <!-- CLARIN-D Webservices name --> 
+  <concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
+  <concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
+  <concept>http://purl.org/dc/terms/title</concept>
+  <concept>http://purl.org/dc/elements/1.1/title</concept>
+  <pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl/text()</pattern>
+  
+ <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+ <pattern>cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern> 
+  
+  
+  <!-- BBAW teiHeader -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:Label/text()</pattern>
+  <!-- IDS IDSAGD_Event -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Speaker/cmdp:Label/text()</pattern>
+  <!-- IDS IDSAGD_Speaker -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications/cmdp:Publication</pattern>
+  <!--  IMS TextCorpusProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications/cmdp:Publication</blacklistPattern>
+  <!-- IMS ToolProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+  <!-- IMS c:LexicalResourceProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+  <!-- IMS c:MultimodalCorpus -->
+  <blacklistPattern>cmdp:titleStmt</blacklistPattern>
+  </arg>
+				</label-generator>
+			</entity>
+			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy</pattern>
+		</link>
+		<link>
+			<entity relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1">
+				<instance-generator name="DatasetVerMergeURI">
+					<arg name="term" type="constant">volatile</arg>
+					<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+				</instance-generator>
+			</entity>
+			<entity relationship="crmpe:PP50_accessible_at" type="crmpe:PE29_Access_Point">
+				<instance-generator name="URIorUUID">
+					<arg name="text" type="xpath">text()</arg>
+				</instance-generator>
+			</entity>
+			<pattern>cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef</pattern>
+		</link>
+		<link>
+			<!-- Only one of these entities will be mapped -->
+			<!-- Dataset condition="dataset" -->
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crmpe:PP39_is_metadata_for" type="crmpe:PE24_Volatile_Dataset" var="data1" condition="dataset">
+				 &objectProperties; 				 &datasetProperties;
+		
+				<instance-generator name="DatasetVerMergeURI">
+					<arg name="term" type="constant">volatile</arg>
+					<arg name="term1" type="xpath">//cmd:MdSelfLink/text()</arg>
+				</instance-generator>
+
+				<label-generator name="SimpleLabel">
+					<arg name="label" type="xpath">
+					
+  
+  <!-- vlo:name -->
+  <concept name="title statement">http://hdl.handle.net/11459/CCR_C-5428_65670fd6-3426-68ac-8f29-faef6ffd02ce</concept>
+  <concept name="Original">http://hdl.handle.net/11459/CCR_C-5127_f2721b23-921c-46ba-8d4d-88b46aef6976</concept>
+  <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+  <concept name="web service name">http://hdl.handle.net/11459/CCR_C-4160_192be757-0d8f-f4fe-b10b-d3d50de92482</concept>
+ 
+
+
+  <!-- CLARIN-D Webservices name --> 
+  <concept name="book title">http://hdl.handle.net/11459/CCR_C-4114_747bf046-1208-940d-36ba-297e4de49e0c</concept>
+  <concept name="title of work">http://hdl.handle.net/11459/CCR_C-6119_ea4226b5-8d55-e71e-730f-2a02e3adbeb4</concept>
+  <concept>http://purl.org/dc/terms/title</concept>
+  <concept>http://purl.org/dc/elements/1.1/title</concept>
+  <pattern>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc/cmdp:bibl/text()</pattern>
+  
+ <concept name="resource title">http://hdl.handle.net/11459/CCR_C-2545_d873f2ab-2a2f-29d6-a9ab-260cde57f227</concept>
+ <pattern>cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Collection/cmdp:GeneralInfo/cmdp:Title/text()</pattern> 
+  
+  
+  <!-- BBAW teiHeader -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Event/cmdp:Label/text()</pattern>
+  <!-- IDS IDSAGD_Event -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:IDSAGD_Speaker/cmdp:Label/text()</pattern>
+  <!-- IDS IDSAGD_Speaker -->
+  <pattern>/cmd:CMD/cmd:Components/cmdp:TextCorpusProfile/cmdp:Publications/cmdp:Publication</pattern>
+  <!--  IMS TextCorpusProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:ToolProfile/cmdp:Publications/cmdp:Publication</blacklistPattern>
+  <!-- IMS ToolProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:LexicalResourceProfile/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+  <!-- IMS c:LexicalResourceProfile -->
+  <blacklistPattern>/cmd:CMD/cmd:Components/cmdp:MultimodalCorpus/cmdp:Publications/cmdp:Publication/cmdp:PublicationTitle/</blacklistPattern>
+  <!-- IMS c:MultimodalCorpus -->
+  <blacklistPattern>cmdp:titleStmt</blacklistPattern>
+					</arg>					
+				</label-generator>
+
+			</entity>
+			<!-- Service -->
+			<entity xpath="/cmd:CMD/cmd:Components/?profileRoot" relationship="crm:P129_is_about" type="crmpe:PE8_E-Service" entiVar="mainEntity" condition="service">
+				&serviceProperties;
+
+				<instance-generator name="ServiceURI">
+					<arg name="term" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+				</instance-generator>
+				<label-generator name="SimpleLabel">
+					<arg name="label" type="xpath">/cmd:CMD/cmd:Resources/cmd:ResourceProxyList/cmd:ResourceProxy/cmd:ResourceRef/text()</arg>
+				</label-generator>
+
+			</entity>
+			<!-- Software -->
+			<pattern>cmd:Components/?profileRoot</pattern>
+		</link>
+	</entity>
+
+	<entity xpath="/cmd:CMD/cmd:Header" type="crmdig:D7_Digital_Machine_Event">
+		<link>
+			<entity relationship="crm:P4_has_time-span" type="crm:E52_Time-Span">
+				<label-generator name="CompositeLabel">
+					<arg name="label" type="constant">Time span for the Creation of</arg>
+					<arg name="text" type="xpath">../cmd:MdSelfLink/text()</arg>
+				</label-generator>
+			</entity>
+			<entity relationship="crm:P82_at_some_time_within" type="rdf-schema#Literal">
+				<instance-generator name="SimpleLabel">
+					<arg name="label" type="xpath">text()</arg>
+				</instance-generator>
+			</entity>
+			<pattern>cmd:MdCreationDate</pattern>
+		</link>
+		<link>
+			<entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE21_Persistent_Software" hasType="cmdi-profile|softwaretype|cmdiprofile">
+				<instance-generator name="SoftwareURI">
+					<arg name="term" type="xpath">text()</arg>
+				</instance-generator>
+				<label-generator name="SimpleLabel">
+					<arg name="label" type="xpath">text()</arg>
+				</label-generator>
+			</entity>
+			<pattern>cmd:MdProfile</pattern>
+		</link>
+		<link>
+			<!--<entity relationship="crmdig:L23_used_software_or_firmware" type="crmpe:PE38_Schema" hasType="cmdi-profile|softwaretype|cmdiprofile" hasLabel="Constant(text)|cmdi-profile"> -->
+			<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+				<instance-generator name="Literal">
+					<arg name="text" type="xpath">concat("Created by: ", text())</arg>
+				</instance-generator>
+			</entity>
+			<pattern>cmd:MdCreator</pattern>
+		</link>
+	</entity>
+</mappings>

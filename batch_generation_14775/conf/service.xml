@@ -1,0 +1,88 @@
+<!--Author Matteo Lorenzini-->
+<link>
+	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
+		<instance-generator name="serviceAppellationURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+	</entity>
+	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:title</pattern>
+</link>
+
+
+
+<link>
+	<entity relationship="crm:P3_has_note" type="http://www.w3.org/2000/01/rdf-schema#Literal">
+		<instance-generator name="Literal">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+	</entity>
+	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:description</pattern>
+</link>
+<link>
+	<entity relationship="crm:P1_is_identified_by" type="crm:E35_Title">
+		<instance-generator name="ProjectAppellationURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+	</entity>
+	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:alternative</pattern>
+</link>
+<link>
+	<entity relationship="crm:P9i_forms_part_of" type="crmpe:PE1_Service">
+		<instance-generator name="ServiceAppellationURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+	</entity>
+	<pattern>/cmd:CMD/cmd:Header/cmd:MdCollectionDisplayName</pattern>
+</link>
+<link>
+	<entity relationship="crmpe:PP28_has_designated_access_point" type="crmpe:PE29_Access_Point" >
+		<instance-generator name="URIorUUID">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+	</entity>
+	<pattern>cmd:ResourceRef</pattern>
+</link>
+
+<link>
+	<entity relationship="crmpe:PP2_provided_by" type="crm:E39_Actor">
+
+		<instance-generator name="ActorURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+
+	</entity>
+	<entity relationship="crm:P1_is_identified_by" type="crm:E41_Appellation">
+		<instance-generator name="ActorAppellationURI">
+			<arg name="term" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+
+	</entity>
+	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:publisher</pattern>
+</link>
+
+<link>
+	<entity relationship="crmpe:PP45_has_competency" type="crmpe:PE36_Competency_Type">
+		<instance-generator name="ConceptURI">
+			<arg name="text" type="xpath">text()</arg>
+		</instance-generator>
+		<label-generator name="SimpleLabel">
+			<arg name="label" type="xpath">text()</arg>
+		</label-generator>
+	</entity>
+	<pattern>/cmd:CMD/cmd:Components/cmdp:OLAC-DcmiTerms/cmdp:subject</pattern>
+</link>
