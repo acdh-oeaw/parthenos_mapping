@@ -1,0 +1,123 @@
+<generator_policy>
+  <!-- The prefix is a namespace that must be declared in the X3ML definition.
+        In PARTHENOS it was decided that it is constructed by the namespace of PARTHENOS followed by the provider 
+        and the database that is being mapped
+        e.g. prefix="parthenos" and in the x3ml define <namespace prefix="parthenos" uri="http://parthenos-project.eu/FORTH/myDB/"/> -->
+  <generator name="ProjectURI" prefix="parthenos">
+    <pattern>Project/{term}</pattern>
+  </generator>
+  <generator name="ServiceURI" prefix="parthenos">
+    <pattern>Service/{term}</pattern>
+  </generator>
+  <generator name="DatasetURI" prefix="parthenos">
+    <pattern>Dataset/{term}</pattern>
+  </generator>
+  <generator name="DatasetVerMergeURI" prefix="parthenos">
+    <pattern>Dataset/{term}_{term1}</pattern>
+  </generator>
+  <generator name="SoftwareURI" prefix="parthenos">
+    <pattern>Software/{term}</pattern>
+  </generator>
+  <generator name="ActorURI" prefix="parthenos">
+    <pattern>Actor/{term}</pattern>
+  </generator>
+  <generator name="ActorTwoNameMergeURI" prefix="parthenos">
+    <pattern>Actor/{firstName}_{LastName}</pattern>
+  </generator>
+  <generator name="ConceptURI" prefix="reg">
+    <pattern>Concept/{term}</pattern>
+  </generator>
+  <generator name="ConceptURI_2step" prefix="reg">
+    <pattern>Concept/{term}/{term1}</pattern>
+  </generator>
+  <generator name="PlaceURI" prefix="parthenos">
+    <pattern>Place/{term}</pattern>
+  </generator>
+  <generator name="ProjectAppellationURI" prefix="parthenos">
+    <pattern>Project/Appellation/{term}</pattern>
+  </generator>
+  <generator name="ServiceAppellationURI" prefix="parthenos">
+    <pattern>Service/Appellation/{term}</pattern>
+  </generator>
+  <generator name="DatasetAppellationURI" prefix="parthenos">
+    <pattern>Dataset/Appellation/{term}</pattern>
+  </generator>
+  <generator name="DatasetAppvermergeURI" prefix="parthenos">
+    <pattern>Dataset/Appellation/{term}_{term1}</pattern>
+  </generator>
+  <generator name="SoftwareAppellationURI" prefix="parthenos">
+    <pattern>Software/Appellation/{term}</pattern>
+  </generator>
+  <generator name="ActorAppellationURI" prefix="parthenos">
+    <pattern>Actor/Appellation/{term}</pattern>
+  </generator>
+  <generator name="ConceptAppellationURI" prefix="parthenos">
+    <pattern>Concept/Appellation/{term}</pattern>
+  </generator>
+  <generator name="ThingAppellationURI" prefix="parthenos">
+    <pattern>Thing/Appellation/{term}</pattern>
+  </generator>
+  <generator name="EventAppellationURI" prefix="parthenos">
+    <pattern>Event/Appellation/{term}</pattern>
+  </generator>
+  <generator name="PlaceAppellationURI" prefix="parthenos">
+    <pattern>Place/Appellation/{term}</pattern>
+  </generator>
+  <generator name="PlaceAppellationAddressURI" prefix="parthenos">
+    <pattern>
+    Place/Appellation/{mainaddress}-{postcode}-{country}</pattern>
+  </generator>
+  <generator name="PlaceAppLatLong" prefix="parthenos">
+    <pattern>Place/Appellation/{lat}-{long}</pattern>
+  </generator>
+  <generator name="ThingURI" prefix="parthenos">
+    <pattern>Thing/{term}</pattern>
+  </generator>
+  <generator name="DimensionURI" prefix="parthenos">
+    <pattern>Dimension/{term}</pattern>
+  </generator>
+  <generator name="RemoveTerm" prefix="parthenos">
+    <custom generatorClass="gr.forth.RemoveTerm">
+      <set-arg name="termToRemove" type="constant"></set-arg>
+      <set-arg name="text"></set-arg>
+    </custom>
+  </generator>
+  <generator name="OneLevelCustomURI" prefix="parthenos">
+    <pattern>{level1}/{term}</pattern>
+  </generator>
+  <generator name="TwoLevelCustomURI" prefix="parthenos">
+    <pattern>{level1}/{level2}/{term}</pattern>
+  </generator>
+  <generator name="OneLevelCustomURIwCount" prefix="parthenos">
+    <pattern>{level1}/{count}/{term}</pattern>
+  </generator>
+  <generator name="TwoLevelCustomURIwCount" prefix="parthenos">
+    <pattern>{level1}/{level2}/{count}/{term}</pattern>
+  </generator>
+  <generator name="SimpleLabel">
+    <pattern>{label}</pattern>
+  </generator>
+  <generator name="CompositeLabel">
+    <pattern>{label} {text}</pattern>
+  </generator>
+  <generator name="CompositeVerLabel">
+    <pattern>{label} Ver {text}</pattern>
+  </generator>
+  <generator name="LatLong">
+    <pattern>({lat} {long})</pattern>
+  </generator>
+  <generator name="AddressLabel">
+    <pattern>{term},{term2},{term3},{term4}</pattern>
+  </generator>
+  <generator name="GermanDateTime">
+    <custom generatorClass="gr.forth.GermanDate">
+      <set-arg name="bound" type="constant"></set-arg>
+      <set-arg name="text"></set-arg>
+    </custom>
+  </generator>
+  <generator name="URIorUUID">
+    <custom generatorClass="gr.forth.URIorUUID">
+      <set-arg name="text"></set-arg>
+    </custom>
+  </generator>
+</generator_policy>
