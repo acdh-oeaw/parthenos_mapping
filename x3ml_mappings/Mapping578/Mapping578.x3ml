@@ -54,7 +54,7 @@
             <example_data_contact_person>Matteo Lorenzini</example_data_contact_person>
             <example_data_source_record xml_link="clarin-test___24-09-2019071431___10159.xml"/>
             <generator_policy_info generator_link="PARTHENOS-GeneratorPolicy_v1.2___10-08-2017153548___8596.xml"/>
-            <example_data_target_record/>
+            <example_data_target_record rdf_link="Mapping578.ttl"/>
             <thesaurus_info/>
         </example_data_info>
     </info>
@@ -299,12 +299,12 @@
                     </source_relation>
                     <target_relation>
                         <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
+                        <entity>
                             <type>crm:E65_Creation</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
                                 <arg name="label" type="constant">Creation Event of</arg>
-                                <arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                                <arg name="text" type="xpath">/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:title/text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P4_has_time-span</relationship>
@@ -312,8 +312,8 @@
                             <type>crm:E52_Time-Span</type>
                             <instance_generator name="UUID"/>
                             <label_generator name="CompositeLabel">
-                                <arg name="label" type="constant">Time Span of Creation Event for</arg>
-                                <arg name="text" type="xpath">../cmdp:Title/text()</arg>
+                                <arg name="label" type="constant">timespan:</arg>
+                                <arg name="text" type="xpath">text()</arg>
                             </label_generator>
                         </entity>
                         <relationship>crm:P82_at_some_time_within</relationship>
@@ -321,45 +321,6 @@
                 </path>
                 <range>
                     <source_node>cmdp:fileDesc/cmdp:publicationStmt/cmdp:date</source_node>
-                    <target_node>
-                        <entity>
-                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="Literal">
-                                <arg name="text" type="xpath">text()</arg>
-                            </instance_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P94i_was_created_by</relationship>
-                        <entity variable="create1">
-                            <type>crm:E65_Creation</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-                                <arg name="label" type="constant">Creation Event of</arg>
-                                <arg name="text" type="xpath">../cmdp:Title/text()</arg>
-                            </label_generator>
-                        </entity>
-                        <relationship>crm:P4_has_time-span</relationship>
-                        <entity>
-                            <type>crm:E52_Time-Span</type>
-                            <instance_generator name="UUID"/>
-                            <label_generator name="CompositeLabel">
-                                <arg name="label" type="constant">Time Span of Creation Event for</arg>
-                                <arg name="text" type="xpath">../cmdp:Title/text()</arg>
-                            </label_generator>
-                        </entity>
-                        <relationship>crm:P82_at_some_time_within</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:fileDesc/cmdp:sourceDesc/cmdp:biblFull/cmdp:publicationStmt/cmdp:date</source_node>
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
@@ -419,40 +380,6 @@
                         <entity>
                             <type>crmpe:PE24_Volatile_Dataset</type>
                             <instance_generator name="DatasetURI">
-                                <arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-                                <arg name="label" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crmpe:PP32i_is_curated_by</relationship>
-                        <entity variable="cure1">
-                            <type>crmpe:PE12_Data_Curating_Service</type>
-                            <instance_generator name="ServiceURI">
-                                <arg name="term" type="xpath">text()</arg>
-                            </instance_generator>
-                            <label_generator name="SimpleLabel">
-                                <arg name="label" type="xpath">text()</arg>
-                            </label_generator>
-                        </entity>
-                        <relationship>crmpe:PP2_provided_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E39_Actor</type>
-                            <instance_generator name="ActorURI">
                                 <arg name="term" type="xpath">text()</arg>
                             </instance_generator>
                             <label_generator name="SimpleLabel">
@@ -528,7 +455,12 @@
                                     <instance_info>
                                         <constant>editor</constant>
                                     </instance_info>
-                                    <instance_generator name="UUID"/>
+                                    <instance_generator name="ConceptURI">
+                                        <arg name="term" type="constant">editor</arg>
+                                    </instance_generator>
+                                    <label_generator name="SimpleLabel">
+                                        <arg name="label" type="constant">editor</arg>
+                                    </label_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -540,6 +472,50 @@
                     <target_node>
                         <entity>
                             <type>crm:E21_Person</type>
+                            <instance_generator name="ActorAppellationURI">
+                                <arg name="term" type="xpath">concat (cmdp:persName/cmdp:forename, ' ', cmdp:persName/cmdp:surname)</arg>
+                            </instance_generator>
+                            <label_generator name="CompositeLabel">
+                                <arg name="label" type="xpath">cmdp:persName/cmdp:forename</arg>
+                                <arg name="text" type="xpath">cmdp:persName/cmdp:surname</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:fileDesc/cmdp:extent/cmdp:measure</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P43_has_dimension</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:fileDesc/cmdp:extent/cmdp:measure</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E54_Dimension</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:fileDesc/cmdp:sourceDesc</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P67_refers_to</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:fileDesc/cmdp:sourceDesc</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E33_Linguistic_Object</type>
                             <instance_generator name="UUID"/>
                         </entity>
                     </target_node>
@@ -548,56 +524,132 @@
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:Collection/cmdp:Access</source_node>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:sourceDesc</source_node>
                 <target_node>
                     <entity>
-                        <type>crmpe:PE15_Data_E-Service</type>
-                        <instance_generator name="UUID"/>
-                        <label_generator name="CompositeLabel">
-                            <arg name="label" type="constant">Main Hosting for</arg>
-                            <arg name="text" type="xpath">../cmdp:GeneralInfo/cmdp:Title/text()</arg>
-                        </label_generator>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:Collection/cmdp:Project</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE35_Project</type>
-                        <instance_generator name="UUID"/>
-                    </entity>
-                </target_node>
-            </domain>
-        </mapping>
-        <mapping>
-            <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:Collection/cmdp:Project/cmdp:Contact</source_node>
-                <target_node>
-                    <entity>
-                        <type>crmpe:PE34_Team</type>
-                        <instance_generator name="ActorURI">
-                            <arg name="term" type="xpath">cmdp:Organisation/text()</arg>
+                        <type>crm:E33_Linguistic_Object</type>
+                        <instance_generator name="DatasetVerMergeURI">
+                            <arg name="term" type="xpath">cmdp:bibl</arg>
                         </instance_generator>
                         <label_generator name="SimpleLabel">
-                            <arg name="label" type="xpath">cmdp:Organisation/text()</arg>
+                            <arg name="label" type="xpath">cmdp:bibl</arg>
                         </label_generator>
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:bibl</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:bibl</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E42_Identifier</type>
+                            <instance_generator name="URIorUUID">
+                                <arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="CompositeLabel">
+                                <arg name="label" type="constant">Bib:</arg>
+                                <arg name="text" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant>Bibl</constant>
+                                    </instance_info>
+                                    <instance_generator name="UUID"/>
+                                </entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:biblFull/cmdp:publicationStmt</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P12i_was_present_at</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:biblFull/cmdp:publicationStmt</source_node>
+                    <target_node>
+                        <entity>
+                            <type>frbr:F30_Publication_Event</type>
+                            <instance_generator name="UUID"/>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
         </mapping>
         <mapping>
             <domain>
-                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:Collection/cmdp:Access/cmdp:Contact</source_node>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:extent/cmdp:measure</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E40_Legal_Body</type>
+                        <type>crm:E54_Dimension</type>
                         <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
             </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation/>
+                        <node/>
+                        <relation/>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P90_has_value</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node/>
+                    <target_node>
+                        <entity>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+                                <arg name="text" type="xpath">text()</arg>
+                                <arg name="language" type="constant"/>
+                            </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>@type</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P91_has_unit</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>@type</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E58_Measurement_Unit</type>
+                            <instance_generator name="URIorUUID">
+                                <arg name="text" type="xpath">.</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">.</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
         </mapping>
         <mapping>
             <domain>
@@ -701,7 +753,9 @@
                                     <instance_info>
                                         <constant>Surname</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI"/>
+                                    <instance_generator name="ConceptAppellationURI">
+                                        <arg name="term" type="xpath">Surname</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -730,7 +784,9 @@
                                     <instance_info>
                                         <constant>Forename</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI"/>
+                                    <instance_generator name="ConceptAppellationURI">
+                                        <arg name="term" type="xpath">Forename</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -763,6 +819,9 @@
                         <entity>
                             <type>crm:E41_Appellation</type>
                             <instance_generator name="UUID"/>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                             <additional>
                                 <relationship>crm:P2_has_type</relationship>
                                 <entity>
@@ -770,7 +829,9 @@
                                     <instance_info>
                                         <constant>Surname</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI"/>
+                                    <instance_generator name="ConceptAppellationURI">
+                                        <arg name="term" type="constant">Surname</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -792,6 +853,9 @@
                         <entity>
                             <type>crm:E41_Appellation</type>
                             <instance_generator name="UUID"/>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                             <additional>
                                 <relationship>crm:P2_has_type</relationship>
                                 <entity>
@@ -799,7 +863,9 @@
                                     <instance_info>
                                         <constant>Forename</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI"/>
+                                    <instance_generator name="ConceptAppellationURI">
+                                        <arg name="term" type="constant">Forename</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -820,7 +886,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E42_Identifier</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="URIorUUID">
+                                <arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
                             <additional>
                                 <relationship>crm:P2_has_type</relationship>
                                 <entity>
@@ -828,7 +899,9 @@
                                     <instance_info>
                                         <constant>PND</constant>
                                     </instance_info>
-                                    <instance_generator name="ConceptURI"/>
+                                    <instance_generator name="ConceptAppellationURI">
+                                        <arg name="term" type="constant">PND</arg>
+                                    </instance_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -841,7 +914,7 @@
                 <source_node>//cmdp:respStmt</source_node>
                 <target_node>
                     <entity>
-                        <type>crm:E39_Actor</type>
+                        <type>crmdig:D30_Annotation_Event</type>
                         <instance_generator name="UUID"/>
                     </entity>
                 </target_node>
@@ -849,28 +922,18 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:persName/cmdp:forename</relation>
+                        <relation>cmdp:persName</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
+                        <relationship>crm:P14_carried_out_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:persName/cmdp:forename</source_node>
+                    <source_node>cmdp:persName</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E41_Appellation</type>
+                            <type>crm:E21_Person</type>
                             <instance_generator name="UUID"/>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant>Forename</constant>
-                                    </instance_info>
-                                    <instance_generator name="ConceptURI"/>
-                                </entity>
-                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -878,28 +941,18 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:persName/cmdp:surname</relation>
+                        <relation>cmdp:orgName</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
+                        <relationship>crm:P14_carried_out_by</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:persName/cmdp:surname</source_node>
+                    <source_node>cmdp:orgName</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E41_Appellation</type>
+                            <type>crm:E40_Legal_Body</type>
                             <instance_generator name="UUID"/>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant>Surname</constant>
-                                    </instance_info>
-                                    <instance_generator name="ConceptURI"/>
-                                </entity>
-                            </additional>
                         </entity>
                     </target_node>
                 </range>
@@ -907,57 +960,21 @@
             <link>
                 <path>
                     <source_relation>
-                        <relation>cmdp:persName/cmdp:idno/cmdp:idno</relation>
+                        <relation>cmdp:resp/cmdp:note</relation>
                     </source_relation>
                     <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
+                        <relationship>crm:P3_has_note</relationship>
                     </target_relation>
                 </path>
                 <range>
-                    <source_node>cmdp:persName/cmdp:idno/cmdp:idno</source_node>
+                    <source_node>cmdp:resp/cmdp:note</source_node>
                     <target_node>
                         <entity>
-                            <type>crm:E42_Identifier</type>
-                            <instance_generator name="UUID"/>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant>PND</constant>
-                                    </instance_info>
-                                    <instance_generator name="ConceptURI"/>
-                                </entity>
-                            </additional>
-                        </entity>
-                    </target_node>
-                </range>
-            </link>
-            <link>
-                <path>
-                    <source_relation>
-                        <relation>cmdp:orgName/cmdp:orgName</relation>
-                    </source_relation>
-                    <target_relation>
-                        <relationship>crm:P1_is_identified_by</relationship>
-                    </target_relation>
-                </path>
-                <range>
-                    <source_node>cmdp:orgName/cmdp:orgName</source_node>
-                    <target_node>
-                        <entity>
-                            <type>crm:E41_Appellation</type>
-                            <instance_generator name="UUID"/>
-                            <additional>
-                                <relationship>crm:P2_has_type</relationship>
-                                <entity>
-                                    <type>crm:E55_Type</type>
-                                    <instance_info>
-                                        <constant>OrganisationName</constant>
-                                    </instance_info>
-                                    <instance_generator name="ConceptURI"/>
-                                </entity>
-                            </additional>
+                            <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
+                            <instance_generator name="Literal">
+                                <arg name="text" type="xpath">text()</arg>
+                                <arg name="language" type="constant">en</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -987,7 +1004,9 @@
                     <target_node>
                         <entity>
                             <type>crm:E53_Place</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="PlaceURI">
+                                <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1011,7 +1030,10 @@
                     <target_node>
                         <entity>
                             <type>http://www.w3.org/2000/01/rdf-schema#Literal</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="Literal">
+                                <arg name="text" type="xpath">text()</arg>
+                                <arg name="language" type="constant"/>
+                            </instance_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1033,7 +1055,12 @@
                                     <instance_info>
                                         <constant>publisher</constant>
                                     </instance_info>
-                                    <instance_generator name="UUID"/>
+                                    <instance_generator name="ConceptURI">
+                                        <arg name="term" type="constant">publisher</arg>
+                                    </instance_generator>
+                                    <label_generator name="SimpleLabel">
+                                        <arg name="label" type="constant">publisher</arg>
+                                    </label_generator>
                                 </entity>
                             </additional>
                         </entity>
@@ -1045,7 +1072,12 @@
                     <target_node>
                         <entity>
                             <type>crm:E40_Legal_Body</type>
-                            <instance_generator name="UUID"/>
+                            <instance_generator name="ActorAppellationURI">
+                                <arg name="term" type="xpath">cmdp:orgName/cmdp:orgName</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">cmdp:orgName/cmdp:orgName/text()</arg>
+                            </label_generator>
                         </entity>
                     </target_node>
                 </range>
@@ -1164,6 +1196,254 @@
                             <instance_generator name="Literal">
                                 <arg name="text" type="xpath">concat("Created by: ", text())</arg>
                             </instance_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+        </mapping>
+        <mapping>
+            <domain>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:publicationStmt/cmdp:publisher</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E40_Legal_Body</type>
+                        <instance_generator name="ActorURI">
+                            <arg name="term" type="xpath">cmdp:orgName/cmdp:orgName</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">cmdp:orgName/cmdp:orgName</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:orgName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:orgName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="ActorAppellationURI">
+                                <arg name="term" type="xpath">cmdp:orgName</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">cmdp:orgName</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:email</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P76_has_contact_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:email</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E51_Contact_Point</type>
+                            <instance_generator name="OneLevelCustomURI">
+                                <arg name="level1" type="constant">Email</arg>
+                                <arg name="term" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant>EMail</constant>
+                                    </instance_info>
+                                    <instance_generator name="URIorUUID">
+                                        <arg name="text" type="constant">email</arg>
+                                    </instance_generator>
+                                    <label_generator name="SimpleLabel">
+                                        <arg name="label" type="constant">EMail</arg>
+                                    </label_generator>
+                                </entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:address</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P76_has_contact_point</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:address</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E45_Address</type>
+                            <instance_generator name="PlaceURI">
+                                <arg name="term" type="xpath">concat (cmdp:addrLine, ',', cmdp:country)</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">concat (cmdp:addrLine, ',', cmdp:country)</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+        </mapping>
+        <mapping>
+            <domain>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:orgName</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E40_Legal_Body</type>
+                        <instance_generator name="ActorURI">
+                            <arg name="term" type="xpath">cmdp:orgName</arg>
+                        </instance_generator>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">cmdp:orgName</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:idno</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:idno</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E42_Identifier</type>
+                            <instance_generator name="URIorUUID">
+                                <arg name="text" type="xpath">text()</arg>
+                            </instance_generator>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:orgName</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:orgName</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+        </mapping>
+        <mapping>
+            <domain>
+                <source_node>/cmd:CMD/cmd:Components/cmdp:teiHeader/cmdp:fileDesc/cmdp:titleStmt/cmdp:respStmt/cmdp:persName</source_node>
+                <target_node>
+                    <entity>
+                        <type>crm:E21_Person</type>
+                        <instance_generator name="UUID"/>
+                        <label_generator name="SimpleLabel">
+                            <arg name="label" type="xpath">.//text()</arg>
+                        </label_generator>
+                    </entity>
+                </target_node>
+            </domain>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:surname</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:surname</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant>Surname</constant>
+                                    </instance_info>
+                                    <instance_generator name="ConceptURI">
+                                        <arg name="term" type="constant">Surname</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
+                        </entity>
+                    </target_node>
+                </range>
+            </link>
+            <link>
+                <path>
+                    <source_relation>
+                        <relation>cmdp:forename</relation>
+                    </source_relation>
+                    <target_relation>
+                        <relationship>crm:P1_is_identified_by</relationship>
+                    </target_relation>
+                </path>
+                <range>
+                    <source_node>cmdp:forename</source_node>
+                    <target_node>
+                        <entity>
+                            <type>crm:E41_Appellation</type>
+                            <instance_generator name="UUID"/>
+                            <label_generator name="SimpleLabel">
+                                <arg name="label" type="xpath">text()</arg>
+                            </label_generator>
+                            <additional>
+                                <relationship>crm:P2_has_type</relationship>
+                                <entity>
+                                    <type>crm:E55_Type</type>
+                                    <instance_info>
+                                        <constant>Forename</constant>
+                                    </instance_info>
+                                    <instance_generator name="ConceptURI">
+                                        <arg name="term" type="constant">Forename</arg>
+                                    </instance_generator>
+                                </entity>
+                            </additional>
                         </entity>
                     </target_node>
                 </range>

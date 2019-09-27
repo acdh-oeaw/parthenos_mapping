@@ -1,0 +1,11 @@
+https://graph.acdh-dev.oeaw.ac.at/?graph=https://raw.githubusercontent.com/acdh-oeaw/parthenos_discovery/master/data/Q1_st-p-ot.json
+https://graph-dev.eos.arz.oeaw.ac.at/?graph=https://raw.githubusercontent.com/acdh-oeaw/parthenos_discovery/master/data/Q1_st-p-ot.json
+http://localhost:88/graphviewer/?graph=data/Q1_st-p-ot.json
+
+https://raw.githubusercontent.com/acdh-oeaw/parthenos_discovery/master/data/Q1_st-p-ot.json
+
+R-module: sparql
+ggplot
+https://github.com/matteoLorenzini/CLARIN_Data_Analysis
+
+https://github.com/acdh-oeaw/parthenos_discovery/blob/master/scripts/querPy/queries/regular_executions/friday_0500/Parthenos%20Metadata%20Analysis_General%20overview.py
